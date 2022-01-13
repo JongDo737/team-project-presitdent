@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>슬라이드 배너</title>
+    <script src="js/jquery.js"></script>
+    <script src="js/slidebanner.js"></script>
+    <style>
+        *{margin: 0; padding: 0;}
+        ul, li{list-style: none;}
+        a{text-decoration: none;}
+            /* banner1 */
+        #wrap{ width: 100%; height: 100%; position: relative;}
+        
+        #view{width: 100%; height: 100%; position: relative; overflow: hidden;}
+        
+        #view ul{width: 100vh; height: 100vh; }
+        #view ul li span{position: absolute;left: 25%; bottom:50px; }
+        #view ul li{width: 100%; height: 959px; 
+                    font-size: 30px; color:#fff;bottom:0;position: absolute;}
+       
+        #view ul li:nth-child(1){background: url(img/1.jpg) ; 
+            background-size: 500px;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        #view ul li:nth-child(2){background-image: url(img/2.jpg);
+        }
+
+    
+        #btns{position: absolute; 
+              left: 25%; bottom:50px; z-index: 1000;
+              margin-left: -45px; }
+        #btns li{width: 70px; height: 10px; border-radius: 5px;
+                 background-color: rgba(255,255,255,0.5); transition: 0.2s;
+                  float: left;border: 1px solid #8a8a8a;
+                 text-align: center; line-height: 15px;
+                 margin-right: 10px; cursor: pointer;} 
+        #btns li:hover{background-color: #fff;} 
+        #btns li.on{background-color: #fff;}    
+
+            /* banner2 */
+        #wrap2{ width: 100%; height: 417px; position: relative;}
+        
+        #view2{width: 100%; height: 100%; position: relative; overflow: hidden;}
+        
+        #view2 ul li{width: 100%; height: 100%; position: absolute; bottom:0;
+                    font-size: 30px; color:#fff;}
+        #view2 ul li span{position: absolute;left: 25%; bottom:50px; }
+        /* #view2 ul li:nth-child(1){background-image: url(img/3.jpg);}
+        #view2 ul li:nth-child(2){background-image: url(img/4.jpg);} */
+        
+    
+        #btns2{position: absolute; 
+              left: 25%; bottom:50px; z-index: 1000;
+               }
+        #btns2 li{width: 70px; height: 10px; border-radius: 5px;
+                 background-color: rgba(255,255,255,0.5); transition: 0.2s; float: left;border: 1px solid #8a8a8a;
+                 text-align: center; line-height: 15px;
+                 margin-right: 10px; cursor: pointer;} 
+        #btns2 li:hover{background-color: #fff;} 
+        #btns2 li.on{background-color: #fff;}    
+       
+
+        </style>
+</head>
+<body>
+    <div id="wrap">
+        <!-- 화면에 보여질 이미지그룹 -->
+       <div id="view">
+          <ul>
+              <li><img src="img/1.jpg" alt=""><span>종교 지도자 초청 오찬 간담회 모두발언</span></li>
+              <li><span>동해선 강릉-제진 철도건설 착공식 모두발언</span></li>
+          </ul>
+       </div>
+
+       <!-- 이미지들을 제어할 버튼그룹 -->
+       <ul id="btns">
+           <li></li>
+           <li></li>
+       </ul>
+    </div>
+    <div id="wrap2">
+        <!-- 화면에 보여질 이미지그룹 -->
+       <div id="view2">
+          <ul>
+              <li><span>수석보좌관회의 모두발언</span></li>
+              <li><span>동해선 강릉-제진 철도건설 착공식 모두발언</span></li>
+          </ul>
+       </div>
+
+       <!-- 이미지들을 제어할 버튼그룹 -->
+       <ul id="btns2">
+           <li></li>
+           <li></li>
+       </ul>
+    </div>
+</body>
+</html>
