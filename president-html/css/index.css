@@ -3,6 +3,7 @@
     background-image: url(/image/index_first.jpg);
     height: 969px;
     background-size: cover;
+    z-index: 0;
 }
 table{
     width: 1140px;
