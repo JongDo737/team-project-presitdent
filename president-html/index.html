@@ -1,65 +1,97 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>PRESIDENT</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/nav.css">
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 </head>
 
 <body class="firstPage">
-    <div class="head_navi">
-        <a href="#" title="메인페이지로 이동">
-            <img src="/image/logo.png">
-        </a>
-    </div>
-    <div class="navigator_menu">
-        <ul>
-            <li class="menu_list">
-                <a href="#">
-                    청와대 뉴스룸
+    <nav>
+        <div class="head_navi">
+            <div>
+                <a href="#" title="메인페이지로 이동">
+                    <img src="/image/logo.png">
                 </a>
-                <ul class="menu_sub" style="display: none;">
-                    <li>
-                        <a href="#">
-                            한국판 뉴딜 스페셜
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            청와대가 전합니다
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            청와대 이야기
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            영상
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            <li class="menu_list">
-                <a href="#">
-                    정책정보
-                </a>
-            </li>
-            <li class="menu_list">
-                <a href="#">
-                    국민소통광장
-                </a>
-            </li>
-            <li class="menu_list">
-                <a href="#">
-                    청와대 뉴스룸
-                </a>
-            </li>
-        </ul>
-    </div>
+            </div>
+        </div>
+        <div class="navigator_menu">
+            <ul class="menu">
+                <li class="menu_list">
+                    <a href="#">
+                        청와대 뉴스룸
+                    </a>
+                    <ul class="menu_sub">
+                        <li>
+                            <a href="#">
+                                한국판 뉴딜
+                                <span>스페셜</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                청와대가 전합니다
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                청와대 이야기
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                영상
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="menu_list">
+                    <a href="#">
+                        정책정보
+                    </a>
+                    <ul>
+
+                    </ul>
+                </li>
+                <li class="menu_list">
+                    <a href="#">
+                        국민소통광장
+                    </a>
+                    <ul>
+
+                    </ul>
+                </li>
+                <li class="menu_list">
+                    <a href="#">
+                        청와대 알림판
+                    </a>
+                    <ul>
+
+                    </ul>
+                </li>
+                <p class="main_search_icon">
+                    <a class="search_icon" href=""></a>
+                </p>
+            </ul>
+        </div>
+    </nav>
+
+    <script>
+        $(document).ready(function () {
+            $(".menu_list a").mouseover(function () {
+                $(this).next("ul").fadeIn(300);
+            });
+            $(".sub_menu").mouseout(function () {
+                $(this).next("ul").fadeOut(300);
+            });
+        });
+    </script>
 </body>
 
 </html>

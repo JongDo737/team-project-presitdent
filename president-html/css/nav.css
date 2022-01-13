@@ -1,0 +1,109 @@
+body {
+    font: 75% DINMedium,Noto Sans KR,Noto Sans KR,NanumGothic,NanumGothicBold,verdana,gulim,dotum;
+    font-family: "Noto Sans KR","NanumGothic","NanumGothicBold","verdana","gulim","dotum", sans-serif !important;
+}
+
+.head_navi {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: inline-block;
+    z-index: 50;
+}
+
+.head_navi div {
+    width: 169px;
+    height: 197px;
+    background-image: url(../image/logo_bg.png);
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 5%;
+    z-index: 1;
+}
+
+.head_navi div a {
+    display: block;
+    text-align: center;
+    padding: 55px 0 20px 0;
+}
+
+.navigator_menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.65);
+    height: 67px;
+    width: 100%;
+    top: 55px;
+}
+
+.menu {
+    display: inline-block;
+    height: 100%;
+    width: 88%;  
+    text-align: right;
+}
+
+.menu_list {
+    position: relative;
+    list-style: none;
+    display: inline-block;
+    padding-bottom: 10px;
+    height: 100%;
+    width: 20%;
+    text-align: center;
+}
+
+.menu_list a:hover {
+    background-color: #001f50;
+}
+
+.menu_list a {
+    display: block;
+    font-size: 18px;
+    text-decoration: none;
+    font-weight: 500;
+    color: #fff;
+    height: 100%;
+    line-height: 70px;
+}
+
+.main_search_icon {
+    position: absolute;
+    right: 30px;
+    top: 30%;
+    overflow: hidden;
+}
+
+.search_icon {
+    display: block;
+    width: 28px;
+    height: 28px;
+    color: #fff;
+    cursor: pointer;
+    background-image: url(/image/search_icon.png);
+}
+
+.menu_sub {
+    display: none;
+}
+
+.menu_sub li {
+    text-align: center;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+
+
+.menu_sub li a span {
+    color: #00dcff;
+}
+
+
+
+
