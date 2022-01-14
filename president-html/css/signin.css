@@ -51,24 +51,23 @@
     margin-bottom: 15px;
 }
 
-.text_box li {
-    line-height: 23px;
+.text_box {
+    list-style: none;
 }
 
-.text_box li>span {
+.text_box li {
+    line-height: 23px;
+    font-size: 16px;
+}
+
+.logout_text {
     color: #3399ff;
     font-weight: bold;
 }
 
-.text_box li:before {
-    content: "";
-    position: absolute;
-    left: 0px;
-    top: 11px;
-    width: 3px;
-    height: 3px;
-    border-radius: 50%;
-    background-color: #8a8a8a;
+.list_style {
+    color: #8a8a8a;
+    font-weight: 700;
 }
 
 .sns_login a {
@@ -84,8 +83,6 @@
 
 .sns_login a::after {
     content: "";
-    display: inline-block;
-    vertical-align: middle;
     position: absolute;
     right: 30px;
     bottom: 50%;
@@ -97,10 +94,16 @@
     transform: rotate(45deg);
 }
 
+.sns_login a:hover::before {
+    background-color: white;
+}
+
+.sns_login a:hover::after {
+    background-color: white;
+}
+
 .sns_login a::before{
     content: "";
-    display: inline-block;
-    vertical-align: middle;
     position: absolute;
     right: 30px;
     top: 50%;
@@ -140,7 +143,7 @@ mark {
 }
 
 .naver i {
-    color: #03c75a;
+    color: #f65314;
 }
 
 .kakao:hover, .kakao:hover i{
@@ -149,7 +152,7 @@ mark {
 }
 
 .naver:hover, .naver:hover i{
-    background-color: #03c75a;
+    background-color: #f65314;
     color: white;
 }
 
@@ -168,6 +171,8 @@ mark {
     font-size: 25px;
     margin-top: -50px;
 }
+
+
 
 
 
