@@ -273,6 +273,7 @@
 
 .board_list li {
     padding: 20px 0px;
+    border-bottom: #efefef solid 1px;
 }
 
 .list_wrap {
@@ -462,6 +463,7 @@
 
 .top5_board_list li {
     padding: 20px 0px;
+    border-bottom: #efefef solid 1px;
 }
 
 .top5_list_wrap {
@@ -656,6 +658,7 @@
 
 .full_board_list li {
     padding: 20px 0px;
+    border-bottom: 1px solid #efefef;
 }
 
 .full_list_wrap {
