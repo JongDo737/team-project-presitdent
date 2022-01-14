@@ -1,3 +1,4 @@
+
 .head_navi {
     position: absolute;
     top: 0;
@@ -60,7 +61,7 @@
     height: 100%;
 }
 .menu_list{
-    width: 12%;
+    width: 10%;
     text-align: center;
 }
 .menu_list_title {
@@ -70,8 +71,8 @@
     height: 67px;
     line-height: 67px;
     text-decoration: none;
-    font-weight: 600;
-    font-size: 18px;
+    font-weight: 800;
+    font-size: 17px;
     color: #fff;
 }
 .menu_list_title:hover{
@@ -83,7 +84,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 12%;
+    width: 10%;
+    z-index: 10;
 }
 .menu_sub li {
     height: 50px;

@@ -16,9 +16,9 @@ window.addEventListener('load', function () {
 
 $(document).ready(function () {
     $(".menu_list_title").mouseover(function () {
-        $(this).next("ul").fadeIn(500);
+        $(this).next("ul").stop().fadeIn(500);
         $(".menu_list_title").mouseleave(function () {
-            $(this).next("ul").fadeOut();
+            $(this).next("ul").stop().fadeOut();
         });
     });
 
@@ -27,7 +27,6 @@ $(document).ready(function () {
 
 window.onscroll = () => {
     let checkNum = $(window).scrollTop();
-    alert('scroll');
     if (checkNum > 0) {
         navBarLocation.style.position = 'fixed';
         navBarLocation.style.top = 0;
