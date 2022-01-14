@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>슬라이드 배너</title>
+    <script src="js/jquery.js"></script>
+    <script src="js/slidebanner1.js"></script>
+    <script src="js/slidebanner2.js"></script>
+    <style>
+        *{margin: 0; padding: 0;}
+        ul, li{list-style: none;}
+        a{text-decoration: none;
+          color: #fff;}
+
+        #wrap, #wrap2{ width: 100%; position: relative;}
+        #view, #view2{width: 100%; height: 100vh; position: relative; overflow: hidden;}
+        #view ul{}
+        #view ul li, #view2 ul li{width: 100%; height: 100vh; position: absolute; top:0;
+                    font-size: 30px; color:#fff;z-index: 0;}
+        #view ul li a, #view2 ul li a{position: absolute; bottom :15px; right: 22%;font-size: 28px;
+            text-align: right;letter-spacing: -1px;font-weight: 500;}
+        #view ul li:nth-child(1){left:0; background: url(img/bnr_1.jpg) no-repeat left center;
+                                    background-size: 100%; width: 100%; }
+        #view ul li:nth-child(2){left:100%; background: url(img/bnr_2.jpg) no-repeat left center;
+                                    background-size: 100%; width: 100%;}
+        #btns, #btns2{position: absolute; 
+              left: 10%; bottom:40px; z-index: 1000;
+              margin-left: -45px; }
+        #btns li, #btns2 li{width: 57px; height: 7px; border-radius: 10px;
+                  float: left; background-color: rgba(256, 256, 256, 0.5);
+                  border: 1px solid #8a8a8a;
+                 text-align: center; line-height: 15px;
+                 margin-right: 10px; cursor: pointer;} 
+        #btns li:hover, #btns2 li:hover{background-color: #fff;transition: 1s;} 
+        #btns li.on, #btns2 li.on{background-color: #fff;}    
+
+        /* slider2 */
+        #view2 ul li:nth-child(1){left:0; background: url(img/bnr_3.jpg) no-repeat left center;
+                                    background-size: 100%; width: 100%; }
+        #view2 ul li:nth-child(2){left:100%; background: url(img/bnr_4.jpg) no-repeat left center;
+                                    background-size: 100%; width: 100%; }
+      /* txt bar area */
+       .today_news{
+             position: absolute; right: 0; bottom: 0;
+       }
+       .time{
+             color: #000; position: absolute; right: 57px; bottom: 10px; font-size: 20px;
+       }
+       .news_bar{
+             z-index: 999;
+             background: url(img/news_bar.png) no-repeat left bottom; 
+             margin-left: 20%; margin-top: 0px;
+             height: 100%;
+       }
+       .more_read_box{
+             position: absolute;left: 53%;top: 59%; transform: translateY(-50%, -50%);
+       }
+       /* scroll down */
+       .scroll-arrow{width:15px; height:15px; border-right: 3px solid white; border-bottom: 3px solid white;
+            transform: rotate(45deg); 
+            
+            animation: arrow-wave 0.5s infinite; animation-direction: alternate;}
+            .scroll-arrow:nth-child(1) {animation-delay: 0.1s;z-index: 1;}
+            .scroll-arrow:nth-child(2) {margin-top:-10px; animation-delay: 0.2s;z-index: 2;}
+            .scroll-arrow:nth-child(3) {margin-top:-10px; animation-delay: 0.3s;z-index: 3;}
+            @keyframes arrow-wave {
+                  0% {opacity: 0;}
+                  50% {opacity: 0.5;}
+                  100% {opacity: 1;}
+            }
+            @keyframes arrow_down{
+                  0%{top:25px;}
+                  50%{top:20px;}
+                  100%{top:20px;}
+            }
+            .scl_icon{
+                  position: relative;
+                  display: flex;
+                  flex-flow: column wrap;
+                  justify-content: center;
+                  align-items: center;
+            }
+            .s1_arrow{
+                  margin: 0 auto;
+                  position: absolute;
+                  top: 50%;
+                  left: 50%;
+                  transform: translate(-50%, 500%);
+
+            }
+            .scl_icon_box{
+                  display: block;
+                  width: 100px;
+
+            }
+            .scl_icon_box span {
+                  display: block;
+                  margin-top: 20px;
+                  font-size: 12px;
+                  padding-bottom: 11px;
+                  position: relative;
+                  left: 49%;
+                  bottom: 100%;
+                  font-weight: 700;
+                  transform: translate(-60%, 800%);
+                  text-shadow: 1px 1px 1px rgb(0 0 0 / 43%);
+                  
+            }
+           
+        </style>
+</head>
+<body>
+    <div id="wrap">
+        <!-- 화면에 보여질 이미지그룹 -->
+       <div id="view">
+          <ul>
+              <li><div class="news_bar">
+                  <a href="https://www1.president.go.kr/articles/11755">종교 지도자 초청 오찬 간담회 모두발언</a></div>
+                  <div class="more_read_box">
+                  <a href="#"><img src="img/news_check (1).png" alt="more read"></a>
+                  <div class="scl_icon" >
+                        <a href="#" class="scl_icon_box" >
+                              <div class="s1_arrow">
+                                    <div class="scroll-arrow"></div>
+                                    <div class="scroll-arrow"></div>
+                                    <div class="scroll-arrow"></div>
+                              </div>
+                              <span>SCROLL DOWN</span>
+                        </a>
+                   </div>
+                  </div>
+                  <img class="today_news" src="img/today_news.png" alt="image1">
+                  <span class="time">2022.01.12</span>
+            </li>
+              <li><div class="news_bar">
+                  <a href="https://www1.president.go.kr/articles/11747">구미형 일자리(LG BCM) 공장 착공식 모두발언</a></div>
+                  <div class="more_read_box">
+                  <a href="#"><img src="img/news_check (1).png" alt="more read"></a>
+                  <div class="scl_icon" >
+                        <a href="#" class="scl_icon_box" >
+                              <div class="s1_arrow">
+                                    <div class="scroll-arrow"></div>
+                                    <div class="scroll-arrow"></div>
+                                    <div class="scroll-arrow"></div>
+                              </div>
+                              <span>SCROLL DOWN</span>
+                        </a>
+                   </div>
+                  </div>
+                  <img class="today_news" src="img/today_news.png" alt="image2">
+                  <span class="time">2022.01.11</span>
+            </li>
+          </ul>
+       </div>
+       <!-- 이미지들을 제어할 버튼그룹 -->
+       <ul id="btns">
+           <li></li>
+           <li></li>
+       </ul>
+</div>
+    <div id="wrap2">
+        <!-- 화면에 보여질 이미지그룹 -->
+       <div id="view2">
+          <ul>
+            <li>
+                  <div class="news_bar">
+                  <a href="#" target="_self">수석보좌관회의 모두발언</a></div>
+                  <div class="more_read_box">
+                        <a href="#"><img src="img/news_check (1).png" alt="more read"></a>
+                        <div class="scl_icon" >
+                              <a href="#" class="scl_icon_box" >
+                                    <div class="s1_arrow">
+                                          <div class="scroll-arrow"></div>
+                                          <div class="scroll-arrow"></div>
+                                          <div class="scroll-arrow"></div>
+                                    </div>
+                                    <span>SCROLL DOWN</span>
+                              </a>
+                         </div>
+                        </div>
+                  <img class="today_news" src="img/today_news.png" alt="image3">
+                  <span class="time">2022.01.10</span>
+            </li>
+            <li><div class="news_bar">
+                  <a href="#">동해선 강릉-제진 철도건설 착공식 모두발언</a></div>
+                  <div class="more_read_box">
+                        <a href="#">
+                              <img src="img/news_check (1).png" alt="more read"></a>
+                              <div class="scl_icon" >
+                                    <a href="#" class="scl_icon_box" >
+                                          <div class="s1_arrow">
+                                                <div class="scroll-arrow"></div>
+                                                <div class="scroll-arrow"></div>
+                                                <div class="scroll-arrow"></div>
+                                          </div>
+                                          <span>SCROLL DOWN</span>
+                                    </a>
+                               </div>
+                        </div>
+                  <img class="today_news" src="img/today_news.png" alt="image4">
+                  <span class="time">2022.01.05</span>
+            </li>
+          </ul>
+       </div>
+
+       <!-- 이미지들을 제어할 버튼그룹 -->
+       <ul id="btns2">
+           <li></li>
+           <li></li>
+       </ul>
+    </div>
+</body>
+</html>
