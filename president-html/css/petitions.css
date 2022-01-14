@@ -1,0 +1,602 @@
+.petitions_head {
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    width: 100%;
+    height: 500px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-image: url(../image/petitions_banner.png);
+}
+
+.petitions_head_txt {
+    display: inline-block;
+    vertical-align: middle;
+    position: absolute;
+    left: 220px;
+    right: 220px;
+    bottom: 60px;
+    z-index: 3;
+    text-align: left;
+    visibility: visible;
+    margin-bottom: 10px;
+}
+
+.petiotions_head_second {
+    position: absolute;
+    left: 220px;
+    bottom: 20px;
+    cursor: pointer;
+    
+}
+.pdfview {
+    padding: 10px 20px;
+    background-color: #082e59;
+    color: #FFF;
+    font-size: 16px;
+}
+
+.pdfview a {
+    color: #FFF;
+    font-size: 16px;
+    text-decoration-line: none;
+}
+
+.pdfview a i {
+    display: inline-block;
+    font-style: normal;
+    font-weight: 400;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    width: 13px;
+    height: 13px;
+    font-size: 16px;
+}
+
+.petitions_contents {
+    width: 100%;
+}
+
+.contents_tab {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    border-bottom: 1px solid #7f7f7f;
+}
+
+.contents_tab_li {
+    display: grid;
+    color: #8e8e8e;
+    font-weight: 700;
+    height: 55px;
+    align-items: center;
+}
+
+
+.contents_tab a {
+    margin-left: -1px;
+    width: 100%;
+    height: 20px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #8e8e8e;
+    text-align: center;
+    text-decoration-line: none;
+
+}
+.contents_tab #on{
+    border-bottom: 5px solid #0a1645;
+   
+}
+.contents_tab #on a{
+    color: #0a1645;
+}
+#tab_center {
+    border-left: 1px solid #7f7f7f;
+    border-right: 1px solid #7f7f7f;
+}
+.tab_menu:hover{
+    color: #0a1645;
+    height: 20px;
+}
+
+
+.contents_area {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    
+}
+
+.contents_body {
+    display: flex;
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    flex-direction: column;
+    margin: 80px 300px;
+}
+.contents_body_main {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 30px;
+    padding-bottom: 60px;
+}
+.petitions_item {
+    width: auto;
+    height: auto;
+    border: 1px solid #d9d9d9;
+    padding: 50px 20px;
+    text-align: center;
+    
+    
+}
+
+
+.item_box1 {
+    width: 100%;
+    height: 420px;
+    text-align: center;
+    background-size: 100% 100%;
+    background-image: url(../image/cwd_petitions_img_001.jpg);
+}
+
+.txt_a {
+    font-size: 28.8px;
+    font-weight: 1.4em;
+    color: #252525;
+    padding-top: 40px;
+    text-align: center;
+}
+.txt_a span {
+    font-weight: 700;
+    color: #295f9e;
+}
+
+.txt_b {
+    font-size: 36px;
+    line-height: 1.4em;
+    color: #252525; 
+}
+.txt_b span {
+    font-weight: 700;
+    color: #112057;
+}
+.txt_c {
+    padding: 80px 160px;
+    font-size: 21.6px;
+    line-height: 1.5em;
+    color: #252525;
+    font-weight: 700;
+}
+.txt_c span {
+    color: #24548c;
+}
+.item_box2 {
+    display: flex;
+    padding: 30px 10px;
+    justify-content: center;
+}
+.item_box2 div {
+    display: flex;
+    width: 200px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2px;
+}
+.item_box2 a {
+    text-decoration-line: none;
+    padding: 10px 0px;
+    color: #fff;
+    font-size: 17px;
+    font-weight: 300;
+    height: 40px;
+    text-align: center;
+}
+
+.box2_item1 {
+    background-color: #082e59;
+    margin-right: 5px;
+}
+
+.box2_item2 {
+    background-color: #008dd5;
+}
+
+.item_box3 {
+    font-size: 0.8em;
+    line-height: 160%;
+}
+
+.board_txt {
+    width: auto;
+    height: auto;
+    margin-top: 30px;
+}
+
+.board_title {
+    font-size: 24px;
+    line-height: 42px;
+    font-weight: 500;
+    color: #201f2d;
+    border-bottom: 2px solid black;
+    text-align: left;
+}
+
+.board_head {
+    width: 100%;
+    height: 50px;
+    padding: 13px 0px;
+    border-bottom: 1px solid #efefef;
+}
+.board_wrap {
+    display: flex;
+    flex-direction: row; 
+    width: 100%;
+}
+.board_wrap div {
+    text-align: center;
+}
+
+.board_category {
+    width: 15%;
+}
+
+.board_subject {
+    width: 55%;
+    margin-left: 30px;
+    margin-right: 10px;
+}
+
+.board_date {
+    margin-left: 10px;
+    width: 15%;
+}
+.board_agree {
+    width: 15%;
+}
+
+.board_list {
+    list-style: none;
+}
+
+.board_list li {
+    padding: 20px 0px;
+}
+
+.list_wrap {
+    display: flex;
+
+}
+
+.list_category {
+    text-indent: 10px;
+    padding-left: 5px;
+    width: 15%;
+    font-size: 15px;
+    color: rgb(67, 94, 155);
+    font-weight: 500;
+}
+
+.list_subject {
+    width: 55%;
+    margin-left: 30px;
+    margin-right: 10px;
+    font-stretch: 100%;
+}
+
+.list_subject a{
+    text-decoration-line: none;
+    width: 100%;
+    font-size: 15px;
+    font-weight: 400;
+    font-stretch: 100%;
+    color: rgb(32, 31, 45);
+}
+
+.list_date {
+    width: 15%;
+    text-align: center;
+    font-stretch: 100%;
+    color: rgb(138, 138, 138);
+    font-weight: 300;
+    font-size: 15px;
+}
+
+.list_agree {
+    width: 15%;
+    text-align: center;
+    font-size: 15px;
+    font-stretch: 100%;
+    color: rgb(67, 94, 155);
+}
+
+.contents_body_main_second {
+    width: auto;
+    height: auto;
+    
+}
+
+.second_title h4{
+    font-size: 26px;
+    color: #222;
+    margin-bottom: 20px;
+}
+
+.petitions_contents_second {
+    padding: 0px 20px 60px;
+}
+
+.category_area {
+    margin-bottom: 80px;
+}
+
+.category_area ul {
+    display: flex; 
+    flex-wrap: wrap;
+    padding: 20px;
+    border: 2px solid rgb(16, 49, 118);
+}
+.category_area ul li {
+    display: inline;
+    list-style: none;
+    width: 20%;
+}
+.category_area ul li a {
+    padding: 10px 20px;
+    border-radius: 3px;
+    display: block;
+    text-decoration-line: none;
+    font-size: 16px;
+    color: #888;
+}
+.category_sel {
+    background-color: #dff0F9;
+    color: #08235b!important;
+}
+
+.category_tab{
+    margin-bottom: 100px;
+}
+.category_tab ul {
+    display: flex;
+}
+.category_tab ul li {
+    width: 50%;
+    height: 42px;
+}
+.category_tab ul li a {
+    display: block;
+    height: 42px;
+    text-align: center;
+    padding-top: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    color: rgb(125, 125, 125);
+    border-left: 1px solid rgb(255, 255, 255);
+    border-right: 1px solid rgb(204, 204, 204);
+    border-top: 1px solid rgb(204, 204, 204);
+    border-bottom: 1px solid rgb(51, 51, 51);
+    background-color: rgb(243, 243, 243);
+}
+.category_tab ul li a:hover{
+    color: rgb(16, 49, 118)!important;
+}
+.category_tab_sel {
+    background-color: rgb(255, 255, 255)!important;
+    color: rgb(16, 49, 118)!important;
+    border-left: 1px solid rgb(51, 51, 51)!important;
+    border-right: 1px solid rgb(51, 51, 51)!important;
+    border-top: 3px solid rgb(16, 49, 118)!important;
+    border-bottom: none!important;
+}
+
+.top5_body {
+    padding: 0px 30px;
+    margin-bottom: 80px;
+}
+.top5_board {
+    width: 100%;
+}
+.top5_board h4 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+
+
+.top5_board_head {
+    width: 100%;
+    height: 50px;
+    padding: 13px 0px;
+    border-bottom: 1px solid #efefef;
+}
+.top5_board_wrap {
+    display: flex;
+    flex-direction: row; 
+    width: 100%;
+}
+.top5_board_wrap div {
+    text-align: center;
+}
+
+.top5_board_category {
+    width: 15%;
+}
+
+.top5_board_subject {
+    width: 55%;
+    margin-left: 30px;
+    margin-right: 10px;
+}
+
+.top5_board_date {
+    margin-left: 10px;
+    width: 15%;
+}
+.top5_board_agree {
+    width: 15%;
+}
+
+.top5_board_list {
+    list-style: none;
+}
+
+.top5_board_list li {
+    padding: 20px 0px;
+}
+
+.top5_list_wrap {
+    display: flex;
+
+}
+
+.top5_list_category {
+    text-indent: 10px;
+    padding-left: 5px;
+    width: 15%;
+    font-size: 15px;
+    color: rgb(0, 152, 231);
+    font-weight: 500;
+}
+
+.top5_list_subject {
+    width: 55%;
+    margin-left: 30px;
+    margin-right: 10px;
+    font-stretch: 100%;
+}
+
+.top5_list_subject a{
+    text-decoration-line: none;
+    width: 100%;
+    font-size: 15px;
+    font-weight: 400;
+    font-stretch: 100%;
+    color: rgb(32, 31, 45);
+}
+
+.top5_list_date {
+    width: 15%;
+    text-align: center;
+    font-stretch: 100%;
+    color: rgb(138, 138, 138);
+    font-weight: 300;
+    font-size: 15px;
+}
+
+.top5_list_agree {
+    width: 15%;
+    text-align: center;
+    font-size: 15px;
+    font-stretch: 100%;
+    color: rgb(0, 152, 231);
+}
+
+.full_list_body {
+    padding: 0px 30px;
+}
+.full_list_title {
+    display: flex;
+    justify-content: space-between;
+}
+
+.full_list_title h4 {
+    width: 70%;
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: 700;
+    color: rgb(34, 34, 34);
+}
+.full_list_another {
+    display: flex;
+    width: 30%;
+}
+.full_list_another a{
+    width: 53%;
+    display: block;
+    text-align: center;
+    background-color: rgb(8, 46, 89);
+    border: 1px solid rgb(0, 152, 231);
+    color: rgb(255, 255, 255);
+    padding-top: 12px;
+    font-size: 14px;
+    margin-right: 10px;
+    font-weight: 400;
+}
+
+.full_list_another select {
+    border: 1px solid rgb(204, 204, 204);
+    font-size: 15;
+    font-weight: 400;
+    padding-left: 5px;
+    margin: 0px 5px;
+}
+
+.paging {
+    margin-top: 40px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.wrap-paging-btn {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.paging-btn {
+    display: flex;
+    justify-content: center;
+    margin: 0px 5px;
+}
+.paging-btn a {
+    text-align: center;
+    display: block;
+    width: 38px;
+    min-width: 28px;
+    height: 38px;
+    min-height: 28px;
+    padding: 8px 0px;
+    margin: 0px 5px;
+    border: 1px solid rgb(230, 230, 230);
+    font-size: 14px;
+    font-weight: 400;
+    color: rgb(32, 31, 45);
+    cursor: pointer;
+}
+.now-paging {
+    border: 1px solid rgb(8, 46, 89)!important;
+    color: rgb(255, 255, 255)!important;
+    background-color: rgb(8, 46, 89)!important;
+}
+.paging-btn-next {
+    margin: 0px 5px;
+}
+.paging-btn-next a {
+    display: block;
+    text-align: center;
+    width: 50px;
+    min-width: 38px;
+    height: 38px;
+    min-height: 28px;
+    padding: 8px 0px;
+    margin: 0px 5px;
+    border: 1px solid rgb(230, 230, 230);
+    font-size: 14px;
+    font-weight: 400;
+    color: rgb(32, 31, 45);
+    cursor: pointer;
+}
+
+.wrap-paging-btn a:hover {
+    background-color: black;
+    border: 1px solid black;
+    color: white;
+}
+
