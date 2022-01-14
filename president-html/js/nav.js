@@ -27,7 +27,6 @@ $(document).ready(function () {
 
 window.onscroll = () => {
     let checkNum = $(window).scrollTop();
-    alert('scroll');
     if (checkNum > 0) {
         navBarLocation.style.position = 'fixed';
         navBarLocation.style.top = 0;
