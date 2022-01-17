@@ -8,6 +8,7 @@
     <title>best forum</title>
     <link rel="stylesheet" href="/css/best_forum.css">
     <link rel="stylesheet" href="/css/style.css">
+    <script src="https://kit.fontawesome.com/fab8e6b94b.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -17,7 +18,7 @@
         </section>
         <section class="contents">
             <div class="contents_tab">
-                <div class="contents_tab_li" ><a href="#">최신 토론</a></div>
+                <div class="contents_tab_li"><a href="#">최신 토론</a></div>
                 <div class="contents_tab_li" id="on"><a id="tab_line" href="#">베스트 토론</a></div>
             </div>
             <div class="sub_content">
@@ -32,23 +33,122 @@
                 <div class="discussion_day">
                     <div class="discussion_day_area">
                         <ul class="weeklist">
-                            <li><a href="#"><h3>1월 2주차</h3></a></li>
-                            <li><a href="#"><h3>1월 1주차</h3></a></li>
-                            <li><a href="#"><h3>12월 5주차</h3></a></li>
-                            <li><a href="#"><h3>12월 4주차</h3></a></li>
-                            <li><a href="#"><h3>12월 3주차</h3></a></li>
-                        </ul>
-                        <div class="discussion_day_btn">
                             <button class="day_btn_pre"></button>
+                            <li><a href="#">
+                                    <h3 id="weeklist_on">1월 2주차</h3>
+                                </a></li>
+                            <li><a href="#">
+                                    <h3>1월 1주차</h3>
+                                </a></li>
+                            <li><a href="#">
+                                    <h3>12월 5주차</h3>
+                                </a></li>
+                            <li><a href="#">
+                                    <h3>12월 4주차</h3>
+                                </a></li>
+                            <li><a href="#">
+                                    <h3>12월 3주차</h3>
+                                </a></li>
                             <button class="day_btn_nex"></button>
-                        </div>
+                        </ul>
                     </div>
                 </div>
-                <div></div>
-                <div></div>
-                <div></div>
+                <div class="discussion_best_top5">
+                    <h4><i class="far fa-comment-dots"></i> 추천 TOP5</h4>
+                    <table class="best_table">
+                        <thead>
+                            <tr>
+                                <th class="th1">번호</th>
+                                <th class="th2">제목</th>
+                                <th class="th3">추천/비추천</th>
+                                <th class="th4">작성일</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="td1">1</td>
+                                <td class="td2">방역패스 백신패스 철회</td>
+                                <td class="td3"><span class="good">273</span> / <span class="bad">3</span></td>
+                                <td class="td4">2022.01.10</td>
+                            </tr>
+                            <tr>
+                                <td class="td1">2</td>
+                                <td class="td2">방역패스 백신패스 철회</td>
+                                <td class="td3"><span class="good">273</span> / <span class="bad">3</span></td>
+                                <td class="td4">2022.01.10</td>
+                            </tr>
+                            <tr>
+                                <td class="td1">3</td>
+                                <td class="td2">방역패스 백신패스 철회</td>
+                                <td class="td3"><span class="good">273</span> / <span class="bad">3</span></td>
+                                <td class="td4">2022.01.10</td>
+                            </tr>
+                            <tr>
+                                <td class="td1">4</td>
+                                <td class="td2">방역패스 백신패스 철회</td>
+                                <td class="td3"><span class="good">273</span> / <span class="bad">3</span></td>
+                                <td class="td4">2022.01.10</td>
+                            </tr>
+                            <tr>
+                                <td class="td1">5</td>
+                                <td class="td2">방역패스 백신패스 철회</td>
+                                <td class="td3"><span class="good">273</span> / <span class="bad">3</span></td>
+                                <td class="td4">2022.01.10</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="discussion_best_top5_bottom">
+                    <h4><i class="far fa-comment-dots"></i> 댓글 TOP5</h4>
+                    <table class="best_table_bottom">
+                        <thead>
+                            <tr>
+                                <th class="th1">번호</th>
+                                <th class="th2">제목</th>
+                                <th class="th3">댓글수</th>
+                                <th class="th4">작성일</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="td1">1</td>
+                                <td class="td2">방역패스 백신패스 철회</td>
+                                <td class="td3"><span class="comment_count">273</span></td>
+                                <td class="td4">2022.01.10</td>
+                            </tr>
+                            <tr>
+                                <td class="td1">2</td>
+                                <td class="td2">방역패스 백신패스 철회</td>
+                                <td class="td3"><span class="comment_count">273</span></td>
+                                <td class="td4">2022.01.10</td>
+                            </tr>
+                            <tr>
+                                <td class="td1">3</td>
+                                <td class="td2">방역패스 백신패스 철회</td>
+                                <td class="td3"><span class="comment_count">273</span></td>
+                                <td class="td4">2022.01.10</td>
+                            </tr>
+                            <tr>
+                                <td class="td1">4</td>
+                                <td class="td2">방역패스 백신패스 철회</td>
+                                <td class="td3"><span class="comment_count">273</span></td>
+                                <td class="td4">2022.01.10</td>
+                            </tr>
+                            <tr>
+                                <td class="td1">5</td>
+                                <td class="td2">방역패스 백신패스 철회</td>
+                                <td class="td3"><span class="comment_count">273</span></td>
+                                <td class="td4">2022.01.10</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-        </section>
+            <div class="discussion_best_btn">
+                <a href="#">제안하기</a>
+            </div>
+    </div>
+    </section>
     </div>
 </body>
 
