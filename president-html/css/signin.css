@@ -1,0 +1,181 @@
+.container {
+    padding: 60px 0;
+    text-align: center;
+    color: #8a8a8a;
+}
+
+.area {
+    margin-top: 140px;
+}
+
+.head {
+    margin-bottom: 40px;
+}
+
+.login_text:before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -20px;
+    width: 60px;
+    height: 1px;
+    margin-left: -30px;
+    opacity: 0.7;
+    background-color: #082e59;
+}
+
+.login {
+    display: inline-block;
+    max-width: 800px;
+}
+
+.login_text {
+    font-size: 25px;
+    color: black;
+    font-weight: bold;
+}
+
+.login_box, .sns_login a {
+    display: block;
+    background-color: #f9f9f9;
+    padding: 30px 40px;
+    margin-bottom: 20px;
+    border: #d9d9d9 solid 1px;
+    text-align: left;
+}
+
+.login_box h4 {
+    color: black;
+    font-weight: bold;
+    font-size: 17px;
+    margin-bottom: 15px;
+}
+
+.text_box {
+    list-style: none;
+}
+
+.text_box li {
+    line-height: 23px;
+    font-size: 16px;
+}
+
+.logout_text {
+    color: #3399ff;
+    font-weight: bold;
+}
+
+.list_style {
+    color: #8a8a8a;
+    font-weight: 700;
+}
+
+.sns_login a {
+    margin-bottom: 10px;
+    border-radius: 10px;
+    padding: 20px 25px;
+    font-size: 18px;
+    color: #8a8a8a;
+    position: relative;
+    list-style: none;
+    background-color: white;
+}
+
+.sns_login a::after {
+    content: "";
+    position: absolute;
+    right: 30px;
+    bottom: 50%;
+    width: 2px;
+    height: 13px;
+    margin-bottom: -11px;
+    border-radius: 1px;
+    background-color: #aaa;
+    transform: rotate(45deg);
+}
+
+.sns_login a:hover::before {
+    background-color: white;
+}
+
+.sns_login a:hover::after {
+    background-color: white;
+}
+
+.sns_login a::before{
+    content: "";
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    width: 2px;
+    height: 13px;
+    margin-top: -11px;
+    border-radius: 1px;
+    background-color: #aaa;
+    transform: rotate(-45deg);
+}
+
+.bar {
+    color: #8a8a8a;
+    margin: 0 20px;
+}
+
+
+mark {
+    color: black;
+    background: none;
+}
+.login_link i {
+    font-size: 25px;
+}
+
+
+.kakao i {
+    color: #fee102;
+}
+
+.twitter i {
+    color: #1d9bf0;
+}
+
+.facebook i {
+    color: #1877f2;
+}
+
+.naver i {
+    color: #f65314;
+}
+
+.kakao:hover, .kakao:hover i{
+    background-color: #fee102;
+    color: white;
+}
+
+.naver:hover, .naver:hover i{
+    background-color: #f65314;
+    color: white;
+}
+
+.twitter:hover, .twitter:hover i{
+    background-color: #1d9bf0;
+    color: white;
+}
+
+.facebook:hover, .facebook:hover i{
+    background-color: #1877f2;
+    color: white;
+}
+
+.bar {
+    color: rgba(0, 0, 0, 0.1);
+    font-size: 25px;
+    margin-top: -50px;
+}
+
+
+
+
+
+
+
+
