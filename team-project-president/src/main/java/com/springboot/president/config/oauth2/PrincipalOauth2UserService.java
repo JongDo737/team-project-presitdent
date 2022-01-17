@@ -9,6 +9,7 @@ import org.springframework.security.oauth2.core.OAuth2AuthenticationException;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Service;
 
+import com.springboot.president.config.auth.PrincipalDetails;
 import com.springboot.president.config.oauth2.provider.Oauth2UserDto;
 import com.springboot.president.domain.user.User;
 import com.springboot.president.domain.user.UserRepository;
@@ -26,6 +27,7 @@ public class PrincipalOauth2UserService extends DefaultOAuth2UserService{
 	@Override
 	public OAuth2User loadUser(OAuth2UserRequest userRequest) throws OAuth2AuthenticationException {
 		OAuth2User oAuth2User = super.loadUser(userRequest);
+		System.out.println(oAuth2User);
 		Map<String, Object> oAuth2UserAttributes = oAuth2User.getAttributes();
 		String provider = userRequest.getClientRegistration().getRegistrationId();
 		String providerId = null;
@@ -39,13 +41,20 @@ public class PrincipalOauth2UserService extends DefaultOAuth2UserService{
 		else if(provider.equals("google")) {
 			providerId = (String)oAuth2UserAttributes.get("sub");
 		}
+		else if(provider.equals("facebook")) {
+			providerId = (String)oAuth2UserAttributes.get("id");
+		}
+		else if(provider.equals("kakao")) {
+			providerId = (String)oAuth2UserAttributes.get("id");
+		}
 		
 		else {
 			providerId = UUID.randomUUID().toString().replaceAll("-", "");
 		}
-		
+		System.out.println(oAuth2UserAttributes);
 		//naver_FOWAENOIENGOISVJV9482EJE9Z83WH 이렇게 이름이 들어갈꺼임
 		String username = provider + "_" + providerId;
+		System.out.println(username);
 		Oauth2UserDto oauth2UserDto = Oauth2UserDto.builder()
 				.username(username)
 				.provider(provider)
@@ -62,7 +71,7 @@ public class PrincipalOauth2UserService extends DefaultOAuth2UserService{
 		}
 		
 		// 세션에 현재 oauth2 로그인값을 담아준다.
-		return oAuth2User;
+		return new PrincipalDetails(userEntity, oAuth2UserAttributes);
 	}
 
 }
