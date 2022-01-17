@@ -1,4 +1,8 @@
 section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 .forums_head {
     display: inline-block;
@@ -80,6 +84,7 @@ section{
     flex-direction: column;
     width: 26%;
     margin-top: 150px;
+    margin-left: 50px;
 }
 .forums_list_img_box{
     width: 100%;
@@ -171,4 +176,104 @@ section{
     top: 20px;
     font-size: 0.9em;
     color: #7B8BA2;
+}
+.suggest_btn{
+    background-color: #0b1745;
+    height: 61px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 261px;
+    margin: 80px 0px;
+
+}
+.suggest_btn a{
+    color: #fff;
+}
+.form_control{
+    display: flex;
+    flex: row;
+    gap: 3px;
+}
+
+.search_ip {
+    font-size: 14px;
+    border: 1px solid #CCCCCC;
+    width: 216px;
+    height: 34px;
+    padding: 5px 10px;
+}
+
+.search_btn {
+    font-size: 13px;
+    background-color: #082e59;
+    color:#FFFFFF;
+    border-style: none;
+    height: 34px;
+    padding: 0px 20px;
+    margin: 0;
+}
+
+.paging {
+    margin-top: 40px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.wrap-paging-btn {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.paging-btn {
+    display: flex;
+    justify-content: center;
+    margin: 0px 5px;
+}
+.paging-btn a {
+    text-align: center;
+    display: block;
+    width: 38px;
+    min-width: 28px;
+    height: 38px;
+    min-height: 28px;
+    padding: 8px 0px;
+    margin: 0px 5px;
+    border: 1px solid rgb(230, 230, 230);
+    font-size: 14px;
+    font-weight: 400;
+    color: rgb(32, 31, 45);
+    cursor: pointer;
+}
+.now-paging {
+    border: 1px solid rgb(8, 46, 89)!important;
+    color: rgb(255, 255, 255)!important;
+    background-color: rgb(8, 46, 89)!important;
+}
+.paging-btn-next {
+    margin: 0px 5px;
+}
+.paging-btn-next a {
+    display: block;
+    text-align: center;
+    width: 50px;
+    min-width: 38px;
+    height: 38px;
+    min-height: 28px;
+    padding: 8px 0px;
+    margin: 0px 5px;
+    border: 1px solid rgb(230, 230, 230);
+    font-size: 14px;
+    font-weight: 400;
+    color: rgb(32, 31, 45);
+    cursor: pointer;
+}
+
+.wrap-paging-btn a:hover {
+    background-color: black;
+    border: 1px solid black;
+    color: white;
 }
