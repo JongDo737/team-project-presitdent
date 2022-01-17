@@ -1,0 +1,124 @@
+.petitions_head {
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    width: 100%;
+    height: 500px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-image: url(../image/petitions_banner.png);
+}
+
+.petitions_head_txt {
+    display: inline-block;
+    vertical-align: middle;
+    position: absolute;
+    left: 220px;
+    right: 220px;
+    bottom: 70px;
+    z-index: 3;
+    text-align: left;
+    visibility: visible;
+    margin-bottom: 10px;
+}
+
+.petiotions_head_second {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 220px;
+    bottom: 20px;
+    cursor: pointer;
+    
+}
+.pdfview {
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #082e59;
+    color: #FFF;
+    font-size: 16px;
+}
+
+.pdfview a {
+    color: #FFF;
+    font-size: 16px;
+    text-align: center;
+    text-decoration-line: none;
+    padding-bottom: 5px;
+}
+
+.pdfview a img {
+    display: inline-block;
+    visibility: visible;
+    width: 20px;
+    height: 25px;
+    padding-top: 5px;
+   
+}
+
+.petitions_contents {
+    width: 100%;
+}
+
+.contents_tab {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    border-bottom: 1px solid #7f7f7f;
+}
+
+.contents_tab_li {
+    display: grid;
+    color: #8e8e8e;
+    font-weight: 700;
+    height: 55px;
+    align-items: center;
+}
+
+
+.contents_tab a {
+    margin-left: -1px;
+    width: 100%;
+    height: 20px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #8e8e8e;
+    text-align: center;
+    text-decoration-line: none;
+
+}
+.contents_tab #on{
+    border-bottom: 5px solid #0a1645;
+   
+}
+.contents_tab #on a{
+    color: #0a1645;
+}
+#tab_center {
+    border-left: 1px solid #7f7f7f;
+    border-right: 1px solid #7f7f7f;
+}
+.tab_menu:hover{
+    color: #0a1645;
+    height: 20px;
+}
+.contents_tab_li:hover {
+    border-bottom: 5px solid #0a1645;
+}
+
+.contents_area {
+    padding-top: 150px;
+    margin: 0px 250px;
+}
+
+.ans_board {
+    padding-bottom: 70px;
+    margin-bottom: 70px;
+}
+
+.ans_board table {
+    width: 100%;
+}
