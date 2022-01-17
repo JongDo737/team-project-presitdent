@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery.js"></script>
+    <style>
+        *{margin: 0; padding: 0;}
+        ul,li{ list-style: none;}
+        a{text-decoration: none;}
+
+        #wrap{width: 100%;}
+        #header{position: fixed; top:0px; left: 0px; z-index: 9999; opacity: 0.5;
+                width: 100%; height: 120px; background-color: blueviolet;}
+                #header ul {margin: 0 auto; margin-top:45px ; width: 1000px; height: 30px;}
+                #header ul li{ float: left; width: 200px; 
+                               text-align: center; line-height: 30px;}
+                #header ul li a{ color:#fff; font-size:25px}
+                #header ul li.on a{ color:#000; font-size:30px}
+
+        #contents{ width: 100%;}
+        #contents > div{ padding-top:120px ; width: 100%; height: 800px;}
+        #contents > div.con1{background-color: burlywood;}
+        #contents > div.con2{background-color: rgb(33, 216, 192);}
+        #contents > div.con3{background-color: rgb(47, 223, 30);}
+        #contents > div.con4{background-color: rgb(131, 129, 231);}
+        #contents > div.con5{background-color: rgb(150, 46, 119);}
+
+        #q_mn{position: absolute; top:150px; right:50px;
+              z-index: 1000;
+              width: 60px; height: 140px;
+              border-radius: 10px;  
+              background-color: cornsilk;}
+         #q_mn ul.btns{}
+         #q_mn ul.btns li{ margin-bottom: 5px; text-align: center;}
+         #q_mn ul.btns li a{ color:#555;}
+         #q_mn ul.btns li.on a{ color:darkblue;}
+    </style>
+    <script> 
+     $(document).ready(function(){
+       
+       var menu = $(".btns li");
+       var section = $("#contents > div");
+
+       var h = $(window).height();
+       $("#contents > div").height(h);
+       $(window).resize(function(){//화면크기 바뀔때 높이 같이 수정
+            var h = $(window).height();
+            $("#contents > div").height(h);
+       });
+
+       menu.click(function(e){
+         e.preventDefault();// a태그의  href이벤트를 초기화
+         var tg = $(this);
+         var i = tg.index();
+
+         var tt = section.eq(i).offset().top;
+         $("html,body").stop().animate({scrollTop:tt});
+       });
+
+       //메뉴에 addClass로 주석처리
+       $(window).scroll(function(){
+        var sct = $(window).scrollTop();//현재 화면의 scrollTop를 변수 sct로 사용
+
+        $("#contents > div").each(function(){//contents안에 div를 순서대로 처리
+              var tg = $(this); 
+              var i = tg.index(); //con1, con2, con3, con4, con5
+              if(tg.offset().top <= sct){//해당되는 con들중에 현재 scrollTop에 위치가 동일하다면
+                  menu.removeClass("on");//모든메뉴에서 class가 있다 삭제
+                  menu.eq(i).addClass("on");       
+              }
+        });
+
+
+       });
+
+    
+       //퀵메뉴작업
+       $(window).scroll(function(){
+           var winTop = $(window).scrollTop() + 200;
+           $("#q_mn").stop().animate({top:winTop + "px"},500);
+
+       });    
+
+
+     });//$(document).ready()이벤트 닫기
+    </script>
+</head>
+<body>
+    <div id="wrap">
+        <div id="header">
+        <ul class="btns">
+            <li><a href="#con1">con1</a></li>
+            <li><a href="#con2">con2</a></li>
+            <li><a href="#con3">con3</a></li>
+            <li><a href="#con4">con4</a></li>
+            <li><a href="#con5">con5</a></li>
+        </ul>  
+        </div>
+        <div id="contents">
+           <div class="con1" id="con1">con1</div>
+           <div class="con2" id="con2">con2</div>
+           <div class="con3" id="con3">con3</div>
+           <div class="con4" id="con4">con4</div>
+           <div class="con5" id="con5">con5</div>
+        </div>
+    </div>
+
+    <!--  퀵메뉴 -->
+     <div id="q_mn">
+         <ul class="btns">
+             <li><a href="#con1">con1</a></li>
+             <li><a href="#con2">con2</a></li>
+             <li><a href="#con3">con3</a></li>
+             <li><a href="#con4">con4</a></li>
+             <li><a href="#con5">con5</a></li>
+         </ul>
+     </div>
+
+
+</body>
+</html>
