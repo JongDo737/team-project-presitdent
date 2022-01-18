@@ -1,3 +1,9 @@
+body{
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
 .first-main {
     position: relative;
     background: url(/image/index_first.jpg);
