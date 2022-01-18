@@ -27,6 +27,7 @@ public class PrincipalDetails implements UserDetails, OAuth2User{
 	public PrincipalDetails(User user, Map<String, Object> atttributes) {
 		this.user = user;
 		this.atttributes = atttributes;
+		System.out.println("test");
 	}
 	
 
@@ -57,31 +58,31 @@ public class PrincipalDetails implements UserDetails, OAuth2User{
 	@Override
 	public String getUsername() {
 		// TODO Auto-generated method stub
-		return null;
+		return user.getUsername();
 	}
 
 	@Override
 	public boolean isAccountNonExpired() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean isAccountNonLocked() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean isCredentialsNonExpired() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean isEnabled() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 	@Override
 	public Map<String, Object> getAttributes() {
