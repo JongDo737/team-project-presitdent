@@ -18,6 +18,7 @@ public class PetitionServiceImpl implements PetitionService{
 	@Override
 	public boolean insertPetition(PrincipalDetails principalDetails, PetitionReqDto petitionReqDto) {
 		Petition petitionEntity = petitionReqDto.toEntity(principalDetails.getUser().getId());
+		System.out.println(petitionEntity);
 		int insertResultNum = petitionRepository.insertPetition(petitionEntity);
 		boolean insertCheck;
 		if(insertResultNum == 1) {
