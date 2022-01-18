@@ -57,7 +57,7 @@
                     <!-- 카테고리 -->
                     <div class="cs_form_category">
                         카테고리
-                        <select name="petitions_category_id" name="kategorie" id="cs_sel_category" >
+                        <select name="kategorie" id="cs_sel_category" >
                             <option value selected disabled>카테고리를 선택해주세요.</option>
                             <option value="정치개혁" >정치개혁</option>
                             <option value="외교/통일/국방" >외교/통일/국방</option>
@@ -82,7 +82,7 @@
                     <div class="cs_form_text">
                         청원내용
                         <div class="cs_form_main">
-                            <textarea name="textarea_body" class="cs_textarea" name="content" cols="80" rows="10" minlength="1"></textarea>
+                            <textarea class="cs_textarea" name="content" cols="80" rows="10" minlength="1"></textarea>
                         </div>
                     </div>
                     <!-- 관련링크 -->
@@ -98,9 +98,9 @@
                     <div class="cs_form_tag">
                         검색태그
                         <div class="cs_tag_container">
-                            <input type="text" class="cs_tag_ip"  name="tag" placeholder="태그1">
-                            <input type="text" class="cs_tag_ip" placeholder="태그2">
-                            <input type="text" class="cs_tag_ip" placeholder="태그3">
+                            <input type="text" class="cs_tag_ip" name="tag1" placeholder="태그1">
+                            <input type="text" class="cs_tag_ip" name="tag2" placeholder="태그2">
+                            <input type="text" class="cs_tag_ip" name="tag3" placeholder="태그3">
                         </div>
                         
                     </div>

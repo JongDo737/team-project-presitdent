@@ -12,9 +12,11 @@ public class PetitionReqDto {
 	private String kategorie;
 	private String content;
 	private String link;
-	private String tag;
+	private String tag1;
+	private String tag2;
+	private String tag3;
 	
-	public Petition toEntity(int user_id) {
+	public Petition toEntity(int user_id, String tag) {
 		return Petition.builder()
 						.user_id(user_id)
 						.title(title)

@@ -14,7 +14,7 @@
 			#{content},
 			#{link},
 			#{tag},
-			123895,
+			0,
 			NOW(),
 			DATE_ADD(NOW(),INTERVAL 30 DAY)
 		
