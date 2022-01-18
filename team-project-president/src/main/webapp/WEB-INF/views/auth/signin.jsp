@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -40,9 +42,9 @@
                         <div class="sns_login_wrap">
                             <ul class="sns_login">
                                 <li>
-                                    <a href="/oauth2/authorization/twitter" class="twitter" alt="트위터 로그인 페이지 바로가기">
-                                        <div class="login_link">
-                                            <i class="fab fa-twitter"></i><span class="bar">|</span><mark>트위터</mark>
+                                    <a href="/oauth2/authorization/naver" class="naver" alt="네이버 로그인 페이지 바로가기">
+                                        <div class="login_link_naver">
+                                            <div class="naver_icon"></div><span class="bar">|</span><mark>네이버</mark>
                                             계정으로 로그인
                                         </div>
                                     </a>
@@ -64,9 +66,9 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="/oauth2/authorization/naver" class="naver" alt="네이버 로그인 페이지 바로가기">
-                                        <div class="login_link_naver">
-                                            <div class="naver_icon"></div><span class="bar">|</span><mark>네이버</mark>
+                                    <a href="/oauth2/authorization/facebook" class="twitter" alt="트위터 로그인 페이지 바로가기">
+                                        <div class="login_link">
+                                            <i class="fab fa-twitter"></i><span class="bar">|</span><mark>트위터</mark>
                                             계정으로 로그인
                                         </div>
                                     </a>
