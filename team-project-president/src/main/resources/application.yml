@@ -28,10 +28,10 @@ spring:
             client-secret: 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
             scope:
             - profile          facebook:
-            client-id: 513659689980827
-            client-secret: 25b1cbebb4499d77fb23511ed93969cc
+            client-id: 1034066467146977
+            client-secret: f9848a411c0ca19745c425070c1c9f4f
             scope:
-            - profile          naver:
+            - public_profile          naver:
             client-id: OdnZCsJ1iSBb6sYmgokM
             client-secret: GPpblNZ0UF
             scope:
