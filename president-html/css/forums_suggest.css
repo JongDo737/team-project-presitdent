@@ -1,0 +1,18 @@
+.top_img{
+    background: url(/image/forums/forum_main.jpeg)no-repeat center;
+    background-size: cover;
+    width: 100%;
+    height: 500px;
+    display: grid;
+    flex-direction: row;
+    align-items: flex-end;
+}
+.top_img h2{
+    color: #fff;
+    font-size: 50px;
+    font-weight: 600;
+    margin-left: 250px;
+    margin-bottom: 50px;
+    letter-spacing: -2px;
+
+}
