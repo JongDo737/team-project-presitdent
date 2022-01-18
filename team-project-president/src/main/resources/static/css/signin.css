@@ -141,8 +141,8 @@ mark {
     color: #fee102;
 }
 
-.twitter i {
-    color: #1d9bf0;
+.facebook i {
+    color: #1877f2;
 }
 
 .naver_icon {
@@ -169,10 +169,12 @@ mark {
     color: white;
 }
 
-.twitter:hover, .twitter:hover i{
-    background-color: #1d9bf0;
+
+.facebook:hover, .facebook:hover i{
+    background-color: #1877f2;
     color: white;
 }
+
 
 
 .bar {

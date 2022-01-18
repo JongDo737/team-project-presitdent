@@ -66,10 +66,10 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="/oauth2/authorization/facebook" class="twitter" alt="트위터 로그인 페이지 바로가기">
+                                    <a href="/oauth2/authorization/facebook" class="facebook" alt="페이스북 로그인 페이지 바로가기">
                                         <div class="login_link">
-                                            <i class="fab fa-twitter"></i><span class="bar">|</span><mark>트위터</mark>
-                                            계정으로 로그인
+                                            <i class="fab fa-facebook-square"></i><span
+                                                class="bar">|</span><mark>페이스북</mark> 계정으로 로그인
                                         </div>
                                     </a>
                                 </li>
