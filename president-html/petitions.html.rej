@@ -1,0 +1,9 @@
+diff a/president-html/petitions.html b/president-html/petitions.html	(rejected hunks)
+@@ -8,7 +8,6 @@
+     <title>Document</title>
+     <link rel="stylesheet" href="/css/style.css">
+     <link rel="stylesheet" href="/css/petitions.css">
+-    <script src="https://kit.fontawesome.com/14533f5127.js" crossorigin="anonymous"></script>
+ </head>
+ 
+ <body>
