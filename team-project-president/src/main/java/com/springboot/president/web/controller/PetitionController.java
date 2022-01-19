@@ -31,4 +31,6 @@ public class PetitionController {
 	public Object getPetitionBykategorie(@RequestParam String kategorie) {
 		return null;
 	}
+	
+	
 }

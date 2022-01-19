@@ -25,5 +25,4 @@ public class PageController {
 		return "petitions/petitions";
 	}
 	
-	
 }
