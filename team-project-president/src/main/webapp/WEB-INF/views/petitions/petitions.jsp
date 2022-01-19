@@ -49,8 +49,8 @@
                             </div>
                         </div>
                         <div class="item_box2">
-                            <div class="box2_item1"><a href="#">지금 청원하기</a></div>
-                            <div class="box2_item2"><a href="#">내 청원보기</a></div>
+                            <div class="box2_item1"><a href="/petitions/Step1">지금 청원하기</a></div>
+                            <div class="box2_item2"><a href="/petitions/Mypage">내 청원보기</a></div>
                         </div>
                         <div class="item_box3">공개된 청원 답변은 청와대 홈페이지 > 국민청원 > 답변된 청원 또는 청와대 트위터, 페이스북, 유튜브를 통해 확인하실 수
                             있습니다.
