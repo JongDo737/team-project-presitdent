@@ -8,6 +8,7 @@ import com.springboot.president.config.auth.PrincipalDetails;
 import com.springboot.president.domain.petition.GetPetitions;
 import com.springboot.president.domain.petition.Petition;
 import com.springboot.president.domain.petition.PetitionRepository;
+import com.springboot.president.web.dto.GetPetitionRespDto;
 import com.springboot.president.web.dto.PetitionReqDto;
 
 import lombok.RequiredArgsConstructor;
@@ -41,9 +42,13 @@ public class PetitionServiceImpl implements PetitionService{
 	}
 
 	@Override
-	public List<GetPetitions> GetPetitionByKategorie(String kategorie) {
+	public GetPetitionRespDto GetPetitionByKategorie(String kategorie) {
 		List<GetPetitions> petitionList = petitionRepository.GetPetitionByKategorie(kategorie);
-		return petitionList;
+		GetPetitionRespDto getPetitionRespDto = new GetPetitionRespDto();
+		getPetitionRespDto.setPetitionsList(petitionList);
+		System.out.println("db에서 가져온 list"+petitionList);
+		System.out.println("getPetitionRespDto List :" + getPetitionRespDto.getPetitionsList());
+		return getPetitionRespDto;
 	}
 	
 
