@@ -24,6 +24,6 @@ public class PageController {
 	public String petitionsForm() {
 		return "petitions/petitions";
 	}
-	
+
 	
 }

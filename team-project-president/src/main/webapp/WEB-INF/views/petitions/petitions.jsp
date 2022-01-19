@@ -10,10 +10,10 @@
     <title>Document</title>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/petitions.css">
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 </head>
 
 <body>
-	<button type="button" class="Tbutton">안녕하세요</button>
     <section class="petitions_head">
     	<nav>
             <jsp:include page="../include/nav.jsp"></jsp:include>
@@ -211,76 +211,7 @@
                                     </div>
                                 </div>
                                 <ul class="top5_board_list">
-                                    <li>
-                                        <div class="top5_list_wrap">
-                                            <div class="top5_list_category">
-                                                인권/성평등
-                                            </div>
-                                            <div class="top5_list_subject">
-                                                <a href="#"> Lorem ipsum dolor sit amet consectetur adipisicing
-                                                    elit.Voluptas
-                                                    molestias eaque est placeat accusantium </a>
-                                            </div>
-                                            <div class="top5_list_date">22.01.13</div>
-                                            <div class="top5_list_agree">123123명</div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="top5_list_wrap">
-                                            <div class="top5_list_category">
-                                                인권/성평등
-                                            </div>
-                                            <div class="top5_list_subject">
-                                                <a href="#"> Lorem ipsum dolor sit amet consectetur adipisicing
-                                                    elit.Voluptas
-                                                    molestias eaque est placeat accusantium </a>
-                                            </div>
-                                            <div class="top5_list_date">22.01.13</div>
-                                            <div class="top5_list_agree">123123명</div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="top5_list_wrap">
-                                            <div class="top5_list_category">
-                                                인권/성평등
-                                            </div>
-                                            <div class="top5_list_subject">
-                                                <a href="#"> Lorem ipsum dolor sit amet consectetur adipisicing
-                                                    elit.Voluptas
-                                                    molestias eaque est placeat accusantium </a>
-                                            </div>
-                                            <div class="top5_list_date">22.01.13</div>
-                                            <div class="top5_list_agree">123123명</div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="top5_list_wrap">
-                                            <div class="top5_list_category">
-                                                인권/성평등
-                                            </div>
-                                            <div class="top5_list_subject">
-                                                <a href="#"> Lorem ipsum dolor sit amet consectetur adipisicing
-                                                    elit.Voluptas
-                                                    molestias eaque est placeat accusantium </a>
-                                            </div>
-                                            <div class="top5_list_date">22.01.13</div>
-                                            <div class="top5_list_agree">123123명</div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="top5_list_wrap">
-                                            <div class="top5_list_category">
-                                                인권/성평등
-                                            </div>
-                                            <div class="top5_list_subject">
-                                                <a href="#"> Lorem ipsum dolor sit amet consectetur adipisicing
-                                                    elit.Voluptas
-                                                    molestias eaque est placeat accusantium </a>
-                                            </div>
-                                            <div class="top5_list_date">22.01.13</div>
-                                            <div class="top5_list_agree">123123명</div>
-                                        </div>
-                                    </li>
+                                    
 
                                 </ul>
                             </div>

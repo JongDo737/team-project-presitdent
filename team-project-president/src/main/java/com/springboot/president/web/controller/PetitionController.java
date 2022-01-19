@@ -27,8 +27,9 @@ public class PetitionController {
 		//주소 보내는곳 수정필요
 		return "/petitions";
 	}
-	@GetMapping("/petitions?kategorie={kategorie}")
+	@GetMapping("/petitions/board")
 	public Object getPetitionBykategorie(@RequestParam String kategorie) {
-		return null;
+		return petitionService.GetPetitionByKategorie(kategorie);
 	}
+	
 }
