@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springboot.president.domain.petition.PetitionRepository">
+	<insert id="insertPetition" parameterType="com.springboot.president.domain.petition.Petition">
+		INSERT INTO
+			petition_mst
+		VALUES(
+			0,
+			#{user_id},
+			#{title},
+			#{kategorie},
+			#{content},
+			#{link},
+			#{tag},
+			0,
+			NOW(),
+			DATE_ADD(NOW(),INTERVAL 30 DAY)
+		
+		);
+	
+	</insert>
+	<select id="GetPetitionByKategorie" resultType="com.springboot.president.domain.petition.GetPetitions" parameterType="String">
+		SELECT
+			um.provider,
+			pm.user_id,
+			pm.petition_id,
+			pm.title,
+			pm.kategorie,
+			pm.content,
+			pm.link,
+			pm.tag,
+			pm.agree_count,
+			pm.create_date,
+			pm.end_date
+			
+		FROM
+			petition_mst pm
+			LEFT OUTER JOIN user_mst um ON(um.id = pm.user_id)
+		WHERE
+			pm.kategorie = #{kategorie}
+		ORDER BY
+			agree_count DESC
+		LIMIT
+			5;	
+	
+	
+	</select>
+	<select id="GetPetitionAll" resultType="com.springboot.president.domain.petition.GetPetitions">
+		SELECT
+			um.provider,
+			pm.user_id,
+			pm.petition_id,
+			pm.title,
+			pm.kategorie,
+			pm.content,
+			pm.link,
+			pm.tag,
+			pm.agree_count,
+			pm.create_date,
+			pm.end_date
+			
+		FROM
+			petition_mst pm
+			LEFT OUTER JOIN user_mst um ON(um.id = pm.user_id)
+		ORDER BY
+			agree_count DESC
+		LIMIT
+			5;	
+	
+	
+	</select>
+	<select id="GetPetitionByid" resultType="com.springboot.president.domain.petition.GetPetitions">
+		SELECT
+			um.provider,
+			pm.petition_id,
+			pm.title,
+			pm.kategorie,
+			pm.content,
+			pm.link,
+			pm.tag,
+			pm.agree_count,
+			pm.create_date,
+			pm.end_date
+		FROM
+			petition_mst pm
+			LEFT OUTER JOIN user_mst um ON(um.id = pm.user_id)
+		WHERE
+			um.id = #{id};
+	</select>
+
+</mapper>
