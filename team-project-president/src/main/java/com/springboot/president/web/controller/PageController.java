@@ -16,9 +16,13 @@ public class PageController {
 	public String siginForm() {
 		return "auth/signin";
 	}
-	@GetMapping("/petition/Step2")
-	public String petitionStep2Form() {
+	@GetMapping("/petitions/Step2")
+	public String petitionsStep2Form() {
 		return "petitions/petitions_step2";
+	}
+	@GetMapping("/petitions")
+	public String petitionsForm() {
+		return "petitions/petitions";
 	}
 	
 	

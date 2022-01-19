@@ -21,7 +21,6 @@
     background-image: url(/image/nav/logo_bg.png);
     background-repeat: no-repeat;
     position: absolute;
-    left: 5%;
     z-index: 100;
     transform: translate3d(0px, 0px, 0px);
 }

@@ -1,6 +1,12 @@
+body{
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
 .first-main {
     position: relative;
-    background-image: url(/image/index_first.jpg);
+    background: url(/image/index_first.jpg);
     height: 969px;
     background-size: cover;
     z-index: 0;
@@ -187,6 +193,12 @@ table{
     margin-left: -578.5px;
     z-index: 99;
 }
+.textmove{
+    position: relative;
+    left: 0%;
+    top: 0%;;
+}
+
 .first-covid-text{
     margin-top: 2em;
     font-size: 1.5em;
