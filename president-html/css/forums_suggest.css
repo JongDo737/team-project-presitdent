@@ -1,4 +1,8 @@
-.sgt_wrap{width: 100%;}
+.sgt_wrap{
+    width: 100%;
+    overflow: hidden;    display: flex;
+    flex-direction: column;
+}
 .top_img{
     background: url(/image/forums/forum_main.jpeg)no-repeat center;
     z-index: -99;
@@ -23,10 +27,9 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    
-    
 }
 .sgt_txt{
+    margin: 0 auto auto;
     margin-top: 80px;
 }
 .bar1{
@@ -37,18 +40,17 @@
     margin-bottom: 30px;
     display: block;
     position: relative;
-    left: -70px;
-    
+    left: -675px;
 }
 
-div.box-wrap{
-    margin: 0 auto;
-    position: absolute;
-    left: 50%;
-    right: 50%;
-    transform: translate(-50%, 600%);
+.box-wrap{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     
+    margin: 0 auto;
 }
+
 .txt_box{
     border: #e6e6e6 solid 1px;
     background-color: #f9f9f9;
@@ -57,17 +59,31 @@ div.box-wrap{
     font-size: 14px;
     line-height: 20px;
     text-align: justify;
+    margin: 0 auto;
+    margin-bottom: 10px;
 
 }
+.txt_box p{
+    color: #888;
+}
 .bar2{
-    width: 742px;
     height: 1px;
     border: 1px solid rgba(0, 0, 0, 0.5);
+    margin-top: 10px;
+    display: block;
+    position: relative;
+    width: 742px;
+    margin: 0 auto;
+    
+
+}
+.bar3{
+    height: 1px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
     margin-top: 10px;
     margin-bottom: 20px;
     display: block;
     position: relative;
-    
 }
 .input{
     width: 742px;
@@ -76,7 +92,6 @@ div.box-wrap{
     padding: 10px;
     font-size: 16px;
     border: #d9d9d9 solid 1px;
-    margin-bottom: 20px;
     margin-top: 10px;
 }
 .input:hover,
@@ -86,16 +101,19 @@ div.box-wrap{
 .text {font-size:16px; font-weight:400; line-height:24px; 
         word-wrap:normal; word-break:keep-all;}
 
-div>strong:nth-child(2){
-    margin-top:10px;
-    padding-bottom: 10px;
+.sgt_subject{
+    margin: 0 auto;
+    width: 742px;
+    margin-top: 20px;
+}
+.sgt_subject > p{
+   font-weight: bold;
+   margin-top: 10px;
 }
 .sgt_content{
-    display: flex;
-    flex-direction: column;
-    justify-content: center; 
+    margin: 0 auto;
+    width: 742px;
 }
-
 .textarea {
 	display:inline-block;
 	vertical-align : middle;
@@ -108,3 +126,24 @@ div>strong:nth-child(2){
 	text-align:left;
 	box-shadow: inset 2px 2px 6px rgba(0, 0, 0, 0.05);
 	}
+    button.btn {min-width:160px; height:40px;}
+    .btn{
+        display:inline-block;
+        vertical-align:middle;
+        border:#082e59 solid 1px;
+        background-color:#082e59;
+        padding:0px 29px;
+        color:#fff;
+        cursor: pointer;
+        
+    }
+    .btn:hover{
+        background-color:#031d3a;
+    }
+    .btn-wrap{
+        margin: 0 auto;
+        width: 742px;
+        text-align: center;
+        margin-bottom: 80px;
+        
+    }
