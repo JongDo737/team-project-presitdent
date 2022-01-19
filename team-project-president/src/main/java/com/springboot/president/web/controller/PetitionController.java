@@ -29,7 +29,6 @@ public class PetitionController {
 	}
 	@GetMapping("/petitions/board")
 	public Object getPetitionBykategorie(@RequestParam String kategorie) {
-		System.out.println("controller");
 		return petitionService.GetPetitionByKategorie(kategorie);
 	}
 	

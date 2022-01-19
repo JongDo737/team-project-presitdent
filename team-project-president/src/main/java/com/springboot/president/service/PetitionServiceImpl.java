@@ -40,14 +40,29 @@ public class PetitionServiceImpl implements PetitionService{
 		}
 		return insertCheck;
 	}
-
+	
+	
 	@Override
 	public GetPetitionRespDto GetPetitionByKategorie(String kategorie) {
-		List<GetPetitions> petitionList = petitionRepository.GetPetitionByKategorie(kategorie);
+		//db에서 가져온 petitionList를 담는 곳
+		List<GetPetitions> petitionList;
+		//List 반환하는 Dto
 		GetPetitionRespDto getPetitionRespDto = new GetPetitionRespDto();
+		//전체 클릭했을 때
+		if(kategorie.equals("전체")) {
+			petitionList = petitionRepository.GetPetitionAll();
+			
+		}
+		//그 외 카테고리 선택했을 때
+		else {
+			petitionList = petitionRepository.GetPetitionByKategorie(kategorie);			
+		}
+		
 		getPetitionRespDto.setPetitionsList(petitionList);
-		System.out.println("db에서 가져온 list"+petitionList);
-		System.out.println("getPetitionRespDto List :" + getPetitionRespDto.getPetitionsList());
+		
+		//테스트 코드
+//		System.out.println("db에서 가져온 list"+petitionList);
+//		System.out.println("getPetitionRespDto List :" + getPetitionRespDto.getPetitionsList());
 		return getPetitionRespDto;
 	}
 	

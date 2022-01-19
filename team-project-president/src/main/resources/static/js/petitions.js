@@ -4,9 +4,9 @@
 const top5Petitioinlist = document.querySelector('.top5_board_list');
 const kategorieBtn = document.querySelectorAll('.kategorie_select');
 const Tbtn = document.querySelector('.Tbutton');
-const kategorie = '';
+const kategorie = '전체';
 let petitionItem = ``;
-
+petitionLoad(kategorie);
 function petitionLoad(kategorie) {
 	$.ajax({
 
@@ -14,8 +14,6 @@ function petitionLoad(kategorie) {
 		url: `/petitions/board?kategorie=${kategorie}`,
 		dataType: "text",
 		success: function(data) {
-			alert('ajax 요청성공');
-			alert(data);
 			petitionItem = ``;
 			let petitionListObj = JSON.parse(data);
 			petitionItem+= getPetitions(petitionListObj.petitionsList);
@@ -37,7 +35,7 @@ function getPetitions(petitionList) {
 	                    ${pet.kategorie}
 	                </div>
 	                <div class="top5_list_subject">
-	                    <a href="#"> ${pet.content} </a>
+	                    <a href="#"> ${pet.title} </a>
 	                </div>
 	                <div class="top5_list_date">${pet.end_date}</div>
 	                <div class="top5_list_agree">${pet.agree_count}</div>
