@@ -132,6 +132,7 @@
                         <div class="category_area">
                             <ul>
                                 <li >
+                                	<!-- a태그를 #으로 주면 js안됌 이렇게 해야 자기 자신으로 인식하고 js실행됌 -->
                                     <a href="javascript:void(0);" class="category_sel" onclick="petitionLoad(this.textContent);">전체</a>
                                 </li>
                                 <li>

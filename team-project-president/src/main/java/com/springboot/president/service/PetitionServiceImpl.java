@@ -1,8 +1,11 @@
 package com.springboot.president.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.springboot.president.config.auth.PrincipalDetails;
+import com.springboot.president.domain.petition.GetPetitions;
 import com.springboot.president.domain.petition.Petition;
 import com.springboot.president.domain.petition.PetitionRepository;
 import com.springboot.president.web.dto.PetitionReqDto;
@@ -35,6 +38,12 @@ public class PetitionServiceImpl implements PetitionService{
 			insertCheck = false;
 		}
 		return insertCheck;
+	}
+
+	@Override
+	public List<GetPetitions> GetPetitionByKategorie(String kategorie) {
+		List<GetPetitions> petitionList = petitionRepository.GetPetitionByKategorie(kategorie);
+		return petitionList;
 	}
 	
 

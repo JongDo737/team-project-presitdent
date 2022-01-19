@@ -2,27 +2,26 @@
  * 국민청원 메인칸
  */
  
- const kategoryBtn = document.querySelectorAll('.kategory_select');
- const kategory = '';
+ const kategorieBtn = document.querySelectorAll('.kategorie_select');
+ const kategorie = '';
  const Tbtn = document.querySelector('.Tbutton');
  
-
-
- /*for(let i =0; i<kategoryBtn.length;i++){
-	if(kategoryBtn[i].onclick()){
-		alert('클릭');
-		kategory = kategoryBtn[i].textContent;
-		alert('kategory : '+kategory);
-	}
-}*/
-
  
- function petitionLoad(kategory){
-	alert(kategory);
+ function petitionLoad(kategorie){
+	alert(kategorie);
 	$.ajax({
 		type:"get",
-		url:`/petition?kategory=${kategory}`
-		
-		
+		url:`/petition?kategorie=${kategorie}`,
+		dateType: "text",
+		success: function(data){
+			
+		},
+		error: function(){
+			alert('비동기 처리오류');
+		}
 	});	
+}
+function getPetitions(petitionList){
+	let petitionHtml = ``;
+	
 }
