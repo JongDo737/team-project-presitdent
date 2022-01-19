@@ -71,5 +71,23 @@
 	
 	
 	</select>
+	<select id="GetPetitionByid" resultType="com.springboot.president.domain.petition.GetPetitions">
+		SELECT
+			um.provider,
+			pm.petition_id,
+			pm.title,
+			pm.kategorie,
+			pm.content,
+			pm.link,
+			pm.tag,
+			pm.agree_count,
+			pm.create_date,
+			pm.end_date
+		FROM
+			petition_mst pm
+			LEFT OUTER JOIN user_mst um ON(um.id = pm.user_id)
+		WHERE
+			um.id = #{id};
+	</select>
 
 </mapper>

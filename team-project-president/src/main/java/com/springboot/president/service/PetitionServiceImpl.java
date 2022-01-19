@@ -65,6 +65,19 @@ public class PetitionServiceImpl implements PetitionService{
 //		System.out.println("getPetitionRespDto List :" + getPetitionRespDto.getPetitionsList());
 		return getPetitionRespDto;
 	}
+
+
+	@Override
+	public GetPetitionRespDto GetPetitionByid(PrincipalDetails principalDetails) {
+		//db에서 받아온 list를 담는 객체
+		List<GetPetitions> petitionList = petitionRepository.GetPetitionByid(principalDetails.getUser().getId());
+		System.out.println(petitionList);
+		GetPetitionRespDto getPetitionRespDto = new GetPetitionRespDto();
+		getPetitionRespDto.setPetitionsList(petitionList);
+		System.out.println(getPetitionRespDto);
+		
+		return getPetitionRespDto;
+	}
 	
 
 }

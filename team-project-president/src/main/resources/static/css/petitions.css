@@ -434,15 +434,9 @@
     display: flex;
     flex-direction: row; 
     width: 100%;
-    height: 100%;
 }
 .top5_board_wrap div {
-    height: 100%;
-}
-.top5_list_subject{
-   	white-space: nowrap;
-    text-overflow: ellipsis;
-    height: 50px;
+    text-align: center;
 }
 
 .top5_board_category {

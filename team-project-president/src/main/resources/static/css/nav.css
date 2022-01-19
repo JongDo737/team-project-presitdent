@@ -63,6 +63,11 @@
     width: 10%;
     text-align: center;
 }
+
+.menu_list:hover {
+    background-color: #001f50;
+}
+
 .menu_list_title {
     display: block;
     padding: 0;

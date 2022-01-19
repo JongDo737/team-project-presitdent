@@ -20,7 +20,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http.csrf().disable();
 		http.authorizeRequests() //서버에 요청이 들어오면
-			.antMatchers("/petition/**", "/forums/**" ) //해당 요청들은
+			.antMatchers("/petition/**", "/forums/**","/petitions/**" ) //해당 요청들은
 			.authenticated() //모두 인증을 거처야한다.
 			.anyRequest() //그 외의 모든 요청은
 			.permitAll() //승인해준다.(모두 권한을 허가)

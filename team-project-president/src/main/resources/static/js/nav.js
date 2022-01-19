@@ -18,7 +18,7 @@ $(document).ready(function () {
     $(".menu_list_title").mouseover(function () {
         $(this).next("ul").stop().fadeIn(500);
         $(".menu_list_title").mouseleave(function () {
-            $(this).next("ul").stop().fadeOut();
+        $(this).next("ul").stop();
         });
     });
 
