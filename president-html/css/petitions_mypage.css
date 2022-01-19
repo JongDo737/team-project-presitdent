@@ -1,0 +1,304 @@
+.petitions_head {
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    width: 100%;
+    height: 500px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-image: url(../image/petition_mypage.jpg);
+
+}
+
+.petitions_head_txt {
+    display: inline-block;
+    vertical-align: middle;
+    position: absolute;
+    left: 220px;
+    right: 220px;
+    bottom: 50px;
+    text-align: left;
+    visibility: visible;
+    margin-bottom: 10px;
+}
+
+.head_text_title {
+    display: flex;
+    color: #FFF;
+    font-size: 47px;
+    line-height: 60px;
+    font-weight: 500;
+}
+
+
+.contents_tab {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    border-bottom: 1px solid #7f7f7f;
+}
+
+.contents_tab_li {
+    display: grid;
+    color: #8e8e8e;
+    font-weight: 700;
+    height: 55px;
+    align-items: center;
+}
+
+
+.contents_tab a {
+    margin-left: -1px;
+    width: 100%;
+    height: 20px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #8e8e8e;
+    text-align: center;
+    text-decoration-line: none;
+
+}
+.contents_tab #on{
+    border-bottom: 5px solid #0a1645;
+   
+}
+.contents_tab #on a{
+    color: #0a1645;
+}
+#tab_center {
+    border-left: 1px solid #7f7f7f;
+    border-right: 1px solid #7f7f7f;
+}
+.tab_menu:hover{
+    color: #0a1645;
+    height: 20px;
+}
+.contents_tab_li:hover {
+    border-bottom: 5px solid #0a1645;
+}
+
+
+.mypage_area {
+    display: flex;
+    flex-direction: column;
+    padding: 80px 0px 60px;
+    margin: 0px 300px;
+}
+
+.mypage_head {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.mypage_head_title {
+    margin-bottom: 55px;
+    padding-bottom: 5px;
+    font-size: 25px;
+    font-weight: 600;
+    
+}
+
+.mypage_head_title span {
+    padding-bottom: 25px;
+    border-bottom: 1.5px solid black;
+}
+
+
+.mypage_text_info{
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    border: 1px solid rgb(230, 230, 230);
+    font-size: 15px;
+    font-weight: 500;
+    background-color: rgb(249, 249, 249);
+}
+
+.mypage_text_info ul{
+    margin: 20px 60px;
+    line-height: 180%;
+}
+
+
+.mypage_text_info ul li{
+    list-style: square;
+    color: #676666;
+    font-size: 15px;
+}
+
+.mypage_text_info ul li span {
+    color: #0098e7 !important;
+}
+
+.mypage_list {
+    width: 100%;
+}
+
+.mypage_list_title {
+    margin-bottom: 5px;
+}
+
+.mypage_list h4 {
+    font-size: 24px;
+    line-height: 42px;
+    font-weight: 500;
+    color: rgb(32, 31, 45);
+}
+
+.mypage_list_container {
+    width: 100%;
+    border-top: #4c4c4c solid 2px;
+}
+
+.mypage_list_category {
+    display: flex;
+    width: 100%;
+    padding: 10px 0px;
+    border-bottom: #efefef solid 1px;
+}
+
+.mypage_list_category div {
+    text-align: center;
+
+}
+
+.list_category_status {
+    width: 15.2%;
+}
+.list_category_classification{
+    width: 15%;
+}
+.list_category_title{
+    width: 30.8%;
+}
+
+.list_category_date{
+    width: 15%;
+}
+.list_category_participants{
+    width: 14%;
+}
+.list_category_url{
+    width: 10%;
+}
+
+.mypage_list_contents{
+    border-bottom: 1px solid #EEEEEE;
+}
+
+.mypage_contents_empty{
+    display: none;
+    font-size: 18px;
+    padding: 30px;
+    text-align: center;
+    color: rgb(138, 138, 138);
+}
+
+.mypage_contents_main {
+    width: 100%;
+}
+
+.mypage_contents_main ul li {
+    display: flex;   
+    width: 100%;
+    border-bottom: #efefef solid 1px;
+    padding: 20px 0;
+}
+#mylist_status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 15.2%;
+    padding-left: 5px;
+}
+#mylist_status span{
+    background: #3b84d9;
+    padding: 5px;
+    color: #FFF;
+    border-radius: 5px;
+    margin-left: 3px;
+    text-align: center;
+}
+#mylist_classification {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 15%;
+    padding-left: 5px;
+}
+
+#mylist_classification span{
+    color: #435e9b !important;
+}
+
+#mylist_title {
+    display: flex;
+    align-items: center;
+
+    width: 30.8%;
+    padding-right: 10px;
+}
+
+#mylist_title a{
+    width: 100%;
+    text-decoration: none;
+    color: #201f2d !important;
+    
+}
+
+#mylist_date {
+    display: flex;
+    align-items: center;
+    width: 15%;
+    justify-content: center;
+    font-size: 15px;
+    color: rgb(138, 138, 138);
+}
+
+#mylist_participants {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 14%;
+    font-size: 15px;
+    color: rgb(67, 94, 155);
+    text-align: center;
+}
+
+#mylist_url {
+    width: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#mylist_url a{
+    width: 60%;
+    color: #333;
+    border: 2px solid #cacaca;
+    border-radius: 20px;
+    font-size: 12px;
+    padding: 3px 5px;
+    text-align: center;
+}
+
+.mypage_logout_btn {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+#mypage_logout {
+    width: 20%;
+    min-width: 100px;
+    background-color: #001f50;
+    color: #fff;
+    font-size: 17px;
+    font-weight: 300;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 2px;
+    text-align: center;
+}
