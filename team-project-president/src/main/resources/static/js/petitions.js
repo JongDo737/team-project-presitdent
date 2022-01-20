@@ -1,10 +1,67 @@
-/**
- * 국민청원 메인칸
- */
+
 // 답변 대기중인 청원
 const waitPetitionList = document.querySelector('.board_list');
-let waitpPetitionItem = ``;
+waitpPetitionItem = ``;
+const top5Petitioinlist = document.querySelector('.top5_board_list');
+const kategorieBtn = document.querySelectorAll('.kategorieBtn');
+
+
+// 분류별 청원 top 5부분 + 목록
+kategorie = '전체';
+petitionItem = ``;
+
+
+// 전체 목록 불러오기
+const totalPetitioinlist = document.querySelector(".full_board_list");
+const pageTag = document.querySelectorAll(".pageBtn");
+const orderSel = document.querySelector('.orderSelect');
+
+page = 1;
+order = 1;
+
+petitionTotalItem = ``;
+
+for(let i = 0; i < kategorieBtn.length; i++){
+	kategorieBtn[i].onclick = () => {
+		for(let j = 0; j < kategorieBtn.length; j++){
+			kategorieBtn[j].setAttribute("id","");
+		}
+		kategorie = kategorieBtn[i].textContent;
+		kategorieBtn[i].setAttribute("id","category_sel");
+		alert('kategorie : '+kategorie+'\n'+"page : "+page+'\n'+'order : '+order);
+		petitionLoad(kategorie);
+		totalPetitionLoad(kategorie,page,order);
+	}
+}
+
+
+for(let i = 0; i < pageTag.length; i++){
+	pageTag[i].onclick = () => {
+		
+		for(let j = 0; j < pageTag.length; j++){
+			pageTag[j].setAttribute("id","");
+			
+		}
+		pageTag[i].setAttribute("id","now-paging");
+		page = pageTag[i].textContent;
+		alert('kategorie : '+kategorie+'\n'+"page : "+page+'\n'+'order : '+order);
+		totalPetitionLoad(kategorie,page,order);
+	}
+}
+orderSel.onchange = () => {
+	order = orderSel.value;
+	alert('kategorie : '+kategorie+'\n'+"page : "+page+'\n'+'order : '+order);
+	totalPetitionLoad(kategorie,page,order);
+}
+
+
+
 waitPetitionLoad();
+petitionLoad(kategorie);
+totalPetitionLoad(kategorie,page,order);
+
+
+
 function waitPetitionLoad() {
 	$.ajax({
 
@@ -49,12 +106,9 @@ function getWaitPetitions(petitionList) {
 
 
 
-// 분류별 청원 top 5부분 + 목록
-const top5Petitioinlist = document.querySelector('.top5_board_list');
-const kategorie = '전체';
 
-let petitionItem = ``;
-petitionLoad(kategorie);
+
+
 function petitionLoad(kategorie) {
 	$.ajax({
 
@@ -73,6 +127,7 @@ function petitionLoad(kategorie) {
 		}
 	});
 }
+
 function getPetitions(petitionList) {
 	let petitionHtml = ``;
 	for(let pet of petitionList){
@@ -97,20 +152,8 @@ function getPetitions(petitionList) {
 
 }
 
-// 전체 목록 불러오기
-const totalPetitioinlist = document.querySelector(".full_board_list");
-const pageTag = document.querySelectorAll(".pageBtn");
 
-let page = 1;
-let order = 1;
-let petitionTotalItem = ``;
-totalPetitionLoad(kategorie,page,order);
 
-for(let i = 0; i < pageTag.length; i++){
-	pageTag[i].onclick = () => {
-		alert(pageTag[i].textContent);
-	}
-}
 
 function totalPetitionLoad(kategorie,page,order) {
 	$.ajax({
@@ -119,7 +162,6 @@ function totalPetitionLoad(kategorie,page,order) {
 		url: `/petitions/total?kategorie=${kategorie}&page=${page}&order=${order}`,
 		dataType: "text",
 		success: function(data) {
-			alert(data)
 			petitionTotalItem = ``;
 			let totalPetitionListObj = JSON.parse(data);
 			petitionTotalItem+= getTotalPetitions(totalPetitionListObj.petitionsList);

@@ -47,6 +47,7 @@ public class PetitionController {
 	}
 	@GetMapping("/petitions/total")
 	public Object getPetitionBykategorieAndOrder(@RequestParam String kategorie,@RequestParam int page,@RequestParam int order) {
+		System.out.println("컨트롤러"+"\n"+"kategorie : "+kategorie+"\n"+"page : "+page+"\n"+"order : "+order);
 		return petitionService.GetPetitionBykategorieAndOrder(kategorie, page, order);
 	}
 	

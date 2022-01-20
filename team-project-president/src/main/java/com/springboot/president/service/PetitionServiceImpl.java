@@ -116,8 +116,10 @@ public class PetitionServiceImpl implements PetitionService{
 				petitionListAll = petitionRepository.GetSuggestionPetitionByKategorie(kategorie);
 			}
 		}
+		System.out.println("petitionListAll.size : "+petitionListAll.size());
 		// 페이지에 보여질 7개씩 담을 List
 		List<GetPetitions> petitionList = new ArrayList<GetPetitions>();
+		
 		int startIndex = (page-1)*7;
 		int endIndex = startIndex + 7;
 		for(int i = startIndex; i < endIndex; i++) {
