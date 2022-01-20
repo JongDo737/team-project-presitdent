@@ -1,0 +1,24 @@
+.sgt_wrap{
+    width: 100%;
+    overflow: hidden;    display: flex;
+    flex-direction: column;
+}
+.top_img{
+    background: url(/image/way_to_come/w_t_C_bg.jpeg)no-repeat center;
+    z-index: -99;
+    background-size: cover;
+    width: 100%;
+    height: 500px;
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+}
+.top_img h2{
+    color: #fff;
+    font-size: 50px;
+    font-weight: 600;
+    margin-left: 250px;
+    margin-bottom: 50px;
+    letter-spacing: -2px;
+
+}
