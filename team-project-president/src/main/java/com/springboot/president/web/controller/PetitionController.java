@@ -29,6 +29,12 @@ public class PetitionController {
 		//주소 보내는곳 수정필요
 		return "/petitions";
 	}
+	@GetMapping("/petitions/wait")
+	public Object getWaitPetition() {
+		System.out.println("controller");
+		return petitionService.GetWaitPetition();
+	}
+	
 	@GetMapping("/petitions/board")
 	public Object getPetitionBykategorie(@RequestParam String kategorie) {
 		return petitionService.GetPetitionByKategorie(kategorie);
@@ -36,7 +42,7 @@ public class PetitionController {
 	
 	@GetMapping("/petitions/Mypage/List")
 	public Object petitionsMypageForm(@AuthenticationPrincipal PrincipalDetails principalDetails) {
-		System.out.println("controller");
+		
 		return petitionService.GetPetitionByid(principalDetails);
 	}
 	

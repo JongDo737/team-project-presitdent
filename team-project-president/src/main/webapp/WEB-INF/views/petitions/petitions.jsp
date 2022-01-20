@@ -68,58 +68,7 @@
                             </div>
                         </div>
                         <ul class="board_list">
-                            <li>
-                                <div class="list_wrap">
-                                    <div class="list_category">
-                                        인권/성평등
-                                    </div>
-                                    <div class="list_subject">
-                                        <a href="#"> Lorem ipsum dolor sit amet consectetur adipisicing elit.Voluptas
-                                            molestias eaque est placeat accusantium </a>
-                                    </div>
-                                    <div class="list_date">22.01.13</div>
-                                    <div class="list_agree">123123명</div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="list_wrap">
-                                    <div class="list_category">
-                                        문화/예술/체육/언론
-                                    </div>
-                                    <div class="list_subject">
-                                        <a href="#"> Lorem ipsum dolor sit amet consectetur adipisicing elit.Voluptas
-                                            molestias eaque est placeat accusantium </a>
-                                    </div>
-                                    <div class="list_date">22.01.13</div>
-                                    <div class="list_agree">123123명</div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="list_wrap">
-                                    <div class="list_category">
-                                        반려동물
-                                    </div>
-                                    <div class="list_subject">
-                                        <a href="#"> Lorem ipsum dolor sit amet consectetur adipisicing elit.Voluptas
-                                            molestias eaque est placeat accusantium </a>
-                                    </div>
-                                    <div class="list_date">22.01.13</div>
-                                    <div class="list_agree">123123명</div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="list_wrap">
-                                    <div class="list_category">
-                                        보건복지
-                                    </div>
-                                    <div class="list_subject">
-                                        <a href="#"> Lorem ipsum dolor sit amet consectetur adipisicing elit.Voluptas
-                                            molestias eaque est placeat accusantium </a>
-                                    </div>
-                                    <div class="list_date">22.01.13</div>
-                                    <div class="list_agree">123123명</div>
-                                </div>
-                            </li>
+                            
                         </ul>
                     </div>
                 </div>
