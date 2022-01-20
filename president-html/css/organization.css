@@ -1,0 +1,110 @@
+html {
+    width: 100%;
+    height: 100%;
+}
+
+.head_img {
+    background-image: url(../image/organization_head_img.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    height: 500px;
+}
+
+.head_txt {
+    display: inline-block;
+    position: absolute;
+    left: 220px;
+    right: 220px;
+    bottom: 60px;
+    z-index: 3;
+    text-align: left;
+}
+
+.head_txt h2{
+    width: 100%;
+    font-size: 50px;
+    line-height: 68px;
+    color: #fff;
+    font-weight: 600;
+}
+
+.contents_tab {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    border-bottom: 1px solid #7f7f7f;
+}
+
+.contents_tab_li {
+    display: grid;
+    color: #8e8e8e;
+    font-weight: 700;
+    height: 55px;
+    align-items: center;
+}
+
+.contents_tab a {
+    margin-left: -1px;
+    width: 100%;
+    height: 20px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #8e8e8e;
+    text-align: center;
+    text-decoration-line: none;
+
+}
+
+.contents_tab #on{
+    border-bottom: 5px solid #0a1645;
+   
+}
+
+.contents_tab #on a{
+    color: #0a1645;
+}
+
+#tab_center {
+    border-left: 1px solid #7f7f7f;
+    border-right: 1px solid #7f7f7f;
+}
+
+.tab_menu:hover{
+    color: #0a1645;
+    height: 20px;
+}
+
+.contents_tab_li:hover {
+    border-bottom: 5px solid #0a1645;
+}
+
+.cont_area {
+    text-align: center;
+    padding: 60px 0;
+}
+
+.wrap {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    max-width: 1280px;
+}
+
+img {
+    background-position: center;
+    background-size: cover;
+}
+
+.mark_wrap {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    max-width: 1280px;
+}
+
+.mark_btn {
+    float: right;
+}
