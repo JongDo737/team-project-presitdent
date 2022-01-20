@@ -12,5 +12,7 @@ public interface PetitionService {
 	public GetPetitionRespDto GetPetitionByKategorie(String kategorie);
 	public GetPetitionRespDto GetPetitionByid(PrincipalDetails principalDetails);
 	public GetPetitionRespDto GetWaitPetition();
+	public GetPetitionRespDto GetPetitionBykategorieAndOrder(String kategorie, int page, int order);
+	
 	
 }

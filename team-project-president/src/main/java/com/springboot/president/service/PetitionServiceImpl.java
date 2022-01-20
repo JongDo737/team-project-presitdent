@@ -1,5 +1,6 @@
 package com.springboot.president.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -27,7 +28,6 @@ public class PetitionServiceImpl implements PetitionService{
 		
 		// 엔티티 생성
 		Petition petitionEntity = petitionReqDto.toEntity(principalDetails.getUser().getId(), tag);
-		System.out.println(petitionEntity);
 		int insertResultNum = petitionRepository.insertPetition(petitionEntity);
 		boolean insertCheck;
 		if(insertResultNum == 1) {
@@ -66,7 +66,7 @@ public class PetitionServiceImpl implements PetitionService{
 		return getPetitionRespDto;
 	}
 
-
+	// 내청원 보기
 	@Override
 	public GetPetitionRespDto GetPetitionByid(PrincipalDetails principalDetails) {
 		//db에서 받아온 list를 담는 객체
@@ -77,14 +77,63 @@ public class PetitionServiceImpl implements PetitionService{
 		return getPetitionRespDto;
 	}
 
-
+	//답변 대기중인 청원
 	@Override
 	public GetPetitionRespDto GetWaitPetition() {
 		List<GetPetitions> petitionList = petitionRepository.GetWaitPetition();
-		System.out.println(petitionList);
 		GetPetitionRespDto getPetitionRespDto = new GetPetitionRespDto();
 		getPetitionRespDto.setPetitionsList(petitionList);
-		System.out.println(getPetitionRespDto);
+		return getPetitionRespDto;
+	}
+
+	//분류별청원 전체보기
+	@Override
+	public GetPetitionRespDto GetPetitionBykategorieAndOrder(String kategorie, int page, int order) {
+		//기본값 전체 , 1페이지, 최신순보기
+		//전체일때 order만 따지고
+		//카테고리가 있을땐 카테고리와 order따져서 가져오기
+		
+		//db에서 가져온 전체 리스트를 담는 곳
+				List<GetPetitions> petitionListAll;
+				//List 반환하는 Dto
+				GetPetitionRespDto getPetitionRespDto = new GetPetitionRespDto();
+				
+		// 전체일때 최신순, 추천순
+		if(kategorie.equals("전체")) {
+			if(order == 1) {
+				petitionListAll = petitionRepository.GetRecentPetition();
+			}
+			else{
+				petitionListAll = petitionRepository.GetSuggestionPetition();
+			}
+		}
+		// 카테고리 있을때 카테고리, 최신순, 추천순
+		else {
+			if(order == 1) {
+				petitionListAll = petitionRepository.GetRecentPetitionByKategorie(kategorie);
+			}
+			else{
+				petitionListAll = petitionRepository.GetSuggestionPetitionByKategorie(kategorie);
+			}
+		}
+		// 페이지에 보여질 7개씩 담을 List
+		List<GetPetitions> petitionList = new ArrayList<GetPetitions>();
+		int startIndex = (page-1)*7;
+		int endIndex = startIndex + 7;
+		for(int i = startIndex; i < endIndex; i++) {
+			//자료가 있는경우
+			if(petitionListAll.get(i) != null) {
+				petitionList.add(petitionListAll.get(i));
+			}
+			else {
+				break;
+			}
+		}
+		System.out.println("petitionList2 : "+petitionList);
+		getPetitionRespDto.setPetitionsList(petitionList);
+		
+		
+		
 		return getPetitionRespDto;
 	}
 	

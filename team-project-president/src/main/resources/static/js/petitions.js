@@ -49,9 +49,10 @@ function getWaitPetitions(petitionList) {
 
 
 
-// 분류별 청원 top 5부분
+// 분류별 청원 top 5부분 + 목록
 const top5Petitioinlist = document.querySelector('.top5_board_list');
 const kategorie = '전체';
+
 let petitionItem = ``;
 petitionLoad(kategorie);
 function petitionLoad(kategorie) {
@@ -93,5 +94,64 @@ function getPetitions(petitionList) {
 		
 	}
 	return petitionHtml;
+
+}
+
+// 전체 목록 불러오기
+const totalPetitioinlist = document.querySelector(".full_board_list");
+const pageTag = document.querySelectorAll(".pageBtn");
+
+let page = 1;
+let order = 1;
+let petitionTotalItem = ``;
+totalPetitionLoad(kategorie,page,order);
+
+for(let i = 0; i < pageTag.length; i++){
+	pageTag[i].onclick = () => {
+		alert(pageTag[i].textContent);
+	}
+}
+
+function totalPetitionLoad(kategorie,page,order) {
+	$.ajax({
+
+		type: "get",
+		url: `/petitions/total?kategorie=${kategorie}&page=${page}&order=${order}`,
+		dataType: "text",
+		success: function(data) {
+			alert(data)
+			petitionTotalItem = ``;
+			let totalPetitionListObj = JSON.parse(data);
+			petitionTotalItem+= getTotalPetitions(totalPetitionListObj.petitionsList);
+			totalPetitioinlist.innerHTML = petitionTotalItem;
+			
+		},
+		error: function() {
+			alert('비동기 처리오류');
+		}
+	});
+}
+function getTotalPetitions(petitionList) {
+	let totalPetitionHtml = ``;
+	for(let totalPet of petitionList){
+		totalPetitionHtml += `
+		<li>
+            <div class="full_list_wrap">
+                <div class="full_list_category">
+                    ${totalPet.kategorie}
+                </div>
+                <div class="full_list_subject">
+                    <a href="#"> ${totalPet.title} </a>
+                </div>
+                <div class="full_list_date">${totalPet.create_date}</div>
+                <div class="full_list_agree">${totalPet.agree_count}명</div>
+            </div>
+        </li>
+			
+		
+		`;
+		
+	}
+	return totalPetitionHtml;
 
 }

@@ -12,4 +12,12 @@ public interface PetitionRepository {
 	public List<GetPetitions> GetPetitionAll();
 	public List<GetPetitions> GetPetitionByid(int id);
 	public List<GetPetitions> GetWaitPetition();
+	//전체 최신순
+	public List<GetPetitions> GetRecentPetition();
+	//전체 추천순
+	public List<GetPetitions> GetSuggestionPetition();
+	//카테고리 최신순
+	public List<GetPetitions> GetRecentPetitionByKategorie(String kategorie);
+	//카테고리 추천순
+	public List<GetPetitions> GetSuggestionPetitionByKategorie(String kategorie);
 }

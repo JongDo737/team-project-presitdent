@@ -4,6 +4,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -31,7 +32,6 @@ public class PetitionController {
 	}
 	@GetMapping("/petitions/wait")
 	public Object getWaitPetition() {
-		System.out.println("controller");
 		return petitionService.GetWaitPetition();
 	}
 	
@@ -44,6 +44,10 @@ public class PetitionController {
 	public Object petitionsMypageForm(@AuthenticationPrincipal PrincipalDetails principalDetails) {
 		
 		return petitionService.GetPetitionByid(principalDetails);
+	}
+	@GetMapping("/petitions/total")
+	public Object getPetitionBykategorieAndOrder(@RequestParam String kategorie,@RequestParam int page,@RequestParam int order) {
+		return petitionService.GetPetitionBykategorieAndOrder(kategorie, page, order);
 	}
 	
 	
