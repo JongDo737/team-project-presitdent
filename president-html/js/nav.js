@@ -15,8 +15,8 @@ window.addEventListener('load', function () {
 });
 
 $(document).ready(function () {
-    $(".menu_list_title").mouseover(function () {
-        $(this).next("ul").stop().fadeIn(500);
+    $(".menu_list_title").mouseenter(function () {
+        $("menu_list").find("ul").stop().fadeIn(500);
         $(".menu_list_title").mouseleave(function () {
             $(this).next("ul").stop().fadeOut();
         });
