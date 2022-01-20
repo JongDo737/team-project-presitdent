@@ -64,15 +64,30 @@
 .contents_tab_li:hover {
     border-bottom: 5px solid #0a1645;
 }
-.map{
-    background: url(/image/way_to_come/pic_map01.png)
-    no-repeat center;
+.map, .map2, 
+.map3, .map4{
     background-size: cover;
     width: 1000px;
     height: 500px;
     margin: 0 auto;
     margin-bottom: 50px;
     margin-top: 80px;
+}
+.map{
+    background: url(/image/way_to_come/pic_map01.png)
+    no-repeat center;
+}
+.map2{
+    background: url(/image/way_to_come/pic_map02.png)
+    no-repeat center;
+}
+.map3{
+    background: url(/image/way_to_come/pic_map03.png)
+    no-repeat center;
+}
+.map4{
+    background: url(/image/way_to_come/pic_map04.png)
+    no-repeat center;
 }
 .map> a{
     width: 100%;
