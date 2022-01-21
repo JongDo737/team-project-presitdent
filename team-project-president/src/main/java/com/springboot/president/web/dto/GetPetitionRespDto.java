@@ -9,4 +9,5 @@ import lombok.Data;
 @Data
 public class GetPetitionRespDto {
 	private List<GetPetitions> petitionsList;
+	private int totalPageCount;
 }

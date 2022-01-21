@@ -24,7 +24,6 @@ public class PetitionController {
 	
 	@PostMapping("/petitions/Step2/write")
 	public String petitionWrite(@AuthenticationPrincipal PrincipalDetails principalDetails, PetitionReqDto petitionReqDto) {
-		System.out.println(petitionReqDto);
 		boolean insertCheck = petitionService.insertPetition(principalDetails, petitionReqDto);
 		
 		//주소 보내는곳 수정필요
@@ -36,8 +35,9 @@ public class PetitionController {
 	}
 	
 	@GetMapping("/petitions/board")
-	public Object getPetitionBykategorie(@RequestParam String kategorie) {
-		return petitionService.GetPetitionByKategorie(kategorie);
+	public Object getPetitionBykategorie(@RequestParam String kategorie, @RequestParam int only) {
+		System.out.println("컨트롤러");
+		return petitionService.GetPetitionByKategorie(kategorie, only);
 	}
 	
 	@GetMapping("/petitions/Mypage/List")
@@ -46,9 +46,8 @@ public class PetitionController {
 		return petitionService.GetPetitionByid(principalDetails);
 	}
 	@GetMapping("/petitions/total")
-	public Object getPetitionBykategorieAndOrder(@RequestParam String kategorie,@RequestParam int page,@RequestParam int order) {
-		System.out.println("컨트롤러"+"\n"+"kategorie : "+kategorie+"\n"+"page : "+page+"\n"+"order : "+order);
-		return petitionService.GetPetitionBykategorieAndOrder(kategorie, page, order);
+	public Object getPetitionBykategorieAndOrder(@RequestParam String kategorie,@RequestParam int only,@RequestParam int page,@RequestParam int order) {
+		return petitionService.GetPetitionBykategorieAndOrder(kategorie, only, page, order);
 	}
 	
 	

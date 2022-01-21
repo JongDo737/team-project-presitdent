@@ -141,16 +141,16 @@
                         <div class="category_tab">
                             <ul>
                                 <li>
-                                    <a href="#" class="category_tab_sel">진행 중 청원</a>
+                                    <a  id="category_tab_sel" class="kategorie_tab_select" value=1>진행 중 청원</a>
                                 </li>
                                 <li>
-                                    <a href="#">만료된 청원</a>
+                                    <a class="kategorie_tab_select" value=2>만료된 청원</a>
                                 </li>
                             </ul>
                         </div>
                         <div class="top5_body">
                             <div class="top5_board">
-                                <h4>전체 추천순 TOP5</h4>
+                                <h4 class="choochen">전체 추천순 TOP5</h4>
                                 <div class="top5_board_head">
                                     <div class="top5_board_wrap">
                                         <div class="top5_board_category">분류</div>
@@ -169,7 +169,7 @@
                         <div class="full_list_body">
                             <div class="full_list_main">
                                 <div class="full_list_title">
-                                    <h4>전체 목록</h4>
+                                    <h4 class="chenchaeList">전체 목록</h4>
                                     <div class="full_list_another">
                                         <a href="#">지금 청원하기</a>
                                         <select name="order" id="order" class="orderSelect">
