@@ -9,6 +9,10 @@
     <link rel="stylesheet" href="/css/nav.css">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" media="all" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="/js/seach.js"></script>
 </head>
 <body>
     <nav>
@@ -225,8 +229,8 @@
 					</select>
 					<ul id="login" class="search_PGbox">
 						<li class="search_PG_bar">
-							<!-- <label for="query" class="hide">검색어</label> -->
-							<input type="text" class="" title="검색어 입력" id="query" name="query" value="">
+							<label for="query" class="hide">검색어</label>
+							<input type="text" title="검색어 입력" id="query" name="query" value="">
 						</li>
 						<li class="search_PGbox_btn">
 							<input type="image" src="/image/search/searchPage_btn.jpg" title="검색하기">
@@ -238,30 +242,45 @@
         </div>
 		
     </div>
-	<div class="sch_tit">
-		<div class="sch_target">
-			<h3>검색대상</h3>
-			<label for="chkAll">
-				<input type="checkbox" name="searchChk" id="chkAll" value="ALL">
-				전체
-			</label>
-			<label for="chkAll">
-				<input type="checkbox" name="searchChk" id="chkAll" value="ALL">
-				제목
-			</label>
-			<label for="chkAll">
-			<input type="checkbox" name="searchChk" id="chkAll" value="ALL">
-				내용
-			</label>
+	<div class="PG_tit">
+            
+        <div class="PG_check">
+            <h4>검색대상</h4>
+            <ul>
+                <li><label for="chkAll"><input type="checkbox" name="searchChk" id="chkAll" checked="" value="ALL"> 전체</label></li>
+                <li><label for="chkTitle"><input type="checkbox" name="searchChk" id="chkTitle" value="title"> 제목</label></li>
+                <li><label for="chkContent"><input type="checkbox" name="searchChk" id="chkContent" value="content"> 내용</label></li>
+            </ul>
+        </div>
+            
+		<div class="PG_term">
+            <h4>검색기간</h4>
+            <ul>
+                <li id="on"><a href="#">전체</a></li>
+                <li><a href="#">최근1주</a></li>
+                <li><a href="#">최근1년</a></li>
+            </ul>
 		</div>
-		<div class="sch_term">
-
-		</div>
-		<div class="sch_calendar">
-
+		<div class="PG_calendar">
+            <input type="text" id="from" class="fromtxt"><input type="image" id="from" class="fromimg"src="/image/search/searchPage_calBtn.png"><span> ~    </span>
+            <input type="text" id="to" class="totxt">
+              <input type="image" id="to" class="toimg" src="/image/search/searchPage_calBtn.png">
 		</div>
 	</div>
-	
+	<div class="center_h2">
+        <h2>검색어 <span class="colb">""</span> 에 대한 검색 결과입니다. <span class="colr">(0건)</span></h2>
+    </div>
+    <ul class="btn5">
+        <li id="on"><a href="#">통합검색</a></li>
+        <li><a href="#">문재인 대통령</a></li>
+        <li><a href="#">청와대 뉴스룸</a></li>
+        <li><a href="#">토론방</a></li>
+        <li><a href="#">국민청원 및 제안</a></li>
+    </ul>
+    <div class="noresult_h2">
+        <h2>검색된 결과가 없습니다.</h2>
+    </div>
+
     <div class="footer">
         <div class="footer-container">
             <div class="footer-top">
@@ -418,23 +437,6 @@
             </div>
         </div>
     </div>
-<!-- 
 
-	jQuery(document).ready(function($) {
-    $("input[name=chk]:checkbox").change(function() {// 체크박스들이 변경됬을때
-        var cnt = $("#selCnt").val();
-        if( cnt==$("input[name=chk]:checkbox:checked").length ) {
-            $(":checkbox:not(:checked)").attr("disabled", "disabled");
-        } else {
-            $("input[name=chk]:checkbox").removeAttr("disabled");
-        }
-    });
- 
-    $("#selCnt").change(function() {
-        $("input[name=chk]:checkbox").removeAttr("checked");
-        $("input[name=chk]:checkbox").removeAttr("disabled");
-    });
-});
- -->
 </body>
 </html>
