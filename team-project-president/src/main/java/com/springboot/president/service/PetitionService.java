@@ -9,7 +9,10 @@ import com.springboot.president.web.dto.PetitionReqDto;
 
 public interface PetitionService {
 	public boolean insertPetition(PrincipalDetails principalDetails, PetitionReqDto petitionReqDto);
-	public GetPetitionRespDto GetPetitionByKategorie(String kategorie);
+	public GetPetitionRespDto GetPetitionByKategorie(String kategorie,int only);
 	public GetPetitionRespDto GetPetitionByid(PrincipalDetails principalDetails);
+	public GetPetitionRespDto GetWaitPetition();
+	public GetPetitionRespDto GetPetitionBykategorieAndOrder(String kategorie,int only, int page, int order);
+	
 	
 }

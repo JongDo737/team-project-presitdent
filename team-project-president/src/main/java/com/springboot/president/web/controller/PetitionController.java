@@ -4,6 +4,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,21 +24,30 @@ public class PetitionController {
 	
 	@PostMapping("/petitions/Step2/write")
 	public String petitionWrite(@AuthenticationPrincipal PrincipalDetails principalDetails, PetitionReqDto petitionReqDto) {
-		System.out.println(petitionReqDto);
 		boolean insertCheck = petitionService.insertPetition(principalDetails, petitionReqDto);
 		
 		//주소 보내는곳 수정필요
 		return "/petitions";
 	}
+	@GetMapping("/petitions/wait")
+	public Object getWaitPetition() {
+		return petitionService.GetWaitPetition();
+	}
+	
 	@GetMapping("/petitions/board")
-	public Object getPetitionBykategorie(@RequestParam String kategorie) {
-		return petitionService.GetPetitionByKategorie(kategorie);
+	public Object getPetitionBykategorie(@RequestParam String kategorie, @RequestParam int only) {
+		System.out.println("컨트롤러");
+		return petitionService.GetPetitionByKategorie(kategorie, only);
 	}
 	
 	@GetMapping("/petitions/Mypage/List")
 	public Object petitionsMypageForm(@AuthenticationPrincipal PrincipalDetails principalDetails) {
-		System.out.println("controller");
+		
 		return petitionService.GetPetitionByid(principalDetails);
+	}
+	@GetMapping("/petitions/total")
+	public Object getPetitionBykategorieAndOrder(@RequestParam String kategorie,@RequestParam int only,@RequestParam int page,@RequestParam int order) {
+		return petitionService.GetPetitionBykategorieAndOrder(kategorie, only, page, order);
 	}
 	
 	

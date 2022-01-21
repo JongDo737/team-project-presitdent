@@ -68,58 +68,7 @@
                             </div>
                         </div>
                         <ul class="board_list">
-                            <li>
-                                <div class="list_wrap">
-                                    <div class="list_category">
-                                        인권/성평등
-                                    </div>
-                                    <div class="list_subject">
-                                        <a href="#"> Lorem ipsum dolor sit amet consectetur adipisicing elit.Voluptas
-                                            molestias eaque est placeat accusantium </a>
-                                    </div>
-                                    <div class="list_date">22.01.13</div>
-                                    <div class="list_agree">123123명</div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="list_wrap">
-                                    <div class="list_category">
-                                        문화/예술/체육/언론
-                                    </div>
-                                    <div class="list_subject">
-                                        <a href="#"> Lorem ipsum dolor sit amet consectetur adipisicing elit.Voluptas
-                                            molestias eaque est placeat accusantium </a>
-                                    </div>
-                                    <div class="list_date">22.01.13</div>
-                                    <div class="list_agree">123123명</div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="list_wrap">
-                                    <div class="list_category">
-                                        반려동물
-                                    </div>
-                                    <div class="list_subject">
-                                        <a href="#"> Lorem ipsum dolor sit amet consectetur adipisicing elit.Voluptas
-                                            molestias eaque est placeat accusantium </a>
-                                    </div>
-                                    <div class="list_date">22.01.13</div>
-                                    <div class="list_agree">123123명</div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="list_wrap">
-                                    <div class="list_category">
-                                        보건복지
-                                    </div>
-                                    <div class="list_subject">
-                                        <a href="#"> Lorem ipsum dolor sit amet consectetur adipisicing elit.Voluptas
-                                            molestias eaque est placeat accusantium </a>
-                                    </div>
-                                    <div class="list_date">22.01.13</div>
-                                    <div class="list_agree">123123명</div>
-                                </div>
-                            </li>
+                            
                         </ul>
                     </div>
                 </div>
@@ -133,58 +82,58 @@
                             <ul>
                                 <li >
                                 	<!-- a태그를 #으로 주면 js안됌 이렇게 해야 자기 자신으로 인식하고 js실행됌 -->
-                                    <a href="javascript:void(0);" class="category_sel" onclick="petitionLoad(this.textContent);">전체</a>
+                                    <a id="category_sel" class="kategorieBtn">전체</a>
                                 </li>
                                 <li>
-                                    <a href="javascript:void(0);"  onclick="petitionLoad(this.textContent);">정치개혁</a>
+                                    <a id="" class="kategorieBtn">정치개혁</a>
                                 </li>
                                 <li>
-                                    <a href="javascript:void(0);"  onclick="petitionLoad(this.textContent);">외교/통일/국방</a>
+                                    <a id="" class="kategorieBtn">외교/통일/국방</a>
                                 </li>
                                 <li>
-                                    <a href="javascript:void(0);"  onclick="petitionLoad(this.textContent);">일자리</a>
+                                    <a id="" class="kategorieBtn">일자리</a>
                                 </li>
                                 <li>
-                                    <a href="javascript:void(0);"  onclick="petitionLoad(this.textContent);">미래</a>
+                                    <a id="" class="kategorieBtn">미래</a>
                                 </li>
                                 <li>
-                                    <a href="javascript:void(0);"  onclick="petitionLoad(this.textContent);">성장동력</a>
+                                    <a id="" class="kategorieBtn">성장동력</a>
                                 </li>
                                 <li>
-                                    <a href="javascript:void(0);"  onclick="petitionLoad(this.textContent);">농산어촌</a>
+                                    <a id="" class="kategorieBtn">농산어촌</a>
                                 </li>
                                 <li>
-                                    <a href="javascript:void(0);"  onclick="petitionLoad(this.textContent);">보건복지</a>
+                                    <a id="" class="kategorieBtn">보건복지</a>
                                 </li>
                                 <li>
-                                    <a href="javascript:void(0);"  onclick="petitionLoad(this.textContent);">육아/교육</a>
+                                    <a id="" class="kategorieBtn">육아/교육</a>
                                 </li>
                                 <li>
-                                    <a href="javascript:void(0);"  onclick="petitionLoad(this.textContent);">안전/환경</a>
+                                    <a id="" class="kategorieBtn">안전/환경</a>
                                 </li>
                                 <li>
-                                    <a href="javascript:void(0);"  onclick="petitionLoad(this.textContent);">저출산/고령화대책</a>
+                                    <a id="" class="kategorieBtn">저출산/고령화대책</a>
                                 </li>
                                 <li>
-                                    <a href="javascript:void(0);"  onclick="petitionLoad(this.textContent);">행정</a>
+                                    <a id="" class="kategorieBtn">행정</a>
                                 </li>
                                 <li>
-                                    <a href="javascript:void(0);"  onclick="petitionLoad(this.textContent);">반려동물</a>
+                                    <a id="" class="kategorieBtn">반려동물</a>
                                 </li>
                                 <li>
-                                    <a href="javascript:void(0);"  onclick="petitionLoad(this.textContent);">교통/건축/국토</a>
+                                    <a id="" class="kategorieBtn">교통/건축/국토</a>
                                 </li>
                                 <li>
-                                    <a href="javascript:void(0);"  onclick="petitionLoad(this.textContent);">경제민주화</a>
+                                    <a id="" class="kategorieBtn">경제민주화</a>
                                 </li>
                                 <li>
-                                    <a href="javascript:void(0);"  onclick="petitionLoad(this.textContent);">인권/성평등</a>
+                                    <a id="" class="kategorieBtn">인권/성평등</a>
                                 </li>
                                 <li>
-                                    <a href="javascript:void(0);"  onclick="petitionLoad(this.textContent);">문화/예술/체육/언론</a>
+                                    <a id="" class="kategorieBtn">문화/예술/체육/언론</a>
                                 </li>
                                 <li>
-                                    <a href="javascript:void(0);"  onclick="petitionLoad(this.textContent);">기타</a>
+                                    <a id="" class="kategorieBtn">기타</a>
                                 </li>
 
                             </ul>
@@ -192,16 +141,16 @@
                         <div class="category_tab">
                             <ul>
                                 <li>
-                                    <a href="#" class="category_tab_sel">진행 중 청원</a>
+                                    <a  id="category_tab_sel" class="kategorie_tab_select" value=1>진행 중 청원</a>
                                 </li>
                                 <li>
-                                    <a href="#">만료된 청원</a>
+                                    <a class="kategorie_tab_select" value=2>만료된 청원</a>
                                 </li>
                             </ul>
                         </div>
                         <div class="top5_body">
                             <div class="top5_board">
-                                <h4>전체 추천순 TOP5</h4>
+                                <h4 class="choochen">전체 추천순 TOP5</h4>
                                 <div class="top5_board_head">
                                     <div class="top5_board_wrap">
                                         <div class="top5_board_category">분류</div>
@@ -220,10 +169,10 @@
                         <div class="full_list_body">
                             <div class="full_list_main">
                                 <div class="full_list_title">
-                                    <h4>전체 목록</h4>
+                                    <h4 class="chenchaeList">전체 목록</h4>
                                     <div class="full_list_another">
                                         <a href="#">지금 청원하기</a>
-                                        <select name="order" id="order">
+                                        <select name="order" id="order" class="orderSelect">
                                             <option value="1" selected>최신순 보기</option>
                                             <option value="2">추천순 보기</option>
                                         </select>
@@ -241,106 +190,11 @@
                                     </div>
                                 </div>
                                 <ul class="full_board_list">
-                                    <li>
-                                        <div class="full_list_wrap">
-                                            <div class="full_list_category">
-                                                인권/성평등
-                                            </div>
-                                            <div class="full_list_subject">
-                                                <a href="#"> Lorem ipsum dolor sit amet consectetur adipisicing
-                                                    elit.Voluptas
-                                                    molestias eaque est placeat accusantium </a>
-                                            </div>
-                                            <div class="full_list_date">22.01.13</div>
-                                            <div class="full_list_agree">123123명</div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="full_list_wrap">
-                                            <div class="full_list_category">
-                                                인권/성평등
-                                            </div>
-                                            <div class="full_list_subject">
-                                                <a href="#"> Lorem ipsum dolor sit amet consectetur adipisicing
-                                                    elit.Voluptas
-                                                    molestias eaque est placeat accusantium </a>
-                                            </div>
-                                            <div class="full_list_date">22.01.13</div>
-                                            <div class="full_list_agree">123123명</div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="full_list_wrap">
-                                            <div class="full_list_category">
-                                                인권/성평등
-                                            </div>
-                                            <div class="full_list_subject">
-                                                <a href="#"> Lorem ipsum dolor sit amet consectetur adipisicing
-                                                    elit.Voluptas
-                                                    molestias eaque est placeat accusantium </a>
-                                            </div>
-                                            <div class="full_list_date">22.01.13</div>
-                                            <div class="full_list_agree">123123명</div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="full_list_wrap">
-                                            <div class="full_list_category">
-                                                인권/성평등
-                                            </div>
-                                            <div class="full_list_subject">
-                                                <a href="#"> Lorem ipsum dolor sit amet consectetur adipisicing
-                                                    elit.Voluptas
-                                                    molestias eaque est placeat accusantium </a>
-                                            </div>
-                                            <div class="full_list_date">22.01.13</div>
-                                            <div class="full_list_agree">123123명</div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="full_list_wrap">
-                                            <div class="full_list_category">
-                                                인권/성평등
-                                            </div>
-                                            <div class="full_list_subject">
-                                                <a href="#"> Lorem ipsum dolor sit amet consectetur adipisicing
-                                                    elit.Voluptas
-                                                    molestias eaque est placeat accusantium </a>
-                                            </div>
-                                            <div class="full_list_date">22.01.13</div>
-                                            <div class="full_list_agree">123123명</div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="full_list_wrap">
-                                            <div class="full_list_category">
-                                                인권/성평등
-                                            </div>
-                                            <div class="full_list_subject">
-                                                <a href="#"> Lorem ipsum dolor sit amet consectetur adipisicing
-                                                    elit.Voluptas
-                                                    molestias eaque est placeat accusantium </a>
-                                            </div>
-                                            <div class="full_list_date">22.01.13</div>
-                                            <div class="full_list_agree">123123명</div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="full_list_wrap">
-                                            <div class="full_list_category">
-                                                인권/성평등
-                                            </div>
-                                            <div class="full_list_subject">
-                                                <a href="#"> Lorem ipsum dolor sit amet consectetur adipisicing
-                                                    elit.Voluptas
-                                                    molestias eaque est placeat accusantium </a>
-                                            </div>
-                                            <div class="full_list_date">22.01.13</div>
-                                            <div class="full_list_agree">123123명</div>
-                                        </div>
-                                    </li>
+                                    
+                                    
+                                </ul>
                                     <!-- 검색창 -->
-                                    <div class="search_wrap">'
+                                    <div class="search_wrap">
                                         <form action="/search" method="post" class="form_control">
                                             <input type="text" class="search_ip">
                                             <button type="submit" class="search_btn">
@@ -352,16 +206,16 @@
                                     <div class="paging">
                                         <div class="wrap-paging-btn">
                                             <div class="paging-btn">
-                                                <a href="#" class="now-paging">1</a>
-                                                <a href="#">2</a>
-                                                <a href="#">3</a>
-                                                <a href="#">4</a>
-                                                <a href="#">5</a>
-                                                <a href="#">6</a>
-                                                <a href="#">7</a>
-                                                <a href="#">8</a>
-                                                <a href="#">9</a>
-                                                <a href="#">10</a>
+                                                <a  id="now-paging" class="pageBtn">1</a>
+                                                <a id="" class="pageBtn">2</a>
+                                                <a id="" class="pageBtn">3</a>
+                                                <a id="" class="pageBtn">4</a>
+                                                <a id="" class="pageBtn">5</a>
+                                                <a id="" class="pageBtn">6</a>
+                                                <a id="" class="pageBtn">7</a>
+                                                <a id="" class="pageBtn">8</a>
+                                                <a id="" class="pageBtn">9</a>
+                                                <a id="" class="pageBtn">10</a>
                                             </div>
                                             <div class="paging-btn-next">
                                                 <a href="#">Next</a>

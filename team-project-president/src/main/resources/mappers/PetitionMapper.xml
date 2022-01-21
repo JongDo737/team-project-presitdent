@@ -21,6 +21,72 @@
 		);
 	
 	</insert>
+	<select id="GetPetitionByid" resultType="com.springboot.president.domain.petition.GetPetitions">
+		SELECT
+			um.provider,
+			pm.petition_id,
+			pm.title,
+			pm.kategorie,
+			pm.content,
+			pm.link,
+			pm.tag,
+			pm.agree_count,
+			pm.create_date,
+			pm.end_date
+		FROM
+			petition_mst pm
+			LEFT OUTER JOIN user_mst um ON(um.id = pm.user_id)
+		WHERE
+			um.id = #{id};
+	</select>
+	<select id="GetWaitPetition" resultType="com.springboot.president.domain.petition.GetPetitions">
+		SELECT
+			um.provider,
+			pm.user_id,
+			pm.petition_id,
+			pm.title,
+			pm.kategorie,
+			pm.content,
+			pm.link,
+			pm.tag,
+			pm.agree_count,
+			pm.create_date,
+			pm.end_date
+			
+		FROM
+			petition_mst pm
+			LEFT OUTER JOIN user_mst um ON(um.id = pm.user_id)
+		where
+			agree_count >= 200000
+		ORDER BY
+			end_date DESC
+		LIMIT
+			4;	
+	</select>
+	<select id="GetPetitionAll" resultType="com.springboot.president.domain.petition.GetPetitions">
+		SELECT
+			um.provider,
+			pm.user_id,
+			pm.petition_id,
+			pm.title,
+			pm.kategorie,
+			pm.content,
+			pm.link,
+			pm.tag,
+			pm.agree_count,
+			pm.create_date,
+			pm.end_date
+			
+		FROM
+			petition_mst pm
+			LEFT OUTER JOIN user_mst um ON(um.id = pm.user_id)
+		ORDER BY
+			agree_count DESC
+		LIMIT
+			5;	
+	
+	
+	</select>
 	<select id="GetPetitionByKategorie" resultType="com.springboot.president.domain.petition.GetPetitions" parameterType="String">
 		SELECT
 			um.provider,
@@ -47,7 +113,9 @@
 	
 	
 	</select>
-	<select id="GetPetitionAll" resultType="com.springboot.president.domain.petition.GetPetitions">
+	
+	
+	<select id="GetRecentPetition" resultType="com.springboot.president.domain.petition.GetPetitions">
 		SELECT
 			um.provider,
 			pm.user_id,
@@ -64,16 +132,15 @@
 		FROM
 			petition_mst pm
 			LEFT OUTER JOIN user_mst um ON(um.id = pm.user_id)
+		
 		ORDER BY
-			agree_count DESC
-		LIMIT
-			5;	
-	
-	
+			create_date DESC;
+		
 	</select>
-	<select id="GetPetitionByid" resultType="com.springboot.president.domain.petition.GetPetitions">
+	<select id="GetSuggestionPetition" resultType="com.springboot.president.domain.petition.GetPetitions">
 		SELECT
 			um.provider,
+			pm.user_id,
 			pm.petition_id,
 			pm.title,
 			pm.kategorie,
@@ -83,11 +150,208 @@
 			pm.agree_count,
 			pm.create_date,
 			pm.end_date
+			
+		FROM
+			petition_mst pm
+			LEFT OUTER JOIN user_mst um ON(um.id = pm.user_id)
+		
+		ORDER BY
+			agree_count DESC;
+	</select>
+	<select id="GetRecentPetitionByKategorie" resultType="com.springboot.president.domain.petition.GetPetitions" parameterType="String">
+		SELECT
+			um.provider,
+			pm.user_id,
+			pm.petition_id,
+			pm.title,
+			pm.kategorie,
+			pm.content,
+			pm.link,
+			pm.tag,
+			pm.agree_count,
+			pm.create_date,
+			pm.end_date
+			
+		FROM
+			petition_mst pm
+			LEFT OUTER JOIN user_mst um ON(um.id = pm.user_id)
+		where
+		kategorie = #{kategorie}
+		ORDER BY
+			create_date DESC;
+	</select>
+	<select id="GetSuggestionPetitionByKategorie" resultType="com.springboot.president.domain.petition.GetPetitions" parameterType="String">
+		SELECT
+			um.provider,
+			pm.user_id,
+			pm.petition_id,
+			pm.title,
+			pm.kategorie,
+			pm.content,
+			pm.link,
+			pm.tag,
+			pm.agree_count,
+			pm.create_date,
+			pm.end_date
+			
 		FROM
 			petition_mst pm
 			LEFT OUTER JOIN user_mst um ON(um.id = pm.user_id)
 		WHERE
-			um.id = #{id};
+		 kategorie = #{kategorie}
+		ORDER BY
+			agree_count DESC;
+	</select>
+	
+	
+	<select id="GetPetitionAllOver" resultType="com.springboot.president.domain.petition.GetPetitions">
+		SELECT
+			um.provider,
+			pm.user_id,
+			pm.petition_id,
+			pm.title,
+			pm.kategorie,
+			pm.content,
+			pm.link,
+			pm.tag,
+			pm.agree_count,
+			pm.create_date,
+			pm.end_date
+			
+		FROM
+			petition_mst pm
+			LEFT OUTER JOIN user_mst um ON(um.id = pm.user_id)
+		WHERE
+			end_date &lt; #{nowDate}
+		ORDER BY
+			agree_count DESC
+		LIMIT
+			5;	
+	
+	
+	</select>
+	<select id="GetPetitionByKategorieOver" resultType="com.springboot.president.domain.petition.GetPetitions" parameterType="String">
+		SELECT
+			um.provider,
+			pm.user_id,
+			pm.petition_id,
+			pm.title,
+			pm.kategorie,
+			pm.content,
+			pm.link,
+			pm.tag,
+			pm.agree_count,
+			pm.create_date,
+			pm.end_date
+			
+		FROM
+			petition_mst pm
+			LEFT OUTER JOIN user_mst um ON(um.id = pm.user_id)
+		WHERE
+			pm.kategorie = #{kategorie}
+			and
+			end_date &lt; #{nowDate}
+		ORDER BY
+			agree_count DESC
+		LIMIT
+			5;	
+	
+	
+	</select>
+	
+	
+	<select id="GetRecentPetitionOver" resultType="com.springboot.president.domain.petition.GetPetitions">
+		SELECT
+			um.provider,
+			pm.user_id,
+			pm.petition_id,
+			pm.title,
+			pm.kategorie,
+			pm.content,
+			pm.link,
+			pm.tag,
+			pm.agree_count,
+			pm.create_date,
+			pm.end_date
+			
+		FROM
+			petition_mst pm
+			LEFT OUTER JOIN user_mst um ON(um.id = pm.user_id)
+		where
+			end_date &lt; #{nowDate}
+		ORDER BY
+			create_date DESC;
+		
+	</select>
+	<select id="GetSuggestionPetitionOver" resultType="com.springboot.president.domain.petition.GetPetitions">
+		SELECT
+			um.provider,
+			pm.user_id,
+			pm.petition_id,
+			pm.title,
+			pm.kategorie,
+			pm.content,
+			pm.link,
+			pm.tag,
+			pm.agree_count,
+			pm.create_date,
+			pm.end_date
+			
+		FROM
+			petition_mst pm
+			LEFT OUTER JOIN user_mst um ON(um.id = pm.user_id)
+		where
+			end_date &lt; #{nowDate}
+		ORDER BY
+			agree_count DESC;
+	</select>
+	<select id="GetRecentPetitionByKategorieOver" resultType="com.springboot.president.domain.petition.GetPetitions" parameterType="String">
+		SELECT
+			um.provider,
+			pm.user_id,
+			pm.petition_id,
+			pm.title,
+			pm.kategorie,
+			pm.content,
+			pm.link,
+			pm.tag,
+			pm.agree_count,
+			pm.create_date,
+			pm.end_date
+			
+		FROM
+			petition_mst pm
+			LEFT OUTER JOIN user_mst um ON(um.id = pm.user_id)
+		where
+			kategorie = #{kategorie}
+			and
+			end_date &lt; #{nowDate}
+		ORDER BY
+			create_date DESC;
+	</select>
+	<select id="GetSuggestionPetitionByKategorieOver" resultType="com.springboot.president.domain.petition.GetPetitions" parameterType="String">
+		SELECT
+			um.provider,
+			pm.user_id,
+			pm.petition_id,
+			pm.title,
+			pm.kategorie,
+			pm.content,
+			pm.link,
+			pm.tag,
+			pm.agree_count,
+			pm.create_date,
+			pm.end_date
+			
+		FROM
+			petition_mst pm
+			LEFT OUTER JOIN user_mst um ON(um.id = pm.user_id)
+		WHERE
+		 	kategorie = #{kategorie}
+		 	and
+			end_date &lt; #{nowDate}
+		ORDER BY
+			agree_count DESC;
 	</select>
 
 </mapper>

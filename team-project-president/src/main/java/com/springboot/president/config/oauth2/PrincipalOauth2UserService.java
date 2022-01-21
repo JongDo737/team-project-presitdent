@@ -27,7 +27,6 @@ public class PrincipalOauth2UserService extends DefaultOAuth2UserService{
 	@Override
 	public OAuth2User loadUser(OAuth2UserRequest userRequest) throws OAuth2AuthenticationException {
 		OAuth2User oAuth2User = super.loadUser(userRequest);
-		System.out.println(oAuth2User);
 		Map<String, Object> oAuth2UserAttributes = oAuth2User.getAttributes();
 		String provider = userRequest.getClientRegistration().getRegistrationId();
 		String providerId = null;
@@ -51,10 +50,8 @@ public class PrincipalOauth2UserService extends DefaultOAuth2UserService{
 		else {
 			providerId = UUID.randomUUID().toString().replaceAll("-", "");
 		}
-		System.out.println(oAuth2UserAttributes);
 		//naver_FOWAENOIENGOISVJV9482EJE9Z83WH 이렇게 이름이 들어갈꺼임
 		String username = provider + "_" + providerId;
-		System.out.println(username);
 		Oauth2UserDto oauth2UserDto = Oauth2UserDto.builder()
 				.username(username)
 				.provider(provider)
