@@ -1,0 +1,216 @@
+.s_box{
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.top_img{
+    background: url(/image/search/bg_search.jpg)no-repeat center;
+    background: url(/image//search/searchPage_bg.jpg)no-repeat center;
+    background-size: cover;
+    width: 100%;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    
+}
+.s_box h2{
+    color: #fff;
+    font-size: 48px;
+    font-weight: 600;
+    margin-bottom: 50px;
+    letter-spacing: -2px;
+    text-shadow: 0 5px 15px rgb(0 0 0 / 40%);
+    display: flex;
+    justify-content: center; 
+    margin: 17px; 
+}
+.w_line{
+    width: 33%;
+    border-bottom: 0.1px solid #fff;
+    display: flex;
+    align-content: center;
+}
+.w_line2{
+    width: 33%;
+    border-bottom: 0.1px solid #fff;
+}
+#select_box #color{
+    font-size: 16px;
+	position: relative;
+    /* width: 150px;
+    height: 52px; */
+    background-color: #fff;
+    background-image: url(/images/search/search_select.png);
+    background-repeat: no-repeat;
+    background-position: 111px 8px;
+    border: 4px solid #0c396f;
+	float:left;
+	margin-right:6px;
+}
+option{
+    font-size: 12px;
+}
+#color{
+    width: 150px;
+    height: 52px;
+    padding: 5px;
+
+}
+.search_PGbox {
+    position: relative;
+	float:left;
+}
+
+.search_PG_bar input[type="text"] {
+    width: 500px;
+    height: 53px;
+    border: 4px solid #0c396f;
+    padding-left: 5px;
+    font-size: 17px;
+    color: #6d6d6d;
+}
+
+.search_PGbox_btn input[type="image"] {
+    position: absolute;
+    top: 1px;
+    right: 1px;
+}
+
+.search_PG_check{
+	overflow: hidden;
+    width: 100%;
+    height: 60px;
+    border-bottom: 1px solid #7f7f7f;
+}
+.search_PG_check_area{
+	overflow: hidden;
+    max-width: 1220px;
+    margin: 11px auto 0 auto;
+	padding:0 20px;
+}
+
+.contents_tab {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    border-bottom: 1px solid #7f7f7f;
+}
+.contents_tab_li {
+    display: grid;
+    color: #8e8e8e;
+    font-weight: 700;
+    height: 55px;
+    align-items: center;
+}
+.contents_tab a {
+    margin-left: -1px;
+    width: 100%;
+    height: 20px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #8e8e8e;
+    text-align: center;
+    text-decoration-line: none;
+}
+.contents_tab #on{
+    border-bottom: 5px solid #0a1645; 
+}
+.contents_tab #on a{
+    color: #0a1645;
+}
+
+.contents_tab #on a{
+    color: #0a1645;
+}
+#tab_bar {
+    border-right: 1px solid #7f7f7f;
+}
+.tab_menu:hover{
+    color: #0a1645;
+    height: 20px;
+}
+.contents_tab_li:hover {
+    border-bottom: 5px solid #0a1645;
+}
+.map, .map2, 
+.map3, .map4{
+    background-size: cover;
+    width: 1000px;
+    height: 500px;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    margin-top: 80px;
+}
+.map{
+    background: url(/image/way_to_come/pic_map01.png)
+    no-repeat center;
+}
+.map2{
+    background: url(/image/way_to_come/pic_map02.png)
+    no-repeat center;
+}
+.map3{
+    background: url(/image/way_to_come/pic_map03.png)
+    no-repeat center;
+}
+.map4{
+    background: url(/image/way_to_come/pic_map04.png)
+    no-repeat center;
+}
+.map> a{
+    width: 100%;
+    height: 100%;
+    display: block;
+    display: flex;
+    justify-content: center;
+}
+.map > a > img{
+    width: 404px;
+    height: 335px;
+    position: relative;
+    left: 150px;
+    top: 10px;
+}
+.table-wrap{
+    display: flex;
+    justify-content: center;
+}
+.grid-table{
+    display: grid;
+    grid-template-columns: 200px 800px;
+    width: 1000px;
+    margin-bottom: 50px;
+    color: #565656;
+    font-weight: 500;
+    font-size: 17px;
+    letter-spacing: -1px;
+}
+.grid-table > div{
+    border-top: 1px solid rgb(230, 230, 230);
+    border-left: 1px solid rgb(230, 230, 230);
+    padding: 20px;
+}
+.grid-table > div:nth-child(9),
+.grid-table > div:last-child{
+    border-bottom: 1px solid rgb(230, 230, 230);
+}
+.grid-table > div .circle{
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 25px;
+    margin-right: 5px;
+    color: #fff;
+}
+.bus_g{
+    background-color: darkblue;
+}
+.bus_b{
+    background-color: rgb(22, 180, 22);
+}
+.thcolor{
+    background-color: rgb(248, 248, 248);
+    font-weight: 500;
+}
