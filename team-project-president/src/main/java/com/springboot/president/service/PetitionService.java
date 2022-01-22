@@ -11,5 +11,5 @@ public interface PetitionService {
 	public boolean insertPetition(PrincipalDetails principalDetails, PetitionReqDto petitionReqDto);
 	public GetPetitionRespDto GetPetitionByKategorie(String kategorie);
 	public GetPetitionRespDto GetPetitionByid(PrincipalDetails principalDetails);
-	
+	public GetPetitionRespDto GetPetitionByTitle(String title);
 }

@@ -11,4 +11,5 @@ public interface PetitionRepository {
 	public List<GetPetitions> GetPetitionByKategorie(String kategorie);
 	public List<GetPetitions> GetPetitionAll();
 	public List<GetPetitions> GetPetitionByid(int id);
+	public List<GetPetitions> getPetitionByTitle(String title);
 }

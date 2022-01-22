@@ -78,6 +78,15 @@ public class PetitionServiceImpl implements PetitionService{
 		
 		return getPetitionRespDto;
 	}
+
+
+	@Override
+	public GetPetitionRespDto GetPetitionByTitle(String title) {
+		List<GetPetitions> petitionList = petitionRepository.getPetitionByTitle(title);
+		GetPetitionRespDto getPetitionRespDto = new GetPetitionRespDto();
+		getPetitionRespDto.setPetitionsList(petitionList);
+		return getPetitionRespDto;
+	}
 	
 
 }

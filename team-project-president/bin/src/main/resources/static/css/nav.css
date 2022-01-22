@@ -1,0 +1,115 @@
+
+.head_navi {
+    position: absolute;
+    top: 0;
+    left: 30px;
+    width: 100%;
+    display: inline-block;
+    z-index: 50;
+}
+.nav_logo{
+    display: none;
+    position: relative;
+    right: 180px;
+}
+.nav_logo img{
+    margin-top: 10px;
+}
+#head {
+    width: 169px;
+    height: 197px;
+    background-image: url(/image/nav/logo_bg.png);
+    background-repeat: no-repeat;
+    position: absolute;
+    z-index: 100;
+    transform: translate3d(0px, 0px, 0px);
+}
+
+.head {
+    transform: translate3d(0px, -40%, 0px);
+}
+
+
+.head_navi div a {
+    display: block;
+    text-align: center;
+    padding: 55px 0 20px 0;
+}
+
+#navigator_menu {
+    position: absolute;
+    background-image: url(/image/nav/navi_bar.png);
+    height: 67px;
+    width: 100%;
+    top: 55px;
+}
+
+.nav_menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+}
+.menu_list{
+    width: 10%;
+    text-align: center;
+}
+
+.menu_list:hover {
+    background-color: #001f50;
+}
+
+.menu_list_title {
+    display: block;
+    padding: 0;
+    margin: 0;
+    height: 67px;
+    line-height: 67px;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 17px;
+    color: #fff;
+}
+.menu_list_title:hover{
+    background-color: #001f50;
+}
+.menu_sub{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 10%;
+    z-index: 10;
+}
+.menu_sub li {
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 31, 80, 0.70);
+    width: 100%;
+}
+.menu_sub li a{
+    color: white;
+    font-size: 0.9em;
+    font-weight: 600;
+}
+.menu_sub li a:hover {
+    text-decoration-line: underline;
+}
+.menu_sub li a span {
+    color:#00dcff;
+}
+.menu_list_search {
+    padding: 15px 25px;
+}

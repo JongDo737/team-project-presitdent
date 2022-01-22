@@ -89,5 +89,22 @@
 		WHERE
 			um.id = #{id};
 	</select>
+	
+	<select id="GetPetitionByTitle" resultType="com.springboot.president.domain.petition.GetPetitions" parameterType="String">
+		SELECT
+			um.provider,
+			pm.kategorie,
+			pm.title,
+			pm.end_date,
+			pm.agree_count
+			
+		FROM
+			petition_mst pm
+			LEFT OUTER JOIN user_mst um ON(um.id = pm.id)
+		WHERE
+			pm.title = #{title}
+		ORDER BY
+			agree_count DESC;	
+	</select>
 
 </mapper>
