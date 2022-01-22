@@ -8,8 +8,10 @@ import com.springboot.president.config.auth.PrincipalDetails;
 import com.springboot.president.domain.petition.GetPetitions;
 import com.springboot.president.domain.petition.Petition;
 import com.springboot.president.domain.petition.PetitionRepository;
+import com.springboot.president.web.dto.BoardPetitionRespDto;
 import com.springboot.president.web.dto.GetPetitionRespDto;
 import com.springboot.president.web.dto.PetitionReqDto;
+import com.springboot.president.web.dto.ReplyReqDto;
 
 import lombok.RequiredArgsConstructor;
 
@@ -27,7 +29,6 @@ public class PetitionServiceImpl implements PetitionService{
 		
 		// 엔티티 생성
 		Petition petitionEntity = petitionReqDto.toEntity(principalDetails.getUser().getId(), tag);
-		System.out.println(petitionEntity);
 		int insertResultNum = petitionRepository.insertPetition(petitionEntity);
 		boolean insertCheck;
 		if(insertResultNum == 1) {
@@ -74,10 +75,35 @@ public class PetitionServiceImpl implements PetitionService{
 		System.out.println(petitionList);
 		GetPetitionRespDto getPetitionRespDto = new GetPetitionRespDto();
 		getPetitionRespDto.setPetitionsList(petitionList);
-		System.out.println(getPetitionRespDto);
 		
 		return getPetitionRespDto;
 	}
-	
+
+
+	@Override
+	public BoardPetitionRespDto BoardPetitionByPetitionid(PrincipalDetails principalDetails, int petition_id) {
+		// 데이터 담기
+		GetPetitions petitionEntity = petitionRepository.GetBoardByPetitionId(petition_id);
+		BoardPetitionRespDto boardPetitionRespDto = petitionEntity.toResp(principalDetails.getUser().getId());
+		return boardPetitionRespDto;
+	}
+
+
+	@Override
+	public boolean insertPetitionReply(PrincipalDetails principalDetails, ReplyReqDto replyReqDto) {
+		Petition replyEntity = replyReqDto.toEntity(principalDetails.getUser().getId());
+		int result = petitionRepository.insertPetition(replyEntity);
+		System.out.println(result);
+		boolean replyResult;
+		if(result == 1) {
+			replyResult = true;
+		}else {
+			replyResult = false;
+		}
+		return replyResult;
+		
+	}
+
+
 
 }
