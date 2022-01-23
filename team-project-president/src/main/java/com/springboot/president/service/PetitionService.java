@@ -13,4 +13,5 @@ public interface PetitionService {
 	public GetPetitionRespDto GetPetitionByid(PrincipalDetails principalDetails);
 	public BoardPetitionRespDto BoardPetitionByPetitionid(PrincipalDetails principalDetails, int petition_id);
 	public boolean insertPetitionReply(PrincipalDetails principalDetails, ReplyReqDto replyReqDto);
+	public GetPetitionRespDto GetWaitPetition();
 }

@@ -118,5 +118,12 @@ public class PetitionServiceImpl implements PetitionService{
 	}
 
 
+	@Override
+	public GetPetitionRespDto GetWaitPetition() {
+		List<GetPetitions> petitionList = petitionRepository.GetWaitPetition();
+		GetPetitionRespDto getPetitionRespDto = new GetPetitionRespDto();
+		getPetitionRespDto.setPetitionsList(petitionList);
+		return getPetitionRespDto;
+	}
 
 }

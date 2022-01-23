@@ -136,7 +136,7 @@
 			WHERE
 				pm.petition_id = #{petition_id};
 	</select>
-	
+
 	<insert id="insertPetitionReply" parameterType="com.springboot.president.domain.petition.Petition">
 		INSERT INTO
 			petition_board_mst
@@ -150,5 +150,28 @@
 		);
 	
 	</insert>
+	
+	<select id="GetWaitPetition" resultType="com.springboot.president.domain.petition.GetPetitions">
+		SELECT
+			um.provider,
+			pm.petition_id,
+			pm.title,
+			pm.kategorie,
+			pm.content,
+			pm.link,
+			pm.tag,
+			pm.agree_count,
+			pm.create_date,
+			pm.end_date
+		FROM
+			petition_mst pm
+			LEFT OUTER JOIN user_mst um ON(um.id = pm.user_id)
+		WHERE
+			agree_count >= 200000
+		ORDER BY
+			end_date DESC
+		LIMIT
+			4;
+	</select>
 
 </mapper>

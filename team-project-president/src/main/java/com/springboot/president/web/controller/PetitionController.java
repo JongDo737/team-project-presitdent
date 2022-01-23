@@ -47,8 +47,8 @@ public class PetitionController {
 		System.out.println(replyResult + "확인 체크");
 		return "/petitions";
 	}
-
-	
-	
-	
+	@GetMapping("/petitions/wait/list")
+	public Object getWaitPetition(){
+		return petitionService.GetWaitPetition();
+	}
 }

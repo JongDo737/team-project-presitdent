@@ -14,5 +14,6 @@ public interface PetitionRepository {
 	public List<GetPetitions> GetPetitionByid(int id);
 	public GetPetitions GetBoardByPetitionId(int petition_id);
 	public int insertPetitionReply(Petition petition);
+	public List<GetPetitions> GetWaitPetition();
 }
  
