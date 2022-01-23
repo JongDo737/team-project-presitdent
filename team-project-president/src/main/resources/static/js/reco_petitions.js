@@ -13,14 +13,14 @@ function petitionLoad() {
 		type: "get",
 		url: `/petitions/list`,
 		dataType: "text",
-		success: function(data) {
+		success: function (data) {
 			petitionItem = ``;
 			let petitionListObj = JSON.parse(data);
-			petitionItem+= getPetitions(petitionListObj.petitionsList);
+			petitionItem += getPetitions(petitionListObj.petitionsList);
 			recoPetitioinlist.innerHTML = petitionItem;
-			
+
 		},
-		error: function() {
+		error: function () {
 			alert('비동기 처리오류');
 		}
 	});
@@ -28,7 +28,7 @@ function petitionLoad() {
 
 function getPetitions(petitionList) {
 	let petitionHtml = ``;
-	for(let pet of petitionList){
+	for (let pet of petitionList) {
 		petitionHtml += `
 						<li>
                             <div class="reco_full_list_wrap">
@@ -44,7 +44,7 @@ function getPetitions(petitionList) {
                         </li>
 		
 		`;
-		
+
 	}
 	return petitionHtml;
 }
@@ -52,19 +52,19 @@ function getPetitions(petitionList) {
 /////////////////////////////////////////////////////////////////////////////////////
 waitPetitionlist = ``;
 watiPetitionLoad();
-let waitPetitionItem=``;
+let waitPetitionItem = ``;
 function watiPetitionLoad() {
 	$.ajax({
-		type:"get",
+		type: "get",
 		url: `/petitions/list/wait`,
 		dataType: "text",
-		success: function(data) {
+		success: function (data) {
 			waitPetitionItem = ``;
 			let waitPetitionListObj = JSON.parse(data);
 			waitPetitionItem += getWaitPetitions(waitPetitionListObj.petitionsList);
 			waitPetitionlist.innerHTML = waitPetitionItem;
 		},
-		error : function() {
+		error: function () {
 			alert('비동기 처리 오류');
 		}
 	})
@@ -72,7 +72,7 @@ function watiPetitionLoad() {
 
 function getWaitPetitions(petitionList) {
 	let petitionHtml = ``;
-	for(let Waitpet of petitionList){
+	for (let Waitpet of petitionList) {
 		petitionHtml += `
 				 	<li>
                         <div class="list_wrap">
