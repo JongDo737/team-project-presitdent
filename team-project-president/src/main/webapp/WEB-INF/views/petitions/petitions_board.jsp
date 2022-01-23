@@ -1,3 +1,5 @@
+xcv<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,10 +11,14 @@
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/petitions_board.css">
     <script src="https://kit.fontawesome.com/14533f5127.js" crossorigin="anonymous"></script>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 </head>
 
 <body>
     <section class="petitions_head">
+    	<nav>
+            <jsp:include page="../include/nav.jsp"></jsp:include>
+        </nav>
         <div class="petitions_head_txt">
             <img src="../image/petitions_txt.png">
         </div>
@@ -32,34 +38,34 @@
     </div>
     <div class="board_area">
         <div class="board_petitions_view">
-            <div class="board_petitions_title">
-                <h4 id="board_status_sel" class="board_status_title">청원 시작</h4>
-                <h4 id="" class="board_status_title">청원 진행중</h4>
-                <h4 id="" class="board_status_title">청원 종료</h4>
-                <h4 id="" class="board_status_title">답변 완료</h4>
-                <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
-                <h2>참여인원 : [ <span class="counter">232,868</span>명 ]</h2>
+            <div class="board_petitions_title">           
+                	<h4 id="board_status_sel" class="board_status_title">청원 시작</h4>
+	                <h4 id="" class="board_status_title">청원 진행중</h4>
+	                <h4 id="" class="board_status_title">청원 종료</h4>
+	                <h4 id="" class="board_status_title">답변 완료</h4>         
+                <h3>${boardPetitionRespDto.title }</h3>
+                <h2>참여인원 : [ <span class="counter">${boardPetitionRespDto.agree_count }</span>명 ]</h2>
             </div>
             <div class="board_view_list">
                 <ul>
                     <li class="board_list_info">
-                        <p>카테고리</p>문화/예술/체육/언론
+                        <p>카테고리</p>${boardPetitionRespDto.kategorie }
+                    </li>
+                    <li class="board_list_info" >
+                        <p>청원시작</p> <p class="board_list_info_date">${boardPetitionRespDto.create_date }</p>
                     </li>
                     <li class="board_list_info">
-                        <p>청원시작</p>2021-12-20
+                        <p>청원마감</p> <p class="board_list_info_date">${boardPetitionRespDto.end_date }</p>
                     </li>
                     <li class="board_list_info">
-                        <p>청원마감</p>2022-01-19
-                    </li>
-                    <li class="board_list_info">
-                        <p>청원인</p>naver - ***
+                        <p>청원인</p>${boardPetitionRespDto.provider }
                     </li>
                 </ul>
             </div>
             <div class="board_view_grapy">
                 <div class="board_grapy_line"></div>
                 <ul>
-                    <li class="board_view_point">
+                     <li class="board_view_point">
                         <div id="point_box" class="dot"></div>
                         <h4 id="current_status" class="board_grapy_status">청원시작</h4>
                     </li>
@@ -84,29 +90,7 @@
                 <div class="board_view_writeHead">
                     <h4>청원 내용</h4>
                 </div>
-                <div class="board_view_maintext">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, repudiandae quis ut
-                    exercitationem illo velit tempora nesciunt dolore voluptates suscipit hic architecto eveniet
-                    impedit
-                    accusantium officiis, asperiores dolorem alias praesentium.
-
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, repudiandae quis ut
-                    exercitationem illo velit tempora nesciunt dolore voluptates suscipit hic architecto eveniet
-                    impedit
-                    accusantium officiis, asperiores dolorem alias praesentium.
-
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, repudiandae quis ut
-                    exercitationem illo velit tempora nesciunt dolore voluptates suscipit hic architecto eveniet
-                    impedit
-                    accusantium officiis, asperiores dolorem alias praesentium.
-
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, repudiandae quis ut
-                    exercitationem illo velit tempora nesciunt dolore voluptates suscipit hic architecto eveniet
-                    impedit
-                    accusantium officiis, asperiores dolorem alias praesentium.
-
-
-                </div>
+                <div class="board_view_maintext">${boardPetitionRespDto.content }</div>
             </div>
             <ul class="board_url_link">
                 <li>
@@ -116,7 +100,7 @@
             </ul>
             <div class="board_reply_area">
                 <div class="reply_area_head">
-                    <h3 class="reply_area_agree">청원동의<span> 364,710</span>명</h3>
+                    <h3 class="reply_area_agree">청원동의<span> ${boardPetitionRespDto.agree_count }</span>명</h3>
                     <div class="reply_area_sns">
                         <span>SNS 공유하기</span>
                         <ul>
@@ -144,15 +128,15 @@
                 </div>
                 <div class="reply_area_write">
                     <div class="reply_write_space">
-                        <form action="#" method="post" class="reply_form">
+                        <form action="/petitions/reply_write" method="post" class="reply_form">
                             <input type="hidden">
                             <textarea id="reply_textarea" placeholder="소셜로그인후 이용하실 수 있습니다."></textarea>
-                            <button type="button">동의</button>
+                            <button id="reply_submit_btn" type="submit">동의</button>
                         </form>
                     </div>
                 </div>
                 <div class="reply_list_open">
-                    <a href="#">동의 내용 보기<i class="fas fa-chevron-down"></i></a>
+                    <div class="reply_view_btn">동의 내용 보기<i class="fas fa-chevron-down"></i></div>
                 </div>
                 <div class="reply_list_all">
                     <ul>
@@ -250,6 +234,10 @@
             </div>
         </div>
     </div>
+    <script src="/js/petitions_board.js"></script>
+    <nav>
+    	<jsp:include page="../include/footer.jsp"></jsp:include>
+    </nav>
 </body>
 
 </html>

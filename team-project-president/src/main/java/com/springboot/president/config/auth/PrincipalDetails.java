@@ -27,7 +27,6 @@ public class PrincipalDetails implements UserDetails, OAuth2User{
 	public PrincipalDetails(User user, Map<String, Object> atttributes) {
 		this.user = user;
 		this.atttributes = atttributes;
-		System.out.println("test");
 	}
 	
 

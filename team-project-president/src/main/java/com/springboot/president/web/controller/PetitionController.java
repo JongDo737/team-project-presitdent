@@ -1,8 +1,6 @@
 package com.springboot.president.web.controller;
 
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,8 +9,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.springboot.president.config.auth.PrincipalDetails;
 import com.springboot.president.service.PetitionService;
-import com.springboot.president.web.dto.GetPetitionRespDto;
 import com.springboot.president.web.dto.PetitionReqDto;
+import com.springboot.president.web.dto.ReplyReqDto;
 
 import lombok.RequiredArgsConstructor;
 
@@ -50,5 +48,16 @@ public class PetitionController {
 		return petitionService.GetPetitionBykategorieAndOrder(kategorie, only, page, order);
 	}
 	
+	@GetMapping("/petitions/list")
+	public Object getPetitionBykategorie() {
+		return petitionService.GetPetitionByAgreeCount();
+	}
 	
+	@PostMapping("/petitions/reply_write")
+	public String petitionWrite(@AuthenticationPrincipal PrincipalDetails principalDetails, ReplyReqDto replyReqDto) {
+		boolean replyResult = petitionService.insertPetitionReply(principalDetails, replyReqDto);
+		System.out.println(replyResult + "확인 체크");
+		return "/petitions";
+	}
+
 }

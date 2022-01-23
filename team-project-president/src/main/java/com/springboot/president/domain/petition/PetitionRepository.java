@@ -38,4 +38,10 @@ public interface PetitionRepository {
 	public List<GetPetitions> GetRecentPetitionByKategorieOver(String kategorie, String nowDate);
 	//카테고리 추천순
 	public List<GetPetitions> GetSuggestionPetitionByKategorieOver(String kategorie, String nowDate);
+
+	public List<GetPetitions> GetRecoPetitionAll();
+	public GetPetitions GetBoardByPetitionId(int petition_id);
+	public int insertPetitionReply(Petition petition);
+
 }
+ 

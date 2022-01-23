@@ -122,7 +122,13 @@
     align-items: center;
 }
 
-.board_petitions_title h4 {
+.board_status_title{
+    display: none;
+}
+
+#board_status_sel {
+    display: block!important;
+    text-align: center;
     width: 120px;
     font-size: 22px;
     font-weight: 400;
@@ -209,7 +215,7 @@
     margin: 0 auto;
 }
 
-.board_view_point h4 {
+.board_grapy_status {
     font-size: 16px;
     font-weight: 300;
     color: #999;
@@ -222,11 +228,8 @@
     color: #01387b!important;
 }
 
-.point_box {
-    width: 9px;
-    height: 9px;
-    background-color: #034496;
-    border-radius: 50px;
+#point_box {
+    background-color: #034496!important;
     margin: 0 auto;
 }
 

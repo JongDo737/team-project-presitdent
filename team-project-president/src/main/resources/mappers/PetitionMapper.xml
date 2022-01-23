@@ -353,5 +353,40 @@
 		ORDER BY
 			agree_count DESC;
 	</select>
+	
+	<select id="GetBoardByPetitionId" resultType="com.springboot.president.domain.petition.GetPetitions">
+			SELECT
+				pm.petition_id,
+				pm.title,
+				pm.kategorie,
+				pm.content,
+				pm.link,
+				pm.tag,
+				pm.agree_count,
+				pm.create_date,
+				pm.end_date,
+				um.id,
+				um.provider	
+			FROM
+				petition_mst pm
+				LEFT OUTER JOIN user_mst um ON(pm.user_id = um.id)
+			WHERE
+				pm.petition_id = #{petition_id};
+	</select>
+
+	<insert id="insertPetitionReply" parameterType="com.springboot.president.domain.petition.Petition">
+		INSERT INTO
+			petition_board_mst
+		VALUES(
+			0,
+			#{user_id},
+			#{petition_id},
+			#{provider},
+			#{reply}
+		
+		);
+	
+	</insert>
+	
 
 </mapper>

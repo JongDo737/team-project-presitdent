@@ -12,8 +12,10 @@ import com.springboot.president.config.auth.PrincipalDetails;
 import com.springboot.president.domain.petition.GetPetitions;
 import com.springboot.president.domain.petition.Petition;
 import com.springboot.president.domain.petition.PetitionRepository;
+import com.springboot.president.web.dto.BoardPetitionRespDto;
 import com.springboot.president.web.dto.GetPetitionRespDto;
 import com.springboot.president.web.dto.PetitionReqDto;
+import com.springboot.president.web.dto.ReplyReqDto;
 
 import lombok.RequiredArgsConstructor;
 
@@ -78,6 +80,19 @@ public class PetitionServiceImpl implements PetitionService {
 	}
 
 	// 내청원 보기
+
+	@Override
+	public GetPetitionRespDto GetPetitionByAgreeCount() {
+		
+		List<GetPetitions> petitionList;
+		GetPetitionRespDto getPetitionRespDto = new GetPetitionRespDto();
+		petitionList = petitionRepository.GetRecoPetitionAll();
+		getPetitionRespDto.setPetitionsList(petitionList);
+		System.out.println(getPetitionRespDto);
+		return getPetitionRespDto;
+	}
+
+
 	@Override
 	public GetPetitionRespDto GetPetitionByid(PrincipalDetails principalDetails) {
 		// db에서 받아온 list를 담는 객체
@@ -190,10 +205,11 @@ public class PetitionServiceImpl implements PetitionService {
 
 		return getPetitionRespDto;
 	}
+	
 	public String nowDate() {
 		// 오늘 날짜 설정
 		Calendar calendar = Calendar.getInstance();
-
+	
 		// 보기 불편하기 때문에 형식을 만들어서 사용할 수 있다.
 		// 날짜로 변환 방법 지정
 		DateFormat dateFormat = new SimpleDateFormat("YYYY-MM-dd");
@@ -201,5 +217,34 @@ public class PetitionServiceImpl implements PetitionService {
 		String date = dateFormat.format(calendar.getTimeInMillis());
 		return date;
 	}
+
+
+	@Override
+	public BoardPetitionRespDto BoardPetitionByPetitionid(PrincipalDetails principalDetails, int petition_id) {
+		// 데이터 담기
+		GetPetitions petitionEntity = petitionRepository.GetBoardByPetitionId(petition_id);
+		BoardPetitionRespDto boardPetitionRespDto = petitionEntity.toResp(principalDetails.getUser().getId());
+		return boardPetitionRespDto;
+	}
+
+
+	@Override
+	public boolean insertPetitionReply(PrincipalDetails principalDetails, ReplyReqDto replyReqDto) {
+		Petition replyEntity = replyReqDto.toReplyEntity(principalDetails.getUser().getId(),1);
+		int result = petitionRepository.insertPetition(replyEntity);
+		System.out.println(result);
+		boolean replyResult;
+		if(result == 1) {
+			replyResult = true;
+		}else {
+			replyResult = false;
+		}
+		return replyResult;
+		
+	}
+
+
+
 }
+
 

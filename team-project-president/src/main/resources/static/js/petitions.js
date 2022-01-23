@@ -157,7 +157,7 @@ function getPetitions(petitionList) {
 	                    ${pet.kategorie}
 	                </div>
 	                <div class="top5_list_subject">
-	                    <a href="#"> ${pet.title} </a>
+	                    <a href="petitions/${pet.petition_id}"> ${pet.title} </a>
 	                </div>
 	                <div class="top5_list_date">${pet.end_date}</div>
 	                <div class="top5_list_agree">${pet.agree_count}</div>
