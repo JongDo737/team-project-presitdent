@@ -26,6 +26,7 @@ public class Petition {
 	private int agree_count;
 	private LocalDate create_date;
 	private LocalDate end_date;
+	private String reply;
 	
 	//to resp 만들기
 	public BoardPetitionRespDto toResp() {

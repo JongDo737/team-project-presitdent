@@ -21,7 +21,6 @@ public class PetitionController {
 	
 	@PostMapping("/petitions/Step2/write")
 	public String petitionWrite(@AuthenticationPrincipal PrincipalDetails principalDetails, PetitionReqDto petitionReqDto) {
-		System.out.println(petitionReqDto);
 		boolean insertCheck = petitionService.insertPetition(principalDetails, petitionReqDto);
 		
 		//주소 보내는곳 수정필요
@@ -37,10 +36,16 @@ public class PetitionController {
 		return petitionService.GetPetitionByid(principalDetails);
 	}
 	
-	@PostMapping("/petitions/agree_write")
+	@GetMapping("/petitions/list")
+	public Object getPetitionBykategorie() {
+		return petitionService.GetPetitionByAgreeCount();
+	}
+	
+	@PostMapping("/petitions/reply_write")
 	public String petitionWrite(@AuthenticationPrincipal PrincipalDetails principalDetails, ReplyReqDto replyReqDto) {
 		boolean replyResult = petitionService.insertPetitionReply(principalDetails, replyReqDto);
-		return "/petitions/{#petition_id}";
+		System.out.println(replyResult + "확인 체크");
+		return "/petitions";
 	}
 
 	

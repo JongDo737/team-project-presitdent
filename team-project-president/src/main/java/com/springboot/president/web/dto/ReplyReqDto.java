@@ -9,15 +9,14 @@ import lombok.Data;
 @Builder
 public class ReplyReqDto {
 	private String provider;
-	private String content;
-	private int petition_id;
+	private String reply;
 	
-	public Petition toEntity(int user_id) {
+	public Petition toReplyEntity(int user_id,int petition_id) {
 		return Petition.builder()
 								.provider(provider)
-								.content(content)
-								.petition_id(petition_id)
+								.reply(reply)
 								.user_id(user_id)
+								.petition_id(petition_id)
 								.build();
 	}
 }

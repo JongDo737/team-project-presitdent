@@ -5,7 +5,8 @@ const boardStatusTitle = document.querySelectorAll(".board_status_title");
 const boardDot = document.querySelectorAll(".dot");
 const boardGrapyStatus = document.querySelectorAll(".board_grapy_status");
 const boardCategory = document.querySelectorAll(".board_list_info_date");
-
+const replyBtn = document.querySelector(".reply_view_btn");
+const replyList = document.querySelector(".reply_list_all");
 
 CurrentStatus();
 function CurrentStatus(){
@@ -35,6 +36,14 @@ function CurrentStatus(){
 			}
 		
 }
+
+replyBtn.onclick = () => {
+	replyBtn.style.display = "none";
+	replyList.style.display = "flex";
+}
+
+
+
 
 
 

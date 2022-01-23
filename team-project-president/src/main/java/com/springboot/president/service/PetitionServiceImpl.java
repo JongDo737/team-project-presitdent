@@ -67,6 +67,19 @@ public class PetitionServiceImpl implements PetitionService{
 		return getPetitionRespDto;
 	}
 
+	@Override
+	public GetPetitionRespDto GetPetitionByAgreeCount() {
+		
+		List<GetPetitions> petitionList;
+		GetPetitionRespDto getPetitionRespDto = new GetPetitionRespDto();
+		petitionList = petitionRepository.GetRecoPetitionAll();
+		getPetitionRespDto.setPetitionsList(petitionList);
+		System.out.println(getPetitionRespDto);
+		return getPetitionRespDto;
+	}
+
+
+
 
 	@Override
 	public GetPetitionRespDto GetPetitionByid(PrincipalDetails principalDetails) {
@@ -91,7 +104,7 @@ public class PetitionServiceImpl implements PetitionService{
 
 	@Override
 	public boolean insertPetitionReply(PrincipalDetails principalDetails, ReplyReqDto replyReqDto) {
-		Petition replyEntity = replyReqDto.toEntity(principalDetails.getUser().getId());
+		Petition replyEntity = replyReqDto.toReplyEntity(principalDetails.getUser().getId(),1);
 		int result = petitionRepository.insertPetition(replyEntity);
 		System.out.println(result);
 		boolean replyResult;

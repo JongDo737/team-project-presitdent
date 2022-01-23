@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +9,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/recommendation.css">
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 </head>
 <body>
     <section class="petitions_head">
@@ -24,7 +27,7 @@
     </section>
     <section class="petitions_contents">
         <div class="contents_tab">
-            <div class="contents_tab_li"><a href="#" class="tab_menu">분야별 청원</a></div>
+            <div class="contents_tab_li"><a href="/petitions" class="tab_menu">분야별 청원</a></div>
             <div class="contents_tab_li" id="on"><a href="#" class="tab_menu" id="tab_center">추천순 청원</a></div>
             <div class="contents_tab_li"><a href="#" class="tab_menu">답변된 청원</a></div>
         </div>
@@ -129,105 +132,8 @@
                             <div class="reco_full_board_agree">참여 인원</div>
                         </div>
                     </div>
-                    <ul class="reco_full_board_list">
-                        <li>
-                            <div class="reco_full_list_wrap">
-                                <div class="reco_full_list_category">
-                                    인권/성평등
-                                </div>
-                                <div class="reco_full_list_subject">
-                                    <a href="#"> Lorem ipsum dolor sit amet consectetur adipisicing
-                                        elit.Voluptas
-                                        molestias eaque est placeat accusantium </a>
-                                </div>
-                                <div class="reco_full_list_date">22.01.13</div>
-                                <div class="reco_full_list_agree">123123명</div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="reco_full_list_wrap">
-                                <div class="reco_full_list_category">
-                                    인권/성평등
-                                </div>
-                                <div class="reco_full_list_subject">
-                                    <a href="#"> Lorem ipsum dolor sit amet consectetur adipisicing
-                                        elit.Voluptas
-                                        molestias eaque est placeat accusantium </a>
-                                </div>
-                                <div class="reco_full_list_date">22.01.13</div>
-                                <div class="reco_full_list_agree">123123명</div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="reco_full_list_wrap">
-                                <div class="reco_full_list_category">
-                                    인권/성평등
-                                </div>
-                                <div class="reco_full_list_subject">
-                                    <a href="#"> Lorem ipsum dolor sit amet consectetur adipisicing
-                                        elit.Voluptas
-                                        molestias eaque est placeat accusantium </a>
-                                </div>
-                                <div class="reco_full_list_date">22.01.13</div>
-                                <div class="reco_full_list_agree">123123명</div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="reco_full_list_wrap">
-                                <div class="reco_full_list_category">
-                                    인권/성평등
-                                </div>
-                                <div class="reco_full_list_subject">
-                                    <a href="#"> Lorem ipsum dolor sit amet consectetur adipisicing
-                                        elit.Voluptas
-                                        molestias eaque est placeat accusantium </a>
-                                </div>
-                                <div class="reco_full_list_date">22.01.13</div>
-                                <div class="reco_full_list_agree">123123명</div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="reco_full_list_wrap">
-                                <div class="reco_full_list_category">
-                                    인권/성평등
-                                </div>
-                                <div class="reco_full_list_subject">
-                                    <a href="#"> Lorem ipsum dolor sit amet consectetur adipisicing
-                                        elit.Voluptas
-                                        molestias eaque est placeat accusantium </a>
-                                </div>
-                                <div class="reco_full_list_date">22.01.13</div>
-                                <div class="reco_full_list_agree">123123명</div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="reco_full_list_wrap">
-                                <div class="reco_full_list_category">
-                                    인권/성평등
-                                </div>
-                                <div class="reco_full_list_subject">
-                                    <a href="#"> Lorem ipsum dolor sit amet consectetur adipisicing
-                                        elit.Voluptas
-                                        molestias eaque est placeat accusantium </a>
-                                </div>
-                                <div class="reco_full_list_date">22.01.13</div>
-                                <div class="reco_full_list_agree">123123명</div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="reco_full_list_wrap">
-                                <div class="reco_full_list_category">
-                                    인권/성평등
-                                </div>
-                                <div class="reco_full_list_subject">
-                                    <a href="#"> Lorem ipsum dolor sit amet consectetur adipisicing
-                                        elit.Voluptas
-                                        molestias eaque est placeat accusantium </a>
-                                </div>
-                                <div class="reco_full_list_date">22.01.13</div>
-                                <div class="reco_full_list_agree">123123명</div>
-                            </div>
-                        </li>
+                    <ul class="reco_full_board_list"></ul>
+              
                         <!-- 검색창 -->
                         <div class="search_wrap">'
                             <form action="/search" method="post" class="form_control">
@@ -264,5 +170,6 @@
         </div>
 
     </section>
+    <script src="/js/reco_petitions.js"></script>
 </body>
 </html>

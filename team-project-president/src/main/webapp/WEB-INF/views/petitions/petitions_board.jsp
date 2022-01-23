@@ -128,15 +128,15 @@ xcv<%@ page language="java" contentType="text/html; charset=UTF-8"
                 </div>
                 <div class="reply_area_write">
                     <div class="reply_write_space">
-                        <form action="/petitions/agree_write" method="post" class="reply_form">
+                        <form action="/petitions/reply_write" method="post" class="reply_form">
                             <input type="hidden">
                             <textarea id="reply_textarea" placeholder="소셜로그인후 이용하실 수 있습니다."></textarea>
-                            <button type="submit">동의</button>
+                            <button id="reply_submit_btn" type="submit">동의</button>
                         </form>
                     </div>
                 </div>
                 <div class="reply_list_open">
-                    <a href="#">동의 내용 보기<i class="fas fa-chevron-down"></i></a>
+                    <div class="reply_view_btn">동의 내용 보기<i class="fas fa-chevron-down"></i></div>
                 </div>
                 <div class="reply_list_all">
                     <ul>

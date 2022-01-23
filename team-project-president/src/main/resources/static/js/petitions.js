@@ -7,7 +7,7 @@ const Tbtn = document.querySelector('.Tbutton');
 const kategorie = '전체';
 let petitionItem = ``;
 petitionLoad(kategorie);
-function petitionLoad(kategorie) {
+function petitionLoad() {
 	$.ajax({
 
 		type: "get",
@@ -35,7 +35,7 @@ function getPetitions(petitionList) {
 	                    ${pet.kategorie}
 	                </div>
 	                <div class="top5_list_subject">
-	                    <a href="${pet.petition_id}"> ${pet.title} </a>
+	                    <a href="petitions/${pet.petition_id}"> ${pet.title} </a>
 	                </div>
 	                <div class="top5_list_date">${pet.end_date}</div>
 	                <div class="top5_list_agree">${pet.agree_count}</div>

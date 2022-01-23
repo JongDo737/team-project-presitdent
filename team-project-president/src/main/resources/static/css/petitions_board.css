@@ -421,7 +421,7 @@
     display: flex;
 }
 
-.reply_list_open a {
+.reply_list_open div {
     width: 100%;
     display: inline-block;
     padding: 15px 30px;
@@ -447,6 +447,7 @@
 .reply_list_all {
     width: 100%;
     display: none;
+    flex-direction: column;
 }
 
 .reply_list_reply {

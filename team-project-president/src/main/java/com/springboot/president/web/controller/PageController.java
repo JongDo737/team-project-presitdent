@@ -48,5 +48,10 @@ public class PageController {
 		return "petitions/petitions_board";
 	}
 	
+	@GetMapping("/petitions/reco")
+	public String recoPetitionsForm() {
+		return "petitions/reco_petitions";
+	}
+	
 	
 }
