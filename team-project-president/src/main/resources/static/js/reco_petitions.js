@@ -4,9 +4,13 @@
 const recoPetitioinlist = document.querySelector('.reco_full_board_list');
 const waitPetitionlist = document.querySelector('.board_list');
 const pageTag = document.querySelectorAll(".pageBtn");
+const pageNextTag = document.querySelector(".pageNextBtn");
 page = 1;
 
 let petitionItem = ``;
+
+
+
 
 
 for(let i = 0; i < pageTag.length; i++){

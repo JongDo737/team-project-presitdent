@@ -111,7 +111,7 @@
                                 <a class="pageBtn">10</a>
                             </div>
                             <div class="paging-btn-next">
-                                <a href="#">Next</a>
+                                <a class="pageNextBtn">Next</a>
                             </div>
                         </div>
 

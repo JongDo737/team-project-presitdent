@@ -109,7 +109,7 @@ function getWaitPetitions(petitionList) {
 	                    ${petW.kategorie}
 	                </div>
 	                <div class="list_subject">
-	                    <a href="#"> ${petW.title} </a>
+	                    <a href="petitions/${petW.petition_id}"> ${petW.title} </a>
 	                </div>
 	                <div class="list_date">${petW.end_date}</div>
 	                <div class="list_agree">${petW.agree_count}명</div>
@@ -202,7 +202,7 @@ function getTotalPetitions(petitionList) {
                     ${totalPet.kategorie}
                 </div>
                 <div class="full_list_subject">
-                    <a href="#"> ${totalPet.title} </a>
+                    <a href="petitions/${totalPet.petition_id}"> ${totalPet.title} </a>
                 </div>
                 <div class="full_list_date">${totalPet.create_date}</div>
                 <div class="full_list_agree">${totalPet.agree_count}명</div>
