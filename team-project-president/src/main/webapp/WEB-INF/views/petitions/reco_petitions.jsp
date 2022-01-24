@@ -13,6 +13,9 @@
 </head>
 <body>
     <section class="petitions_head">
+    	<nav>
+            <jsp:include page="../include/nav.jsp"></jsp:include>
+        </nav>
         <div class="petitions_head_txt">
             <img src="../image/petitions_txt.png">
         </div>
@@ -45,7 +48,7 @@
                         가 답하겠습니다.
                     </p>
                     <div class="box_text_btnbox">
-                        <a href="#">지금 청원하기</a>
+                        <a href="/petitions/Step2">지금 청원하기</a>
                     </div>
                 </div>
             </div>
@@ -69,7 +72,7 @@
                     <div class="reco_full_list_title">
                         <h4>청원 목록</h4>
                         <div class="reco_full_list_another">
-                            <a href="#">지금 청원하기</a>                      
+                            <a href="/petitions/Step2">지금 청원하기</a>                      
                         </div>
                     </div>
                     <div class="reco_full_board_head">
@@ -96,16 +99,16 @@
                     <div class="paging">
                         <div class="wrap-paging-btn">
                             <div class="paging-btn">
-                                <a href="#" class="now-paging">1</a>
-                                <a href="#">2</a>
-                                <a href="#">3</a>
-                                <a href="#">4</a>
-                                <a href="#">5</a>
-                                <a href="#">6</a>
-                                <a href="#">7</a>
-                                <a href="#">8</a>
-                                <a href="#">9</a>
-                                <a href="#">10</a>
+                                <a class="pageBtn" id="now-paging">1</a>
+                                <a class="pageBtn">2</a>
+                                <a class="pageBtn">3</a>
+                                <a class="pageBtn">4</a>
+                                <a class="pageBtn">5</a>
+                                <a class="pageBtn">6</a>
+                                <a class="pageBtn">7</a>
+                                <a class="pageBtn">8</a>
+                                <a class="pageBtn">9</a>
+                                <a class="pageBtn">10</a>
                             </div>
                             <div class="paging-btn-next">
                                 <a href="#">Next</a>
@@ -119,6 +122,9 @@
         </div>
 
     </section>
+    <nav>
+    	<jsp:include page="../include/footer.jsp"></jsp:include>
+    </nav>
     <script src="/js/reco_petitions.js"></script>
 </body>
 </html>

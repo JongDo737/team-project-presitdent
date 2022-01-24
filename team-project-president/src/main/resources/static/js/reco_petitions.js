@@ -3,15 +3,29 @@
  */
 const recoPetitioinlist = document.querySelector('.reco_full_board_list');
 const waitPetitionlist = document.querySelector('.board_list');
+const pageTag = document.querySelectorAll(".pageBtn");
+page = 1;
 
 let petitionItem = ``;
 
-petitionLoad();
+
+for(let i = 0; i < pageTag.length; i++){
+	pageTag[i].onclick = () => {
+		
+		for(let j = 0; j < pageTag.length; j++){
+			pageTag[j].setAttribute("id","");
+			
+		}
+		pageTag[i].setAttribute("id","now-paging");
+		page = pageTag[i].textContent;
+		petitionLoad(page);
+	}
+}
 
 function petitionLoad() {
 	$.ajax({
 		type: "get",
-		url: `/petitions/list`,
+		url: `/petitions/list?page=${page}`,
 		dataType: "text",
 		success: function(data) {
 			petitionItem = ``;
@@ -50,13 +64,13 @@ function getPetitions(petitionList) {
 }
 
 /////////////////////////////////////////////////////////////////////////////////////
-waitPetitionlist = ``;
-watiPetitionLoad();
+
 let waitPetitionItem=``;
-function watiPetitionLoad() {
+watiPetitionLoad();
+function watiPetitionLoad(page) {
 	$.ajax({
 		type:"get",
-		url: `/petitions/list/wait`,
+		url: `/petitions/wait`,
 		dataType: "text",
 		success: function(data) {
 			waitPetitionItem = ``;
@@ -80,7 +94,7 @@ function getWaitPetitions(petitionList) {
                                 ${Waitpet.kategorie}
                             </div>
                             <div class="list_subject">
-                                <a href="#"> ${Waitpet.title} </a>
+                                <a href="${Waitpet.petition_id}"> ${Waitpet.title} </a>
                             </div>
                             <div class="list_date">${Waitpet.end_date}</div>
                             <div class="list_agree">${Waitpet.agree_count}</div>
@@ -92,8 +106,9 @@ function getWaitPetitions(petitionList) {
 }
 
 
+////////////////////////////////////////////////////////////
 
 
 
 
-
+petitionLoad(page);

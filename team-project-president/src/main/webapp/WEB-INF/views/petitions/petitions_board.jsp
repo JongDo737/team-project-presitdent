@@ -32,8 +32,8 @@ xcv<%@ page language="java" contentType="text/html; charset=UTF-8"
         </div>
     </section>
     <div class="contents_tab">
-        <div class="contents_tab_li"><a href="#" class="tab_menu">분야별 청원</a></div>
-        <div class="contents_tab_li"><a href="#" class="tab_menu" id="tab_center">추천순 청원</a></div>
+        <div class="contents_tab_li"><a href="/petitions" class="tab_menu">분야별 청원</a></div>
+        <div class="contents_tab_li"><a href="/petitions/reco" class="tab_menu" id="tab_center">추천순 청원</a></div>
         <div class="contents_tab_li"><a href="#" class="tab_menu">답변된 청원</a></div>
     </div>
     <div class="board_area">

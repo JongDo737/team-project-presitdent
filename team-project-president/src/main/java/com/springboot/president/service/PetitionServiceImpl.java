@@ -82,18 +82,6 @@ public class PetitionServiceImpl implements PetitionService {
 	// 내청원 보기
 
 	@Override
-	public GetPetitionRespDto GetPetitionByAgreeCount() {
-		
-		List<GetPetitions> petitionList;
-		GetPetitionRespDto getPetitionRespDto = new GetPetitionRespDto();
-		petitionList = petitionRepository.GetRecoPetitionAll();
-		getPetitionRespDto.setPetitionsList(petitionList);
-		System.out.println(getPetitionRespDto);
-		return getPetitionRespDto;
-	}
-
-
-	@Override
 	public GetPetitionRespDto GetPetitionByid(PrincipalDetails principalDetails) {
 		// db에서 받아온 list를 담는 객체
 		List<GetPetitions> petitionList = petitionRepository.GetPetitionByid(principalDetails.getUser().getId());
@@ -203,6 +191,47 @@ public class PetitionServiceImpl implements PetitionService {
 		}
 		getPetitionRespDto.setPetitionsList(petitionList);
 
+		return getPetitionRespDto;
+	}
+	
+	
+	@Override
+	public GetPetitionRespDto GetPetitionByAgreeCount(int page) {
+		
+		List<GetPetitions> petitionList;
+		GetPetitionRespDto getPetitionRespDto = new GetPetitionRespDto();
+		petitionList = petitionRepository.GetRecoPetitionAll();
+		
+		int petitionTotalCount = petitionList.size();
+		int petitionGroupSize = petitionTotalCount % 15 == 0 ? petitionTotalCount / 15 : (petitionTotalCount / 15) + 1;
+		
+		
+		// 15개 리스트
+		List <GetPetitions> recoViewList = new ArrayList<GetPetitions>();
+		
+		int startIndex = (page - 1) * 15;
+		int endIndex = 0;
+		
+		// 페이지가 1일떄 0~6 페이지가 2일때 7~13
+				if (page < petitionGroupSize) {
+					endIndex = startIndex + 15;
+					for (int i = startIndex; i < endIndex; i++) {
+						// 자료가 있는경우
+						recoViewList.add(petitionList.get(i));
+
+					}
+				} else if (page == petitionGroupSize) {
+					endIndex = petitionTotalCount % 15;
+					for (int i = startIndex; i < endIndex; i++) {
+						// 자료가 있는경우
+						recoViewList.add(petitionList.get(i));
+						
+					}
+				} else {
+					// 페이지가 전체자료보다 많을때 리스트에 아무것도 넣어주지 않는다.
+				}
+		getPetitionRespDto.setPetitionsList(recoViewList);
+		System.out.println(getPetitionRespDto);
 		return getPetitionRespDto;
 	}
 	
