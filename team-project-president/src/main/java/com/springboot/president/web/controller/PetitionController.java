@@ -48,8 +48,8 @@ public class PetitionController {
 	}
 	
 	@GetMapping("/petitions/list")
-	public Object getPetitionBykategorie() {
-		return petitionService.GetPetitionByAgreeCount();
+	public Object getPetitionByAgreeCount(@RequestParam int page) {
+		return petitionService.GetPetitionByAgreeCount(page);
 	}
 	@GetMapping("/petitions/reply")
 	public Object getReplyList(@RequestParam int petition_id) {

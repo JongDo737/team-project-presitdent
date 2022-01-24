@@ -331,7 +331,7 @@
     color: rgb(32, 31, 45);
     cursor: pointer;
 }
-.now-paging {
+#now-paging {
     border: 1px solid rgb(8, 46, 89)!important;
     color: rgb(255, 255, 255)!important;
     background-color: rgb(8, 46, 89)!important;

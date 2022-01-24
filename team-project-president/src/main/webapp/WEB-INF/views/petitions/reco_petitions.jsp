@@ -1,21 +1,56 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-    <!DOCTYPE html>
-    <html lang="en">
-
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-        <link rel="stylesheet" href="/css/style.css">
-        <link rel="stylesheet" href="/css/recommendation.css">
-        <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-    </head>
-
-    <body>
-        <section class="petitions_head">
-            <div class="petitions_head_txt">
-                <img src="../image/petitions_txt.png">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/recommendation.css">
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+<body>
+    <section class="petitions_head">
+    	<nav>
+            <jsp:include page="../include/nav.jsp"></jsp:include>
+        </nav>
+        <div class="petitions_head_txt">
+            <img src="../image/petitions_txt.png">
+        </div>
+        <div class="petiotions_head_second">
+            <h4 class="pdfview">
+                <a href="#">
+                    [스페셜 홈] 국민청원 4년, 보고드립니다
+                    <img src="../image/cursor.png" alt="">
+                </a>
+            </h4>
+        </div>
+    </section>
+    <section class="petitions_contents">
+        <div class="contents_tab">
+            <div class="contents_tab_li"><a href="/petitions" class="tab_menu">분야별 청원</a></div>
+            <div class="contents_tab_li" id="on"><a href="#" class="tab_menu" id="tab_center">추천순 청원</a></div>
+            <div class="contents_tab_li"><a href="#" class="tab_menu">답변된 청원</a></div>
+        </div>
+        <div class="contents_area">
+            <!-- 지금 청원하기 -->
+            <div class="petitions_box">
+                <div class="box_title">
+                    <h4>· 청원 작성하기</h4>
+                </div>
+                <div class="box_text">
+                    <p>청와대의 직접 소통은 국민이 물으면 정부가 답한다 는 철학을 지향합니다.</p>
+                    <p>국정 현안 관련, 국민들 다수의 목소리가 모여 30일 동안 20만 이상 추천 청원에 대해서는</p>
+                    <p>
+                        <span class="box_text_color">정부 및 청와대 관계자(각 부처 장관, 대통령 수석·비서관, 특별 보좌관 등)</span>
+                        가 답하겠습니다.
+                    </p>
+                    <div class="box_text_btnbox">
+                        <a href="/petitions/Step2">지금 청원하기</a>
+                    </div>
+                </div>
             </div>
             <div class="petiotions_head_second">
                 <h4 class="pdfview">
@@ -32,21 +67,13 @@
                 <div class="contents_tab_li" id="on"><a href="#" class="tab_menu" id="tab_center">추천순 청원</a></div>
                 <div class="contents_tab_li"><a href="#" class="tab_menu">답변된 청원</a></div>
             </div>
-            <div class="contents_area">
-                <!-- 지금 청원하기 -->
-                <div class="petitions_box">
-                    <div class="box_title">
-                        <h4>· 청원 작성하기</h4>
-                    </div>
-                    <div class="box_text">
-                        <p>청와대의 직접 소통은 국민이 물으면 정부가 답한다 는 철학을 지향합니다.</p>
-                        <p>국정 현안 관련, 국민들 다수의 목소리가 모여 30일 동안 20만 이상 추천 청원에 대해서는</p>
-                        <p>
-                            <span class="box_text_color">정부 및 청와대 관계자(각 부처 장관, 대통령 수석·비서관, 특별 보좌관 등)</span>
-                            가 답하겠습니다.
-                        </p>
-                        <div class="box_text_btnbox">
-                            <a href="#">지금 청원하기</a>
+            <!-- 청원 목록 -->
+            <div class="reco_full_list_body">
+                <div class="reco_full_list_main">
+                    <div class="reco_full_list_title">
+                        <h4>청원 목록</h4>
+                        <div class="reco_full_list_another">
+                            <a href="/petitions/Step2">지금 청원하기</a>                      
                         </div>
                     </div>
                 </div>
@@ -93,25 +120,25 @@
                                 </button>
                             </form>
                         </div>
-                        <!-- 페이지 번호-->
-                        <div class="paging">
-                            <div class="wrap-paging-btn">
-                                <div class="paging-btn">
-                                    <a href="#" class="now-paging">1</a>
-                                    <a href="#">2</a>
-                                    <a href="#">3</a>
-                                    <a href="#">4</a>
-                                    <a href="#">5</a>
-                                    <a href="#">6</a>
-                                    <a href="#">7</a>
-                                    <a href="#">8</a>
-                                    <a href="#">9</a>
-                                    <a href="#">10</a>
-                                </div>
-                                <div class="paging-btn-next">
-                                    <a href="#">Next</a>
-                                </div>
+                    <!-- 페이지 번호-->
+                    <div class="paging">
+                        <div class="wrap-paging-btn">
+                            <div class="paging-btn">
+                                <a class="pageBtn" id="now-paging">1</a>
+                                <a class="pageBtn">2</a>
+                                <a class="pageBtn">3</a>
+                                <a class="pageBtn">4</a>
+                                <a class="pageBtn">5</a>
+                                <a class="pageBtn">6</a>
+                                <a class="pageBtn">7</a>
+                                <a class="pageBtn">8</a>
+                                <a class="pageBtn">9</a>
+                                <a class="pageBtn">10</a>
                             </div>
+                            <div class="paging-btn-next">
+                                <a class="pageNextBtn">Next</a>
+                            </div>
+                        </div>
 
                         </div>
                     </div>
@@ -119,8 +146,10 @@
 
             </div>
 
-        </section>
-        <script src="/js/reco_petitions.js"></script>
-    </body>
-
-    </html>
+    </section>
+    <nav>
+    	<jsp:include page="../include/footer.jsp"></jsp:include>
+    </nav>
+    <script src="/js/reco_petitions.js"></script>
+</body>
+</html>
