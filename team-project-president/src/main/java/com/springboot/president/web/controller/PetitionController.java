@@ -52,9 +52,8 @@ public class PetitionController {
 		return petitionService.GetPetitionByAgreeCount(page);
 	}
 	@GetMapping("/petitions/reply")
-	public Object getReplyList(@RequestParam int petition_id) {
-		System.out.println("컨트롤러 petition_id : "+petition_id);
-		return petitionService.getReplyByPetitionId(petition_id);
+	public Object getReplyList(@RequestParam int petition_id,@RequestParam int page) {
+		return petitionService.getReplyByPetitionId(petition_id,page);
 		
 	}
 	

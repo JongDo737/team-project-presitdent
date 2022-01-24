@@ -160,16 +160,16 @@
                     <div class="paging">
                         <div class="wrap-paging-btn">
                             <div class="paging-btn">
-                                <a href="#" class="now-paging">1</a>
-                                <a href="#">2</a>
-                                <a href="#">3</a>
-                                <a href="#">4</a>
-                                <a href="#">5</a>
-                                <a href="#">6</a>
-                                <a href="#">7</a>
-                                <a href="#">8</a>
-                                <a href="#">9</a>
-                                <a href="#">10</a>
+                                <a class="pageBtn" id="now-paging">1</a>
+                                <a class="pageBtn">2</a>
+                                <a class="pageBtn">3</a>
+                                <a class="pageBtn">4</a>
+                                <a class="pageBtn">5</a>
+                                <a class="pageBtn">6</a>
+                                <a class="pageBtn">7</a>
+                                <a class="pageBtn">8</a>
+                                <a class="pageBtn">9</a>
+                                <a class="pageBtn">10</a>
                             </div>
                             <div class="paging-btn-next">
                                 <a href="#">Next</a>

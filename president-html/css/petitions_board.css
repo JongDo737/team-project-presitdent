@@ -445,7 +445,7 @@
  
 .reply_list_all {
     width: 100%;
-    display: none;
+    display: flex;
 }
 
 .reply_list_reply {

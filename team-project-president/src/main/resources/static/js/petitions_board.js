@@ -15,6 +15,10 @@ const principalDetail = document.querySelector('.principalDetail');
 const replyViewBtn = document.querySelector('.reply_view_btn');
 const replyListSep = document.querySelector('.reply_list_sep');
 const petitionId = document.querySelector('.petition_id');
+// 동의 내용 페이지
+const pageTag = document.querySelectorAll(".pageBtn");
+page = 1;
+
 CurrentStatus();
 function CurrentStatus(){
 	
@@ -50,17 +54,32 @@ if(typeof(logoutReplyBtn) != undefined && logoutReplyBtn != null){
 	}
 }
 
+for(let i = 0; i < pageTag.length; i++){
+	pageTag[i].onclick = () => {
+		for(let j = 0; j < pageTag.length; j++){
+			pageTag[j].setAttribute("id","");
+			
+		}
+		pageTag[i].setAttribute("id","now-paging");
+		page = pageTag[i].textContent;
+		replyLoad(page);
+	}
+}
+
+
 //동의 청원 보기버튼 누르면
 replyViewBtn.onclick = () => {
 	replyViewBtn.style.display = "none";
-	alert("버튼 클릭");
+	replyList.style.display = "flex";
+	replyLoad(page);
 	
+}
+function replyLoad(page){
 	$.ajax({
 		type: "get",
-		url: `/petitions/reply?petition_id=${petitionId.value}`,
+		url: `/petitions/reply?petition_id=${petitionId.value}&page=${page}`,
 		dataType: "text",
 		success: function(data) {
-			alert(data);
 			replyPetitionItem = ``;
 			let replyPetitionListObj = JSON.parse(data);
 			replyPetitionItem+= getReplyPetitions(replyPetitionListObj.replyList);
@@ -72,9 +91,11 @@ replyViewBtn.onclick = () => {
 		}
 	});
 	
-	replyList.style.display = "flex";
-	
 }
+	
+	
+	
+
 function getReplyPetitions(replyList) {
 	let replyHtml = ``;
 	for(let rpet of replyList){

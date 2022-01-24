@@ -183,7 +183,7 @@ public class PetitionServiceImpl implements PetitionService {
 
 			}
 		} else if (page == petitionGroupSize) {
-			endIndex = petitionTotalCount % 7;
+			endIndex = startIndex+(petitionTotalCount % 7);
 			for (int i = startIndex; i < endIndex; i++) {
 				// 자료가 있는경우
 				petitionList.add(petitionListAll.get(i));
@@ -224,7 +224,7 @@ public class PetitionServiceImpl implements PetitionService {
 
 					}
 				} else if (page == petitionGroupSize) {
-					endIndex = petitionTotalCount % 15;
+					endIndex = startIndex+ (petitionTotalCount % 15);
 					for (int i = startIndex; i < endIndex; i++) {
 						// 자료가 있는경우
 						recoViewList.add(petitionList.get(i));
@@ -234,7 +234,6 @@ public class PetitionServiceImpl implements PetitionService {
 					// 페이지가 전체자료보다 많을때 리스트에 아무것도 넣어주지 않는다.
 				}
 		getPetitionRespDto.setPetitionsList(recoViewList);
-		System.out.println(getPetitionRespDto);
 		return getPetitionRespDto;
 	}
 	
@@ -277,14 +276,40 @@ public class PetitionServiceImpl implements PetitionService {
 	}
 
 	@Override
-	public ReplyRespDto getReplyByPetitionId(int petition_id) {
-		System.out.println("서비스 실행");
+	public ReplyRespDto getReplyByPetitionId(int petition_id,int page) {
 		List<GetReply> replyListAll =  petitionRepository.GetReplyByPetitionId(petition_id);
-		System.out.println("replyListAll : "+replyListAll);
 		ReplyRespDto replyRespDto = new ReplyRespDto();
 		
-		replyRespDto.setReplyList(replyListAll);
-		System.out.println("replyRespDto : "+replyRespDto);
+		
+		int replyTotalCount = replyListAll.size();
+		int replyGroupSize = replyTotalCount % 7 == 0 ? replyTotalCount / 7 : (replyTotalCount / 7) + 1;
+
+		List<GetReply> replyList = new ArrayList<GetReply>();
+
+		int startIndex = (page - 1) * 7;
+		int endIndex = 0;
+		// 페이지가 1일떄 0~6 페이지가 2일때 7~13
+		if (page < replyGroupSize) {
+			endIndex = startIndex + 7;
+			for (int i = startIndex; i < endIndex; i++) {
+				// 자료가 있는경우
+				replyList.add(replyListAll.get(i));
+
+			}
+		} else if (page == replyGroupSize) {
+			endIndex = startIndex +( replyTotalCount % 7);
+			
+			for (int i = startIndex; i < endIndex; i++) {
+				// 자료가 있는경우
+				replyList.add(replyListAll.get(i));
+				
+			}
+		} else {
+			// 페이지가 전체자료보다 많을때 리스트에 아무것도 넣어주지 않는다.
+		}
+		
+		
+		replyRespDto.setReplyList(replyList);
 		
 		return replyRespDto;
 	}

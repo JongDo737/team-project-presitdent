@@ -17,5 +17,5 @@ public interface PetitionService {
 	public GetPetitionRespDto GetPetitionByAgreeCount(int page);
 	public BoardPetitionRespDto BoardPetitionByPetitionid(PrincipalDetails principalDetails, int petition_id);
 	public boolean insertPetitionReply(PrincipalDetails principalDetails, ReplyReqDto replyReqDto, int petition_id);
-	public ReplyRespDto getReplyByPetitionId(int petition_id);
+	public ReplyRespDto getReplyByPetitionId(int petition_id,int page);
 }
