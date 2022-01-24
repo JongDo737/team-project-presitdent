@@ -374,7 +374,7 @@
 				pm.petition_id = #{petition_id};
 	</select>
 	
-	<select id="GetGetRecoPetitionAll" resultType="com.springboot.president.domain.petition.GetPetitions">
+	<select id="GetRecoPetitionAll" resultType="com.springboot.president.domain.petition.GetPetitions">
 		SELECT
 			um.provider,
 			pm.user_id,

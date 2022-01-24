@@ -50,13 +50,12 @@ function getPetitions(petitionList) {
 }
 
 /////////////////////////////////////////////////////////////////////////////////////
-waitPetitionlist = ``;
-watiPetitionLoad();
 let waitPetitionItem = ``;
+watiPetitionLoad();
 function watiPetitionLoad() {
 	$.ajax({
 		type: "get",
-		url: `/petitions/list/wait`,
+		url: `/petitions/wait`,
 		dataType: "text",
 		success: function (data) {
 			waitPetitionItem = ``;
