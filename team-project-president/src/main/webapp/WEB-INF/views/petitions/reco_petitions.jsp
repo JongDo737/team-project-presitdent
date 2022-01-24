@@ -52,32 +52,7 @@
                     </div>
                 </div>
             </div>
-            <div class="petiotions_head_second">
-                <h4 class="pdfview">
-                    <a href="#">
-                        [스페셜 홈] 국민청원 4년, 보고드립니다
-                        <img src="../image/cursor.png" alt="">
-                    </a>
-                </h4>
-            </div>
-        </section>
-        <section class="petitions_contents">
-            <div class="contents_tab">
-                <div class="contents_tab_li"><a href="/petitions" class="tab_menu">분야별 청원</a></div>
-                <div class="contents_tab_li" id="on"><a href="#" class="tab_menu" id="tab_center">추천순 청원</a></div>
-                <div class="contents_tab_li"><a href="#" class="tab_menu">답변된 청원</a></div>
-            </div>
-            <!-- 청원 목록 -->
-            <div class="reco_full_list_body">
-                <div class="reco_full_list_main">
-                    <div class="reco_full_list_title">
-                        <h4>청원 목록</h4>
-                        <div class="reco_full_list_another">
-                            <a href="/petitions/Step2">지금 청원하기</a>                      
-                        </div>
-                    </div>
-                </div>
-                <!-- 답변 대기중인 청원 -->
+          	<!-- 청원 목록 -->
                 <div class="board_txt">
                     <div class="board_title">답변 대기 중인 청원</div>
                     <div class="board_head">
@@ -143,10 +118,8 @@
                         </div>
                     </div>
                 </div>
-
-            </div>
-
-    </section>
+        </section>
+   
     <nav>
     	<jsp:include page="../include/footer.jsp"></jsp:include>
     </nav>
