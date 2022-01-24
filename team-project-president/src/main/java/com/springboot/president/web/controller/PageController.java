@@ -68,5 +68,9 @@ public class PageController {
 		return "petitions/petitions";
 	}
 	
+	@GetMapping("petitions/step1")
+	public String petitionsStep1Form() {
+		return "petitions/petitions_step1";
+	}
 	
 }

@@ -12,6 +12,7 @@ import com.springboot.president.service.PetitionService;
 import com.springboot.president.web.dto.PetitionReqDto;
 import com.springboot.president.web.dto.ReplyReqDto;
 
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
@@ -37,6 +38,7 @@ public class PetitionController {
 		return petitionService.GetPetitionByKategorie(kategorie, only);
 	}
 	
+	
 	@GetMapping("/petitions/Mypage/List")
 	public Object petitionsMypageForm(@AuthenticationPrincipal PrincipalDetails principalDetails) {
 		
@@ -55,6 +57,12 @@ public class PetitionController {
 	public Object getReplyList(@RequestParam int petition_id,@RequestParam int page) {
 		return petitionService.getReplyByPetitionId(petition_id,page);
 		
+	}
+	
+	@GetMapping("petitions/step1/search")
+	public Object petitionsStep1Form(@RequestParam String searchString) {
+		System.out.println(searchString);
+		return petitionService.GetPetitionByTitle(searchString);
 	}
 	
 

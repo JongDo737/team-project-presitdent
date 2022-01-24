@@ -1,0 +1,310 @@
+.petitions_head {
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    width: 100%;
+    height: 500px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-image: url(../image/petition_step2_background.jpg);
+
+}
+
+.petitions_head_txt {
+    display: inline-block;
+    vertical-align: middle;
+    position: absolute;
+    left: 220px;
+    right: 220px;
+    bottom: 50px;
+    text-align: left;
+    visibility: visible;
+    margin-bottom: 10px;
+}
+
+.head_text_title {
+    display: flex;
+    color: #FFF;
+    font-size: 47px;
+    line-height: 60px;
+    font-weight: 500;
+}
+
+.cs_area {
+    display: flex;
+    flex-direction: column;
+    padding: 80px 0px 60px;
+    margin: 0px 370px;
+}
+
+.cs_head {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.cs_head_title {
+    margin-bottom: 55px;
+    padding-bottom: 5px;
+    font-size: 25px;
+    font-weight: 600;
+    
+}
+
+.cs_head_title span {
+    padding-bottom: 25px;
+    border-bottom: 1.5px solid black;
+}
+
+.cs_text_rule{
+    padding: 20px;
+    margin-bottom: 10px;
+    border: 1px solid rgb(230, 230, 230);
+    font-size: 15px;
+    font-weight: 500;
+    background-color: rgb(249, 249, 249);
+}
+
+.cs_text_rule ul{
+    margin: 10px 30px;
+    line-height: 180%;
+}
+
+
+.cs_text_rule ul li{
+    list-style: square;
+    color: #676666;
+    font-size: 15px;
+}
+
+.cs_text_rule ul li strong {
+    color: black;
+}
+
+.cs_text_info {
+    padding: 20px;
+    margin-bottom: 10px;
+    border: 1px solid rgb(230, 230, 230);
+    font-size: 15px;
+    font-weight: 500;
+    background-color: rgb(249, 249, 249);
+}
+
+.cs_text_info ul{
+    margin: 10px 30px;
+    line-height: 180%;
+}
+
+.cs_text_info ul li{
+    list-style: square;
+    color: #676666;
+    font-size: 15px;
+}
+
+.cs_form_area {
+    padding-top: 15px;
+    border-top: 2px solid #767676;
+    border-bottom: #efefef solid 1px;
+    
+}
+
+.cs_form_title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #201f2d;
+    letter-spacing: 0;
+    line-height: 35px; 
+    margin-bottom: 15px; 
+}
+
+.cs_title_ip {
+    box-sizing: border-box;
+    width: 100%;
+    height: 45px;
+    margin: 0;
+    padding: 0;
+    border: #d9d9d9 solid 1px;
+    background-color: #fafafa;
+    font-size: 16px;
+    color: #8a8a8a;
+    letter-spacing: 0px;
+    line-height: 45px;
+    text-align: left;
+    text-indent: 15px;
+    box-shadow: inset 2px 2px 6px rgb(0 0 0 / 5%);
+    font-weight: 400;
+}
+
+.cs_form_category {
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+    font-weight: 600;
+    color: #201f2d;
+    letter-spacing: 0;
+    line-height: 35px;  
+    margin-bottom: 15px;
+}
+
+select {
+    box-sizing: border-box;
+    max-width: 450px;
+    height: 45px;
+    margin: 0;
+    padding: 0;
+    border: #d9d9d9 solid 1px;
+    background-color: #fafafa;
+    font-size: 16px;
+    color: #8a8a8a;
+    letter-spacing: 0px;
+    line-height: 45px;
+    text-align: left;
+    text-indent: 15px;
+    box-shadow: inset 2px 2px 6px rgb(0 0 0 / 5%);
+    font-weight: 400;
+}
+
+.cs_form_text {
+    font-size: 16px;
+    font-weight: 600;
+    color: #201f2d;
+    letter-spacing: 0;
+    line-height: 35px; 
+    margin-bottom: 15px; 
+}
+
+textarea {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    height: 300px;
+    max-height: 600px;
+    margin: 0;
+    padding: 5px 15px;
+    border: #d9d9d9 solid 1px;
+    background-color: #fafafa;
+    font-size: 16px;
+    color: #8a8a8a;
+    letter-spacing: 0px;
+    line-height: 45px;
+    text-align: left;
+    text-indent: 15px;
+    box-shadow: inset 2px 2px 6px rgb(0 0 0 / 5%);
+    font-weight: 400;
+}
+
+.cs_form_link {
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+    font-weight: 600;
+    color: #201f2d;
+    letter-spacing: 0;
+    line-height: 35px; 
+    margin-bottom: 15px; 
+}
+.cs_link_wrap {
+    display: flex;
+}
+
+.cs_link_ip{
+    box-sizing: border-box;
+    width: 80%;
+    height: 45px;
+    margin-right: 15px;
+    padding: 0;
+    border: #d9d9d9 solid 1px;
+    background-color: #fafafa;
+    font-size: 16px;
+    color: #8a8a8a;
+    letter-spacing: 0px;
+    line-height: 45px;
+    text-align: left;
+    text-indent: 15px;
+    box-shadow: inset 2px 2px 6px rgb(0 0 0 / 5%);
+    font-weight: 400;
+}
+
+#cs_link_btn {
+    min-width: 150px;
+    height: 45px;
+    padding: 0;
+    line-height: 43px !important;
+    border: #0098e7 solid 1px;
+    background-color: #0098e7;
+    color: #fff;
+    cursor: pointer;
+}
+
+.cs_form_tag {
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+    font-weight: 600;
+    color: #201f2d;
+    letter-spacing: 0;
+    line-height: 35px; 
+    margin-bottom: 15px;
+}
+
+.cs_tag_container {
+    display: flex;
+    padding-right: 160px;
+}
+
+.cs_tag_ip {
+    box-sizing: border-box;
+    height: 45px;
+    margin-right: 15px;
+    padding: 0;
+    border: #d9d9d9 solid 1px;
+    background-color: #fafafa;
+    font-size: 16px;
+    color: #8a8a8a;
+    letter-spacing: 0px;
+    line-height: 45px;
+    text-align: left;
+    text-indent: 15px;
+    box-shadow: inset 2px 2px 6px rgb(0 0 0 / 5%);
+    font-weight: 400;
+}
+
+.cs_form_btn {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+}
+
+.cs_btn_wrap {
+    display: flex;
+    justify-content: space-between;
+    width: 40%;
+    min-width: 200px;
+    height: 40px;
+}
+
+.cs_submit_btn {
+    border: #082e59 solid 1px;
+    background-color: #082e59;
+    color: #fff;
+    width: 47%;
+    font-size: 13px;
+}
+
+.cs_redirect_btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 47%;
+    border: #082e59 solid 1px;
+    background-color: #fff;
+    color: #082e59;
+    font-size: 13px;
+}
+
+.cs_redirect_btn:hover {
+    background-color: #082e59;
+    color: #fff;
+}

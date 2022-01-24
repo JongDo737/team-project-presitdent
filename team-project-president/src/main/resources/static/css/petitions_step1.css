@@ -1,0 +1,339 @@
+html {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    background: #fff;
+}
+
+.contents {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.head_img {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    background: url("../image/petition_step1_img.jpg") no-repeat center;
+    background-size: cover;
+    z-index: -5;
+}
+
+.head_img_text {
+    display: inline-block;
+    position: absolute;
+    left: 220px;
+    right: 220px;
+    bottom: 60px;
+    text-align: left;
+    text-shadow: 0 5px 15px rgb(0 0 0 / 30%);
+}
+
+.head_img_text h2 {
+    color: #fff;
+    font-size: 50px;
+    line-height: 68px;
+    font-weight: 500;
+}
+
+.contents_tab {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    border-bottom: 1px solid #7f7f7f;
+}
+
+.contents_tab_li {
+    display: grid;
+    color: #8e8e8e;
+    font-weight: 700;
+    height: 55px;
+    align-items: center;
+}
+
+.contents_tab a {
+    margin-left: -1px;
+    width: 100%;
+    height: 20px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #8e8e8e;
+    text-align: center;
+    text-decoration-line: none;
+
+}
+
+.contents_tab #on{
+    border-bottom: 5px solid #0a1645;
+   
+}
+
+.contents_tab #on a{
+    color: #0a1645;
+}
+
+#tab_center {
+    border-left: 1px solid #7f7f7f;
+    border-right: 1px solid #7f7f7f;
+}
+
+.tab_menu:hover{
+    color: #0a1645;
+    height: 20px;
+}
+
+.contents_tab_li:hover {
+    border-bottom: 5px solid #0a1645;
+}
+
+.cs_area {
+    padding: 80px 0;
+}
+
+.wrap {
+    position: relative;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.cs_box {
+    border: 3px solid #525c82;
+    border-radius: 7px;
+    margin-bottom: 50px;
+}
+
+.cs_box_area {
+    padding: 50px;
+    text-align: left;
+}
+
+.cs_box_area h3 {
+    display: inline-block;
+    color: #252525;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.cs_box_area_button {
+    text-decoration: none;
+    color: #fff;
+    width: 105px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: #008dd5;
+    margin-left: 20px;
+    padding: 3px 10px;
+}
+
+.cs_area_text {
+    margin-bottom: -20px;
+    font-size: 0.8em;
+}
+
+.cs_area_text ul {
+    padding: 20px 30px;
+    list-style: none;
+}
+
+.cs_area_text li {
+    padding: 5px;
+    font-size: 1.2em;
+    color: #676666;
+    list-style-type: square;
+}
+
+.cs_area_text ul li::marker {
+    color: #000000;
+    font-size: 1.2em;
+}
+
+.cs_area_text ul li span {
+    color: #000000;
+    font-weight: bold;
+}
+
+.petition_search_area {
+    margin-bottom: 50px;
+    padding-bottom: 50px;
+    border-bottom: 1px dashed #ccc;
+}
+
+.petition_search_area_title {
+    margin-bottom: 15px;
+}
+
+.petition_search_area_title h3 {
+    font-size: 24px;
+    color: #0b1746;
+    margin-bottom: 10px;
+}
+
+.petition_search_area_title span {
+    display: block;
+    background-color: #676666;
+    width: 30px;
+    height: 2px;
+    margin: 0 auto 0 auto;
+}
+
+.petition_search_area_text {
+    font-size: 16px;
+    color: #272727;
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 40px;
+    line-height: 30px;
+}
+
+
+fieldset {
+	background-color: #f1f1f1;
+    border-radius: 5px;
+    margin-bottom: 35px;
+    padding: 40px 0;
+    min-inline-size: min-content;
+    border-style: none;
+}
+
+fieldset ul {
+    display: inline-block;
+}
+
+fieldset ul li:first-child {
+    width: 520px;
+    margin-right: 10px;
+}
+
+fieldset ul li {
+    float: left;
+}
+
+.petition_search {
+    width: 98%;
+    height: 57px;
+    font-size: 16px;
+    border: 5px solid #295f9e;
+    padding-left: 5px;
+}
+
+.petition_search_bar_button {
+    background-color: #295f9e;
+    color: #fff;
+    font-size: 14px;
+    border: none;
+    width: 110px;
+    height: 57px;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.petition_search_bar_button:hover {
+    background-color: #0b1746;
+}
+
+.petition_search_area_button a{
+    background-color: #112057;
+    border-radius: 5px;
+    color: #fff;
+    width: 240px;
+    display: block;
+    font-size: 17px;
+    font-weight: 300;
+    height: 50px;
+    line-height: 50px;
+    margin: 0 auto;
+}
+
+.b_title {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    text-align: left;
+    margin-bottom: 5px;
+}
+
+.b_list {
+    border-top: #4c4c4c solid 2px;
+}
+
+.b_title h4 {
+    font-size: 23px;
+    line-height: 42px;
+    font-weight: 600;
+    color: #201f2d;
+}
+
+.b1_head {
+    display: inline-block;
+    width: 100%;
+    height: 45px;
+    padding: 10px 0;
+    border-bottom: #efefef solid 1px;
+}
+
+.b1_wrap {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    font-weight: 550;
+}
+
+.b1_category {
+    display: inline-block;
+    position: absolute;
+    left: 10px;
+    top: 0;
+    width: 150px;
+    text-indent: 10px;
+}
+
+.b1_subject {
+    margin-left: 220px;
+    margin-right: 390px;
+}
+
+.b1_date {
+    display: inline-block;
+    vertical-align: middle;
+    position: absolute;
+    right: 100px;
+    top: 0;
+    width: 140px;
+}
+
+.b1_agree {
+    display: inline-block;
+    vertical-align: middle;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100px;
+}
+
+.b_list li {
+    display: inline-block;
+    vertical-align: middle;
+    width: 100%;
+    padding: 10px 0;
+    border-bottom: #efefef solid 1px;
+}
+
+.cs {
+    color: #0098e7;
+}
+
+.b1_subject a {  
+    color: #201f2d;
+}
+
+.ca {
+    text-align: left;
+}
+
+.cd {
+    color: #8e8e8e;
+}

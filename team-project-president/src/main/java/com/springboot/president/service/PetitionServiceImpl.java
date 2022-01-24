@@ -196,6 +196,12 @@ public class PetitionServiceImpl implements PetitionService {
 
 		return getPetitionRespDto;
 	}
+
+
+	@Override
+	public GetPetitionRespDto GetPetitionByTitle(String searchString) {
+		return null;
+	}
 	
 	
 	@Override
