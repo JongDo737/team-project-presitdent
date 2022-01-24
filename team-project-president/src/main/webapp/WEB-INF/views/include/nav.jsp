@@ -18,7 +18,7 @@
     <nav>
         <div class="head_navi">
             <div id="head">
-                <a href="#" title="메인페이지로 이동">
+                <a href="/" title="메인페이지로 이동">
                     <img src="/image/logo.png">
                 </a>
             </div>
@@ -121,7 +121,7 @@
                     </ul>
                 </li>
                 <li class="menu_list">
-                    <a href="#" class="menu_list_title">
+                    <a href="/petitions" class="menu_list_title">
                         국민소통광장
                     </a>
                     <ul class="menu_sub" style="display: none;">
@@ -131,7 +131,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="/petitions">
                                 국민청원
                             </a>
                         </li>
@@ -211,7 +211,7 @@
 
         </div>
     </nav>
-    <script src="./js/nav.js"></script>
+    <script src="/js/nav.js"></script>
 </body>
 
 </html>

@@ -64,6 +64,7 @@ kategorieTab[0].onclick = () => {
 	petitionLoad(kategorie,only);
 	totalPetitionLoad(kategorie,only,page,order);
 }
+
 kategorieTab[1].onclick = () => {
 	kategorieTab[0].setAttribute("id","");
 
@@ -204,7 +205,7 @@ function getTotalPetitions(petitionList) {
                 <div class="full_list_subject">
                     <a href="petitions/${totalPet.petition_id}"> ${totalPet.title} </a>
                 </div>
-                <div class="full_list_date">${totalPet.create_date}</div>
+                <div class="full_list_date">${totalPet.end_date}</div>
                 <div class="full_list_agree">${totalPet.agree_count}명</div>
             </div>
         </li>

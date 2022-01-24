@@ -521,13 +521,14 @@
     padding: 0px 30px;
 }
 .full_list_title {
+	width: 100%;
     display: flex;
     justify-content: space-between;
     margin-bottom: 10px;
 }
 
 .full_list_title h4 {
-    width: 70%;
+    width: 80%;
     margin-bottom: 20px;
     font-size: 20px;
     font-weight: 700;
@@ -535,7 +536,7 @@
 }
 .full_list_another {
     display: flex;
-    width: 30%;
+    width: 20%;
 }
 .full_list_another a{
     width: 53%;
