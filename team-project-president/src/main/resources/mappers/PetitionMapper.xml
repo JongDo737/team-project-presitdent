@@ -401,19 +401,28 @@
 	
 	</select>
 
-	<insert id="insertPetitionReply" parameterType="com.springboot.president.domain.petition.Petition">
+	<insert id="insertPetitionReply" parameterType="com.springboot.president.domain.petition.ReplyPetition">
 		INSERT INTO
 			petition_board_mst
 		VALUES(
 			0,
 			#{user_id},
 			#{petition_id},
-			#{provider},
 			#{reply}
 		
 		);
 	
 	</insert>
+	<select id="GetReplyByPetitionId" parameterType="Integer" resultType="com.springboot.president.domain.petition.GetReply">
+		SELECT
+			um.provider,
+			pb.reply
+		FROM
+			petition_board_mst pb
+			LEFT OUTER JOIN user_mst um ON(um.id = pb.user_id)
+		WHERE
+			pb.petition_id = #{petition_id};
+	</select>
 	
 
 </mapper>

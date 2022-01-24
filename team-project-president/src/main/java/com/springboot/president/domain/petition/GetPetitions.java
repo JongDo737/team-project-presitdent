@@ -29,10 +29,9 @@ public class GetPetitions {
 	private LocalDate end_date;
 	
 	//to resp 만들기
-	public BoardPetitionRespDto toResp(int user_id) {
+	public BoardPetitionRespDto toResp() {
 		return BoardPetitionRespDto.builder()
 													.petition_id(petition_id)
-													.user_id(user_id)
 													.title(title)
 													.provider(provider)
 													.kategorie(kategorie)

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.springboot.president.config.auth.PrincipalDetails;
 import com.springboot.president.service.IndexApiService;
 import com.springboot.president.web.dto.IndexTableRespDto;
+import com.springboot.president.web.dto.ReplyReqDto;
 import com.springboot.president.service.PetitionService;
 import com.springboot.president.web.dto.BoardPetitionRespDto;
 import com.springboot.president.web.dto.GetPetitionRespDto;
@@ -49,6 +50,11 @@ public class PageController {
 		return "petitions/petitions_mypage";
 	}
 	
+	@GetMapping("/petitions/reco")
+	public String recoPetitionsForm() {
+		return "petitions/reco_petitions";
+	}
+	
 	@GetMapping("/petitions/{petition_id}")
 	public String petitionsBoardForm(@AuthenticationPrincipal PrincipalDetails principalDetails, Model model ,@PathVariable int petition_id) {
 		BoardPetitionRespDto boardPetitionRespDto = petitionService.BoardPetitionByPetitionid(principalDetails,petition_id);
@@ -56,9 +62,10 @@ public class PageController {
 		return "petitions/petitions_board";
 	}
 	
-	@GetMapping("/petitions/reco")
-	public String recoPetitionsForm() {
-		return "petitions/reco_petitions";
+	@PostMapping("/petitions/{petition_id}/reply_write")
+	public String petitionWrite(@AuthenticationPrincipal PrincipalDetails principalDetails, ReplyReqDto replyReqDto, @PathVariable int petition_id) {
+		boolean replyResult = petitionService.insertPetitionReply(principalDetails, replyReqDto, petition_id);
+		return "petitions/petitions";
 	}
 	
 	

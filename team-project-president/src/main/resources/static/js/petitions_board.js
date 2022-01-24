@@ -1,13 +1,20 @@
 /**
- * 국민청원 메인칸
+ * 청원 개별 페이지
  */
 const boardStatusTitle = document.querySelectorAll(".board_status_title");
 const boardDot = document.querySelectorAll(".dot");
 const boardGrapyStatus = document.querySelectorAll(".board_grapy_status");
 const boardCategory = document.querySelectorAll(".board_list_info_date");
-const replyBtn = document.querySelector(".reply_view_btn");
 const replyList = document.querySelector(".reply_list_all");
 
+// 청원 동의하기 댓글 
+const logoutReplyBtn = document.querySelector('.logout_reply_submit_btn');
+const principalDetail = document.querySelector('.principalDetail');
+
+// 동의 내용보기
+const replyViewBtn = document.querySelector('.reply_view_btn');
+const replyListSep = document.querySelector('.reply_list_sep');
+const petitionId = document.querySelector('.petition_id');
 CurrentStatus();
 function CurrentStatus(){
 	
@@ -37,9 +44,56 @@ function CurrentStatus(){
 		
 }
 
-replyBtn.onclick = () => {
-	replyBtn.style.display = "none";
+if(typeof(logoutReplyBtn) != undefined && logoutReplyBtn != null){
+	logoutReplyBtn.onclick = () => {
+		location.href = '/auth/signin';
+	}
+}
+
+//동의 청원 보기버튼 누르면
+replyViewBtn.onclick = () => {
+	replyViewBtn.style.display = "none";
+	alert("버튼 클릭");
+	
+	$.ajax({
+		type: "get",
+		url: `/petitions/reply?petition_id=${petitionId.value}`,
+		dataType: "text",
+		success: function(data) {
+			alert(data);
+			replyPetitionItem = ``;
+			let replyPetitionListObj = JSON.parse(data);
+			replyPetitionItem+= getReplyPetitions(replyPetitionListObj.replyList);
+			replyListSep.innerHTML = replyPetitionItem;
+			
+		},
+		error: function() {
+			alert('비동기 처리오류');
+		}
+	});
+	
 	replyList.style.display = "flex";
+	
+}
+function getReplyPetitions(replyList) {
+	let replyHtml = ``;
+	for(let rpet of replyList){
+		replyHtml += `
+			<li class="reply_list_reply">
+                <div class="reply_list_contents">
+                    <div class="reply_list_contents_head">
+                        <h4>${rpet.provider} - ***</h4>
+                    </div>
+                    <div class="reply_list_text">
+                        ${rpet.reply}
+                    </div>
+                </div>
+            </li>
+		`;
+		
+	}
+	return replyHtml;
+
 }
 
 

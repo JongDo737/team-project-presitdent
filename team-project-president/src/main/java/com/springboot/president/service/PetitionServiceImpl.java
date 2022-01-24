@@ -10,12 +10,15 @@ import org.springframework.stereotype.Service;
 
 import com.springboot.president.config.auth.PrincipalDetails;
 import com.springboot.president.domain.petition.GetPetitions;
+import com.springboot.president.domain.petition.GetReply;
 import com.springboot.president.domain.petition.Petition;
 import com.springboot.president.domain.petition.PetitionRepository;
+import com.springboot.president.domain.petition.ReplyPetition;
 import com.springboot.president.web.dto.BoardPetitionRespDto;
 import com.springboot.president.web.dto.GetPetitionRespDto;
 import com.springboot.president.web.dto.PetitionReqDto;
 import com.springboot.president.web.dto.ReplyReqDto;
+import com.springboot.president.web.dto.ReplyRespDto;
 
 import lombok.RequiredArgsConstructor;
 
@@ -223,26 +226,39 @@ public class PetitionServiceImpl implements PetitionService {
 	public BoardPetitionRespDto BoardPetitionByPetitionid(PrincipalDetails principalDetails, int petition_id) {
 		// 데이터 담기
 		GetPetitions petitionEntity = petitionRepository.GetBoardByPetitionId(petition_id);
-		BoardPetitionRespDto boardPetitionRespDto = petitionEntity.toResp(principalDetails.getUser().getId());
+		BoardPetitionRespDto boardPetitionRespDto = petitionEntity.toResp();
 		return boardPetitionRespDto;
 	}
 
-
 	@Override
-	public boolean insertPetitionReply(PrincipalDetails principalDetails, ReplyReqDto replyReqDto) {
-		Petition replyEntity = replyReqDto.toReplyEntity(principalDetails.getUser().getId(),1);
-		int result = petitionRepository.insertPetition(replyEntity);
-		System.out.println(result);
-		boolean replyResult;
-		if(result == 1) {
-			replyResult = true;
-		}else {
-			replyResult = false;
-		}
-		return replyResult;
+	public boolean insertPetitionReply(PrincipalDetails principalDetails, ReplyReqDto replyReqDto, int petition_id) {
+		ReplyPetition replyPetition = replyReqDto.toEntity(principalDetails.getUser().getId(), petition_id);
 		
+		//1이면 insert 성공 0이면 insert 실패
+		int insertCheck = petitionRepository.insertPetitionReply(replyPetition);
+		
+		// 결과값 담아주기
+		boolean resultCheck;
+		if(insertCheck == 1) {
+			resultCheck = true;
+		}else {
+			resultCheck = false;
+		}
+		return resultCheck;
 	}
 
+	@Override
+	public ReplyRespDto getReplyByPetitionId(int petition_id) {
+		System.out.println("서비스 실행");
+		List<GetReply> replyListAll =  petitionRepository.GetReplyByPetitionId(petition_id);
+		System.out.println("replyListAll : "+replyListAll);
+		ReplyRespDto replyRespDto = new ReplyRespDto();
+		
+		replyRespDto.setReplyList(replyListAll);
+		System.out.println("replyRespDto : "+replyRespDto);
+		
+		return replyRespDto;
+	}
 
 
 }

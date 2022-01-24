@@ -34,7 +34,6 @@ public class PetitionController {
 	
 	@GetMapping("/petitions/board")
 	public Object getPetitionBykategorie(@RequestParam String kategorie, @RequestParam int only) {
-		System.out.println("컨트롤러");
 		return petitionService.GetPetitionByKategorie(kategorie, only);
 	}
 	
@@ -52,12 +51,13 @@ public class PetitionController {
 	public Object getPetitionBykategorie() {
 		return petitionService.GetPetitionByAgreeCount();
 	}
-	
-	@PostMapping("/petitions/reply_write")
-	public String petitionWrite(@AuthenticationPrincipal PrincipalDetails principalDetails, ReplyReqDto replyReqDto) {
-		boolean replyResult = petitionService.insertPetitionReply(principalDetails, replyReqDto);
-		System.out.println(replyResult + "확인 체크");
-		return "/petitions";
+	@GetMapping("/petitions/reply")
+	public Object getReplyList(@RequestParam int petition_id) {
+		System.out.println("컨트롤러 petition_id : "+petition_id);
+		return petitionService.getReplyByPetitionId(petition_id);
+		
 	}
+	
+
 
 }

@@ -1,5 +1,12 @@
-xcv<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<sec:authorize access="isAuthenticated()">
+	<sec:authentication property="principal" var="principal"/>
+</sec:authorize>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -128,10 +135,17 @@ xcv<%@ page language="java" contentType="text/html; charset=UTF-8"
                 </div>
                 <div class="reply_area_write">
                     <div class="reply_write_space">
-                        <form action="/petitions/reply_write" method="post" class="reply_form">
-                            <input type="hidden">
-                            <textarea id="reply_textarea" placeholder="소셜로그인후 이용하실 수 있습니다."></textarea>
-                            <button id="reply_submit_btn" type="submit">동의</button>
+                        <form action="/petitions/${boardPetitionRespDto.petition_id }/reply_write" method="post" class="reply_form">
+                            <c:choose>
+                            	<c:when test="${empty  principal.user}">
+                            		<textarea id="reply_textarea" name="reply" placeholder="소셜로그인후 이용하실 수 있습니다."></textarea>
+                            		<button id="reply_submit_btn" class="logout_reply_submit_btn" type="button">동의</button>
+                            	</c:when>
+                            	<c:otherwise>
+                            		<textarea id="reply_textarea" name="reply"  placeholder="동의합니다."></textarea>
+                            		<button id="reply_submit_btn"  class="login_reply_submit_btn" type="submit">동의</button>
+                            	</c:otherwise>
+                            </c:choose>
                         </form>
                     </div>
                 </div>
@@ -139,77 +153,9 @@ xcv<%@ page language="java" contentType="text/html; charset=UTF-8"
                     <div class="reply_view_btn">동의 내용 보기<i class="fas fa-chevron-down"></i></div>
                 </div>
                 <div class="reply_list_all">
-                    <ul>
-                        <li class="reply_list_reply">
-                            <div class="reply_list_contents">
-                                <div class="reply_list_contents_head">
-                                    <h4>facebook - ***</h4>
-                                </div>
-                                <div class="reply_list_text">
-                                    동의합니다.
-                                </div>
-                            </div>
-                        </li>
-                        <li class="reply_list_reply">
-                            <div class="reply_list_contents">
-                                <div class="reply_list_contents_head">
-                                    <h4>facebook - ***</h4>
-                                </div>
-                                <div class="reply_list_text">
-                                    동의합니다.
-                                </div>
-                            </div>
-                        </li>
-                        <li class="reply_list_reply">
-                            <div class="reply_list_contents">
-                                <div class="reply_list_contents_head">
-                                    <h4>facebook - ***</h4>
-                                </div>
-                                <div class="reply_list_text">
-                                    동의합니다.
-                                </div>
-                            </div>
-                        </li>
-                        <li class="reply_list_reply">
-                            <div class="reply_list_contents">
-                                <div class="reply_list_contents_head">
-                                    <h4>facebook - ***</h4>
-                                </div>
-                                <div class="reply_list_text">
-                                    동의합니다.
-                                </div>
-                            </div>
-                        </li>
-                        <li class="reply_list_reply">
-                            <div class="reply_list_contents">
-                                <div class="reply_list_contents_head">
-                                    <h4>facebook - ***</h4>
-                                </div>
-                                <div class="reply_list_text">
-                                    동의합니다.
-                                </div>
-                            </div>
-                        </li>
-                        <li class="reply_list_reply">
-                            <div class="reply_list_contents">
-                                <div class="reply_list_contents_head">
-                                    <h4>facebook - ***</h4>
-                                </div>
-                                <div class="reply_list_text">
-                                    동의합니다.
-                                </div>
-                            </div>
-                        </li>
-                        <li class="reply_list_reply">
-                            <div class="reply_list_contents">
-                                <div class="reply_list_contents_head">
-                                    <h4>facebook - ***</h4>
-                                </div>
-                                <div class="reply_list_text">
-                                    동의합니다.
-                                </div>
-                            </div>
-                        </li>
+                    	<input type="hidden" class="petition_id" value="${boardPetitionRespDto.petition_id }" >
+                    <ul class="reply_list_sep">
+						
                     </ul>
                     <div class="paging">
                         <div class="wrap-paging-btn">
@@ -234,10 +180,10 @@ xcv<%@ page language="java" contentType="text/html; charset=UTF-8"
             </div>
         </div>
     </div>
-    <script src="/js/petitions_board.js"></script>
     <nav>
     	<jsp:include page="../include/footer.jsp"></jsp:include>
     </nav>
+    <script src="/js/petitions_board.js"></script>
 </body>
 
 </html>
