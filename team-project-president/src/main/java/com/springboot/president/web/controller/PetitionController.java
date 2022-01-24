@@ -13,6 +13,7 @@ import com.springboot.president.service.PetitionService;
 import com.springboot.president.web.dto.GetPetitionRespDto;
 import com.springboot.president.web.dto.PetitionReqDto;
 
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
@@ -34,10 +35,17 @@ public class PetitionController {
 		return petitionService.GetPetitionByKategorie(kategorie);
 	}
 	
+	
 	@GetMapping("/petitions/Mypage/List")
 	public Object petitionsMypageForm(@AuthenticationPrincipal PrincipalDetails principalDetails) {
 		System.out.println("controller");
 		return petitionService.GetPetitionByid(principalDetails);
+	}
+	
+	@GetMapping("petitions/step1/search")
+	public Object petitionsStep1Form(@RequestParam String searchString) {
+		System.out.println(searchString);
+		return petitionService.GetPetitionByTitle(searchString);
 	}
 	
 	

@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/petitions_step1.css">
     <script src="https://kit.fontawesome.com/fab8e6b94b.js" crossorigin="anonymous"></script>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 </head>
 
 <body>
@@ -258,18 +259,16 @@
                                     새로운 청원글을 작성하는 대신 기존 유사 청원에 동참하시면 국민의 뜻을 한 곳으로 모으는데 도움이 됩니다.
                                 </p>
                             </div>
-                            <form action=""  class="petition_search_bar">
-                                <fieldset>
-                                    <ul>
-                                        <li>
-                                            <input type="text" class="petition_search" placeholder="현재 진행중인 청원 검색">
-                                        </li>
-                                        <li>
-                                            <button type="submit" class="petition_search_bar_button">검색</button>
-                                        </li>
-                                    </ul>
-                                </fieldset>
-                            </form>
+                            <fieldset>
+                                <ul>
+                                    <li>
+                                        <input type="text" class="petition_search" placeholder="현재 진행중인 청원 검색">
+                                    </li>
+                                    <li>
+                                        <button type="button" class="petition_search_bar_button">검색</button>
+                                    </li>
+                                </ul>
+                            </fieldset>
                             <div class="petition_search_area_button">
                                 <a href="">
                                     <i class="fas fa-plus-circle"></i> 지금 청원하기
@@ -322,7 +321,7 @@
         </section>
     </div>
 	<jsp:include page="../include/footer.jsp"></jsp:include>
-    <script src="./js/nav.js"></script>
+    <script src="/js/petition_step1.js"></script>
 </body>
 
 </html>

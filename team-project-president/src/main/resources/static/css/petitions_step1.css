@@ -189,28 +189,26 @@ body {
     line-height: 30px;
 }
 
-.petition_search_bar {
-    background-color: #f1f1f1;
-    border-radius: 5px;
-    margin-bottom: 35px;
-}
 
 fieldset {
+	background-color: #f1f1f1;
+    border-radius: 5px;
+    margin-bottom: 35px;
     padding: 40px 0;
     min-inline-size: min-content;
     border-style: none;
 }
 
-.petition_search_bar ul {
+fieldset ul {
     display: inline-block;
 }
 
-.petition_search_bar ul li:first-child {
+fieldset ul li:first-child {
     width: 520px;
     margin-right: 10px;
 }
 
-.petition_search_bar ul li {
+fieldset ul li {
     float: left;
 }
 
