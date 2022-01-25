@@ -32,6 +32,11 @@ section{
     font-weight: bold;
 }
 .forums_tap{
+    width: 100%;
+}
+.blank {
+    width: 100%;
+    border-right: 1px solid black;
 }
 .forums_tap_detail{
     text-align: center;
@@ -39,29 +44,57 @@ section{
 .forums_tap_detail_box{
     display: flex;
     flex-direction: row;
+    justify-content: center;
     vertical-align: middle;
+    align-items: center;
     width: 100%;
     height: 59px;
     background-color: #fff;
 
 }
 .forums_tap_detail_text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 50%;
-
+    height: 60px;
+    border-bottom: 1px solid #0a1645;
 }
+
+#on {
+    border-bottom: 5px solid #0a1645;
+}
+
+#on a {
+    color: #0a1645;
+}
+
+
 .forums_tap_detail_text a{
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     min-width: 50px;
     margin-left: -1px;
     font-size: 18px;
     font-weight: 700;
     text-align: center;
-    height: 60px;
+    height: 50%;
     width: 100%;
     line-height: 58px;
-    color: #0a1645;
+    color: #8e8e8e;
+    
+    border-right: 1px solid #7f7f7f;
+    
+}
+
+.forums_tap_detail_text:hover {
     border-bottom: 5px solid #0a1645;
 }
+.forums_tap_detail_text a:hover {
+    color: #0a1645;
+}
+
 .forums_container{
     display: flex;
     justify-content: center;

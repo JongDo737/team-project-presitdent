@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -342,7 +344,7 @@
             </div>
         </div>
         <div class="suggest_btn">
-            <a href="#">제안하기</a>
+            <a href="forums/suggest">제안하기</a>
         </div>
         <div class="search_wrap">'
             <form action="/search" method="post" class="form_control">
