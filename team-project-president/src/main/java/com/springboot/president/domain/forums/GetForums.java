@@ -13,8 +13,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 @Data
+public class GetForums {
 
-public class Forums {
 	private int forums_id;
 	private int user_id;
 	private String topic;
@@ -37,3 +37,4 @@ public class Forums {
 										.build();
 	}
 }
+
