@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,6 +14,21 @@
 </head>
 
 <body>
+	<c:choose>
+		<c:when test="${insertCheck eq 'true' }">
+			<script>
+				alert('청원 글쓰기를 완료하였습니다.');
+			</script>
+		</c:when>
+		<c:when test="${insertCheck eq 'false' }">
+			<script>
+				alert('청원 글쓰기를 실패하였습니다.');
+			</script>
+		</c:when>
+		<c:otherwise>
+		</c:otherwise>
+	
+	</c:choose>
     <section class="petitions_head">
     	<nav>
             <jsp:include page="../include/nav.jsp"></jsp:include>
@@ -25,8 +40,8 @@
         </div>
     </section>
     <div class="contents_tab">
-        <div class="contents_tab_li"><a href="#" class="tab_menu">분야별 청원</a></div>
-        <div class="contents_tab_li"><a href="#" class="tab_menu" id="tab_center">추천순 청원</a></div>
+        <div class="contents_tab_li"><a href="/petitions" class="tab_menu">분야별 청원</a></div>
+        <div class="contents_tab_li"><a href="/petitions/reco" class="tab_menu" id="tab_center">추천순 청원</a></div>
         <div class="contents_tab_li"><a href="#" class="tab_menu">답변된 청원</a></div>
     </div>
     <div class="mypage_area">
@@ -67,7 +82,7 @@
                     </div>
                 </div>
                 <div class="mypage_logout_btn">
-                    <a href="#" id="mypage_logout">로그아웃</a>
+                    <a href="/logout" id="mypage_logout">로그아웃</a>
                 </div>
             </div>
         </div>

@@ -64,6 +64,7 @@ kategorieTab[0].onclick = () => {
 	petitionLoad(kategorie,only);
 	totalPetitionLoad(kategorie,only,page,order);
 }
+
 kategorieTab[1].onclick = () => {
 	kategorieTab[0].setAttribute("id","");
 
@@ -109,10 +110,10 @@ function getWaitPetitions(petitionList) {
 	                    ${petW.kategorie}
 	                </div>
 	                <div class="list_subject">
-	                    <a href="#"> ${petW.title} </a>
+	                    <a href="/petitions/${petW.petition_id}"> ${petW.title} </a>
 	                </div>
 	                <div class="list_date">${petW.end_date}</div>
-	                <div class="list_agree">${petW.agree_count}명</div>
+	                <div class="list_agree">${petW.agree_count.toLocaleString()}명</div>
 	            </div>
 	        </li>
 		
@@ -157,10 +158,10 @@ function getPetitions(petitionList) {
 	                    ${pet.kategorie}
 	                </div>
 	                <div class="top5_list_subject">
-	                    <a href="#"> ${pet.title} </a>
+	                    <a href="/petitions/${pet.petition_id}"> ${pet.title} </a>
 	                </div>
 	                <div class="top5_list_date">${pet.end_date}</div>
-	                <div class="top5_list_agree">${pet.agree_count}</div>
+	                <div class="top5_list_agree">${pet.agree_count.toLocaleString()}</div>
 	            </div>
 	        </li>
 		
@@ -202,10 +203,10 @@ function getTotalPetitions(petitionList) {
                     ${totalPet.kategorie}
                 </div>
                 <div class="full_list_subject">
-                    <a href="#"> ${totalPet.title} </a>
+                    <a href="/petitions/${totalPet.petition_id}"> ${totalPet.title} </a>
                 </div>
-                <div class="full_list_date">${totalPet.create_date}</div>
-                <div class="full_list_agree">${totalPet.agree_count}명</div>
+                <div class="full_list_date">${totalPet.end_date}</div>
+                <div class="full_list_agree">${totalPet.agree_count.toLocaleString()}명</div>
             </div>
         </li>
 			

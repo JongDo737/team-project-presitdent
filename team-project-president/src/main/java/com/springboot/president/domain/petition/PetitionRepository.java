@@ -10,7 +10,7 @@ public interface PetitionRepository {
 	public int insertPetition(Petition petition);
 	public List<GetPetitions> GetWaitPetition();
 	public List<GetPetitions> GetPetitionByid(int id);
-	
+
 	//진행중인 청원
 	//전체
 	public List<GetPetitions> GetPetitionAll();
@@ -38,4 +38,16 @@ public interface PetitionRepository {
 	public List<GetPetitions> GetRecentPetitionByKategorieOver(String kategorie, String nowDate);
 	//카테고리 추천순
 	public List<GetPetitions> GetSuggestionPetitionByKategorieOver(String kategorie, String nowDate);
+	
+	public List<GetPetitions> GetRecoPetitionAll();
+	
+	public GetPetitions GetBoardByPetitionId(int petition_id);
+	
+	//동의하기 입력
+	public int insertPetitionReply(ReplyPetition replyPetition);
+
+	public List<GetReply> GetReplyByPetitionId(int petition_id);
+
+	public List<GetPetitions> GetPetitionBySearchString(String searchString);
 }
+ 

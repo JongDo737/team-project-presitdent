@@ -38,7 +38,7 @@ function getPetitions(petitionList) {
 
                 </div>
                 <div class="mypage_mylist" id="mylist_participants">
-                    <span>${pet.agree_count}</span>
+                    <span>${pet.agree_count.toLocaleString()}</span>
                 </div>
                 <div class="mypage_mylist" id="mylist_url">
                     <a href="http://localhost:8080/petitions/Temp/${pet.petition_id}">URL 보기</a>

@@ -20,7 +20,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http.csrf().disable();
 		http.authorizeRequests() //서버에 요청이 들어오면
-			.antMatchers("/petition/**", "/forums/**","/petitions/**" ) //해당 요청들은
+			.antMatchers("/forums/**","/petitions/Step2/**","/petitions/Mypage/**", "/petitions/Step1/**" ) //해당 요청들은
 			.authenticated() //모두 인증을 거처야한다.
 			.anyRequest() //그 외의 모든 요청은
 			.permitAll() //승인해준다.(모두 권한을 허가)
@@ -28,7 +28,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.formLogin() //로그인 화면은
 			.loginPage("/auth/signin") //해당 GET요청으로 응답해주면되고
 			.loginProcessingUrl("/auth/signin") //로그인 submit 요청시에 Post요청으로 /auth/signin 요청을 해라.
-			.defaultSuccessUrl("/") //로그인에 성공했으면 해당 url로 이동을 해라.
+			.defaultSuccessUrl("/petitions") //로그인에 성공했으면 해당 url로 이동을 해라.
 			.and()
 			.oauth2Login()
 			.loginPage("/auth/signin")
@@ -42,7 +42,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			 * */
 			.userService(principalOauth2UserService)
 			.and()
-			.defaultSuccessUrl("/");
+			.defaultSuccessUrl("/petitions");
 			
 	}
 	

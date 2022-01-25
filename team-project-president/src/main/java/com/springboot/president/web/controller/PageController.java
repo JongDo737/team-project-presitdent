@@ -4,11 +4,17 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.springboot.president.config.auth.PrincipalDetails;
 import com.springboot.president.service.IndexApiService;
 import com.springboot.president.web.dto.IndexTableRespDto;
+import com.springboot.president.web.dto.PetitionReqDto;
+import com.springboot.president.web.dto.ReplyReqDto;
+import com.springboot.president.service.PetitionService;
+import com.springboot.president.web.dto.BoardPetitionRespDto;
+import com.springboot.president.web.dto.GetPetitionRespDto;
 
 import lombok.RequiredArgsConstructor;
 
@@ -17,6 +23,7 @@ import lombok.RequiredArgsConstructor;
 public class PageController {
 	
 	private final IndexApiService indexApiService;
+	private final PetitionService petitionService;
 
 	@GetMapping({"/", "/index"})
 	public String indexForm(Model model) throws Exception {
@@ -39,11 +46,48 @@ public class PageController {
 	public String petitionsForm() {
 		return "petitions/petitions";
 	}
+	@PostMapping("/petitions/Step2/write")
+	public String petitionWrite(@AuthenticationPrincipal PrincipalDetails principalDetails, PetitionReqDto petitionReqDto, Model model) {
+		boolean insertCheck = petitionService.insertPetition(principalDetails, petitionReqDto);
+		model.addAttribute("insertCheck",insertCheck);
+		//주소 보내는곳 수정필요
+		return "/petitions/petitions_mypage";
+	}
 	@GetMapping("/petitions/Mypage")
 	public String petitionsMypageForm() {
 		return "petitions/petitions_mypage";
 	}
 	
-
+	@GetMapping("/petitions/reco")
+	public String recoPetitionsForm() {
+		return "petitions/reco_petitions";
+	}
 	
+	@GetMapping("/petitions/{petition_id}")
+	public String petitionsBoardForm(@AuthenticationPrincipal PrincipalDetails principalDetails, Model model ,@PathVariable int petition_id) {
+		BoardPetitionRespDto boardPetitionRespDto = petitionService.BoardPetitionByPetitionid(principalDetails,petition_id);
+		model.addAttribute("boardPetitionRespDto", boardPetitionRespDto);
+		return "petitions/petitions_board";
+	}
+	
+	@PostMapping("/petitions/{petition_id}/reply_write")
+	public String petitionWrite(@AuthenticationPrincipal PrincipalDetails principalDetails, ReplyReqDto replyReqDto, @PathVariable int petition_id) {
+		boolean replyResult = petitionService.insertPetitionReply(principalDetails, replyReqDto, petition_id);
+		return "petitions/petitions";
+	}
+	
+	@GetMapping("petitions/Step1")
+	public String petitionsStep1Form() {
+		return "petitions/petitions_step1";
+	}
+	
+	
+	@GetMapping("/forums")
+	public String forumsForm() {
+		return "forums/forums";
+	}
+	@GetMapping("/forums/suggest")
+	public String forumsSuggestForm() {
+		return "forums/forums_suggest";
+	}
 }

@@ -108,7 +108,7 @@
                 <div class="cs_form_btn">
                     <div class="cs_btn_wrap">
                         <button type="submit" class="cs_submit_btn">작성 완료</button>
-                        <a href="#" class="cs_redirect_btn">
+                        <a href="/petitions/Step2" class="cs_redirect_btn">
                            <p> 작성 취소</p>
                         </a>
                     </div>

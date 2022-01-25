@@ -10,10 +10,15 @@ import org.springframework.stereotype.Service;
 
 import com.springboot.president.config.auth.PrincipalDetails;
 import com.springboot.president.domain.petition.GetPetitions;
+import com.springboot.president.domain.petition.GetReply;
 import com.springboot.president.domain.petition.Petition;
 import com.springboot.president.domain.petition.PetitionRepository;
+import com.springboot.president.domain.petition.ReplyPetition;
+import com.springboot.president.web.dto.BoardPetitionRespDto;
 import com.springboot.president.web.dto.GetPetitionRespDto;
 import com.springboot.president.web.dto.PetitionReqDto;
+import com.springboot.president.web.dto.ReplyReqDto;
+import com.springboot.president.web.dto.ReplyRespDto;
 
 import lombok.RequiredArgsConstructor;
 
@@ -28,7 +33,7 @@ public class PetitionServiceImpl implements PetitionService {
 		// tag1, tag2, tag3 합치기 나중에 #으로 구분할꺼임
 		String tag = null;
 		tag = petitionReqDto.getTag1() + petitionReqDto.getTag2() + petitionReqDto.getTag3();
-		
+
 		// 엔티티 생성
 		Petition petitionEntity = petitionReqDto.toEntity(principalDetails.getUser().getId(), tag);
 		int insertResultNum = petitionRepository.insertPetition(petitionEntity);
@@ -51,22 +56,20 @@ public class PetitionServiceImpl implements PetitionService {
 		GetPetitionRespDto getPetitionRespDto = new GetPetitionRespDto();
 		// 전체 클릭했을 때
 		if (kategorie.equals("전체")) {
-			if(only==1) {
+			if (only == 1) {
 				petitionList = petitionRepository.GetPetitionAll();
-			}
-			else {
+			} else {
 				petitionList = petitionRepository.GetPetitionAllOver(nowDate());
-				
+
 			}
 
 		}
 		// 그 외 카테고리 선택했을 때
 		else {
-			if(only==1) {
-				petitionList = petitionRepository.GetPetitionByKategorie(kategorie);				
-			}
-			else {
-				petitionList = petitionRepository.GetPetitionByKategorieOver(kategorie, nowDate());				
+			if (only == 1) {
+				petitionList = petitionRepository.GetPetitionByKategorie(kategorie);
+			} else {
+				petitionList = petitionRepository.GetPetitionByKategorieOver(kategorie, nowDate());
 			}
 		}
 		getPetitionRespDto.setPetitionsList(petitionList);
@@ -78,6 +81,7 @@ public class PetitionServiceImpl implements PetitionService {
 	}
 
 	// 내청원 보기
+
 	@Override
 	public GetPetitionRespDto GetPetitionByid(PrincipalDetails principalDetails) {
 		// db에서 받아온 list를 담는 객체
@@ -103,7 +107,7 @@ public class PetitionServiceImpl implements PetitionService {
 		// 기본값 전체 ,진행중인 청원, 1페이지, 최신순보기
 		// 전체일때 order만 따지고
 		// 카테고리가 있을땐 카테고리와 order따져서 가져오기
-		
+
 		// db에서 가져온 전체 리스트를 담는 곳
 		List<GetPetitions> petitionListAll = null;
 		// List 반환하는 Dto
@@ -111,8 +115,8 @@ public class PetitionServiceImpl implements PetitionService {
 
 		// 전체일때 최신순, 추천순
 		if (kategorie.equals("전체")) {
-			//진행중인 청원
-			if(only == 1) {
+			// 진행중인 청원
+			if (only == 1) {
 				// 최신순
 				if (order == 1) {
 					petitionListAll = petitionRepository.GetRecentPetition();
@@ -121,9 +125,9 @@ public class PetitionServiceImpl implements PetitionService {
 				else {
 					petitionListAll = petitionRepository.GetSuggestionPetition();
 				}
-				
+
 			}
-			//만료된 청원
+			// 만료된 청원
 			else {
 				// 최신순
 				if (order == 1) {
@@ -137,8 +141,8 @@ public class PetitionServiceImpl implements PetitionService {
 		}
 		// 카테고리 있을때 카테고리, 최신순, 추천순
 		else {
-			//진행중인 청원
-			if(only == 1) {
+			// 진행중인 청원
+			if (only == 1) {
 				// 카테고리, 최신순
 				if (order == 1) {
 					petitionListAll = petitionRepository.GetRecentPetitionByKategorie(kategorie);
@@ -148,14 +152,14 @@ public class PetitionServiceImpl implements PetitionService {
 					petitionListAll = petitionRepository.GetSuggestionPetitionByKategorie(kategorie);
 				}
 			}
-			//만료된 청원
+			// 만료된 청원
 			else {
 				if (order == 1) {
-					petitionListAll = petitionRepository.GetRecentPetitionByKategorieOver(kategorie,nowDate());
+					petitionListAll = petitionRepository.GetRecentPetitionByKategorieOver(kategorie, nowDate());
 				}
 				// 카테고리, 추천순
 				else {
-					petitionListAll = petitionRepository.GetSuggestionPetitionByKategorieOver(kategorie,nowDate());
+					petitionListAll = petitionRepository.GetSuggestionPetitionByKategorieOver(kategorie, nowDate());
 				}
 			}
 		}
@@ -177,11 +181,11 @@ public class PetitionServiceImpl implements PetitionService {
 
 			}
 		} else if (page == petitionGroupSize) {
-			endIndex = petitionTotalCount % 7;
+			endIndex = startIndex + (petitionTotalCount % 7);
 			for (int i = startIndex; i < endIndex; i++) {
 				// 자료가 있는경우
 				petitionList.add(petitionListAll.get(i));
-				
+
 			}
 		} else {
 			// 페이지가 전체자료보다 많을때 리스트에 아무것도 넣어주지 않는다.
@@ -190,6 +194,45 @@ public class PetitionServiceImpl implements PetitionService {
 
 		return getPetitionRespDto;
 	}
+
+	@Override
+	public GetPetitionRespDto GetPetitionByAgreeCount(int page) {
+
+		List<GetPetitions> petitionList;
+		GetPetitionRespDto getPetitionRespDto = new GetPetitionRespDto();
+		petitionList = petitionRepository.GetRecoPetitionAll();
+
+		int petitionTotalCount = petitionList.size();
+		int petitionGroupSize = petitionTotalCount % 15 == 0 ? petitionTotalCount / 15 : (petitionTotalCount / 15) + 1;
+
+		// 15개 리스트
+		List<GetPetitions> recoViewList = new ArrayList<GetPetitions>();
+
+		int startIndex = (page - 1) * 15;
+		int endIndex = 0;
+
+		// 페이지가 1일떄 0~6 페이지가 2일때 7~13
+		if (page < petitionGroupSize) {
+			endIndex = startIndex + 15;
+			for (int i = startIndex; i < endIndex; i++) {
+				// 자료가 있는경우
+				recoViewList.add(petitionList.get(i));
+
+			}
+		} else if (page == petitionGroupSize) {
+			endIndex = startIndex + (petitionTotalCount % 15);
+			for (int i = startIndex; i < endIndex; i++) {
+				// 자료가 있는경우
+				recoViewList.add(petitionList.get(i));
+
+			}
+		} else {
+			// 페이지가 전체자료보다 많을때 리스트에 아무것도 넣어주지 않는다.
+		}
+		getPetitionRespDto.setPetitionsList(recoViewList);
+		return getPetitionRespDto;
+	}
+
 	public String nowDate() {
 		// 오늘 날짜 설정
 		Calendar calendar = Calendar.getInstance();
@@ -201,5 +244,75 @@ public class PetitionServiceImpl implements PetitionService {
 		String date = dateFormat.format(calendar.getTimeInMillis());
 		return date;
 	}
-}
 
+	@Override
+	public BoardPetitionRespDto BoardPetitionByPetitionid(PrincipalDetails principalDetails, int petition_id) {
+		// 데이터 담기
+		GetPetitions petitionEntity = petitionRepository.GetBoardByPetitionId(petition_id);
+		BoardPetitionRespDto boardPetitionRespDto = petitionEntity.toResp();
+		return boardPetitionRespDto;
+	}
+
+	@Override
+	public boolean insertPetitionReply(PrincipalDetails principalDetails, ReplyReqDto replyReqDto, int petition_id) {
+		ReplyPetition replyPetition = replyReqDto.toEntity(principalDetails.getUser().getId(), petition_id);
+
+		// 1이면 insert 성공 0이면 insert 실패
+		int insertCheck = petitionRepository.insertPetitionReply(replyPetition);
+
+		// 결과값 담아주기
+		boolean resultCheck;
+		if (insertCheck == 1) {
+			resultCheck = true;
+		} else {
+			resultCheck = false;
+		}
+		return resultCheck;
+	}
+
+	@Override
+	public ReplyRespDto getReplyByPetitionId(int petition_id, int page) {
+		List<GetReply> replyListAll = petitionRepository.GetReplyByPetitionId(petition_id);
+		ReplyRespDto replyRespDto = new ReplyRespDto();
+
+		int replyTotalCount = replyListAll.size();
+		int replyGroupSize = replyTotalCount % 7 == 0 ? replyTotalCount / 7 : (replyTotalCount / 7) + 1;
+
+		List<GetReply> replyList = new ArrayList<GetReply>();
+
+		int startIndex = (page - 1) * 7;
+		int endIndex = 0;
+		// 페이지가 1일떄 0~6 페이지가 2일때 7~13
+		if (page < replyGroupSize) {
+			endIndex = startIndex + 7;
+			for (int i = startIndex; i < endIndex; i++) {
+				// 자료가 있는경우
+				replyList.add(replyListAll.get(i));
+
+			}
+		} else if (page == replyGroupSize) {
+			endIndex = startIndex + (replyTotalCount % 7);
+
+			for (int i = startIndex; i < endIndex; i++) {
+				// 자료가 있는경우
+				replyList.add(replyListAll.get(i));
+
+			}
+		} else {
+			// 페이지가 전체자료보다 많을때 리스트에 아무것도 넣어주지 않는다.
+		}
+
+		replyRespDto.setReplyList(replyList);
+
+		return replyRespDto;
+	}
+
+	// 검색하기
+	@Override
+	public GetPetitionRespDto GetPetitionByTitle(String searchString) {
+		GetPetitionRespDto getPetitionRespDto = new GetPetitionRespDto();
+		getPetitionRespDto.setPetitionsList(petitionRepository.GetPetitionBySearchString(searchString));
+		return getPetitionRespDto;
+	}
+
+}

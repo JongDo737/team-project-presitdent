@@ -80,6 +80,8 @@
 		FROM
 			petition_mst pm
 			LEFT OUTER JOIN user_mst um ON(um.id = pm.user_id)
+		WHERE
+			end_date >= CURDATE()
 		ORDER BY
 			agree_count DESC
 		LIMIT
@@ -106,6 +108,8 @@
 			LEFT OUTER JOIN user_mst um ON(um.id = pm.user_id)
 		WHERE
 			pm.kategorie = #{kategorie}
+			and
+			end_date >= CURDATE()
 		ORDER BY
 			agree_count DESC
 		LIMIT
@@ -132,7 +136,8 @@
 		FROM
 			petition_mst pm
 			LEFT OUTER JOIN user_mst um ON(um.id = pm.user_id)
-		
+		WHERE
+			end_date >= CURDATE()
 		ORDER BY
 			create_date DESC;
 		
@@ -154,7 +159,8 @@
 		FROM
 			petition_mst pm
 			LEFT OUTER JOIN user_mst um ON(um.id = pm.user_id)
-		
+		WHERE
+			end_date >= CURDATE()
 		ORDER BY
 			agree_count DESC;
 	</select>
@@ -176,7 +182,9 @@
 			petition_mst pm
 			LEFT OUTER JOIN user_mst um ON(um.id = pm.user_id)
 		where
-		kategorie = #{kategorie}
+			kategorie = #{kategorie}
+			and
+			end_date >= CURDATE()
 		ORDER BY
 			create_date DESC;
 	</select>
@@ -198,7 +206,9 @@
 			petition_mst pm
 			LEFT OUTER JOIN user_mst um ON(um.id = pm.user_id)
 		WHERE
-		 kategorie = #{kategorie}
+		 	kategorie = #{kategorie}
+		 	and
+		 	end_date >= CURDATE()
 		ORDER BY
 			agree_count DESC;
 	</select>
@@ -222,7 +232,7 @@
 			petition_mst pm
 			LEFT OUTER JOIN user_mst um ON(um.id = pm.user_id)
 		WHERE
-			end_date &lt; #{nowDate}
+			CURDATE() > end_date
 		ORDER BY
 			agree_count DESC
 		LIMIT
@@ -250,7 +260,7 @@
 		WHERE
 			pm.kategorie = #{kategorie}
 			and
-			end_date &lt; #{nowDate}
+			CURDATE() > end_date
 		ORDER BY
 			agree_count DESC
 		LIMIT
@@ -277,8 +287,8 @@
 		FROM
 			petition_mst pm
 			LEFT OUTER JOIN user_mst um ON(um.id = pm.user_id)
-		where
-			end_date &lt; #{nowDate}
+		WHERE
+			CURDATE() > end_date
 		ORDER BY
 			create_date DESC;
 		
@@ -300,8 +310,8 @@
 		FROM
 			petition_mst pm
 			LEFT OUTER JOIN user_mst um ON(um.id = pm.user_id)
-		where
-			end_date &lt; #{nowDate}
+		WHERE
+			CURDATE() > end_date
 		ORDER BY
 			agree_count DESC;
 	</select>
@@ -325,7 +335,7 @@
 		where
 			kategorie = #{kategorie}
 			and
-			end_date &lt; #{nowDate}
+			CURDATE() > end_date
 		ORDER BY
 			create_date DESC;
 	</select>
@@ -349,9 +359,101 @@
 		WHERE
 		 	kategorie = #{kategorie}
 		 	and
-			end_date &lt; #{nowDate}
+		 	CURDATE() > end_date
 		ORDER BY
 			agree_count DESC;
 	</select>
+	
+	<select id="GetBoardByPetitionId" resultType="com.springboot.president.domain.petition.GetPetitions">
+			SELECT
+				pm.petition_id,
+				pm.title,
+				pm.kategorie,
+				pm.content,
+				pm.link,
+				pm.tag,
+				pm.agree_count,
+				pm.create_date,
+				pm.end_date,
+				um.id,
+				um.provider	
+			FROM
+				petition_mst pm
+				LEFT OUTER JOIN user_mst um ON(pm.user_id = um.id)
+			WHERE
+				pm.petition_id = #{petition_id};
+	</select>
+	
+	<select id="GetRecoPetitionAll" resultType="com.springboot.president.domain.petition.GetPetitions">
+		SELECT
+			um.provider,
+			pm.user_id,
+			pm.petition_id,
+			pm.title,
+			pm.kategorie,
+			pm.content,
+			pm.link,
+			pm.tag,
+			pm.agree_count,
+			pm.create_date,
+			pm.end_date
+			
+		FROM
+			petition_mst pm
+			LEFT OUTER JOIN user_mst um ON(um.id = pm.user_id)
+		WHERE
+			pm.end_date >= CURDATE()
+		ORDER BY
+			agree_count DESC	
+	
+	
+	</select>
+	
+	<select id="GetPetitionBySearchString" resultType="com.springboot.president.domain.petition.GetPetitions" parameterType="String">
+		SELECT
+			um.provider,
+			pm.user_id,
+			pm.petition_id,
+			pm.title,
+			pm.kategorie,
+			pm.content,
+			pm.link,
+			pm.tag,
+			pm.agree_count,
+			pm.create_date,
+			pm.end_date
+			
+		FROM
+			petition_mst pm
+			LEFT OUTER JOIN user_mst um ON(um.id = pm.user_id)
+		WHERE
+			pm.title LIKE CONCAT('%',#{searchString},'%')			
+		ORDER BY
+			agree_count DESC;	
+	</select>
+
+	<insert id="insertPetitionReply" parameterType="com.springboot.president.domain.petition.ReplyPetition">
+		INSERT INTO
+			petition_board_mst
+		VALUES(
+			0,
+			#{user_id},
+			#{petition_id},
+			#{reply}
+		
+		);
+	
+	</insert>
+	<select id="GetReplyByPetitionId" parameterType="Integer" resultType="com.springboot.president.domain.petition.GetReply">
+		SELECT
+			um.provider,
+			pb.reply
+		FROM
+			petition_board_mst pb
+			LEFT OUTER JOIN user_mst um ON(um.id = pb.user_id)
+		WHERE
+			pb.petition_id = #{petition_id};
+	</select>
+	
 
 </mapper>

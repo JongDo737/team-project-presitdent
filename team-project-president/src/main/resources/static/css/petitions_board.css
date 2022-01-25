@@ -122,7 +122,13 @@
     align-items: center;
 }
 
-.board_petitions_title h4 {
+.board_status_title{
+    display: none;
+}
+
+#board_status_sel {
+    display: block!important;
+    text-align: center;
     width: 120px;
     font-size: 22px;
     font-weight: 400;
@@ -135,6 +141,7 @@
     line-height: 50px;
     width: 90%;
     margin: 0 auto 45px auto;
+    text-align: center;
 }
 
 .board_petitions_title h2 {
@@ -209,7 +216,7 @@
     margin: 0 auto;
 }
 
-.board_view_point h4 {
+.board_grapy_status {
     font-size: 16px;
     font-weight: 300;
     color: #999;
@@ -222,11 +229,8 @@
     color: #01387b!important;
 }
 
-.point_box {
-    width: 9px;
-    height: 9px;
-    background-color: #034496;
-    border-radius: 50px;
+#point_box {
+    background-color: #034496!important;
     margin: 0 auto;
 }
 
@@ -417,7 +421,7 @@
     display: flex;
 }
 
-.reply_list_open a {
+.reply_list_open div {
     width: 100%;
     display: inline-block;
     padding: 15px 30px;
@@ -443,6 +447,7 @@
 .reply_list_all {
     width: 100%;
     display: none;
+    flex-direction: column;
 }
 
 .reply_list_reply {
@@ -503,7 +508,7 @@
     color: rgb(32, 31, 45);
     cursor: pointer;
 }
-.now-paging {
+#now-paging {
     border: 1px solid rgb(8, 46, 89)!important;
     color: rgb(255, 255, 255)!important;
     background-color: rgb(8, 46, 89)!important;
