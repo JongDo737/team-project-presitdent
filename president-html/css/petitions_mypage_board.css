@@ -106,6 +106,8 @@
 }
 
 .board_area {
+    display: flex;
+    flex-direction: column;
     padding: 80px 0px;
     margin: 0px 400px;
 }
@@ -292,19 +294,28 @@
 }
 
 .board_url_link {
+    margin-top: 50px;
     margin-bottom: 80px;
+
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
     gap: 10px;
-    height: 48px;
+    height: 100px;
+}
+.board_url_link_top{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    height: 60%;
 }
 .board_url_link_left{
     display: flex;
     flex-direction: row;
-    width: 80%;
+    width: 89%;
     height: 100%;
 }
 .board_url_link_left p {
@@ -313,36 +324,41 @@
     align-items: center;
     background-color: #e6e6e6;
     color: #383838;
-    width: 20%;
+    padding: 0px 50px;
+    border: 1px solid #ccc;
 }
 .board_url_link_left a {
     display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 15px;
+    border: 1px solid #ccc;
+    width: 100%;
+}
+.board_url_link_right{
+    display: flex;
+    flex-direction: row;
+    width: 11%;
+    height: 100%;
+}
+.board_url_link_right p {
+    display: flex;
+    flex-direction: row;
     justify-content: center;
-    align-items: flex-start;
-    width: 80%;
+    align-items: center;
+    text-align: center;
+    background-color: #295f9e;
+    color: white;
+    font-size:  1em;
+    font-weight: 700;
+    width: 100%;
+}
+.board_url_link_bottom{
+    width: 100%;
+    height: 40%;
+    border-bottom: 1px dashed #686868;
 }
 
-.board_url_link li {
-    border-bottom: 1px solid #d1d1d1;
-    color: #646464;
-    padding: 7px 0px 7px 20px;
-}
-
-.board_url_link li a {
-    font-size: 16px;
-    color: #0475ea;
-    text-decoration: none;
-}
-.board_url_link li p {
-    font-size: 16px;
-    float: Left;
-    margin-right: 15px;
-    font-weight: 600;
-}
-  
-.board_url_link li:first-child {
-    border-top: 1px solid #d1d1d1;
-}
 .board_tags{
     display: flex;
     flex-direction: row;
@@ -614,4 +630,25 @@
     background-color: black;
     border: 1px solid black;
     color: white;
+}
+.board_bottom {
+    color: #fff;
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    
+
+}
+.board_bottom_sep {
+    background-color: #001f50;
+    text-align: center;
+    width: 200px;
+    font-size: 17px;
+    font-weight: 300;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 2px;
 }
