@@ -33,7 +33,7 @@
     <!-- 메인 -->
     <section class="petitions_contents">
         <div class="contents_tab">
-            <div class="contents_tab_li" id="on"><a href="#" class="tab_menu">분야별 청원</a></div>
+            <div class="contents_tab_li" id="on"><a href="/petitions" class="tab_menu">분야별 청원</a></div>
             <div class="contents_tab_li"><a href="/petitions/reco" class="tab_menu" id="tab_center">추천순 청원</a></div>
             <div class="contents_tab_li"><a href="#" class="tab_menu">답변된 청원</a></div>
         </div>
@@ -171,7 +171,7 @@
                                 <div class="full_list_title">
                                     <h4 class="chenchaeList">전체 목록</h4>
                                     <div class="full_list_another">
-                                        <a href="#">지금 청원하기</a>
+                                        <a href="/petitions/Step1">지금 청원하기</a>
                                         <select name="order" id="order" class="orderSelect">
                                             <option value="1" selected>최신순 보기</option>
                                             <option value="2">추천순 보기</option>
@@ -218,7 +218,7 @@
                                                 <a id="" class="pageBtn">10</a>
                                             </div>
                                             <div class="paging-btn-next">
-                                                <a href="#">Next</a>
+                                                <a >Next</a>
                                             </div>
                                         </div>
                                     </div>

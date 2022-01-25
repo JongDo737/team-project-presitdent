@@ -71,13 +71,13 @@
                         <a href="#">문재인 대통령 4주년</a>
                     </li>
                     <li class="footer-top-text">
-                        <a href="#">국민청원</a>
+                        <a href="/petitions">국민청원</a>
                     </li>
                     <li class="footer-top-text">
                         <a href="#">국민과의 대화</a>
                     </li>
                     <li class="footer-top-text">
-                        <a href="#">토론방</a>
+                        <a href="/forums">토론방</a>
                     </li>
                     <li class="footer-top-text">
                         <a href="#">국민신문고</a>

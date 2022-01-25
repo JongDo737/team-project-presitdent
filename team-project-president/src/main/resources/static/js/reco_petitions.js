@@ -54,10 +54,10 @@ function getPetitions(petitionList) {
                                     ${pet.kategorie}
                                 </div>
                                 <div class="reco_full_list_subject">
-                                    <a href="${pet.petition_id}"> ${pet.title} </a>
+                                    <a href="/petitions/${pet.petition_id}"> ${pet.title} </a>
                                 </div>
                                 <div class="reco_full_list_date">${pet.end_date}</div>
-                                <div class="reco_full_list_agree">${pet.agree_count}명</div>
+                                <div class="reco_full_list_agree">${pet.agree_count.toLocaleString()}명</div>
                             </div>
                         </li>
 		
@@ -97,10 +97,10 @@ function getWaitPetitions(petitionList) {
                                 ${Waitpet.kategorie}
                             </div>
                             <div class="list_subject">
-                                <a href="${Waitpet.petition_id}"> ${Waitpet.title} </a>
+                                <a href="/petitions/${Waitpet.petition_id}"> ${Waitpet.title} </a>
                             </div>
                             <div class="list_date">${Waitpet.end_date}</div>
-                            <div class="list_agree">${Waitpet.agree_count}</div>
+                            <div class="list_agree">${Waitpet.agree_count.toLocaleString()}</div>
                         </div>
                     </li>
 		`;

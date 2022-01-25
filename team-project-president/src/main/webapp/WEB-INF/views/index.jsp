@@ -22,9 +22,9 @@
 
 <body>
     <div class="first-main" id="box">
-    	<nav>
-    		<jsp:include page="./include/nav.jsp"></jsp:include>
-    	</nav>
+	   	<nav>
+	   		<jsp:include page="./include/nav.jsp"></jsp:include>
+	   	</nav>
             
         <div class="first-container" id="box">
             <div class="first-covid">
@@ -95,19 +95,19 @@
                                 <div class="table-second">
                                     <div class="table-second-box">
                                         <div class="table-second-text-3">사망</div>
-                                        <div class="table-second-num-3">몰라</div>
+                                        <div class="table-second-num-3">23</div>
                                     </div>
                                     <div>
                                         <div class="table-second-text-3">재원 위중증</div>
-                                        <div class="table-second-num-3">몰라</div>
+                                        <div class="table-second-num-3">392</div>
                                     </div>
                                     <div>
                                         <div class="table-second-text-3">신규 임원</div>
-                                        <div class="table-second-num-3">몰라</div>
+                                        <div class="table-second-num-3">779</div>
                                     </div>
                                     <div>
                                         <div class="table-second-text-3">확진</div>
-                                        <div class="table-second-num-3">몰라</div>
+                                        <div class="table-second-num-3">8,571</div>
                                     </div>
                                 </div>
                             </td>

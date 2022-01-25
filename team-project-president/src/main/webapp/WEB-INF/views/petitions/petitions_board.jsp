@@ -2,9 +2,13 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+
 <sec:authorize access="isAuthenticated()">
 	<sec:authentication property="principal" var="principal"/>
 </sec:authorize>
+
 
 
 <!DOCTYPE html>
@@ -51,7 +55,7 @@
 	                <h4 id="" class="board_status_title">청원 종료</h4>
 	                <h4 id="" class="board_status_title">답변 완료</h4>         
                 <h3>${boardPetitionRespDto.title }</h3>
-                <h2>참여인원 : [ <span class="counter">${boardPetitionRespDto.agree_count }</span>명 ]</h2>
+                <h2>참여인원 : [ <span class="counter"><fmt:formatNumber value="${boardPetitionRespDto.agree_count }" pattern="#,###"/></span>명 ]</h2>
             </div>
             <div class="board_view_list">
                 <ul>
@@ -65,7 +69,7 @@
                         <p>청원마감</p> <p class="board_list_info_date">${boardPetitionRespDto.end_date }</p>
                     </li>
                     <li class="board_list_info">
-                        <p>청원인</p>${boardPetitionRespDto.provider }
+                        <p>청원인</p>${boardPetitionRespDto.provider }-***
                     </li>
                 </ul>
             </div>
@@ -100,14 +104,23 @@
                 <div class="board_view_maintext">${boardPetitionRespDto.content }</div>
             </div>
             <ul class="board_url_link">
-                <li>
-                    <p>첨부링크1:</p>
-                    <a href="#">http://www.naver.com</a>
-                </li>
+            <c:choose>
+            	<c:when test="${empty boardPetitionRespDto.link }">
+	                <li>
+	               </li>
+            	</c:when>
+            	<c:otherwise>
+	                <li>
+	                    <p>첨부링크1:</p>
+	                    <a href="${boardPetitionRespDto.link }">${boardPetitionRespDto.link }</a>
+	                </li>
+            	</c:otherwise>
+            	
+            </c:choose>
             </ul>
             <div class="board_reply_area">
                 <div class="reply_area_head">
-                    <h3 class="reply_area_agree">청원동의<span> ${boardPetitionRespDto.agree_count }</span>명</h3>
+                    <h3 class="reply_area_agree">청원동의<span> <fmt:formatNumber value="${boardPetitionRespDto.agree_count }" pattern="#,###"/></span>명</h3>
                     <div class="reply_area_sns">
                         <span>SNS 공유하기</span>
                         <ul>
@@ -172,7 +185,7 @@
                                 <a class="pageBtn">10</a>
                             </div>
                             <div class="paging-btn-next">
-                                <a href="#">Next</a>
+                                <a >Next</a>
                             </div>
                         </div>
                     </div>

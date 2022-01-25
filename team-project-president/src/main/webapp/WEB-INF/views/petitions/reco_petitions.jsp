@@ -31,7 +31,7 @@
     <section class="petitions_contents">
         <div class="contents_tab">
             <div class="contents_tab_li"><a href="/petitions" class="tab_menu">분야별 청원</a></div>
-            <div class="contents_tab_li" id="on"><a href="#" class="tab_menu" id="tab_center">추천순 청원</a></div>
+            <div class="contents_tab_li" id="on"><a href="/petitions/reco" class="tab_menu" id="tab_center">추천순 청원</a></div>
             <div class="contents_tab_li"><a href="#" class="tab_menu">답변된 청원</a></div>
         </div>
         <div class="contents_area">
@@ -48,7 +48,7 @@
                         가 답하겠습니다.
                     </p>
                     <div class="box_text_btnbox">
-                        <a href="/petitions/Step2">지금 청원하기</a>
+                        <a href="/petitions/Step1">지금 청원하기</a>
                     </div>
                 </div>
             </div>
@@ -72,7 +72,7 @@
                         <div class="reco_full_list_title">
                             <h4>청원 목록</h4>
                             <div class="reco_full_list_another">
-                                <a href="#">지금 청원하기</a>
+                                <a href="/petitions/step1">지금 청원하기</a>
                             </div>
                         </div>
                         <div class="reco_full_board_head">

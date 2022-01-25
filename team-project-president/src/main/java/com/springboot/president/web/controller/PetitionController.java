@@ -21,13 +21,7 @@ public class PetitionController {
 	
 	private final PetitionService petitionService;
 	
-	@PostMapping("/petitions/Step2/write")
-	public String petitionWrite(@AuthenticationPrincipal PrincipalDetails principalDetails, PetitionReqDto petitionReqDto) {
-		boolean insertCheck = petitionService.insertPetition(principalDetails, petitionReqDto);
-		
-		//주소 보내는곳 수정필요
-		return "/petitions";
-	}
+
 	@GetMapping("/petitions/wait")
 	public Object getWaitPetition() {
 		return petitionService.GetWaitPetition();
@@ -61,7 +55,6 @@ public class PetitionController {
 	
 	@GetMapping("petitions/step1/search")
 	public Object petitionsStep1Form(@RequestParam String searchString) {
-		System.out.println(searchString);
 		return petitionService.GetPetitionByTitle(searchString);
 	}
 	

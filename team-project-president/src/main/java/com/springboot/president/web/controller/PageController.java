@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.springboot.president.config.auth.PrincipalDetails;
 import com.springboot.president.service.IndexApiService;
 import com.springboot.president.web.dto.IndexTableRespDto;
+import com.springboot.president.web.dto.PetitionReqDto;
 import com.springboot.president.web.dto.ReplyReqDto;
 import com.springboot.president.service.PetitionService;
 import com.springboot.president.web.dto.BoardPetitionRespDto;
@@ -45,6 +46,13 @@ public class PageController {
 	public String petitionsForm() {
 		return "petitions/petitions";
 	}
+	@PostMapping("/petitions/Step2/write")
+	public String petitionWrite(@AuthenticationPrincipal PrincipalDetails principalDetails, PetitionReqDto petitionReqDto, Model model) {
+		boolean insertCheck = petitionService.insertPetition(principalDetails, petitionReqDto);
+		model.addAttribute("insertCheck",insertCheck);
+		//주소 보내는곳 수정필요
+		return "/petitions/petitions_mypage";
+	}
 	@GetMapping("/petitions/Mypage")
 	public String petitionsMypageForm() {
 		return "petitions/petitions_mypage";
@@ -68,9 +76,10 @@ public class PageController {
 		return "petitions/petitions";
 	}
 	
-	@GetMapping("petitions/step1")
+	@GetMapping("petitions/Step1")
 	public String petitionsStep1Form() {
 		return "petitions/petitions_step1";
 	}
+	
 	
 }

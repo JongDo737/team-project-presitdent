@@ -48,6 +48,6 @@ public interface PetitionRepository {
 
 	public List<GetReply> GetReplyByPetitionId(int petition_id);
 
-	public List<GetPetitions> getPetitionByTitle(String title);
+	public List<GetPetitions> GetPetitionBySearchString(String searchString);
 }
  

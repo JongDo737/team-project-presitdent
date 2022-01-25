@@ -18,16 +18,16 @@
     <nav>
         <div class="head_navi">
             <div id="head">
-                <a href="/" title="메인페이지로 이동">
+                <a href="/index" title="메인페이지로 이동">
                     <img src="/image/logo.png">
                 </a>
             </div>
         </div>
         <div id="navigator_menu" class="nav">
             <ul class="menu">
-                <h1 class="nav_logo">
+                <a href="/index" class="nav_logo">
                     <img src="/image/logo.png" alt="">
-                </h1>
+                </a>
                 <li class="menu_list">
                     <a href="#" class="menu_list_title">
                         문재인 대통령
