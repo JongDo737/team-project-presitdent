@@ -1,11 +1,16 @@
 package com.springboot.president.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.springboot.president.config.auth.PrincipalDetails;
 import com.springboot.president.domain.forums.Forums;
 import com.springboot.president.domain.forums.ForumsRepository;
+import com.springboot.president.domain.forums.GetForums;
 import com.springboot.president.web.dto.ForumsReqDto;
+import com.springboot.president.web.dto.ForumsRespDto;
+import com.springboot.president.web.dto.GetForumsRespDto;
 
 import lombok.RequiredArgsConstructor;
 
@@ -31,5 +36,31 @@ public class ForumsServiceImpl implements ForumsService{
 		}
 		return insertCheck;
 	}
+	
+
+	// 전체 토론 데이터 불러오기
+	@Override
+	public GetForumsRespDto getForumsAll() {
+		
+		// db에서 가져올 전체 리스트를 담는 list
+		List<GetForums> forumsListAll;
+		
+		// list를 반환하는 Dto
+		GetForumsRespDto getforumsRespDto = new GetForumsRespDto();
+		forumsListAll = forumsRepository.getForumsAll();
+		getforumsRespDto.setForumsList(forumsListAll);
+		return getforumsRespDto;
+	}
+
+	
+	// 개별 토론 데이터 불러오기
+	@Override
+	public ForumsRespDto getForumsByForumsId(PrincipalDetails principalDetails, int forums_id) {
+		GetForums forumsEntity = forumsRepository.getForumsByForumsId(forums_id);
+		ForumsRespDto forumsRespDto = forumsEntity.toResp();
+		return forumsRespDto;
+	}
+
+
 
 }

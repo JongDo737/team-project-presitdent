@@ -20,6 +20,22 @@
 	
 	</insert>
 
-	
+	<select id="getForumsAll" resultType="com.springboot.president.domain.forums.GetForums">
+		SELECT
+			um.provider,
+			fm.forums_id,
+			fm.user_id,
+			fm.topic,
+			fm.content,
+			fm.good_count,
+			fm.bad_count,
+			fm.create_date
+		FROM
+			forums_mst fm
+			LEFT OUTER JOIN user_mst um ON(um.id = fm.user_id)
+		WHERE
+			end_date >= CURDATE();
+		
+	</select>
 
 </mapper>
