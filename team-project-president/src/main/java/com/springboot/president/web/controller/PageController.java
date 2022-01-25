@@ -82,4 +82,12 @@ public class PageController {
 	}
 	
 	
+	@GetMapping("/forums")
+	public String forumsForm() {
+		return "forums/forums";
+	}
+	@GetMapping("/forums/suggest")
+	public String forumsSuggestForm() {
+		return "forums/forums_suggest";
+	}
 }
