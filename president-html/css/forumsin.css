@@ -1,0 +1,227 @@
+
+a{
+    text-decoration-color: none;
+}
+.all-wrap{
+    margin: 0 auto;
+}
+.box-wrap{
+    width: 95%;
+    height: 170px;
+    color: #fff;    
+    margin: 0 auto;
+    display: grid;
+    justify-content: center;
+    background-color: #343538;
+    position: relative;
+    top: 200px;
+    grid-template-columns: 1fr;
+
+}
+.box{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 140px;
+    font-size: 24px;
+    font-weight: 700;
+    padding-top: 30px;
+}
+.box p{
+    text-align: center;
+    margin: 0 auto;
+}
+.box p span{
+    font-size: 16px;
+    font-weight: normal;
+}
+.time{
+    display: inline-block;
+    width: 99%;
+    height: 30px;
+    text-align: right;
+}
+.con{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 200px;
+}
+.con p{
+    width: 95%;
+    position: absolute;
+    top: 400px;
+    
+}
+.btn{
+    margin-top: 100px;
+    position: relative;
+    top: 300px;
+    display: grid;
+    grid-template-columns: 150px 150px;
+    grid-template-rows: 100px 100px;
+    justify-content: center;
+    gap: 100px;
+    text-align: center;
+    color : #333;
+}
+.btn div{
+    border: 1px solid #aaa;
+    text-align: center;
+    font-size: 24px;
+    line-height: 50px;
+    width: 100%;
+    height: 100%;
+}
+.btn div a{
+    display: block;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+.btn div span{
+    width: 50px;
+    height: 65px;
+    background: url(/image/icon_like.png)no-repeat;
+    background-size:100px 100px;
+    display: inline-block;
+    margin-bottom: 20px;
+    
+    
+}
+.btn div span.like{
+    background-position: -50px 15px;
+}
+.btn div span.dislike{
+    background-position: 0px -40px;
+}
+.btn div span.dislike:hover{
+    background-position: -50px -40px;
+}
+.btn div a:hover {
+    color : #333;
+  }
+.btn div a:active {
+    color : #333;
+  }
+.btn div a:visited {
+    color : #333;
+  }
+.s-wrap{
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.s-box{
+    width: 95%;
+    text-align: right;
+    border-bottom: 1px solid #aaa;
+    margin-bottom: 20px;
+}
+.s-wrap a{
+    display: grid;
+    grid-template-columns: 10px 10px 10px 10px;
+    float: right;
+    
+}
+.s-wrap a span:nth-child(1){
+    margin-left: 10px;
+}
+.s-wrap a span{
+    width:30px;
+    height: 30px;
+    background: url(/image/icon_sns_t2.png)no-repeat;
+    background-size: 200% auto;
+}
+.s-wrap a .icon1{
+    background-position: 0px -210px;
+}
+.s-wrap a .icon2{
+    background-position: 0px -30px;
+}
+.s-wrap a .icon3{
+    background-position: 0px 0px;
+}
+.s-wrap a .icon4{
+    background-position: 0px -150px;
+}
+.s-wrap a .icon1:hover{
+    background-position: -30px -210px;
+}
+.s-wrap a .icon2:hover{
+    background-position: -30px -30px;
+}
+.s-wrap a .icon3:hover{
+    background-position: -30px 0px;
+}
+.s-wrap a .icon4:hover{
+    background-position: -30px -150px;
+}
+.answer-wrap{
+    display: flex;
+    justify-content: center;
+    color: #aaa;
+    
+}
+.answer-box{
+    width: 95%;
+    background-color: #f4f4f4;
+    padding: 20px 30px;
+    display: grid;
+    grid-template-columns: auto auto;
+    font-size: 16px;
+}
+#answer{
+    width: 1100px;
+    height: 100px;
+    border : 1px solid #ddd;
+    padding: 5px;
+    font-size: 16px;
+
+}
+.answer-box button{
+    width: 100px;
+    height: 100px;
+    background-color: #fff;
+    border : 1px solid #ddd;
+    cursor: pointer;
+    font-size: 16px;
+}
+.reanswer-wrap{
+    position: absolute;
+    right:35px;
+    width: 92%;
+    height: 150px;
+    border: 1px solid #aaa;
+    padding:20px;
+    display: none;
+}
+.reanswer-box{
+    padding: 0px 20px ;
+    display: grid;
+    grid-template-columns: auto auto;
+    color: #333;
+    align-items: center;
+    justify-content:space-between;
+
+}
+.reanswer-box button.small{
+    padding: 5px;
+    background-color: #f4f4f4;
+    border: 1px solid #aaa;
+    cursor: pointer;
+}
+.rightbtn{
+    width: 120px;
+    height: 70px;
+    position: relative;
+    right: 0px;
+    background-color: #fff;
+    border: 1px solid #aaa;
+    cursor: pointer;
+}
+.rightbtn:hover{
+    color: #fff;
+    background-color: #201f2d;
+}
