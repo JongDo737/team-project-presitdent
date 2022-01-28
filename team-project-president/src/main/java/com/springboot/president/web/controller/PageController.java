@@ -84,6 +84,12 @@ public class PageController {
 		return "petitions/petitions_step1";
 	}
 	
+	@GetMapping("/petitions/Temp/{petition_id}")
+	public String pettiionsMypageTemp(@AuthenticationPrincipal PrincipalDetails principalDetails, Model model,@PathVariable int petition_id) {
+		BoardPetitionRespDto boardPetitionRespDto = petitionService.BoardPetitionByPetitionid(principalDetails, petition_id);
+		model.addAttribute("boardPetitionRespDto", boardPetitionRespDto);
+		return "petitions/petitions_mypage_board";
+	}
 	
 	@GetMapping("/forums")
 	public String forumsForm() {
