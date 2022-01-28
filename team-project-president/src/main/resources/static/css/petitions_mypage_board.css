@@ -472,7 +472,7 @@
     display: flex;
 }
 
-.reply_list_open a {
+.reply_list_open div {
     width: 100%;
     display: inline-block;
     padding: 15px 30px;
@@ -497,20 +497,19 @@
  
 .reply_list_all {
     width: 100%;
-    display: flex;
+    display: none;
     flex-direction: column;
-    justify-content: center;
 }
 
 .reply_list_reply {
-    width: 100%;
-    padding: 15px 0 15px 30px;
+    padding: 15px 0px;
     border-top: 1px solid #ebebeb;
     border-bottom: 1px solid #ebebeb;
     margin-top: -1px;
 }
 
 .reply_list_contents_head {
+    margin-right: 15px;
     height: 22px;
 }
 
@@ -525,6 +524,7 @@
     margin-bottom: 15px;
     padding-top: 5px;
 }
+
 
 
 .paging {
@@ -560,7 +560,7 @@
     color: rgb(32, 31, 45);
     cursor: pointer;
 }
-.now-paging {
+#now-paging {
     border: 1px solid rgb(8, 46, 89)!important;
     color: rgb(255, 255, 255)!important;
     background-color: rgb(8, 46, 89)!important;
