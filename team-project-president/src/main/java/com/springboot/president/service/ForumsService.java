@@ -8,5 +8,6 @@ import com.springboot.president.web.dto.GetForumsRespDto;
 public interface ForumsService {
 	public boolean insertForums(PrincipalDetails principalDetails, ForumsReqDto forumsReqDto);
 	public GetForumsRespDto getForumsAll();
+	public GetForumsRespDto getForumsPage(int page);
 	public ForumsRespDto getForumsByForumsId(PrincipalDetails principalDetails, int forums_id);
 }

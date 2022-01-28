@@ -12,6 +12,7 @@ import lombok.Data;
 @Data
 public class ForumsRespDto {
 	
+	private String provider;
 	private int forums_id;
 	private int user_id;
 	private String topic;

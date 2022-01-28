@@ -1,5 +1,6 @@
 package com.springboot.president.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -53,6 +54,44 @@ public class ForumsServiceImpl implements ForumsService{
 	}
 
 	
+	@Override
+	public GetForumsRespDto getForumsPage(int page) {
+		List<GetForums> forumsListAll;
+		GetForumsRespDto getForumsRespDto = new GetForumsRespDto();
+		forumsListAll = forumsRepository.getForumsAll();
+		
+		int forumsTotalCount = forumsListAll.size();
+		int forumsGroupSize = forumsTotalCount % 15 == 0 ? forumsTotalCount / 15 : (forumsTotalCount / 15) + 1;
+		
+		// 리스트
+		List<GetForums> forumsViewList = new ArrayList<GetForums>();
+		
+		int startIndex = (page - 1) * 15;
+		int endIndex = 0;
+		
+		if (page < forumsGroupSize) {
+			endIndex = startIndex + 15;
+			for (int i = startIndex; i < endIndex; i++) {
+				// 자료가 있는경우
+				forumsViewList.add(forumsListAll.get(i));
+
+			}
+		} else if (page == forumsGroupSize) {
+			endIndex = startIndex + (forumsTotalCount % 15);
+			for (int i = startIndex; i < endIndex; i++) {
+				// 자료가 있는경우
+				forumsViewList.add(forumsListAll.get(i));
+
+			}
+		} else {
+			// 페이지가 전체자료보다 많을때 리스트에 아무것도 넣어주지 않는다.
+		}
+		getForumsRespDto.setForumsList(forumsViewList);
+		return getForumsRespDto;
+	}
+
+
+	
 	// 개별 토론 데이터 불러오기
 	@Override
 	public ForumsRespDto getForumsByForumsId(PrincipalDetails principalDetails, int forums_id) {
@@ -60,6 +99,7 @@ public class ForumsServiceImpl implements ForumsService{
 		ForumsRespDto forumsRespDto = forumsEntity.toResp();
 		return forumsRespDto;
 	}
+
 
 
 
