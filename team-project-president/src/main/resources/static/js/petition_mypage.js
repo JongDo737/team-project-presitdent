@@ -29,7 +29,7 @@ function getPetitions(petitionList) {
                 <div class="mypage_mylist" id="mylist_status"> <span>사전동의 진행중</span></div>
                 <div class="mypage_mylist" id="mylist_classification"><span>${pet.kategorie}</span></div>
                 <div class="mypage_mylist" id="mylist_title">
-                    <a href="#">
+                    <a href="http://localhost:8080/petitions/Temp/${pet.petition_id}">
                         <span>${pet.title}</span>
                     </a>
                 </div>
