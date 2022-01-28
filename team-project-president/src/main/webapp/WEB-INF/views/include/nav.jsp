@@ -141,7 +141,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="/forums">
                                 토론방
                             </a>
                         </li>

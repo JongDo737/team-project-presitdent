@@ -128,7 +128,7 @@
             <div class="board_url_link_top">
                 <div class="board_url_link_left">
                     <p>URL</p>
-                    <a href="http://${boardPetitionRespDto.link }">${boardPetitionRespDto.link }</a>
+                    <a href="${boardPetitionRespDto.link }">${boardPetitionRespDto.link }</a>
                 </div>
                 <div class="board_url_link_right">
                     <p>URL 복사</p>
