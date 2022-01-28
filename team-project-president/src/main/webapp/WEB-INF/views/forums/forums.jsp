@@ -16,6 +16,9 @@
 <body>
     <!-- 맨위 사진 -->
     <section class="forums_head">
+    	<nav>
+            <jsp:include page="../include/nav.jsp"></jsp:include>
+        </nav>
         <div class="forums_head_txt">
             토론방
         </div>
@@ -46,9 +49,9 @@
             </div>
         </div>
         <div class="suggest_btn">
-            <a href="forums/suggest">제안하기</a>
+            <a href="/forums/suggest">제안하기</a>
         </div>
-        <div class="search_wrap">'
+        <div class="search_wrap">
             <form action="/search" method="post" class="form_control">
                 <input type="text" class="search_ip">
                 <button type="submit" class="search_btn">
@@ -59,16 +62,16 @@
         <div class="paging">
             <div class="wrap-paging-btn">
                 <div class="paging-btn">
-                    <a href="#" class="now-paging">1</a>
-                    <a href="#">2</a>
-                    <a href="#">3</a>
-                    <a href="#">4</a>
-                    <a href="#">5</a>
-                    <a href="#">6</a>
-                    <a href="#">7</a>
-                    <a href="#">8</a>
-                    <a href="#">9</a>
-                    <a href="#">10</a>
+                    <a class="pageBtn" id="now-paging">1</a>
+                    <a class="pageBtn">2</a>
+                    <a class="pageBtn">3</a>
+                    <a class="pageBtn">4</a>
+                    <a class="pageBtn">5</a>
+                    <a class="pageBtn">6</a>
+                    <a class="pageBtn">7</a>
+                    <a class="pageBtn">8</a>
+                    <a class="pageBtn">9</a>
+                    <a class="pageBtn">10</a>
                 </div>
                 <div class="paging-btn-next">
                     <a href="#">Next</a>
@@ -76,8 +79,12 @@
             </div>
 
         </div>
-        <script src="/js/forums.js"></script>
+          
     </section>
+    <nav>
+    	<jsp:include page="../include/footer.jsp"></jsp:include>
+    </nav>
+    <script src="/js/forums.js"></script>
 </body>
 
 </html>

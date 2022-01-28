@@ -8,12 +8,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.springboot.president.config.auth.PrincipalDetails;
+import com.springboot.president.service.ForumsService;
 import com.springboot.president.service.IndexApiService;
 import com.springboot.president.web.dto.IndexTableRespDto;
 import com.springboot.president.web.dto.PetitionReqDto;
 import com.springboot.president.web.dto.ReplyReqDto;
 import com.springboot.president.service.PetitionService;
 import com.springboot.president.web.dto.BoardPetitionRespDto;
+import com.springboot.president.web.dto.ForumsReqDto;
 import com.springboot.president.web.dto.GetPetitionRespDto;
 
 import lombok.RequiredArgsConstructor;
@@ -24,6 +26,7 @@ public class PageController {
 	
 	private final IndexApiService indexApiService;
 	private final PetitionService petitionService;
+	private final ForumsService forumsService;
 
 	@GetMapping({"/", "/index"})
 	public String indexForm(Model model) throws Exception {
@@ -89,5 +92,13 @@ public class PageController {
 	@GetMapping("/forums/suggest")
 	public String forumsSuggestForm() {
 		return "forums/forums_suggest";
+	}
+	
+	@PostMapping("/forums/suggest/write")
+	public String forumWrite(@AuthenticationPrincipal PrincipalDetails principalDetails, ForumsReqDto forumsReqDto) {
+		boolean insertCheck = forumsService.insertForums(principalDetails, forumsReqDto);
+		
+		//주소 보내는곳 수정필요
+		return "forums/forums";
 	}
 }

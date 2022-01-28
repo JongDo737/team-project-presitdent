@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @Data
 public class GetForums {
-
+	private String provider;
 	private int forums_id;
 	private int user_id;
 	private String topic;
@@ -26,6 +26,7 @@ public class GetForums {
 	
 	public ForumsRespDto toResp() {
 			return ForumsRespDto.builder()
+										.provider(provider)
 										.forums_id(forums_id)
 										.user_id(user_id)
 										.topic(topic)

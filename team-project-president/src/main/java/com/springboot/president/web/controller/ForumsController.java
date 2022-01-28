@@ -1,14 +1,10 @@
 package com.springboot.president.web.controller;
 
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.springboot.president.config.auth.PrincipalDetails;
 import com.springboot.president.service.ForumsService;
-import com.springboot.president.web.dto.ForumsReqDto;
 
 import lombok.RequiredArgsConstructor;
 
@@ -18,16 +14,10 @@ public class ForumsController {
 
 	private final ForumsService forumsService;
 	
-	@PostMapping("/forums/suggest/write")
-	public String petitionWrite(@AuthenticationPrincipal PrincipalDetails principalDetails, ForumsReqDto forumsReqDto) {
-		boolean insertCheck = forumsService.insertForums(principalDetails, forumsReqDto);
-		
-		//주소 보내는곳 수정필요
-		return "/forums";
-	}
+	
 	
 	@GetMapping("/forums/list")
-	public Object getForumsAll() {
-		return forumsService.getForumsAll();
+	public Object getForumsPage(@RequestParam int page) {
+		return forumsService.getForumsPage(page);
 	}
 }
