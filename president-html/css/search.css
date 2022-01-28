@@ -181,14 +181,29 @@ margin-top: -3px;
 position: relative;
 top: 10px;
 }
+.search_main{
+    width: 100%;height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.search_container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 1280px;
+    padding: 80px 30px 160px;
+}
 .center_h2{
-    margin: 100px 0 30px 80px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    margin: 0 0 30px 0;
     font-size: 22px;
     color: #333;
 }
-.center_h2 > h2{
-    margin: 0 auto;
-}
+
 .center_h2 h2 .colb{
     color: #1d5daa;
 }
@@ -223,11 +238,65 @@ top: 10px;
     font-weight: 700;
 
 }
-.noresult_h2{
-    height: 350px;
+.search_result{
     display: flex;
-    margin-top: 100px;
-    justify-content: center;
-    font-size: 12px;
-    color: #8a8a8a;
+    flex-direction: column;
+
+    width: 100%;
+    margin-top: 35px;
+    padding: 55px 35px 15px;
+}
+.search_result_top{
+    width: 100%;
+    list-style: circle;
+    margin-bottom: 35px;
+}
+.search_result_title{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f0f0f0;
+    height: 48px;
+    margin: 0 0 35px;
+}
+.search_result_title div {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #333333;
+    padding: 10px 26px;
+
+}
+.search_result_title a{
+    font-size: 0.8em;
+    color: #737373;
+    padding-right: 20px;
+    font-weight: 500;
+}
+.search_result_detail{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 65px;
+
+}
+.search_result_detail_title{
+    color: #333333;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+.search_result_detail_title span {
+    font-size: 0.7em;
+    color: #808080;
+}
+.search_result_detail_content{
+    font-size: 1.08em;
+    font-weight: 600;
+    color: #777777;
+    margin-bottom: 25px;
+}
+.search_result_detail_kategorie{
+    color: #1D5Daa;
+    font-size: 0.8em;
+    font-weight: 600;
 }
