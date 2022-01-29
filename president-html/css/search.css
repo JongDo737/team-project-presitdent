@@ -8,7 +8,7 @@ justify-content: center;
 }
 .top_img{
     background: url(/image/search/bg_search.jpg)no-repeat center;
-    background: url(/image//search/searchPage_bg.jpg)no-repeat center;
+    background: url(/image/search/searchPage_bg.jpg)no-repeat center;
     background-size: cover;
     width: 100%;
     height: 500px;
@@ -44,9 +44,6 @@ justify-content: center;
     /* width: 150px;
     height: 52px; */
     background-color: #fff;
-    background-image: url(/images/search/search_select.png);
-    background-repeat: no-repeat;
-    background-position: 111px 8px;
     border: 4px solid #0c396f;
 	float:left;
 	margin-right:6px;
@@ -138,6 +135,7 @@ option{
     color:#0c396f;
     display: block;
     font-size: 14px;
+    cursor: pointer;
 }
 
 .PG_term ul li a:hover{
@@ -153,17 +151,15 @@ option{
 
 }
 .PG_calendar{
+	display: flex;
+	flex-direction:row;
+	justify-content: center;
+	align-items:center;
     margin-top: -13px;
-    margin-left: 60px;
 
 }
-.PG_calendar span{
-   position: absolute;
-   top: 520px;
-   right: 225px;
-}
 .fromtxt, .totxt{
-    width: 115px;
+    width: 200px;
     padding:  10px;
     font-size: 16px;
     text-align: center;
@@ -223,6 +219,7 @@ top: 10px;
     width: 240px;
     background-color: #f0f0f0;
     color: #0c396f;
+    cursor: pointer;
 }
 .btn5 li a:hover{
     font-weight: 700;
@@ -264,19 +261,29 @@ top: 10px;
     font-size: 1.2em;
     font-weight: bold;
     color: #333333;
-    padding: 10px 26px;
-
+    padding: 10px;
 }
-.search_result_title a{
+
+.more{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
     font-size: 0.8em;
     color: #737373;
     padding-right: 20px;
     font-weight: 500;
+    cursor: pointer;
+}
+.more:hover {
+    color: #0c396f;
+}
+.more i {
+    padding-top: 4px;
 }
 .search_result_detail{
     display: flex;
     flex-direction: column;
-    margin-bottom: 65px;
 
 }
 .search_result_detail:hover{
@@ -299,16 +306,21 @@ top: 10px;
     color: black;
     font-size: 0.9em;
 
-    margin-bottom: 25px;
 }
 .search_result_detail_content{
     font-size: 1.08em;
     font-weight: 600;
     color: #777777;
-    margin-bottom: 25px;
+    margin-top: 25px;
+    height: 48px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .search_result_detail_kategorie{
     color: #1D5Daa;
     font-size: 0.8em;
     font-weight: 600;
+    margin-top: 25px;
+    margin-bottom: 65px;
 }
+

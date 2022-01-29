@@ -15,11 +15,11 @@ public class SearchController {
 	@GetMapping("/Search/forums")
 	public Object forumsLoad(@RequestParam String query, @RequestParam int kategorie, @RequestParam int target, @RequestParam String startPeriod, @RequestParam String endPeriod ) {
 		
-		return searchService.searchForums(query, target, startPeriod, endPeriod);
+		return searchService.searchForums(query, kategorie, target, startPeriod, endPeriod);
 	}
 	@GetMapping("/Search/petitions")
 	public Object petitionsLoad(@RequestParam String query, @RequestParam int kategorie, @RequestParam int target, @RequestParam String startPeriod, @RequestParam String endPeriod) {
 
-		return searchService.searchPetitions(query, target, startPeriod, endPeriod);
+		return searchService.searchPetitions(query, kategorie, target, startPeriod, endPeriod);
 	}
 }

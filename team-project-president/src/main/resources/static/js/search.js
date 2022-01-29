@@ -7,10 +7,9 @@ const calenderBtn = document.querySelectorAll('.fromtxt');
 const kategorieBtn = document.querySelectorAll('.kategorie_btn');
 
 //jsp ul
-const forumsMain = document.querySelector('#forums_main');
-const forumsAdd = document.querySelector('.forums_add');
-const petitionsMain = document.querySelector('#petitions_main');
-const petitionsAdd = document.querySelector('.petitions_add');
+const forumsMain = document.querySelector('.search_result_forums_top');
+
+const petitionsMain = document.querySelector('.search_result_petitions_top');
 
 
 // 통합검색 , 토론방 , 국민청원 및 제안
@@ -22,17 +21,19 @@ var searchTarget = 0;
 var startPeriod = "1500-01-01";
 // 오늘날짜 구하기
 var endPeriod = todayDate();
+var query = '';
 
-
+var forumsItem = "";
 
 //메인 검색 돋보기 버튼 클릭
 searchBtn.onclick = () => {
-	const queryString = document.querySelector('.query');
+	var queryString = document.querySelector('.query');
 	query = queryString.value;
 	//ajax 둘다
 	if(selectKategorie.value == 0){
 		forumsLoad();
 		petitionsLoad();
+		
 	}
 	
 	// ajax 토론방
@@ -110,6 +111,8 @@ calenderBtn[1].onchange = () => {
 // 아래 카테고리 버튼들
 for(let i=0; i<kategorieBtn.length; i++){
 	kategorieBtn[i].onclick = () => {
+		const queryString = document.querySelector('.query');
+		query = queryString.value;
 		if(i == 0 || i == 1 || i ==2){
 			kategorie = 0;
 			forumsLoad();
@@ -129,21 +132,21 @@ for(let i=0; i<kategorieBtn.length; i++){
 
 // 토론방
 function forumsLoad() {
-	
 	$.ajax({
 		type: "get",
 		url: `/Search/forums?query=${query}&kategorie=${kategorie}&target=${searchTarget}&startPeriod=${startPeriod}&endPeriod=${endPeriod}`,
 		dataType: "text",
+		async: false,
 		success: function(data) {
-			alert(data);
-			forumsTitle = ``;
+			var forumsTitle = ``;
 			forumsItem = ``;
+			
 			let forumsListObj = JSON.parse(data);
 			if(forumsListObj.listTotalCount > 0){
 				forumsTitle+=getForumsTitle(forumsListObj)
 				forumsMain.innerHTML = forumsTitle;
+				const forumsAdd = document.querySelector('.forums_add');
 				forumsItem+= getForums(forumsListObj.forumsList);
-				alert(forumsListObj.forumsList);
 				forumsAdd.innerHTML = forumsItem;
 			}
 		},
@@ -151,12 +154,22 @@ function forumsLoad() {
 			alert('비동기 처리오류');
 		}
 	});
+	alert(forumsItem);
 }
 function getForumsTitle(forumsListObj) {
 	let forumsHtml = `
 		<li class="search_result_title">
             <div>토론방(${forumsListObj.listTotalCount})</div>
-            <a class="more_forums" style="cursur:pointer;">더보기 <i class="fas fa-angle-right"></i></a>
+            <a class="more">
+                <div>더보기 </div>
+                <i class="fas fa-chevron-circle-right"></i>
+            </a>
+        </li>
+        <li>
+            <ul class="forums_add">
+                
+            </ul>
+
         </li>
 	`;
 	
@@ -166,17 +179,19 @@ function getForums(forumsList) {
 	let forumsHtml = ``;
 	for(let forums of forumsList){
 		forumsHtml += `
-			<a class="search_result_detail" href="/forums/${forums.forums_id}">
-                <div class="search_result_detail_title">
-                    ${forums.topic}<span> [${forums.create_date}]</span>
-                </div>
-                <div class="search_result_detail_content">
-                    ${forums.content}
-                </div>
-                <div class="search_result_detail_kategorie">
-                    HOME > 국민소통광장 > 토론방
-                </div>
-            </a>
+			<li >
+	            <a class="search_result_detail" href="/forums/${forums.forums_id}">
+	                <div class="search_result_detail_title">
+	                    ${forums.topic}<span> [${forums.create_date}]</span>
+	                </div>
+	                <div class="search_result_detail_content">
+	                    ${forums.content}
+	                </div>
+	            </a>
+	            <div class="search_result_detail_kategorie">
+	                HOME > 국민소통광장 > 토론방
+	            </div>
+	        </li>
 		
 		`;
 		
@@ -186,18 +201,74 @@ function getForums(forumsList) {
 }
 // 국민청원 및 제안 
 function petitionsLoad() {
-	
 	$.ajax({
 		type: "get",
-		url: `Search/petitions?query=${query}&kategorie=${kategorie}&target=${searchTarget}&startPeriod=${startPeriod}&endPeriod=${endPeriod}`,
+		url: `/Search/petitions?query=${query}&kategorie=${kategorie}&target=${searchTarget}&startPeriod=${startPeriod}&endPeriod=${endPeriod}`,
 		dataType: "text",
 		success: function(data) {
-			
+			var petitionsTitle = ``;
+			var petitionsItem = ``;
+						let petitionsListObj = JSON.parse(data);
+			if(petitionsListObj.listTotalCount > 0){
+				petitionsTitle+=getpetitionsTitle(petitionsListObj)
+				petitionsMain.innerHTML = petitionsTitle;
+				const petitionsAdd = document.querySelector('.petitions_add');
+				petitionsItem+= getpetitions(petitionsListObj.petitionsList);
+				petitionsAdd.innerHTML = petitionsItem;
+			}
 		},
 		error: function() {
 			alert('비동기 처리오류');
 		}
 	});
+}
+function getpetitionsTitle(petitionsListObj) {
+	let petitionsHtml = `
+		<li class="search_result_title">
+            <div>국민청원 및 제안(${petitionsListObj.listTotalCount})</div>
+            <a class="more">
+                <div>더보기 </div>
+                <i class="fas fa-chevron-circle-right"></i>
+            </a>
+        </li>
+        <li>
+            <ul class="petitions_add">
+                
+            </ul>
+
+        </li>
+	`;
+	
+	return petitionsHtml;
+}
+function getpetitions(petitionsList) {
+	let petitionsHtml = ``;
+	for(let petitions of petitionsList){
+		petitionsHtml += `
+			<li >
+                <a class="search_result_detail" href="/petitions/${petitions.petition_id}">
+                    <div class="search_result_detail_title">
+                        ${petitions.title}
+                    </div>
+                    <div class="search_result_detail_petitions">
+                        <div>[청원시작 : ${petitions.create_date}]</div>
+                        <div>[청원마감 : ${petitions.end_date}]</div>
+                        <div>[청원인원 : ${petitions.agree_count.toLocaleString()}]</div>
+                    </div>
+                    <div class="search_result_detail_content">
+                        ${petitions.content}
+                    </div>
+                </a>
+                <div class="search_result_detail_kategorie">
+                    HOME > 국민소통광장 > 국민청원 및 제안
+                </div>
+            </li>
+		
+		`;
+		
+	}
+	return petitionsHtml;
+
 }
 // 오늘 날짜 구하기
 function todayDate(){
