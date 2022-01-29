@@ -6,6 +6,13 @@ const periodBtn = document.querySelectorAll('.periodBtn');
 const calenderBtn = document.querySelectorAll('.fromtxt');
 const kategorieBtn = document.querySelectorAll('.kategorie_btn');
 
+//jsp ul
+const forumsMain = document.querySelector('#forums_main');
+const forumsAdd = document.querySelector('.forums_add');
+const petitionsMain = document.querySelector('#petitions_main');
+const petitionsAdd = document.querySelector('.petitions_add');
+
+
 // 통합검색 , 토론방 , 국민청원 및 제안
 var kategorie = 0;
 //검색대상 (전체 == 0, 제목 == 1, 내용 == 2)
@@ -128,14 +135,55 @@ function forumsLoad() {
 		url: `/Search/forums?query=${query}&kategorie=${kategorie}&target=${searchTarget}&startPeriod=${startPeriod}&endPeriod=${endPeriod}`,
 		dataType: "text",
 		success: function(data) {
-			alert("ajax 성공");
+			alert(data);
+			forumsTitle = ``;
+			forumsItem = ``;
+			let forumsListObj = JSON.parse(data);
+			if(forumsListObj.listTotalCount > 0){
+				forumsTitle+=getForumsTitle(forumsListObj)
+				forumsMain.innerHTML = forumsTitle;
+				forumsItem+= getForums(forumsListObj.forumsList);
+				alert(forumsListObj.forumsList);
+				forumsAdd.innerHTML = forumsItem;
+			}
 		},
 		error: function() {
 			alert('비동기 처리오류');
 		}
 	});
 }
+function getForumsTitle(forumsListObj) {
+	let forumsHtml = `
+		<li class="search_result_title">
+            <div>토론방(${forumsListObj.listTotalCount})</div>
+            <a class="more_forums" style="cursur:pointer;">더보기 <i class="fas fa-angle-right"></i></a>
+        </li>
+	`;
+	
+	return forumsHtml;
+}
+function getForums(forumsList) {
+	let forumsHtml = ``;
+	for(let forums of forumsList){
+		forumsHtml += `
+			<a class="search_result_detail" href="/forums/${forums.forums_id}">
+                <div class="search_result_detail_title">
+                    ${forums.topic}<span> [${forums.create_date}]</span>
+                </div>
+                <div class="search_result_detail_content">
+                    ${forums.content}
+                </div>
+                <div class="search_result_detail_kategorie">
+                    HOME > 국민소통광장 > 토론방
+                </div>
+            </a>
+		
+		`;
+		
+	}
+	return forumsHtml;
 
+}
 // 국민청원 및 제안 
 function petitionsLoad() {
 	
@@ -144,7 +192,6 @@ function petitionsLoad() {
 		url: `Search/petitions?query=${query}&kategorie=${kategorie}&target=${searchTarget}&startPeriod=${startPeriod}&endPeriod=${endPeriod}`,
 		dataType: "text",
 		success: function(data) {
-			alert("ajax 성공");
 			
 		},
 		error: function() {

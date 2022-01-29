@@ -8,8 +8,6 @@ import org.springframework.stereotype.Service;
 import com.springboot.president.domain.search.SearchForums;
 import com.springboot.president.domain.search.SearchPetitions;
 import com.springboot.president.domain.search.SearchRepository;
-import com.springboot.president.web.dto.GetForumsRespDto;
-import com.springboot.president.web.dto.GetPetitionRespDto;
 import com.springboot.president.web.dto.search.SearchForumsRespDto;
 import com.springboot.president.web.dto.search.SearchPetitionRespDto;
 
@@ -45,8 +43,6 @@ public class SearchServiceImpl implements SearchService{
 		}
 		searchForumsRespDto.setForumsList(forumsToRespList);
 		searchForumsRespDto.setListTotalCount(forumstotalList.size());
-		System.out.println("forums");
-		System.out.println(searchForumsRespDto);
 		
 		return searchForumsRespDto;
 	}
@@ -74,8 +70,6 @@ public class SearchServiceImpl implements SearchService{
 		}
 		searchPetitionRespDto.setPetitionsList(petitionsRespList);
 		searchPetitionRespDto.setListTotalCount(petitionstotalList.size());
-		System.out.println("petitions");
-		System.out.println(searchPetitionRespDto);
 		return searchPetitionRespDto;
 	}
 

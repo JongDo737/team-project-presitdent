@@ -276,20 +276,32 @@ top: 10px;
     margin-bottom: 65px;
 
 }
+.search_result_detail:hover{
+    text-decoration:underline; color:#b4b3b3 
+}
 .search_result_detail_title{
     color: #333333;
-    font-size: 1.5em;
+    font-size: 1.6em;
     font-weight: bold;
-    margin-bottom: 25px;
+    margin-bottom: 5px;
 }
 .search_result_detail_title span {
     font-size: 0.7em;
     color: #808080;
 }
+.search_result_detail_petitions{
+    display: flex;
+    flex-direction: row;
+    gap: 23px;
+    color: black;
+    font-size: 0.9em;
+
+}
 .search_result_detail_content{
     font-size: 1.08em;
     font-weight: 600;
     color: #777777;
+    margin-top: 25px;
     margin-bottom: 25px;
 }
 .search_result_detail_kategorie{
@@ -297,3 +309,4 @@ top: 10px;
     font-size: 0.8em;
     font-weight: 600;
 }
+

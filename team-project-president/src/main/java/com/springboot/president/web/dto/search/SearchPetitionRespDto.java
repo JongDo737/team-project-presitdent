@@ -2,7 +2,6 @@ package com.springboot.president.web.dto.search;
 
 import java.util.List;
 
-import com.springboot.president.domain.petition.GetPetitions;
 import com.springboot.president.domain.search.SearchPetitions;
 
 import lombok.Data;

@@ -91,49 +91,26 @@
                 <li id=""><a class="kategorie_btn">국민청원 및 제안</a></li>
             </ul>
             <div class="search_result">
-                <ul class="search_result_top">
-                    <li class="search_result_title">
-                        <div>토론방(997)</div>
-                        <a href="#">더보기 <i class="fas fa-angle-right"></i></a>
-                    </li>
-                    <ul>
-                        <li class="search_result_detail">
-                            <div class="search_result_detail_title">
-                                한-사우디 스마드 혁신성장 포럼 기조연설<span> [2022-01-18]</span>
-                            </div>
-                            <div class="search_result_detail_content">
-                                ... 협력하고 제2, 제3의 메가 프로젝트를 성공시켜 나가기를 기대합니다. 셋째, 신성장 동력 분야 협력입니다. 양국은 코로나 상황 속에서 인공호흡기 공동
-                                생산, 진단키트 등 방역 용품 협력, 코로나 백신과 치료제
-                                관련 협력 등 보건의료 협력의 가능성을 확인했습니다. 최근에는 한국 인공지능 의료 소프트웨어 ‘닥터
-                            </div>
-                            <div class="search_result_detail_kategorie">
-                                HOME > 국민소통광장 > 토론방
-                            </div>
-                        </li>
-                        <li class="search_result_detail">
-                            <div class="search_result_detail_title">
-                                한-사우디 스마드 혁신성장 포럼 기조연설<span> [2022-01-18]</span>
-                            </div>
-                            <div class="search_result_detail_content">
-                                ... 협력하고 제2, 제3의 메가 프로젝트를 성공시켜 나가기를 기대합니다. 셋째, 신성장 동력 분야 협력입니다. 양국은 코로나 상황 속에서 인공호흡기 공동
-                                생산, 진단키트 등 방역 용품 협력, 코로나 백신과 치료제
-                                관련 협력 등 보건의료 협력의 가능성을 확인했습니다. 최근에는 한국 인공지능 의료 소프트웨어 ‘닥터
-                            </div>
-                            <div class="search_result_detail_kategorie">
-                                HOME > 국민소통광장 > 토론방
-                            </div>
-                        </li>
+                <ul class="search_result_top" id="forums_main">
+                    
+                    <ul class="forums_add">
+                       
                     </ul>
                 </ul>
-                <ul class="search_result_top">
+                <ul class="search_result_top" id="petitions_main">
                     <li class="search_result_title">
                         <div>국민청원 및 제안(1,819)</div>
                         <a href="#">더보기 <i class="fas fa-angle-right"></i></a>
                     </li>
-                    <ul>
-                        <li class="search_result_detail">
+                    <ul class="petitions_add">
+                        <a class="search_result_detail" href="#">
                             <div class="search_result_detail_title">
-                                한-사우디 스마드 혁신성장 포럼 기조연설<span> [2022-01-18]</span>
+                                한-사우디 스마드 혁신성장 포럼 기조연설
+                            </div>
+                            <div class="search_result_detail_petitions">
+                                <div>[청원시작 : 2022-01-28]</div>
+                                <div>[청원마감 : 2022-02-27]</div>
+                                <div>[청원인원 : 1,057]</div>
                             </div>
                             <div class="search_result_detail_content">
                                 ... 협력하고 제2, 제3의 메가 프로젝트를 성공시켜 나가기를 기대합니다. 셋째, 신성장 동력 분야 협력입니다. 양국은 코로나 상황 속에서 인공호흡기 공동
@@ -143,10 +120,15 @@
                             <div class="search_result_detail_kategorie">
                                 HOME > 국민소통광장 > 토론방
                             </div>
-                        </li>
-                        <li class="search_result_detail">
+                        </a>
+                        <a class="search_result_detail" href="#">
                             <div class="search_result_detail_title">
-                                한-사우디 스마드 혁신성장 포럼 기조연설<span> [2022-01-18]</span>
+                                한-사우디 스마드 혁신성장 포럼 기조연설
+                            </div>
+                            <div class="search_result_detail_petitions">
+                                <div>[청원시작 : 2022-01-28]</div>
+                                <div>[청원마감 : 2022-02-27]</div>
+                                <div>[청원인원 : 1,057]</div>
                             </div>
                             <div class="search_result_detail_content">
                                 ... 협력하고 제2, 제3의 메가 프로젝트를 성공시켜 나가기를 기대합니다. 셋째, 신성장 동력 분야 협력입니다. 양국은 코로나 상황 속에서 인공호흡기 공동
@@ -156,7 +138,7 @@
                             <div class="search_result_detail_kategorie">
                                 HOME > 국민소통광장 > 토론방
                             </div>
-                        </li>
+                        </a>
                     </ul>
                 </ul>
             </div>
