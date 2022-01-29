@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springboot.president.domain.search.SearchRepository">
+	<select id="getForums" parameterType="String" resultType="com.springboot.president.domain.search.SearchForums">
+		SELECT
+			forums_id,
+			topic,
+			content,
+			create_date
+			
+			
+		FROM
+			forums_mst fm
+		WHERE
+			topic LIKE CONCAT('%',#{query},'%')		
+			or
+			content LIKE CONCAT('%',#{query},'%')		
+			and
+			create_date &gt;= #{startPeriod}
+			and
+			create_date &lt;= #{endPeriod};
+	</select>
+	<select id="getForumsByTopic" parameterType="String" resultType="com.springboot.president.domain.search.SearchForums">
+		SELECT
+			forums_id,
+			topic,
+			content,
+			create_date
+			
+			
+		FROM
+			forums_mst fm
+		WHERE
+			topic LIKE CONCAT('%',#{query},'%')		
+			and
+			create_date &gt;= #{startPeriod}
+			and
+			create_date &lt;= #{endPeriod};
+	</select>
+	<select id="getForumsByContent" parameterType="String" resultType="com.springboot.president.domain.search.SearchForums">
+		SELECT
+			forums_id,
+			topic,
+			content,
+			create_date
+			
+			
+		FROM
+			forums_mst fm
+		WHERE
+			content LIKE CONCAT('%',#{query},'%')		
+			and
+			create_date &gt;= #{startPeriod}
+			and
+			create_date &lt;= #{endPeriod};
+	</select>
+	<select id="getPetitions" parameterType="String" resultType="com.springboot.president.domain.search.SearchPetitions">
+		SELECT
+			petition_id,
+			title,
+			content,
+			agree_count,
+			create_date,
+			end_date
+			
+		FROM
+			petition_mst
+		WHERE
+			title LIKE CONCAT('%',#{query},'%')		
+			or
+			content LIKE CONCAT('%',#{query},'%')		
+			and
+			create_date &gt;= #{startPeriod}
+			and
+			create_date &lt;= #{endPeriod};
+	</select>
+	<select id="getPetitionsByTitle" parameterType="String" resultType="com.springboot.president.domain.search.SearchPetitions">
+		SELECT
+			petition_id,
+			title,
+			content,
+			agree_count,
+			create_date,
+			end_date
+			
+		FROM
+			petition_mst
+		WHERE
+			title LIKE CONCAT('%',#{query},'%')		
+			and
+			create_date &gt;= #{startPeriod}
+			and
+			create_date &lt;= #{endPeriod};
+	</select>
+	<select id="getPetitionsByContent" parameterType="String" resultType="com.springboot.president.domain.search.SearchPetitions">
+		SELECT
+			petition_id,
+			title,
+			content,
+			agree_count,
+			create_date,
+			end_date
+			
+		FROM
+			petition_mst
+		WHERE
+			content LIKE CONCAT('%',#{query},'%')		
+			and
+			create_date &gt;= #{startPeriod}
+			and
+			create_date &lt;= #{endPeriod};
+	</select>
+	
+
+
+
+
+</mapper>
