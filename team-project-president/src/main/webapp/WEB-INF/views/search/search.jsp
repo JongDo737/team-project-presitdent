@@ -81,7 +81,7 @@
     <div class="search_main">
         <div class="search_container">
             <div class="center_h2">
-                <h2>검색어 <span class="colb">""</span> 에 대한 검색 결과입니다. <span class="colr">(951건)</span></h2>
+                <h2>검색어 <span class="colb">""</span> 에 대한 검색 결과입니다. <span class="colr">(<span class="totalCount">0</span>건)</span></h2>
             </div>
             <ul class="btn5">
                 <li id="on"><a class="kategorie_btn">통합검색</a></li>
@@ -92,14 +92,11 @@
             </ul>
            <div class="search_result">
 
-                <ul class="search_result_forums_top">
+                <ul class="search_result_top">
                     
                     
                 </ul>
-                <ul class="search_result_petitions_top">
-                    
-                   
-                </ul>
+                
             </div>
 
         </div>

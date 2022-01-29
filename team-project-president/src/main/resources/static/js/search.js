@@ -7,9 +7,11 @@ const calenderBtn = document.querySelectorAll('.fromtxt');
 const kategorieBtn = document.querySelectorAll('.kategorie_btn');
 
 //jsp ul
-const forumsMain = document.querySelector('.search_result_forums_top');
+const Main = document.querySelector('.search_result_top');
 
-const petitionsMain = document.querySelector('.search_result_petitions_top');
+
+const searchQuery = document.querySelector('.colb');
+const searchCount = document.querySelector('.totalCount');
 
 
 // 통합검색 , 토론방 , 국민청원 및 제안
@@ -23,81 +25,86 @@ var startPeriod = "1500-01-01";
 var endPeriod = todayDate();
 var query = '';
 
-var forumsItem = "";
-
+var forumsTitle = ``;
+var forumsItem = ``;
+var petitionsTitle = ``;
+var petitionsItem = ``;
+var forumsCount = 0;
+var petitionsCount = 0;
+var totalCount = 0;
 //메인 검색 돋보기 버튼 클릭
 searchBtn.onclick = () => {
 	var queryString = document.querySelector('.query');
 	query = queryString.value;
 	//ajax 둘다
-	if(selectKategorie.value == 0){
-		forumsLoad();
-		petitionsLoad();
-		
+	if (selectKategorie.value == 0) {
+		SearchLoad();
+
+
 	}
-	
+
 	// ajax 토론방
-	else if(selectKategorie.value == 1){
-		forumsLoad();
+	else if (selectKategorie.value == 1) {
+		SearchLoad();
 	}
-	
+
 	// ajax 청원
-	else if(selectKategorie.value == 2){
-		petitionsLoad();
+	else if (selectKategorie.value == 2) {
+		SearchLoad();
 	}
-	
+
 }
 selectKategorie.onchange = () => {
 	kategorie = selectKategorie.value;
 }
 
 // 검색대상 체크박스 클릭됐을 때
-for(let i = 0; i<searchCheckBox.length; i++){
+for (let i = 0; i < searchCheckBox.length; i++) {
 	searchCheckBox[i].onclick = () => {
 		NoMultiChk(searchCheckBox[i]);
 		// 전체일때
-		if($('input:checkbox[id="searchAll"]').is(":checked") == true ||
-		 ( $('input:checkbox[id="searchTitle"]').is(":checked") == true &&
-		  $('input:checkbox[id="searchContent"]').is(":checked") == true)) {
+		if ($('input:checkbox[id="searchAll"]').is(":checked") == true ||
+			($('input:checkbox[id="searchTitle"]').is(":checked") == true &&
+				$('input:checkbox[id="searchContent"]').is(":checked") == true)) {
 			searchTarget = 0;
 		}
 		//제목만
-		else if($('input:checkbox[id="searchAll"]').is(":checked") == false &&
-		 ( $('input:checkbox[id="searchTitle"]').is(":checked") == true &&
-		  $('input:checkbox[id="searchContent"]').is(":checked") == false)){
+		else if ($('input:checkbox[id="searchAll"]').is(":checked") == false &&
+			($('input:checkbox[id="searchTitle"]').is(":checked") == true &&
+				$('input:checkbox[id="searchContent"]').is(":checked") == false)) {
 			searchTarget = 1;
 		}
 		// 내용만
-		else if($('input:checkbox[id="searchAll"]').is(":checked") == false &&
-		 ( $('input:checkbox[id="searchTitle"]').is(":checked") == false &&
-		  $('input:checkbox[id="searchContent"]').is(":checked") == true)){
+		else if ($('input:checkbox[id="searchAll"]').is(":checked") == false &&
+			($('input:checkbox[id="searchTitle"]').is(":checked") == false &&
+				$('input:checkbox[id="searchContent"]').is(":checked") == true)) {
 			searchTarget = 2;
 		}
-		
+
 	}
-	
+
 }
-for (let i = 0; i < periodBtn.length; i++){
+for (let i = 0; i < periodBtn.length; i++) {
 	periodBtn[i].onclick = () => {
 		//전체 기간일 때
-		if(i==0){
+		if (i == 0) {
 			startPeriod = "1500-01-01";
 			endPeriod = todayDate();
 		}
-		else if(i ==1){
+		else if (i == 1) {
 			startPeriod = lastWeekDate();
 			endPeriod = todayDate();
 			calenderBtn[0].value = startPeriod;
 			calenderBtn[1].value = endPeriod;
 		}
-		else if(i ==2){
+		else if (i == 2) {
 			startPeriod = lastYearDate();
 			endPeriod = todayDate();
 			calenderBtn[0].value = startPeriod;
 			calenderBtn[1].value = endPeriod;
-			
+
 		}
-		
+
 	}
 }
 // 달력 버튼 
@@ -109,53 +116,150 @@ calenderBtn[1].onchange = () => {
 }
 
 // 아래 카테고리 버튼들
-for(let i=0; i<kategorieBtn.length; i++){
+for (let i = 0; i < kategorieBtn.length; i++) {
 	kategorieBtn[i].onclick = () => {
 		const queryString = document.querySelector('.query');
 		query = queryString.value;
-		if(i == 0 || i == 1 || i ==2){
+		if (i == 0 || i == 1 || i == 2) {
 			kategorie = 0;
-			forumsLoad();
-			petitionsLoad();
+			SearchLoad();
+
 		}
-		else if(i == 3){
+		else if (i == 3) {
 			kategorie = 1;
-			forumsLoad();
+			SearchLoad();
 		}
-		else{
+		else {
 			kategorie = 2;
-			petitionsLoad();
+			SearchLoad();
 		}
 	}
 }
 
-
 // 토론방
-function forumsLoad() {
-	$.ajax({
-		type: "get",
-		url: `/Search/forums?query=${query}&kategorie=${kategorie}&target=${searchTarget}&startPeriod=${startPeriod}&endPeriod=${endPeriod}`,
-		dataType: "text",
-		async: false,
-		success: function(data) {
-			var forumsTitle = ``;
-			forumsItem = ``;
-			
-			let forumsListObj = JSON.parse(data);
-			if(forumsListObj.listTotalCount > 0){
-				forumsTitle+=getForumsTitle(forumsListObj)
-				forumsMain.innerHTML = forumsTitle;
-				const forumsAdd = document.querySelector('.forums_add');
-				forumsItem+= getForums(forumsListObj.forumsList);
-				forumsAdd.innerHTML = forumsItem;
+function SearchLoad() {
+	searchQuery.textContent = query;
+	if (kategorie == 0) {
+		$.ajax({
+			type: "get",
+			url: `/Search/forums?query=${query}&kategorie=${kategorie}&target=${searchTarget}&startPeriod=${startPeriod}&endPeriod=${endPeriod}`,
+			dataType: "text",
+			async: false,
+			success: function(data) {
+				forumsTitle = ``;
+				forumsItem = ``;
+				let forumsListObj = JSON.parse(data);
+				if (forumsListObj.listTotalCount > 0) {
+					forumsTitle += getForumsTitle(forumsListObj)
+					forumsItem += getForums(forumsListObj.forumsList);
+					forumsCount = 0;
+					forumsCount = forumsListObj.listTotalCount;
+				}
+			},
+			error: function() {
+				alert('비동기 처리오류');
 			}
-		},
-		error: function() {
-			alert('비동기 처리오류');
-		}
-	});
-	alert(forumsItem);
+		});
+		$.ajax({
+			type: "get",
+			url: `/Search/petitions?query=${query}&kategorie=${kategorie}&target=${searchTarget}&startPeriod=${startPeriod}&endPeriod=${endPeriod}`,
+			dataType: "text",
+			async: false,
+			success: function(data) {
+				
+				petitionsTitle = ``;
+				petitionsItem = ``;
+				let petitionsListObj = JSON.parse(data);
+				if (petitionsListObj.listTotalCount > 0) {
+					petitionsTitle += getpetitionsTitle(petitionsListObj)
+					petitionsItem += getpetitions(petitionsListObj.petitionsList);
+					petitionsCount = 0;
+					petitionsCount = petitionsListObj.listTotalCount;
+				}
+			},
+			error: function() {
+				alert('비동기 처리오류');
+			}
+		});
+		Main.innerHTML = forumsTitle + petitionsTitle;
+		const forumsAdd = document.querySelector('.forums_add');
+		const petitionsAdd = document.querySelector('.petitions_add');
+		forumsAdd.innerHTML = forumsItem;
+		petitionsAdd.innerHTML = petitionsItem;
+		totalCount = forumsCount + petitionsCount;
+		searchCount.textContent = totalCount;
+	}
+	//토론방 검색
+	else if (kategorie == 1) {
+		$.ajax({
+			type: "get",
+			url: `/Search/forums?query=${query}&kategorie=${kategorie}&target=${searchTarget}&startPeriod=${startPeriod}&endPeriod=${endPeriod}`,
+			dataType: "text",
+			async: false,
+			success: function(data) {
+				forumsTitle = ``;
+				forumsItem = ``;
+
+				let forumsListObj = JSON.parse(data);
+				if (forumsListObj.listTotalCount > 0) {
+					forumsTitle += getForumsTitle(forumsListObj)
+					forumsItem += getForums(forumsListObj.forumsList);
+					forumsCount = 0;
+					forumsCount = forumsListObj.listTotalCount;
+				}
+			},
+			error: function() {
+				alert('비동기 처리오류');
+			}
+		});
+		Main.innerHTML = forumsTitle;
+		const forumsAdd = document.querySelector('.forums_add');
+		forumsAdd.innerHTML = forumsItem;
+		totalCount = forumsCount;
+		searchCount.textContent = totalCount;
+	}
+	else {
+		$.ajax({
+			type: "get",
+			url: `/Search/petitions?query=${query}&kategorie=${kategorie}&target=${searchTarget}&startPeriod=${startPeriod}&endPeriod=${endPeriod}`,
+			dataType: "text",
+			async: false,
+			success: function(data) {
+				petitionsTitle = ``;
+				petitionsItem = ``;
+				let petitionsListObj = JSON.parse(data);
+				if (petitionsListObj.listTotalCount > 0) {
+					petitionsTitle += getpetitionsTitle(petitionsListObj)
+					petitionsItem += getpetitions(petitionsListObj.petitionsList);
+					petitionsCount = 0;
+					petitionsCount = petitionsListObj.listTotalCount;
+				}
+			},
+			error: function() {
+				alert('비동기 처리오류');
+			}
+		});
+		Main.innerHTML = petitionsTitle;
+		const petitionsAdd = document.querySelector('.petitions_add');
+		petitionsAdd.innerHTML = petitionsItem;
+		totalCount = petitionsCount;
+		searchCount.textContent = totalCount;
+	}
+
+
+
+
+
+
 }
+
+
+
+
+
+
+
+
 function getForumsTitle(forumsListObj) {
 	let forumsHtml = `
 		<li class="search_result_title">
@@ -172,12 +276,12 @@ function getForumsTitle(forumsListObj) {
 
         </li>
 	`;
-	
+
 	return forumsHtml;
 }
 function getForums(forumsList) {
 	let forumsHtml = ``;
-	for(let forums of forumsList){
+	for (let forums of forumsList) {
 		forumsHtml += `
 			<li >
 	            <a class="search_result_detail" href="/forums/${forums.forums_id}">
@@ -194,34 +298,13 @@ function getForums(forumsList) {
 	        </li>
 		
 		`;
-		
+
 	}
 	return forumsHtml;
 
 }
 // 국민청원 및 제안 
-function petitionsLoad() {
-	$.ajax({
-		type: "get",
-		url: `/Search/petitions?query=${query}&kategorie=${kategorie}&target=${searchTarget}&startPeriod=${startPeriod}&endPeriod=${endPeriod}`,
-		dataType: "text",
-		success: function(data) {
-			var petitionsTitle = ``;
-			var petitionsItem = ``;
-						let petitionsListObj = JSON.parse(data);
-			if(petitionsListObj.listTotalCount > 0){
-				petitionsTitle+=getpetitionsTitle(petitionsListObj)
-				petitionsMain.innerHTML = petitionsTitle;
-				const petitionsAdd = document.querySelector('.petitions_add');
-				petitionsItem+= getpetitions(petitionsListObj.petitionsList);
-				petitionsAdd.innerHTML = petitionsItem;
-			}
-		},
-		error: function() {
-			alert('비동기 처리오류');
-		}
-	});
-}
+
 function getpetitionsTitle(petitionsListObj) {
 	let petitionsHtml = `
 		<li class="search_result_title">
@@ -238,12 +321,12 @@ function getpetitionsTitle(petitionsListObj) {
 
         </li>
 	`;
-	
+
 	return petitionsHtml;
 }
 function getpetitions(petitionsList) {
 	let petitionsHtml = ``;
-	for(let petitions of petitionsList){
+	for (let petitions of petitionsList) {
 		petitionsHtml += `
 			<li >
                 <a class="search_result_detail" href="/petitions/${petitions.petition_id}">
@@ -265,18 +348,18 @@ function getpetitions(petitionsList) {
             </li>
 		
 		`;
-		
+
 	}
 	return petitionsHtml;
 
 }
 // 오늘 날짜 구하기
-function todayDate(){
+function todayDate() {
 	var today = new Date();
 	var year = today.getFullYear();
 	var month = ('0' + (today.getMonth() + 1)).slice(-2);
 	var day = ('0' + today.getDate()).slice(-2);
-	var todayDate = year + '-' + month  + '-' + day;
+	var todayDate = year + '-' + month + '-' + day;
 	return todayDate;
 }
 
@@ -286,37 +369,37 @@ function lastWeekDate() {
 
 	// 오늘날의 년, 월, 일 데이터
 	const day = today.getDate();
-	
+
 	// 일주일 전 구하기
 	today = new Date(today.setDate(day - 7)).toLocaleDateString();
-	today = today.replaceAll(" ","");
+	today = today.replaceAll(" ", "");
 	prime = today.split('.');
 	prime[1] = ('0' + prime[1]).slice(-2);
 	prime[2] = ('0' + prime[2]).slice(-2);
-	today = prime[0]+"-"+prime[1]+'-'+prime[2];
+	today = prime[0] + "-" + prime[1] + '-' + prime[2];
 	return today;
-	
-	
+
+
 }
 //지난 1년 날짜 
 function lastYearDate() {
 	var today = new Date();
-	var year = today.getFullYear()-1;
+	var year = today.getFullYear() - 1;
 	var month = ('0' + (today.getMonth() + 1)).slice(-2);
 	var day = ('0' + today.getDate()).slice(-2);
-	var LYearDate = year + '-' + month  + '-' + day;
+	var LYearDate = year + '-' + month + '-' + day;
 	return LYearDate;
 }
 
 // 체크박스 중복 미허용
-function NoMultiChk(chk){ 
-	var obj = document.getElementsByName("box"); 
-	for(var i=0; i<obj.length; i++){ 
-		if(obj[i] != chk){ 
-			obj[i].checked = false; 
-		} 
+function NoMultiChk(chk) {
+	var obj = document.getElementsByName("box");
+	for (var i = 0; i < obj.length; i++) {
+		if (obj[i] != chk) {
+			obj[i].checked = false;
+		}
 	}
-} 
+}
 
 
 
