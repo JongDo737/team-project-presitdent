@@ -135,6 +135,7 @@ option{
     color:#0c396f;
     display: block;
     font-size: 14px;
+    cursor: pointer;
 }
 
 .PG_term ul li a:hover{
@@ -150,17 +151,15 @@ option{
 
 }
 .PG_calendar{
+	display: flex;
+	flex-direction:row;
+	justify-content: center;
+	align-items:center;
     margin-top: -13px;
-    margin-left: 60px;
 
 }
-.PG_calendar span{
-   position: absolute;
-   top: 520px;
-   right: 225px;
-}
 .fromtxt, .totxt{
-    width: 115px;
+    width: 200px;
     padding:  10px;
     font-size: 16px;
     text-align: center;
@@ -220,6 +219,7 @@ top: 10px;
     width: 240px;
     background-color: #f0f0f0;
     color: #0c396f;
+    cursor: pointer;
 }
 .btn5 li a:hover{
     font-weight: 700;

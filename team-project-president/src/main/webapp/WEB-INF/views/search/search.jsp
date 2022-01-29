@@ -10,17 +10,13 @@
     <title>search</title>
     <link rel="stylesheet" href="/css/search.css">
     <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css"
-        media="all" />
     <script src="https://kit.fontawesome.com/fab8e6b94b.js" crossorigin="anonymous"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
-    <script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js" type="text/javascript"></script>
-    <script src="/js/seach.js"></script>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 </head>
 
 <body>
     <nav>
-
+		<jsp:include page="../include/nav.jsp"></jsp:include>
     </nav>
     <div class="sgt_wrap">
         <div class="top_img">
@@ -31,20 +27,20 @@
                     <span class="w_line2"></span>
                 </div>
                 <div id="select_box">
-                    <select id="color" title="검색항목 선택">
-                        <option value="ALL" selected="selected">통합검색</option>
-                        <option value="president">문재인대통령</option>
-                        <option value="news">청와대뉴스룸</option>
-                        <option value="agendas">토론방</option>
-                        <option value="petitions">국민청원 및 제안</option>
+                    <select id="color" title="검색항목 선택" class="select_kategorie">
+                        <option value="0" selected="selected">통합검색</option>
+                        <option value="0">문재인대통령</option>
+                        <option value="0">청와대뉴스룸</option>
+                        <option value="1">토론방</option>
+                        <option value="2">국민청원 및 제안</option>
                     </select>
                     <ul id="login" class="search_PGbox">
                         <li class="search_PG_bar">
                             <label for="query" class="hide">검색어</label>
-                            <input type="text" title="검색어 입력" id="query" name="query" value="">
+                            <input type="text" title="검색어 입력" class="query">
                         </li>
-                        <li class="search_PGbox_btn">
-                            <input type="image" src="/image/search/searchPage_btn.jpg" title="검색하기">
+                        <li class="search_PGbox_btn"  >
+                            <input type="image" src="/image/search/searchPage_btn.jpg" class="search_btn" title="검색하기">
                         </li>
                     </ul>
 
@@ -58,11 +54,11 @@
         <div class="PG_check">
             <h4>검색대상</h4>
             <ul>
-                <li><label for="chkAll"><input type="checkbox" name="searchChk" id="chkAll" checked="" value="ALL">
+                <li><label for="chkAll"><input type="checkbox" class="searchTerget"  id="searchAll" checked="" value="0">
                         전체</label></li>
-                <li><label for="chkTitle"><input type="checkbox" name="searchChk" id="chkTitle" value="title">
+                <li><label for="chkTitle"><input type="checkbox" class="searchTerget" id="searchTitle" value="0">
                         제목</label></li>
-                <li><label for="chkContent"><input type="checkbox" name="searchChk" id="chkContent" value="content">
+                <li><label for="chkContent"><input type="checkbox" class="searchTerget" id="searchContent" value="0">
                         내용</label></li>
             </ul>
         </div>
@@ -70,16 +66,19 @@
         <div class="PG_term">
             <h4>검색기간</h4>
             <ul>
-                <li id="on"><a href="#">전체</a></li>
-                <li><a href="#">최근1주</a></li>
-                <li><a href="#">최근1년</a></li>
+                <li id="on"><a>전체</a></li>
+                <li id=""><a>최근1주</a></li>
+                <li id=""><a>최근1년</a></li>
             </ul>
         </div>
         <div class="PG_calendar">
-            <input type="text" id="from" class="fromtxt"><input type="image" id="from" class="fromimg"
+            <!-- <input type="text" id="from" class="fromtxt"><input type="image" id="from" class="fromimg"
                 src="/image/search/searchPage_calBtn.png"><span> ~ </span>
             <input type="text" id="to" class="totxt">
-            <input type="image" id="to" class="toimg" src="/image/search/searchPage_calBtn.png">
+            <input type="image" id="to" class="toimg" src="/image/search/searchPage_calBtn.png"> -->
+            <input type="date" class="fromtxt" >
+            <div>  ~  </div>
+			<input type="date" class="fromtxt" >
         </div>
     </div>
     <div class="search_main">
@@ -88,11 +87,11 @@
                 <h2>검색어 <span class="colb">""</span> 에 대한 검색 결과입니다. <span class="colr">(951건)</span></h2>
             </div>
             <ul class="btn5">
-                <li id="on"><a href="#">통합검색</a></li>
-                <li><a href="#">문재인 대통령</a></li>
-                <li><a href="#">청와대 뉴스룸</a></li>
-                <li><a href="#">토론방</a></li>
-                <li><a href="#">국민청원 및 제안</a></li>
+                <li id="on"><a>통합검색</a></li>
+                <li id=""><a>문재인 대통령</a></li>
+                <li id=""><a>청와대 뉴스룸</a></li>
+                <li id=""><a>토론방</a></li>
+                <li id=""><a>국민청원 및 제안</a></li>
             </ul>
             <div class="search_result">
                 <ul class="search_result_top">
@@ -170,9 +169,9 @@
     </div>
 
     <footer>
-        footer
+        <jsp:include page="../include/footer.jsp"></jsp:include>
     </footer>
-
+	<script src="/js/search.js"></script>
 </body>
 
 </html>
