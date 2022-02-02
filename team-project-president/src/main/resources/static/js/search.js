@@ -23,7 +23,7 @@ var searchTarget = 0;
 var startPeriod = "1500-01-01";
 // 오늘날짜 구하기
 var endPeriod = todayDate();
-var query = '';
+var query = '\"\"';
 
 var forumsTitle = ``;
 var forumsItem = ``;
@@ -84,12 +84,19 @@ for (let i = 0; i < searchCheckBox.length; i++) {
 	}
 
 }
+//기간 버튼
 for (let i = 0; i < periodBtn.length; i++) {
 	periodBtn[i].onclick = () => {
+		for(let j = 0; j < periodBtn.length; j++){
+			periodBtn[j].setAttribute("id","");
+		}
+		periodBtn[i].setAttribute("id","periodId");
 		//전체 기간일 때
 		if (i == 0) {
 			startPeriod = "1500-01-01";
 			endPeriod = todayDate();
+			calenderBtn[0].value = "";
+			calenderBtn[1].value = "";
 		}
 		else if (i == 1) {
 			startPeriod = lastWeekDate();
@@ -120,6 +127,10 @@ for (let i = 0; i < kategorieBtn.length; i++) {
 	kategorieBtn[i].onclick = () => {
 		const queryString = document.querySelector('.query');
 		query = queryString.value;
+		for(let j = 0; j < kategorieBtn.length; j++){
+			kategorieBtn[j].setAttribute("id","");
+		}
+		kategorieBtn[i].setAttribute("id","kategorieId");
 		if (i == 0 || i == 1 || i == 2) {
 			kategorie = 0;
 			SearchLoad();
@@ -139,115 +150,143 @@ for (let i = 0; i < kategorieBtn.length; i++) {
 // 토론방
 function SearchLoad() {
 	searchQuery.textContent = query;
-	if (kategorie == 0) {
-		$.ajax({
-			type: "get",
-			url: `/Search/forums?query=${query}&kategorie=${kategorie}&target=${searchTarget}&startPeriod=${startPeriod}&endPeriod=${endPeriod}`,
-			dataType: "text",
-			async: false,
-			success: function(data) {
-				forumsTitle = ``;
-				forumsItem = ``;
-				let forumsListObj = JSON.parse(data);
-				if (forumsListObj.listTotalCount > 0) {
-					forumsTitle += getForumsTitle(forumsListObj)
-					forumsItem += getForums(forumsListObj.forumsList);
-					forumsCount = 0;
-					forumsCount = forumsListObj.listTotalCount;
+	if(query != '\"\"' && query != "" ){
+		
+		if (kategorie == 0) {
+			$.ajax({
+				type: "get",
+				url: `/Search/forums?query=${query}&kategorie=${kategorie}&target=${searchTarget}&startPeriod=${startPeriod}&endPeriod=${endPeriod}`,
+				dataType: "text",
+				async: false,
+				success: function(data) {
+					forumsTitle = ``;
+					forumsItem = ``;
+					let forumsListObj = JSON.parse(data);
+					if (forumsListObj.listTotalCount > 0) {
+						forumsTitle += getForumsTitle(forumsListObj)
+						forumsItem += getForums(forumsListObj.forumsList);
+						forumsCount = 0;
+						forumsCount = forumsListObj.listTotalCount;
+					}
+				},
+				error: function() {
+					alert('비동기 처리오류');
 				}
-			},
-			error: function() {
-				alert('비동기 처리오류');
-			}
-		});
-		$.ajax({
-			type: "get",
-			url: `/Search/petitions?query=${query}&kategorie=${kategorie}&target=${searchTarget}&startPeriod=${startPeriod}&endPeriod=${endPeriod}`,
-			dataType: "text",
-			async: false,
-			success: function(data) {
-				
-				petitionsTitle = ``;
-				petitionsItem = ``;
-				let petitionsListObj = JSON.parse(data);
-				if (petitionsListObj.listTotalCount > 0) {
-					petitionsTitle += getpetitionsTitle(petitionsListObj)
-					petitionsItem += getpetitions(petitionsListObj.petitionsList);
-					petitionsCount = 0;
-					petitionsCount = petitionsListObj.listTotalCount;
+			});
+			$.ajax({
+				type: "get",
+				url: `/Search/petitions?query=${query}&kategorie=${kategorie}&target=${searchTarget}&startPeriod=${startPeriod}&endPeriod=${endPeriod}`,
+				dataType: "text",
+				async: false,
+				success: function(data) {
+					
+					petitionsTitle = ``;
+					petitionsItem = ``;
+					let petitionsListObj = JSON.parse(data);
+					if (petitionsListObj.listTotalCount > 0) {
+						petitionsTitle += getpetitionsTitle(petitionsListObj)
+						petitionsItem += getpetitions(petitionsListObj.petitionsList);
+						petitionsCount = 0;
+						petitionsCount = petitionsListObj.listTotalCount;
+					}
+				},
+				error: function() {
+					alert('비동기 처리오류');
 				}
-			},
-			error: function() {
-				alert('비동기 처리오류');
-			}
-		});
-		Main.innerHTML = forumsTitle + petitionsTitle;
-		const forumsAdd = document.querySelector('.forums_add');
-		const petitionsAdd = document.querySelector('.petitions_add');
-		forumsAdd.innerHTML = forumsItem;
-		petitionsAdd.innerHTML = petitionsItem;
-		totalCount = forumsCount + petitionsCount;
-		searchCount.textContent = totalCount;
+			});
+			Main.innerHTML = forumsTitle + petitionsTitle;
+			const forumsAdd = document.querySelector('.forums_add');
+			const petitionsAdd = document.querySelector('.petitions_add');
+			forumsAdd.innerHTML = forumsItem;
+			petitionsAdd.innerHTML = petitionsItem;
+			totalCount = forumsCount + petitionsCount;
+			searchCount.textContent = totalCount;
+			moreFClick();
+			morePClick();
+		}
+		//토론방 검색
+		else if (kategorie == 1) {
+			$.ajax({
+				type: "get",
+				url: `/Search/forums?query=${query}&kategorie=${kategorie}&target=${searchTarget}&startPeriod=${startPeriod}&endPeriod=${endPeriod}`,
+				dataType: "text",
+				async: false,
+				success: function(data) {
+					forumsTitle = ``;
+					forumsItem = ``;
+	
+					let forumsListObj = JSON.parse(data);
+					if (forumsListObj.listTotalCount > 0) {
+						forumsTitle += getForumsTitle(forumsListObj)
+						forumsItem += getForums(forumsListObj.forumsList);
+						forumsCount = 0;
+						forumsCount = forumsListObj.listTotalCount;
+					}
+				},
+				error: function() {
+					alert('비동기 처리오류');
+				}
+			});
+			Main.innerHTML = forumsTitle;
+			const forumsAdd = document.querySelector('.forums_add');
+			forumsAdd.innerHTML = forumsItem;
+			totalCount = forumsCount;
+			searchCount.textContent = totalCount;
+			moreFClick();
+		}
+		else {
+			$.ajax({
+				type: "get",
+				url: `/Search/petitions?query=${query}&kategorie=${kategorie}&target=${searchTarget}&startPeriod=${startPeriod}&endPeriod=${endPeriod}`,
+				dataType: "text",
+				async: false,
+				success: function(data) {
+					petitionsTitle = ``;
+					petitionsItem = ``;
+					let petitionsListObj = JSON.parse(data);
+					if (petitionsListObj.listTotalCount > 0) {
+						petitionsTitle += getpetitionsTitle(petitionsListObj)
+						petitionsItem += getpetitions(petitionsListObj.petitionsList);
+						petitionsCount = 0;
+						petitionsCount = petitionsListObj.listTotalCount;
+					}
+				},
+				error: function() {
+					alert('비동기 처리오류');
+				}
+			});
+			Main.innerHTML = petitionsTitle;
+			const petitionsAdd = document.querySelector('.petitions_add');
+			petitionsAdd.innerHTML = petitionsItem;
+			totalCount = petitionsCount;
+			searchCount.textContent = totalCount;
+			morePClick();
+		}
+		//검색 대상 ==> 전체 , 제목
+		if(searchTarget == 0 || searchTarget == 1){ 
+			// 제목에 검색단어 빨간글자
+		    $(".search_result_detail_title:contains('"+query+"')").each(function () {
+		        var regex = new RegExp(query,'gi');
+		        $(this).html( $(this).text().replace(regex, "<span class='text-red'>"+query+"</span>") );
+		    });
+		    
+		}
+		//검색 대상 ==> 전체 , 제목
+		if(searchTarget == 0 || searchTarget == 2){ 
+			// content에 검색단어 빨간글자
+		    $(".search_result_detail_content:contains('"+query+"')").each(function () {
+		        var regex = new RegExp(query,'gi');
+		        $(this).html( $(this).text().replace(regex, "<span class='text-red'>"+query+"</span>") );
+		    });
+		    
+		}
+	    
 	}
-	//토론방 검색
-	else if (kategorie == 1) {
-		$.ajax({
-			type: "get",
-			url: `/Search/forums?query=${query}&kategorie=${kategorie}&target=${searchTarget}&startPeriod=${startPeriod}&endPeriod=${endPeriod}`,
-			dataType: "text",
-			async: false,
-			success: function(data) {
-				forumsTitle = ``;
-				forumsItem = ``;
-
-				let forumsListObj = JSON.parse(data);
-				if (forumsListObj.listTotalCount > 0) {
-					forumsTitle += getForumsTitle(forumsListObj)
-					forumsItem += getForums(forumsListObj.forumsList);
-					forumsCount = 0;
-					forumsCount = forumsListObj.listTotalCount;
-				}
-			},
-			error: function() {
-				alert('비동기 처리오류');
-			}
-		});
-		Main.innerHTML = forumsTitle;
-		const forumsAdd = document.querySelector('.forums_add');
-		forumsAdd.innerHTML = forumsItem;
-		totalCount = forumsCount;
-		searchCount.textContent = totalCount;
+	else{
+		searchQuery.textContent = '\"\"';
+		alert('검색어를 입력하세요.');
+		
 	}
-	else {
-		$.ajax({
-			type: "get",
-			url: `/Search/petitions?query=${query}&kategorie=${kategorie}&target=${searchTarget}&startPeriod=${startPeriod}&endPeriod=${endPeriod}`,
-			dataType: "text",
-			async: false,
-			success: function(data) {
-				petitionsTitle = ``;
-				petitionsItem = ``;
-				let petitionsListObj = JSON.parse(data);
-				if (petitionsListObj.listTotalCount > 0) {
-					petitionsTitle += getpetitionsTitle(petitionsListObj)
-					petitionsItem += getpetitions(petitionsListObj.petitionsList);
-					petitionsCount = 0;
-					petitionsCount = petitionsListObj.listTotalCount;
-				}
-			},
-			error: function() {
-				alert('비동기 처리오류');
-			}
-		});
-		Main.innerHTML = petitionsTitle;
-		const petitionsAdd = document.querySelector('.petitions_add');
-		petitionsAdd.innerHTML = petitionsItem;
-		totalCount = petitionsCount;
-		searchCount.textContent = totalCount;
-	}
-
-
-
 
 
 
@@ -264,7 +303,7 @@ function getForumsTitle(forumsListObj) {
 	let forumsHtml = `
 		<li class="search_result_title">
             <div>토론방(${forumsListObj.listTotalCount})</div>
-            <a class="more">
+            <a class="moreForums">
                 <div>더보기 </div>
                 <i class="fas fa-chevron-circle-right"></i>
             </a>
@@ -279,7 +318,7 @@ function getForumsTitle(forumsListObj) {
 
 	return forumsHtml;
 }
-function getForums(forumsList) {
+function getForums(forumsList) {	
 	let forumsHtml = ``;
 	for (let forums of forumsList) {
 		forumsHtml += `
@@ -309,7 +348,7 @@ function getpetitionsTitle(petitionsListObj) {
 	let petitionsHtml = `
 		<li class="search_result_title">
             <div>국민청원 및 제안(${petitionsListObj.listTotalCount})</div>
-            <a class="more">
+            <a class="morePetitions">
                 <div>더보기 </div>
                 <i class="fas fa-chevron-circle-right"></i>
             </a>
@@ -369,7 +408,6 @@ function lastWeekDate() {
 
 	// 오늘날의 년, 월, 일 데이터
 	const day = today.getDate();
-
 	// 일주일 전 구하기
 	today = new Date(today.setDate(day - 7)).toLocaleDateString();
 	today = today.replaceAll(" ", "");
@@ -400,6 +438,27 @@ function NoMultiChk(chk) {
 		}
 	}
 }
+function moreFClick() {
+	const moreFBtn = document.querySelector('.moreForums');
+	moreFBtn.onclick = () => {
+		kategorie = 1;
+		SearchLoad();
+		
+	}
+	
+	
+}
+function morePClick() {
+	const morePBtn = document.querySelector('.morePetitions');
+	morePBtn.onclick = () => {
+		kategorie = 2;
+		SearchLoad();
+		
+	}
+	
+	
+}
+
 
 
 

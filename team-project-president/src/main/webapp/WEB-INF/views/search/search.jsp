@@ -66,9 +66,9 @@
         <div class="PG_term">
             <h4>검색기간</h4>
             <ul>
-                <li id="on"><a class="periodBtn" >전체</a></li>
-                <li id=""><a class="periodBtn">최근1주</a></li>
-                <li id=""><a class="periodBtn">최근1년</a></li>
+                <li ><a class="periodBtn" id="periodId">전체</a></li>
+                <li ><a class="periodBtn" id="">최근1주</a></li>
+                <li><a class="periodBtn" id="">최근1년</a></li>
             </ul>
         </div>
         <div class="PG_calendar">
@@ -84,11 +84,11 @@
                 <h2>검색어 <span class="colb">""</span> 에 대한 검색 결과입니다. <span class="colr">(<span class="totalCount">0</span>건)</span></h2>
             </div>
             <ul class="btn5">
-                <li id="on"><a class="kategorie_btn">통합검색</a></li>
-                <li id=""><a class="kategorie_btn">문재인 대통령</a></li>
-                <li id=""><a class="kategorie_btn">청와대 뉴스룸</a></li>
-                <li id=""><a class="kategorie_btn">토론방</a></li>
-                <li id=""><a class="kategorie_btn">국민청원 및 제안</a></li>
+                <li><a class="kategorie_btn" id="kategorieId">통합검색</a></li>
+                <li ><a class="kategorie_btn" id="">문재인 대통령</a></li>
+                <li ><a class="kategorie_btn" id="">청와대 뉴스룸</a></li>
+                <li><a class="kategorie_btn" id="">토론방</a></li>
+                <li><a class="kategorie_btn" id="">국민청원 및 제안</a></li>
             </ul>
            <div class="search_result">
 
