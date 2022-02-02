@@ -107,4 +107,9 @@ public class PageController {
 		//주소 보내는곳 수정필요
 		return "forums/forums";
 	}
+	
+	@GetMapping("/best_forums")
+	public String bestForumsForm() {
+		return "forums/best_forums";
+	}
 }

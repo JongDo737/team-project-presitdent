@@ -29,10 +29,10 @@
             <div class="forums_tap_detail">
                 <ul class="forums_tap_detail_box">
                     <li class="forums_tap_detail_text" id="on">
-                        <a href="#">최신토론</a>
+                        <a href="/forums">최신토론</a>
                     </li>
                     <li class="forums_tap_detail_text" id="">
-                        <a href="#">베스트 토론</a>
+                        <a href="/best_forums">베스트 토론</a>
                     </li>
                 </ul>
             </div>

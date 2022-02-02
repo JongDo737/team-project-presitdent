@@ -18,7 +18,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @Service
 public class ForumsServiceImpl implements ForumsService{
-
+	
 	private final ForumsRepository forumsRepository;
 	// 토론 제안하기
 	@Override
@@ -101,6 +101,24 @@ public class ForumsServiceImpl implements ForumsService{
 	}
 
 
+	// 베스트토론 불러오기
+	@Override
+	public GetForumsRespDto getBestForumsByAgreeCount() {
+		List<GetForums> forumsEntity = forumsRepository.getBestForumsByAgreeCountWeeklyFirst();
+		GetForumsRespDto getForumsRespDto = new GetForumsRespDto();
+		getForumsRespDto.setForumsList(forumsEntity);
+		return getForumsRespDto;
+	}
 
+
+	@Override
+	public GetForumsRespDto getBestForumsByReplyCount() {
+		List<GetForums> forumsEntity = forumsRepository.getBestForumsByReplyCount();
+		GetForumsRespDto getForumsRespDto = new GetForumsRespDto();
+		getForumsRespDto.setForumsList(forumsEntity);
+		return getForumsRespDto;
+	}
+
+	
 
 }

@@ -103,7 +103,7 @@ section{
 }
 .forums_lists{
     margin-top: 50px;
-    padding: 50px 250px 25px;
+    padding: 50px 200px 25px;
 }
 .forum_lists_all{
     display: flex;
@@ -211,13 +211,15 @@ progress {
     padding: 30px 30px 40px 30px;
     background-color: #dceaff;
     border-bottom: 4px solid #0b1745;
+    height: 300px;
     
 }
 .forums_list_text_title {
     text-align: center;
+    width:100%;
+    overflow: hidden;
     font-size: 1.3em;
     color: #0b1745;
-    overflow: hidden;
 }
 .forums_list_textbox span {
     text-align: center;
@@ -231,6 +233,8 @@ progress {
 }
 .forums_list_text_{
     color: #0b1745;
+    
+    overflow: hidden;
 }
 .forums_list_text_bottom{
     width: 100%;
@@ -240,6 +244,15 @@ progress {
     font-size: 0.9em;
     color: #7B8BA2;
 }
+
+.forums_text_a {
+    color: black;
+}
+
+#forums_text_detail:hover {
+    text-decoration: underline;
+}
+
 .suggest_btn{
     background-color: #0b1745;
     height: 61px;

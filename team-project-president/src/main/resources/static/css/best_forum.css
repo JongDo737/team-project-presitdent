@@ -143,13 +143,14 @@
     width: 15%;
 }
 
-.weeklist li a h3 {
+.weeklist li a  {
     font-size: 15px;
     color: #b2b2b2;
     font-weight: 800;
+    cursor: pointer;
 }
 
-.weeklist li a h3:hover {
+.weeklist li a:hover {
     color: #222222;
 }
 

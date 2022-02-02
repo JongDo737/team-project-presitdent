@@ -20,4 +20,13 @@ public class ForumsController {
 	public Object getForumsPage(@RequestParam int page) {
 		return forumsService.getForumsPage(page);
 	}
+	
+	@GetMapping("/best_forums/list")
+	public Object getBestForumsByAgreeCount() {
+		return forumsService.getBestForumsByAgreeCount();
+	}
+	@GetMapping("/best_forums/reply")
+	public Object getBestForumsByReplyCount() {
+		return forumsService.getBestForumsByReplyCount();
+	}
 }

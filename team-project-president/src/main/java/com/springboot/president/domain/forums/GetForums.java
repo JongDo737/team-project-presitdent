@@ -1,6 +1,6 @@
 package com.springboot.president.domain.forums;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import com.springboot.president.web.dto.ForumsRespDto;
 
@@ -21,8 +21,9 @@ public class GetForums {
 	private String content;
 	private int good_count;
 	private int bad_count;
-	private LocalDateTime create_date;
-	private LocalDateTime end_date;
+	private int reply_count;
+	private LocalDate create_date;
+	private LocalDate end_date;
 	
 	public ForumsRespDto toResp() {
 			return ForumsRespDto.builder()
@@ -33,6 +34,7 @@ public class GetForums {
 										.content(content)
 										.good_count(good_count)
 										.bad_count(bad_count)
+										.reply_count(reply_count)
 										.create_date(create_date)
 										.end_date(end_date)
 										.build();

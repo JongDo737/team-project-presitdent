@@ -10,4 +10,10 @@ public interface ForumsRepository {
 	public GetForums getForumsByForumsId(int forums_id);
 	
 	public List<GetForums> getForumsAll();
+	
+	// 12월 4주차 추천Top5
+	public List<GetForums> getBestForumsByAgreeCountWeeklyFirst();
+	
+	
+	public List<GetForums> getBestForumsByReplyCount();
 }

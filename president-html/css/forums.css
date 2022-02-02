@@ -240,6 +240,15 @@ progress {
     font-size: 0.9em;
     color: #7B8BA2;
 }
+
+.forums_text_a {
+    color: black;
+}
+
+#forums_text_detail:hover {
+    text-decoration: underline;
+}
+
 .suggest_btn{
     background-color: #0b1745;
     height: 61px;

@@ -10,4 +10,8 @@ public interface ForumsService {
 	public GetForumsRespDto getForumsAll();
 	public GetForumsRespDto getForumsPage(int page);
 	public ForumsRespDto getForumsByForumsId(PrincipalDetails principalDetails, int forums_id);
+	public GetForumsRespDto getBestForumsByAgreeCount();
+	public GetForumsRespDto getBestForumsByReplyCount();
+	
+	
 }

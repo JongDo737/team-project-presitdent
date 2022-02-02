@@ -37,5 +37,48 @@
 			end_date >= CURDATE();
 		
 	</select>
+	
+	<select id="getBestForumsByAgreeCountWeeklyFirst" resultType="com.springboot.president.domain.forums.GetForums">
+		SELECT
+			um.provider,
+			fm.forums_id,
+			fm.user_id,
+			fm.topic,
+			fm.content,
+			fm.good_count,
+			fm.bad_count,
+			fm.create_date,
+			fm.reply_count
+		FROM
+			forums_mst fm
+			LEFT OUTER JOIN user_mst um ON(um.id = fm.user_id)
+		WHERE
+			fm.create_date BETWEEN '2021-12-20' AND '2021-12-26'
+		ORDER BY
+			fm.good_count DESC
+		LIMIT
+			5;
+		
+	</select>
+	
+	<select id="getBestForumsByReplyCount" resultType="com.springboot.president.domain.forums.GetForums">
+		SELECT
+			um.provider,
+			fm.forums_id,
+			fm.user_id,
+			fm.topic,
+			fm.content,
+			fm.good_count,
+			fm.bad_count,
+			fm.create_date,
+			fm.reply_count
+		FROM
+			forums_mst fm
+			LEFT OUTER JOIN user_mst um ON(um.id = fm.user_id)
+		ORDER BY
+			fm.reply_count DESC
+		LIMIT 
+			5;
+	</select>
 
 </mapper>

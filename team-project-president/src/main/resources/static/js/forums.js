@@ -79,10 +79,16 @@ function getForums(forumsList) {
                                 
                             </div>
                             <div class="forums_list_textbox">
-                                <h1 class="forums_list_text_title"> ${pet.topic}</h1>
+                                <h1 class="forums_list_text_title"> 
+                                	<a class="forums_text_a" href="">
+                                		${pet.topic}
+                                	</a>
+                                </h1>
                                 <span> ${pet.provider}-***</span>
                                 <p class="forums_list_text_">
-                                     ${pet.content}
+                                	<a class="forums_text_a" id="forums_text_detail" href="">
+                                    	${pet.content}
+                                    </a>
                                 </p>
                                 <p class="forums_list_text_bottom">
                                     0건
