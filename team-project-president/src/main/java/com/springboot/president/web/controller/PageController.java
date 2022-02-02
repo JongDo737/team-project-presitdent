@@ -108,6 +108,7 @@ public class PageController {
 	@GetMapping("/best_forums")
 	public String bestForumsForm() {
 		return "forums/best_forums";
+	}
 	@GetMapping("/Search")
 	public String searchForm() {
 		return "search/search";
