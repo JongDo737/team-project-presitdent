@@ -1,0 +1,125 @@
+.wrap {
+    margin-bottom: 50px;
+}
+
+.tab2 {
+    margin-bottom: 180px;
+    border-top: #d8d8d8 solid 1px;
+}
+
+.tab2 li {
+    display: inline;
+    float: left;
+    width: 16.66666%;
+    position: relative;
+    border-bottom: 1px solid #7f7f7f;
+    height: 58px;
+}
+
+.tab2 a {
+    display: block;
+    position: relative;
+    border: none;
+    border-bottom: 1px solid #d8d8d8;
+    height: 48px;
+    line-height: 48px;
+    color: #8a8a8a;
+    font-size: 15px;
+    font-weight: 500;
+    width: 100%;
+}
+
+.tab2 a span {
+    display: inline-block;
+    width: 100%;
+    height: 25px;
+    line-height: 27px;
+    border-right: 1px solid #7f7f7f;
+}
+
+.tab2 a:hover {
+    color: #082e59;
+}
+
+.tab2 .tab_on {
+    font-weight: 700;
+    color: #082e59;
+    border-top: 4px solid #082e59;
+}
+
+.introduction_img {
+    display: inline-block;
+    float: left;
+    width: 30%;
+    vertical-align: middle;
+}
+
+.introduction_img .img {
+    margin-right: 30px;
+    margin-bottom: 30px;
+}
+
+.img img {
+    border-radius: 5px;
+}
+
+.introduction_txt {
+    display: inline-block;
+    float: right;
+    width: 70%;
+    text-align: left;
+}
+
+.template h4 {
+    display: block;
+    position: relative;
+    padding-left: 20px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #201f2d;
+    line-height: 30px;
+}
+
+.template h4::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 6px;
+    height: 6px;
+    margin-top: -5px;
+    border-radius: 50%;
+    border: 3px solid #0098e7;
+}
+
+.template h5 {
+    display: block;
+    position: relative;
+    margin-top: 30px;
+    margin-left: 20px;
+    padding-left: 15px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #201f2d;
+}
+
+.template h5::before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    left: 0px;
+    top: 50%;
+    width: 6px;
+    height: 6px;
+    margin-top: -3px;
+    border-radius: 50%;
+    background-color: #082e59;
+}
+
+.template p {
+    margin : 15px 0px 15px 40px;
+
+    font-size: 14px;
+    color: #565656;
+}
+

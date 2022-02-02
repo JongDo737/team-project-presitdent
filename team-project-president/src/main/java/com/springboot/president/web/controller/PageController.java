@@ -53,7 +53,6 @@ public class PageController {
 	public String petitionWrite(@AuthenticationPrincipal PrincipalDetails principalDetails, PetitionReqDto petitionReqDto, Model model) {
 		boolean insertCheck = petitionService.insertPetition(principalDetails, petitionReqDto);
 		model.addAttribute("insertCheck",insertCheck);
-		//주소 보내는곳 수정필요
 		return "/petitions/petitions_mypage";
 	}
 	@GetMapping("/petitions/Mypage")
@@ -103,13 +102,14 @@ public class PageController {
 	@PostMapping("/forums/suggest/write")
 	public String forumWrite(@AuthenticationPrincipal PrincipalDetails principalDetails, ForumsReqDto forumsReqDto) {
 		boolean insertCheck = forumsService.insertForums(principalDetails, forumsReqDto);
-		
-		//주소 보내는곳 수정필요
 		return "forums/forums";
 	}
 	
 	@GetMapping("/best_forums")
 	public String bestForumsForm() {
 		return "forums/best_forums";
+	@GetMapping("/Search")
+	public String searchForm() {
+		return "search/search";
 	}
 }

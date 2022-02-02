@@ -9,5 +9,5 @@ import lombok.Data;
 @Data
 public class GetForumsRespDto {
 	private List<GetForums> forumsList;
-
+	private int listTotalCount;
 }

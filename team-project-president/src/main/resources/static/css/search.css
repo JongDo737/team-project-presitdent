@@ -144,7 +144,7 @@ option{
      font-weight: 700;
 }
 
-.PG_term #on a {
+#periodId {
     background-color: #0c396f;
     color: #fff;
     font-weight: 700;
@@ -229,7 +229,7 @@ top: 10px;
 .btn5 #on{
    
 }
-.btn5 #on a {
+#kategorieId {
     color: #fff;
     background-color: #0c396f;
     font-weight: 700;
@@ -264,7 +264,7 @@ top: 10px;
     padding: 10px;
 }
 
-.more{
+.moreForums{
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -275,10 +275,28 @@ top: 10px;
     font-weight: 500;
     cursor: pointer;
 }
-.more:hover {
+.moreForums:hover {
     color: #0c396f;
 }
-.more i {
+.moreForums i {
+    padding-top: 4px;
+}
+
+.morePetitions{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8em;
+    color: #737373;
+    padding-right: 20px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.morePetitions:hover {
+    color: #0c396f;
+}
+.morePetitions i {
     padding-top: 4px;
 }
 .search_result_detail{
@@ -295,10 +313,7 @@ top: 10px;
     font-weight: bold;
     margin-bottom: 5px;
 }
-.search_result_detail_title span {
-    font-size: 0.7em;
-    color: #808080;
-}
+
 .search_result_detail_petitions{
     display: flex;
     flex-direction: row;
@@ -324,3 +339,6 @@ top: 10px;
     margin-bottom: 65px;
 }
 
+.text-red{
+	color: red;
+}

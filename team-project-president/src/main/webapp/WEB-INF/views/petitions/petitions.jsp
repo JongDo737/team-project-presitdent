@@ -195,7 +195,7 @@
                                 </ul>
                                     <!-- 검색창 -->
                                     <div class="search_wrap">
-                                        <form action="/search" method="post" class="form_control">
+                                        <form action="/Search" method="get" class="form_control">
                                             <input type="text" class="search_ip">
                                             <button type="submit" class="search_btn">
                                                 검색
