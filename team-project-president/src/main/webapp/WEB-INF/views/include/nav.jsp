@@ -201,7 +201,7 @@
 
                 </li>
                 <li class="menu_list_search">
-                    <a href="" class="main_search_icon">
+                    <a href="/Search" class="main_search_icon">
                         <img src="/image/nav/search_icon.png" alt="">
                     </a>
                 </li>
