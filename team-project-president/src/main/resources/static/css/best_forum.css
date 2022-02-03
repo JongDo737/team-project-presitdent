@@ -102,15 +102,16 @@
     align-items: center;
     background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(255,255,255,1) 51%,rgba(237,237,237,1) 100%);
     transition: all 0.3s;
+    cursor: pointer;
 }
 
-.sub_content_tab #active {
+#active {
     background: #0e3b64;
     color: #fff;
     border: 1px solid #0e3b64;
 }
 
-.sub_content_tab li:hover #active, .sub_content_tab li:hover a {
+.dateSelection li:hover{
     background: #184d7d;
     color: #fff;
     border: 1px solid #184d7d;

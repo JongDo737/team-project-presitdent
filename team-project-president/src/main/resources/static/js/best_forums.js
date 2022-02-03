@@ -5,31 +5,46 @@
 const bestTop5 = document.querySelector(".best_top5_list");
 const replyTop5 = document.querySelector(".reply_top5_list");
 const weekBtn = document.querySelectorAll(".week_btn");
+const dateSel = document.querySelectorAll(".dateSelection");
 
  let forumsItem = ``;
  var count = 1;
  var selection = 1;
  var number = 1;
  
-let now = new Date();
-let nowYear = now.getFullYear();
-let nowMonth = now.getMonth() + 1;
-let nowDay = now.getDate();
-let today = nowYear + '-' + nowMonth + '-' + nowDay;
 
 
+function getWeekNo(v_date_str) {
+ var date = new Date();
+ if(v_date_str){
+  date = new Date(v_date_str);
+ }
+ return Math.ceil(date.getDate() / 7);
+};
 
- 
+
+// 주간 / 월간 
+ for(let i = 0; i < dateSel.length; i++){
+	dateSel[i].onclick = () => {
+		for(let j = 0; j < dateSel.length; j++){
+			dateSel[j].setAttribute("id","");
+		}		
+		dateSel[i].setAttribute("id","active");	
+	}
+}
+
+let today = new Date();
+// 몇 주차 / 몇 개월차 
  for(let i = 0; i < weekBtn.length; i++){
 	weekBtn[i].onclick = () => {
 		for(let j = 0; j < weekBtn.length; j++){
 			weekBtn[j].setAttribute("id","");
 		}		
 		weekBtn[i].setAttribute("id","weeklist_on");
-		alert(nowDay);
-		
+		alert(getWeekNo(today));
 	}
 }
+
 
 
 forumsLoad();
