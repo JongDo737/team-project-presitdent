@@ -103,8 +103,9 @@ public class ForumsServiceImpl implements ForumsService{
 
 	// 베스트토론 불러오기
 	@Override
-	public GetForumsRespDto getBestForumsByAgreeCount() {
-		List<GetForums> forumsEntity = forumsRepository.getBestForumsByAgreeCountWeeklyFirst();
+	public GetForumsRespDto getBestForumsByAgreeCount(String startDate, String endDate) {
+		List<GetForums> forumsEntity = forumsRepository.getBestForumsByAgreeCountWeeklyFirst(startDate,endDate);
+		System.out.println(forumsEntity);
 		GetForumsRespDto getForumsRespDto = new GetForumsRespDto();
 		getForumsRespDto.setForumsList(forumsEntity);
 		return getForumsRespDto;
@@ -112,8 +113,9 @@ public class ForumsServiceImpl implements ForumsService{
 
 
 	@Override
-	public GetForumsRespDto getBestForumsByReplyCount() {
-		List<GetForums> forumsEntity = forumsRepository.getBestForumsByReplyCount();
+	public GetForumsRespDto getBestForumsByReplyCount(String startDate, String endDate) {
+		List<GetForums> forumsEntity = forumsRepository.getBestForumsByReplyCount(startDate,endDate);
+		System.out.println(forumsEntity);
 		GetForumsRespDto getForumsRespDto = new GetForumsRespDto();
 		getForumsRespDto.setForumsList(forumsEntity);
 		return getForumsRespDto;

@@ -100,8 +100,9 @@ public class PageController {
 	}
 	
 	@PostMapping("/forums/suggest/write")
-	public String forumWrite(@AuthenticationPrincipal PrincipalDetails principalDetails, ForumsReqDto forumsReqDto) {
+	public String forumWrite(@AuthenticationPrincipal PrincipalDetails principalDetails,Model model, ForumsReqDto forumsReqDto) {
 		boolean insertCheck = forumsService.insertForums(principalDetails, forumsReqDto);
+		model.addAttribute("insertCheck",insertCheck);
 		return "forums/forums";
 	}
 	

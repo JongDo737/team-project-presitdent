@@ -22,11 +22,12 @@ public class ForumsController {
 	}
 	
 	@GetMapping("/best_forums/list")
-	public Object getBestForumsByAgreeCount() {
-		return forumsService.getBestForumsByAgreeCount();
+	public Object getBestForumsByAgreeCount(@RequestParam String startDate, @RequestParam String endDate) {
+
+		return forumsService.getBestForumsByAgreeCount(startDate,endDate);
 	}
 	@GetMapping("/best_forums/reply")
-	public Object getBestForumsByReplyCount() {
-		return forumsService.getBestForumsByReplyCount();
+	public Object getBestForumsByReplyCount(@RequestParam String startDate, @RequestParam String endDate) {
+		return forumsService.getBestForumsByReplyCount(startDate,endDate);
 	}
 }

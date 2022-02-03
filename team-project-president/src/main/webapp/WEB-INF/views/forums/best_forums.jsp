@@ -41,19 +41,19 @@
                         <ul class="weeklist">
                             <button class="day_btn_pre"></button>
                             <li><a class="week_btn" id="weeklist_on">
-                            		1월 3주차
+                            		
                                 </a></li>
                             <li><a class="week_btn">
-                           			1월 2주차
+                           			
                                 </a></li>
                             <li><a class="week_btn">
-                            		1월 1주차
+                            		
                                 </a></li>
                             <li><a class="week_btn">
-                            		12월 5주차
+                            		
                                 </a></li>
                             <li><a class="week_btn">
-                            		12월 4주차
+                            		
                                 </a></li>
                             <button class="day_btn_nex"></button>
                         </ul>

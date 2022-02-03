@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,6 +18,18 @@
 
 <body>
     <!-- 맨위 사진 -->
+    <c:choose>
+    	<c:when test="${insertCheck eq true}">
+    		<script >
+    			alert('토론글 작성 완료');
+    		</script>
+    	</c:when>
+		<c:when test="${insertCheck eq false}">
+   			<script >
+    			alert('토론글 작성 실패');
+    		</script>
+		</c:when>
+    </c:choose>
     <section class="forums_head">
     	<nav>
             <jsp:include page="../include/nav.jsp"></jsp:include>

@@ -13,6 +13,7 @@
 			#{content},
 			0,
 			0,
+			0,
 			NOW(),
 			DATE_ADD(NOW(),INTERVAL 30 DAY)
 		
@@ -38,7 +39,7 @@
 		
 	</select>
 	
-	<select id="getBestForumsByAgreeCountWeeklyFirst" resultType="com.springboot.president.domain.forums.GetForums">
+	<select id="getBestForumsByAgreeCountWeeklyFirst" resultType="com.springboot.president.domain.forums.GetForums" parameterType="String">
 		SELECT
 			um.provider,
 			fm.forums_id,
@@ -53,7 +54,7 @@
 			forums_mst fm
 			LEFT OUTER JOIN user_mst um ON(um.id = fm.user_id)
 		WHERE
-			fm.create_date BETWEEN '2021-12-20' AND '2021-12-26'
+			fm.create_date BETWEEN #{endDate} AND #{startDate}
 		ORDER BY
 			fm.good_count DESC
 		LIMIT
@@ -61,7 +62,7 @@
 		
 	</select>
 	
-	<select id="getBestForumsByReplyCount" resultType="com.springboot.president.domain.forums.GetForums">
+	<select id="getBestForumsByReplyCount" resultType="com.springboot.president.domain.forums.GetForums" parameterType="String">
 		SELECT
 			um.provider,
 			fm.forums_id,
@@ -75,6 +76,8 @@
 		FROM
 			forums_mst fm
 			LEFT OUTER JOIN user_mst um ON(um.id = fm.user_id)
+		where
+			fm.create_date BETWEEN #{endDate} AND #{startDate}
 		ORDER BY
 			fm.reply_count DESC
 		LIMIT 

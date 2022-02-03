@@ -9,25 +9,72 @@ const weekBtn = document.querySelectorAll(".week_btn");
  let forumsItem = ``;
  var count = 1;
  var selection = 1;
+ 
  var number = 1;
  
-let now = new Date();
-let nowYear = now.getFullYear();
-let nowMonth = now.getMonth() + 1;
-let nowDay = now.getDate();
-let today = nowYear + '-' + nowMonth + '-' + nowDay;
 
 
+var today = new Date();
+var year = today.getFullYear();
+var month = (today.getMonth()+1);
+var day = ('0' + today.getDate()).slice(-2);
+var todayDate = year + '-' + month + '-' + day;
+var num = 0;
+var startDates = [];
+var endDates = [];
 
+for(let i = 0; i< 5; i++){
+	weekBtn[i].textContent = `${month}월 ${getWeekNo(makeDate(num))}주차`;
+	startDates[i] = makeDate(num+today.getDate()-7);
+	if(getWeekNo(makeDate(num))==1){
+		month = (today.getMonth());
+	}
+	num+=7;
+	endDates[i] = makeDate(num+today.getDate()-7);
+	
+	
+}
+var startDate = startDates[0];
+var endDate = endDates[0];
+function newFunction() {
+    5;
+}
+
+function makeDate(num) {
+	var today = new Date();
+
+	// 오늘날의 년, 월, 일 데이터
+	const day = today.getDate();
+	// 일주일 전 구하기
+	today = new Date(today.setDate(day - num)).toLocaleDateString();
+	today = today.replaceAll(" ", "");
+	prime = today.split('.');
+	prime[1] = ('0' + prime[1]).slice(-2);
+	prime[2] = ('0' + prime[2]).slice(-2);
+	today = prime[0] + "-" + prime[1] + '-' + prime[2];
+	return today;
+
+
+}
+
+function getWeekNo(v_date_str) {
+ var date = new Date();
+ if(v_date_str){
+  date = new Date(v_date_str);
+ }
+ return Math.ceil(date.getDate() / 7);
+}
  
- for(let i = 0; i < weekBtn.length; i++){
+for(let i = 0; i < weekBtn.length; i++){
 	weekBtn[i].onclick = () => {
+		startDate = startDates[i];
+		endDate = endDates[i];
 		for(let j = 0; j < weekBtn.length; j++){
 			weekBtn[j].setAttribute("id","");
 		}		
 		weekBtn[i].setAttribute("id","weeklist_on");
-		alert(nowDay);
-		
+		forumsLoad();
+		forumsByReplyLoad();
 	}
 }
 
@@ -40,7 +87,7 @@ forumsByReplyLoad();
 function forumsLoad() {
 	$.ajax({
 		type: "get",
-		url: `/best_forums/list`,
+		url: `/best_forums/list?startDate=${startDate}&endDate=${endDate}`,
 		dataType: "text",
 		success: function (data) {
 			forumsItem = ``;
@@ -74,7 +121,7 @@ function getForums(forumsList) {
 function forumsByReplyLoad() {
 	$.ajax({
 		type: "get",
-		url: `/best_forums/reply`,
+		url: `/best_forums/reply?startDate=${startDate}&endDate=${endDate}`,
 		dataType: "text",
 		success: function (data) {
 			forumsItem = ``;

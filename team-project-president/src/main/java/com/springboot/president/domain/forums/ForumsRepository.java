@@ -12,8 +12,8 @@ public interface ForumsRepository {
 	public List<GetForums> getForumsAll();
 	
 	// 12월 4주차 추천Top5
-	public List<GetForums> getBestForumsByAgreeCountWeeklyFirst();
+	public List<GetForums> getBestForumsByAgreeCountWeeklyFirst(String startDate, String endDate);
 	
 	
-	public List<GetForums> getBestForumsByReplyCount();
+	public List<GetForums> getBestForumsByReplyCount(String startDate, String endDate);
 }
