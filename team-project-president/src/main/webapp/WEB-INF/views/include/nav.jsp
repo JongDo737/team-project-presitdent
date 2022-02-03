@@ -25,7 +25,7 @@
         </div>
         <div id="navigator_menu" class="nav">
             <ul class="menu">
-                <a href="/index" class="nav_logo">
+                <a href="/" class="nav_logo">
                     <img src="/image/logo.png" alt="">
                 </a>
                 <li class="menu_list">

@@ -7,7 +7,7 @@ const replyTop5 = document.querySelector(".reply_top5_list");
 const weekBtn = document.querySelectorAll(".week_btn");
 
  let forumsItem = ``;
- var count = 1;
+
  var selection = 1;
  
  var number = 1;
@@ -103,6 +103,7 @@ function forumsLoad() {
 
 function getForums(forumsList) {
 	let forumsHtml = ``;
+	 var count = 1;
 	for (let pet of forumsList) {
 		forumsHtml += `
 				 	 		<tr>
@@ -134,9 +135,10 @@ function forumsByReplyLoad() {
 		}
 	})
 }
-var countR = 1;
+
 function getForumsByReply(forumsList) {
 	let forumsReplyHtml = ``;
+	var countR = 1;
 	for (let petR of forumsList) {
 		forumsReplyHtml += `
 				 	 		<tr>

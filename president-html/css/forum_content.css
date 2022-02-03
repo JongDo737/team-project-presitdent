@@ -55,71 +55,22 @@
     line-height: 24px;
     margin-bottom: 80px;
 }
-
-.btn_hand {
-    position: relative;
-    display: inline-block;
-    width: 150px;
-    height: 140px;
-    margin: 0 35px;
+.btn_wrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
 }
-
-.hand {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 150px;
-    padding-top: 110px;
-    font-size: 22px;
-    line-height: 30px;
-    cursor: pointer;
-    background-color: #fff;
-    border: none;
-}
-
-.hand::before {
-    content: "";
-    width: 46px;
-    height: 46px;
-    display: inline-block;
-    position: absolute;
-    top: 15px;
-    left: 53px;
-    background-image: url(../image/forum_content/icon_like.png);
-    background-size: 200% auto;
-    background-repeat: no-repeat;
-    transition: 2s;
-    background-position: right top;
-}
-
-.hand::after {
-    content: "";
-    display: inline-block;
-    position: absolute;
+.btn_handUp{
     width: 150px;
     height: 100px;
-    top: 0;
-    left: 0;
-    border: 1px solid #ddd;
-    box-sizing: border-box;
+}
+.btn_wrap button {
+    border-style: none;
+    background-color: white;
 }
 
-.count {
-    position: absolute;
-    top: 65px;
-    left: 50%;
-    width: 150px;
-    margin-left: -75px;
-    font-size: 18px;
-}
-
-.up {
-    color: #072f6f;
-}
-
-.down {
-    color: #e60012;
-}
 
 .social_page {
     border-bottom: 1px solid #dedede;
