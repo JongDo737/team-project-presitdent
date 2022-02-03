@@ -23,7 +23,8 @@ public class ForumsController {
 	
 	@GetMapping("/best_forums/list")
 	public Object getBestForumsByAgreeCount(@RequestParam String startDate, @RequestParam String endDate) {
-
+		System.out.println("startDate :" + startDate);
+		System.out.println("endDate :" + endDate);
 		return forumsService.getBestForumsByAgreeCount(startDate,endDate);
 	}
 	@GetMapping("/best_forums/reply")

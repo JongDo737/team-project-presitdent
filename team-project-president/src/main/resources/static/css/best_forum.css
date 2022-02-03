@@ -55,7 +55,9 @@
     color: #8e8e8e;
     text-align: center;
     text-decoration-line: none;
-
+}
+.date_selection{
+	cursor: pointer;
 }
 .contents_tab #on{
     border-bottom: 5px solid #0a1645;
@@ -97,6 +99,7 @@
     border: 1px solid #d7d7d7;
     font-size: 14px;
     color: #605f5f;
+    width: 100%;
     height: 40px;
     justify-content: center;
     align-items: center;
