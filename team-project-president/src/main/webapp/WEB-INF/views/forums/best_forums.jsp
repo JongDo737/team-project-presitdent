@@ -30,10 +30,10 @@
             <div class="sub_content">
                 <ul class="sub_content_tab">
                     <li>
-                        <a href="#" id="active">주간 베스트</a>
+                        <a class="date_selection" id="active">주간 베스트</a>
                     </li>
                     <li>
-                        <a href="#">월간 베스트</a>
+                        <a class="date_selection" id="">월간 베스트</a>
                     </li>
                 </ul>
                 <div class="discussion_day">

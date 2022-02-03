@@ -217,7 +217,8 @@ progress {
 .forums_list_text_title {
     text-align: center;
     width:100%;
-    overflow: hidden;
+    height: 55px;
+    overflow: auto;
     font-size: 1.3em;
     color: #0b1745;
 }
@@ -233,7 +234,7 @@ progress {
 }
 .forums_list_text_{
     color: #0b1745;
-    
+    height: 150px;
     overflow: hidden;
 }
 .forums_list_text_bottom{
