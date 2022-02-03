@@ -7,17 +7,23 @@ const replyTop5 = document.querySelector(".reply_top5_list");
 const weekBtn = document.querySelectorAll(".week_btn");
 const dateSel = document.querySelectorAll(".date_selection");
 
-for(let i =0;i<dateSel.length; i++) {
+for (let i = 0; i < dateSel.length; i++) {
 	dateSel[i].onclick = () => {
 		alert();
 	}
-	
+
 }
- let forumsItem = ``;
+let forumsItem = ``;
+
+var selection = 1;
+
+var number = 1;
+
+
 
 var today = new Date();
 var year = today.getFullYear();
-var month = (today.getMonth()+1);
+var month = (today.getMonth() + 1);
 var day = ('0' + today.getDate()).slice(-2);
 var todayDate = year + '-' + month + '-' + day;
 var num = 0;
@@ -26,9 +32,9 @@ var endDates = [];
 
 var startDate = todayDate;
 var endDate = makeDate(7);
- // 주간, 월간을 고르는 변수
- var selection = 1;
- var lastDay = [31, 28,31,30,31,30,31,31,30,31,30,31];
+// 주간, 월간을 고르는 변수
+var selection = 1;
+var lastDay = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 function makeDate(num) {
 	var today = new Date();
 
@@ -45,96 +51,96 @@ function makeDate(num) {
 }
 
 function getWeekNo(v_date_str) {
- var date = new Date();
- if(v_date_str){
-  date = new Date(v_date_str);
- }
- return Math.ceil(date.getDate() / 7);
+	var date = new Date();
+	if (v_date_str) {
+		date = new Date(v_date_str);
+	}
+	return Math.ceil(date.getDate() / 7);
 }
 
 // 주간베스트 주차
-for(let i = 0; i< 5; i++){
-		
-		weekBtn[i].textContent = `${month}월 ${getWeekNo(makeDate(num))}주차`;
-		startDates[i] = makeDate(num+today.getDate()-7);
-		
-		if(getWeekNo(makeDate(num))==1){
-			month = (today.getMonth());
-		}
-		num+=7;
-		endDates[i] = makeDate(num+today.getDate()-7);
+for (let i = 0; i < 5; i++) {
+
+	weekBtn[i].textContent = `${month}월 ${getWeekNo(makeDate(num))}주차`;
+	startDates[i] = makeDate(num + today.getDate() - 7);
+
+	if (getWeekNo(makeDate(num)) == 1) {
+		month = (today.getMonth());
 	}
+	num += 7;
+	endDates[i] = makeDate(num + today.getDate() - 7);
+}
 forumsLoad();
 forumsByReplyLoad();
- /////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////
 
- // 주간 / 월간
+// 주간 / 월간
 dateSel[0].onclick = () => {
-	dateSel[1].setAttribute("id","");
-	dateSel[0].setAttribute("id","active");
+	dateSel[1].setAttribute("id", "");
+	dateSel[0].setAttribute("id", "active");
 	selection = 1;
 	startDate = todayDate;
-	endDate = makeDate(7);	
-	for(let i = 0; i< 5; i++){
-		
+	endDate = makeDate(7);
+	for (let i = 0; i < 5; i++) {
+
 		weekBtn[i].textContent = `${month}월 ${getWeekNo(makeDate(num))}주차`;
-		startDates[i] = makeDate(num+today.getDate()-7);
-		
-		if(getWeekNo(makeDate(num))==1){
+		startDates[i] = makeDate(num + today.getDate() - 7);
+
+		if (getWeekNo(makeDate(num)) == 1) {
 			month = (today.getMonth());
 		}
-		num+=7;
-		endDates[i] = makeDate(num+today.getDate()-7);
+		num += 7;
+		endDates[i] = makeDate(num + today.getDate() - 7);
 	}
 	forumsLoad();
 	forumsByReplyLoad();
-	
+
 }
 
 dateSel[1].onclick = () => {
-	dateSel[0].setAttribute("id","");
-	dateSel[1].setAttribute("id","active");
+	dateSel[0].setAttribute("id", "");
+	dateSel[1].setAttribute("id", "active");
 	selection = 2;
 	year = today.getFullYear();
-	month = (today.getMonth()+1);
-	endDate = year+"-"+month+"-"+"01";
-	startDate =  year+"-"+month+"-"+lastDay[month-1];
-	
-	for(let i = 0; i< 5; i++){
-		endDate = year+"-"+month+"-"+"01";
-		startDate =  year+"-"+month+"-"+lastDay[month-1];
+	month = (today.getMonth() + 1);
+	endDate = year + "-" + month + "-" + "01";
+	startDate = year + "-" + month + "-" + lastDay[month - 1];
+
+	for (let i = 0; i < 5; i++) {
+		endDate = year + "-" + month + "-" + "01";
+		startDate = year + "-" + month + "-" + lastDay[month - 1];
 		weekBtn[i].textContent = `${year}년 ${month}월`;
 		month -= 1;
-		if(month == 0){
-			year-=1;
+		if (month == 0) {
+			year -= 1;
 			month = 12;
 		}
-		
+
 		endDates[i] = endDate;
 		startDates[i] = startDate;
-		
+
 	}
 	endDate = endDates[0];
-	startDate =  startDates[0];
+	startDate = startDates[0];
 	forumsLoad();
 	forumsByReplyLoad();
 }
 
 
 
- // 주간 데이터
-for(let i = 0; i < weekBtn.length; i++){
+// 주간 데이터
+for (let i = 0; i < weekBtn.length; i++) {
 	weekBtn[i].onclick = () => {
 		startDate = startDates[i];
 		endDate = endDates[i];
-		for(let j = 0; j < weekBtn.length; j++){
-			weekBtn[j].setAttribute("id","");
-		}		
-		weekBtn[i].setAttribute("id","weeklist_on");
+		for (let j = 0; j < weekBtn.length; j++) {
+			weekBtn[j].setAttribute("id", "");
+		}
+		weekBtn[i].setAttribute("id", "weeklist_on");
 		forumsLoad();
 		forumsByReplyLoad();
 	}
-	
+
 }
 
 
@@ -164,7 +170,7 @@ function forumsLoad() {
 
 function getForums(forumsList) {
 	let forumsHtml = ``;
-	let count = 1;
+	var count = 1;
 	for (let pet of forumsList) {
 		forumsHtml += `
 				 	 		<tr>
@@ -199,7 +205,7 @@ function forumsByReplyLoad() {
 
 function getForumsByReply(forumsList) {
 	let forumsReplyHtml = ``;
-	let countR = 1;
+	var countR = 1;
 	for (let petR of forumsList) {
 		forumsReplyHtml += `
 				 	 		<tr>
