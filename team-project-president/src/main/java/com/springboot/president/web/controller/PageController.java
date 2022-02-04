@@ -15,7 +15,9 @@ import com.springboot.president.web.dto.PetitionReqDto;
 import com.springboot.president.web.dto.ReplyReqDto;
 import com.springboot.president.service.PetitionService;
 import com.springboot.president.web.dto.BoardPetitionRespDto;
+import com.springboot.president.web.dto.ForumsReplyReqDto;
 import com.springboot.president.web.dto.ForumsReqDto;
+import com.springboot.president.web.dto.ForumsRespDto;
 import com.springboot.president.web.dto.GetPetitionRespDto;
 
 import lombok.RequiredArgsConstructor;
@@ -98,12 +100,7 @@ public class PageController {
 	public String forumsSuggestForm() {
 		return "forums/forums_suggest";
 	}
-	
-	@GetMapping("/forums/")
-	public String forumsContentForm() {
-		return "forums/content";
-	}
-	
+
 	@PostMapping("/forums/suggest/write")
 	public String forumWrite(@AuthenticationPrincipal PrincipalDetails principalDetails,Model model, ForumsReqDto forumsReqDto) {
 		boolean insertCheck = forumsService.insertForums(principalDetails, forumsReqDto);
@@ -111,6 +108,18 @@ public class PageController {
 		return "forums/forums";
 	}
 	
+	@GetMapping("/forums/{forums_id}")
+	public String forumsBoardForm(@AuthenticationPrincipal PrincipalDetails principalDetails,Model model, @PathVariable int forums_id) {
+		ForumsRespDto forumsRespDto = forumsService.getForumsByForumsId(principalDetails, forums_id);
+		model.addAttribute("forumsRespDto", forumsRespDto);
+		return "forums/forums_board";
+	}
+	
+	@PostMapping("/forums/{forums_id}/reply_write")
+	public String forumsReplyWrite(@AuthenticationPrincipal PrincipalDetails principalDetails, ForumsReplyReqDto forumsReplyReqDto, @PathVariable int forums_id) {
+		boolean replyResult = forumsService.insertForumsReply(principalDetails, forumsReplyReqDto, forums_id);
+		return "forums/best_forums";
+	}
 	@GetMapping("/best_forums")
 	public String bestForumsForm() {
 		return "forums/best_forums";
@@ -119,4 +128,5 @@ public class PageController {
 	public String searchForm() {
 		return "search/search";
 	}
+	
 }

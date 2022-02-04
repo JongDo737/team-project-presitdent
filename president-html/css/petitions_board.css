@@ -337,11 +337,6 @@
     transition: 0.2s;
 }
 
-.reply_area_write {
-    margin-bottom: 40px;
-    background-color: rgb(243, 243, 243);
-}
-
 .reply_sns_icon .naver {
     background-image: url(../image/icon_sns_t2.png);
     background-position: 0px -210px;
@@ -385,6 +380,10 @@
     background-size: 200% auto;
     background-repeat: no-repeat;
     transition: 0.2s;
+}
+.reply_area_write {
+    margin-bottom: 40px;
+    background-color: rgb(243, 243, 243);
 }
 
 .reply_write_space {

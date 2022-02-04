@@ -1,0 +1,111 @@
+/**
+ * 
+ */
+ 
+const replyListView = document.querySelector('.reply_list_view');
+
+
+const forumsId = document.querySelector('.forums_id');
+// 동의 내용 페이지
+const replyViewBtn = document.querySelector('.getlist');
+const replyReplyWriteBtn = document.querySelectorAll('.btn');
+const replyReplyWrite = document.querySelectorAll('.co_reply');
+
+page = 1;
+
+for(let i = 0; i < replyReplyWriteBtn.length; i++){
+	replyReplyWriteBtn[i].onclick = () => {
+		alert('클릭');
+		replyReplyWrite[i].style.display = 'block';
+	}
+}
+
+
+for(let i = 0; i < 10; i++){
+	replyViewBtn.onclick = () => {
+		page++;
+		replyLoad(page);
+	}
+}
+replyLoad(page);
+function replyLoad(page){
+	$.ajax({
+		type: "get",
+		url: `/forums/reply?forums_id=${forumsId.value}&page=${page}`,
+		dataType: "text",
+		success: function(data) {
+			replyForumsItem = ``;
+			let replyForumsListObj = JSON.parse(data);
+			replyForumsItem+= getReplyForums(replyForumsListObj.replyList);
+			replyListView.innerHTML = replyForumsItem;
+			
+		},
+		error: function() {
+			alert('비동기 처리오류');
+		}
+	});
+	
+}
+	
+	for(let i = 0; i < replyReplyWriteBtn.length; i++){
+	replyReplyWriteBtn[i].onclick = () => {
+		alert('클릭');
+		replyReplyWrite[i].style.display = 'block';
+	}
+}
+	
+
+function getReplyForums(replyList) {
+	let replyHtml = ``;
+	for(let pet of replyList){
+		replyHtml += `
+                        <li>
+                                <div class="co_view">
+                                    <span>${pet.create_date}</span>
+                                    <div class="co_text">${pet.reply}</div>
+                                    <ul class="co_number">
+                                        <li class="co_n_co">
+                                            <button class="re_re">
+                                                답글 : <span>${pet.reply_reply_count}</span>개
+                                            </button>
+                                        </li>
+                                        <li class="vote">
+                                            <button class="re_gb">
+                                                추천 : <span>${pet.agree_count}</span>
+                                            </button>
+                                        </li>
+                                        <li class="vote">
+                                            <button class="re_gb">
+                                                반대 : <span>${pet.against_count}</span>
+                                            </button>
+                                        </li>
+                                    </ul>
+                                    <button type= "button" class="btn">답글등록</button>
+                                </div>
+                                <div class="co_reply">
+                                    <div class="cs_comment">
+                                        <form class="co_write">
+                                            <div class="cw_wrap">
+                                                <textarea name="commentbody" id=""
+                                                    placeholder="댓글을 입력해주세요"></textarea>
+                                            </div>
+                                            <button class="comment_add">등록</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </li>
+		`;
+		
+	}
+	return replyHtml;
+
+}
+
+
+
+
+
+
+
+	
+ 

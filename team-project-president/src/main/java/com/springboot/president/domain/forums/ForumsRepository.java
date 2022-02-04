@@ -7,13 +7,16 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface ForumsRepository {
 	public int insertForums(Forums forums);
+	
 	public GetForums getForumsByForumsId(int forums_id);
 	
 	public List<GetForums> getForumsAll();
-	
-	// 12월 4주차 추천Top5
 	public List<GetForums> getBestForumsByAgreeCountWeeklyFirst(String startDate, String endDate);
 	
 	
 	public List<GetForums> getBestForumsByReplyCount(String startDate, String endDate);
+	
+	public int insertForumsReply(ReplyForums replyForums);
+	
+	public List<GetForumsReply> getReplyByForumsId(int forums_id);
 }

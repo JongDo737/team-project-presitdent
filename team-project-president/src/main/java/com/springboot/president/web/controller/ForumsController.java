@@ -31,4 +31,10 @@ public class ForumsController {
 	public Object getBestForumsByReplyCount(@RequestParam String startDate, @RequestParam String endDate) {
 		return forumsService.getBestForumsByReplyCount(startDate,endDate);
 	}
+	
+	@GetMapping("/forums/reply")
+	public Object getReplyList(@RequestParam int forums_id,@RequestParam int page) {
+		return forumsService.getReplyByForumsId(forums_id,page);
+		
+	}
 }

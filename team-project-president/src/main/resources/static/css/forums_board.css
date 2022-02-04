@@ -96,7 +96,7 @@
 .handup_img {
     display: flex;
     justify-content: center;
-    background-image: url(../image/forum_content/icon_like.png);
+    background-image: url(../image/forums/icon_like.png);
     background-position: -45px 0px;
     background-size: 200% auto;
     background-repeat: no-repeat;
@@ -138,7 +138,7 @@
 .handDown_img {
     display: flex;
     justify-content: center;
-    background-image: url(../image/forum_content/icon_like.png);
+    background-image: url(../image/forums/icon_like.png);
     background-position: 0px -45px;
     background-size: 200% auto;
     background-repeat: no-repeat;
@@ -150,7 +150,7 @@
 
 }
 .handDown:hover > .hand_down_border > .handDown_img{
-    background-image: url(../image/forum_content/icon_like.png);
+    background-image: url(../image/forums/icon_like.png);
     background-position: -45px -45px;
     background-size: 200% auto;
     background-repeat: no-repeat;
@@ -348,6 +348,7 @@ textarea {
 }
 
 .co_reply {
+	display: none;
     margin-left: 30px;
 }
 
