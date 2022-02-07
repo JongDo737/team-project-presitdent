@@ -19,4 +19,8 @@ public interface ForumsRepository {
 	public int insertForumsReply(ReplyForums replyForums);
 	
 	public List<GetForumsReply> getReplyByForumsId(int forums_id);
+	
+	
+	public int forumsAgree(ForumsSelection forumsSelection);
+	
 }

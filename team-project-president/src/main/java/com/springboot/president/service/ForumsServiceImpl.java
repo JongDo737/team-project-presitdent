@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.springboot.president.config.auth.PrincipalDetails;
 import com.springboot.president.domain.forums.Forums;
 import com.springboot.president.domain.forums.ForumsRepository;
+import com.springboot.president.domain.forums.ForumsSelection;
 import com.springboot.president.domain.forums.GetForums;
 import com.springboot.president.domain.forums.GetForumsReply;
 import com.springboot.president.domain.forums.ReplyForums;
@@ -135,26 +136,22 @@ public class ForumsServiceImpl implements ForumsService{
 		
 		List<GetForumsReply> replyList = new ArrayList<GetForumsReply>();
 		
-		int startIndex = (page -  1) * 15;
+		int startIndex = 0;
 		int endIndex = 0;
 		
 		if (page < replyGroupSize) {
-			endIndex = startIndex + 15;
+			endIndex =  page * 15;
 			for (int i = startIndex; i < endIndex; i++) {
-				// 자료가 있는경우
 				replyList.add(replyListAll.get(i));
-
+				
 			}
 		} else if (page == replyGroupSize) {
-			endIndex = startIndex + (replyTotalCount % 15);
 
-			for (int i = startIndex; i < endIndex; i++) {
-				// 자료가 있는경우
+			for (int i = startIndex; i < replyTotalCount; i++) {
 				replyList.add(replyListAll.get(i));
 
 			}
 		} else {
-			// 페이지가 전체자료보다 많을때 리스트에 아무것도 넣어주지 않는다.
 		}
 
 		forumsReplyRespDto.setReplyList(replyList);
@@ -177,6 +174,17 @@ public class ForumsServiceImpl implements ForumsService{
 		GetForumsRespDto getForumsRespDto = new GetForumsRespDto();
 		getForumsRespDto.setForumsList(forumsEntity);
 		return getForumsRespDto;
+	}
+
+
+	@Override
+	public void forumsAgree(PrincipalDetails principalDetails, int forums_id) {
+		ForumsSelection forumsSelectionEntity = ForumsSelection.builder()
+																						.forums_id(forums_id)
+																						.agree_user_id(principalDetails.getUser().getId())
+																						.build();	
+		
+		forumsRepository.forumsAgree(forumsSelectionEntity);
 	}
 
 

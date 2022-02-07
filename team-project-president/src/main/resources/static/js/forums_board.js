@@ -8,17 +8,10 @@ const replyListView = document.querySelector('.reply_list_view');
 const forumsId = document.querySelector('.forums_id');
 // 동의 내용 페이지
 const replyViewBtn = document.querySelector('.getlist');
-const replyReplyWriteBtn = document.querySelectorAll('.btn');
-const replyReplyWrite = document.querySelectorAll('.co_reply');
 
+const forumsAgreeBtn = document.querySelector('.handUp');
 page = 1;
 
-for(let i = 0; i < replyReplyWriteBtn.length; i++){
-	replyReplyWriteBtn[i].onclick = () => {
-		alert('클릭');
-		replyReplyWrite[i].style.display = 'block';
-	}
-}
 
 
 for(let i = 0; i < 10; i++){
@@ -38,22 +31,24 @@ function replyLoad(page){
 			let replyForumsListObj = JSON.parse(data);
 			replyForumsItem+= getReplyForums(replyForumsListObj.replyList);
 			replyListView.innerHTML = replyForumsItem;
-			
+			const replyReplyWriteBtn = document.querySelectorAll('.btn');
+			const replyReplyWrite = document.querySelectorAll('.co_reply');
+			for(let i = 0; i < replyReplyWriteBtn.length; i++){
+				replyReplyWriteBtn[i].onclick = () => {
+					replyReplyWrite[i].style.display = 'block';
+				}
+			}
 		},
 		error: function() {
 			alert('비동기 처리오류');
 		}
 	});
 	
-}
 	
-	for(let i = 0; i < replyReplyWriteBtn.length; i++){
-	replyReplyWriteBtn[i].onclick = () => {
-		alert('클릭');
-		replyReplyWrite[i].style.display = 'block';
-	}
-}
 	
+	
+}
+
 
 function getReplyForums(replyList) {
 	let replyHtml = ``;
@@ -89,7 +84,7 @@ function getReplyForums(replyList) {
                                                 <textarea name="commentbody" id=""
                                                     placeholder="댓글을 입력해주세요"></textarea>
                                             </div>
-                                            <button class="comment_add">등록</button>
+                                            <button type="button" class="comment_add">등록</button>
                                         </form>
                                     </div>
                                 </div>
@@ -101,8 +96,27 @@ function getReplyForums(replyList) {
 
 }
 
+function forumsAgree(){
+	$.ajax({
+		type: 'post',
+		url: `/forums/${forums_id}/selection`,
+		dataType: 'text',
+		success: function(data){
+			if(data == '1'){
+				alert(data);
+			}
+		},
+		error: function(){
+			alert('비동기 처리 오류.');
+		}
+		
+	});
+}
 
-
+forumsAgreeBtn.onclick = () => {
+	alert('forumsAgree 함수 실행');
+	forumsAgree();
+}
 
 
 

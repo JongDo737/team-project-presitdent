@@ -1,9 +1,13 @@
 package com.springboot.president.web.controller;
 
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.springboot.president.config.auth.PrincipalDetails;
 import com.springboot.president.service.ForumsService;
 
 import lombok.RequiredArgsConstructor;
@@ -36,5 +40,11 @@ public class ForumsController {
 	public Object getReplyList(@RequestParam int forums_id,@RequestParam int page) {
 		return forumsService.getReplyByForumsId(forums_id,page);
 		
+	}
+	
+	@PostMapping("/forums/{forums_id}/selection")
+	public int forumsAgree(@AuthenticationPrincipal PrincipalDetails principalDetails, @PathVariable int forums_id, int agree_count_id) {
+		forumsService.forumsAgree(principalDetails, forums_id);
+		return 1;
 	}
 }

@@ -1,7 +1,5 @@
 package com.springboot.president.service;
 
-import org.springframework.web.bind.annotation.RequestParam;
-
 import com.springboot.president.config.auth.PrincipalDetails;
 import com.springboot.president.web.dto.ForumsReplyReqDto;
 import com.springboot.president.web.dto.ForumsReplyRespDto;
@@ -19,4 +17,6 @@ public interface ForumsService {
 	
 	public boolean insertForumsReply(PrincipalDetails principalDetails, ForumsReplyReqDto forumsReplyReqDto,int forums_id);
 	public ForumsReplyRespDto getReplyByForumsId(int forums_id, int page);
+	
+	public void forumsAgree(PrincipalDetails principalDetails,int forums_id);
 }

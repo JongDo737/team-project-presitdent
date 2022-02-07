@@ -47,7 +47,7 @@
                                 </div>
                                 <div class="btn_wrap">
                                     <div class="btn_hand_box">
-                                        <button type="button" class="handUp">
+                                        <button type="submit" class="handUp">
                                             <div class="hand_up_border">
                                                 <div class="handup_img">
 
@@ -59,7 +59,7 @@
                                         </button>
                                     </div>
                                     <div class="btn_hand_box">
-                                        <button type="button" class="handDown">
+                                        <button type="button"  class="handDown">
                                             <div class="hand_down_border">
                                                 <div class="handDown_img"></div>
                                                 <span class="countDown">${forumsRespDto.bad_count}</span>
@@ -95,7 +95,7 @@
                                 </div>
 
                                 <div class="cs_comment">
-                                    <form action="/forums/${forumsRespDto.forums_id}/reply_write" name="reply" method="post" class="co_write">
+                                    <form action="/forums/reply_write/${forumsRespDto.forums_id}" name="reply" method="post" class="co_write">
                                         <div class="cw_wrap">
                                             <textarea name="reply" id="" placeholder="댓글을 입력해 주세요."></textarea>
                                         </div>

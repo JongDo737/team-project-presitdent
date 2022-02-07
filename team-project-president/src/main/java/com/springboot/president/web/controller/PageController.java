@@ -115,7 +115,7 @@ public class PageController {
 		return "forums/forums_board";
 	}
 	
-	@PostMapping("/forums/{forums_id}/reply_write")
+	@PostMapping("/forums/reply_write/{forums_id}")
 	public String forumsReplyWrite(@AuthenticationPrincipal PrincipalDetails principalDetails, ForumsReplyReqDto forumsReplyReqDto, @PathVariable int forums_id) {
 		boolean replyResult = forumsService.insertForumsReply(principalDetails, forumsReplyReqDto, forums_id);
 		return "forums/best_forums";
@@ -128,5 +128,7 @@ public class PageController {
 	public String searchForm() {
 		return "search/search";
 	}
+	
+	
 	
 }
