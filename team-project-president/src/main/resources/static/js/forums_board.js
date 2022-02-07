@@ -10,8 +10,10 @@ const forumsId = document.querySelector('.forums_id');
 const replyViewBtn = document.querySelector('.getlist');
 
 const forumsAgreeBtn = document.querySelector('.handUp');
+const forumsAgainstBtn = document.querySelector('.handDown');
 page = 1;
 
+var choose = 0;
 
 
 for(let i = 0; i < 10; i++){
@@ -21,6 +23,18 @@ for(let i = 0; i < 10; i++){
 	}
 }
 replyLoad(page);
+
+forumsAgreeBtn.onclick = () => {
+	
+	choose=1;
+	forumsChoose();
+}
+forumsAgainstBtn.onclick = () => {
+	choose=2;
+	forumsChoose();
+}
+
+
 function replyLoad(page){
 	$.ajax({
 		type: "get",
@@ -96,15 +110,14 @@ function getReplyForums(replyList) {
 
 }
 
-function forumsAgree(){
+function forumsChoose(){
 	$.ajax({
-		type: 'post',
-		url: `/forums/${forums_id}/selection`,
+		type: 'get',
+		url: `/forums/selection/board?forums_id=${forumsId.value}&choose=${choose}`,
 		dataType: 'text',
+		async: false,
 		success: function(data){
-			if(data == '1'){
-				alert(data);
-			}
+			alert();
 		},
 		error: function(){
 			alert('비동기 처리 오류.');
@@ -112,12 +125,6 @@ function forumsAgree(){
 		
 	});
 }
-
-forumsAgreeBtn.onclick = () => {
-	alert('forumsAgree 함수 실행');
-	forumsAgree();
-}
-
 
 
 

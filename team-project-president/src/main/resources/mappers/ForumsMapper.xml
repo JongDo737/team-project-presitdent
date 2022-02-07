@@ -143,4 +143,15 @@
 		);
 	
 	</insert>
+	<insert id="forumsAginst" parameterType="com.springboot.president.domain.forums.ForumsSelection">
+			INSERT INTO
+			forums_selection_mst
+		VALUES(
+			0,
+			#{forums_id},
+			NULL,
+			#{against_user_id}
+		);
+	
+	</insert>
 </mapper>

@@ -47,7 +47,7 @@
                                 </div>
                                 <div class="btn_wrap">
                                     <div class="btn_hand_box">
-                                        <button type="submit" class="handUp">
+                                        <button type="button" class="handUp">
                                             <div class="hand_up_border">
                                                 <div class="handup_img">
 

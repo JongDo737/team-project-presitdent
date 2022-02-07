@@ -178,13 +178,21 @@ public class ForumsServiceImpl implements ForumsService{
 
 
 	@Override
-	public void forumsAgree(PrincipalDetails principalDetails, int forums_id) {
-		ForumsSelection forumsSelectionEntity = ForumsSelection.builder()
-																						.forums_id(forums_id)
-																						.agree_user_id(principalDetails.getUser().getId())
-																						.build();	
-		
-		forumsRepository.forumsAgree(forumsSelectionEntity);
+	public void forumsAgree(PrincipalDetails principalDetails, int forums_id, int choose) {
+		System.out.println(choose);
+		ForumsSelection forumsSelection = new ForumsSelection();
+		forumsSelection.setForums_id(forums_id);
+		if(choose == 1) {
+			System.out.println("찬성");
+			forumsSelection.setAgree_user_id(principalDetails.getUser().getId());
+			forumsRepository.forumsAgree(forumsSelection);
+			
+		}else {
+			System.out.println("반대");
+			forumsSelection.setAgainst_user_id(principalDetails.getUser().getId());
+			forumsRepository.forumsAginst(forumsSelection);
+			
+		}
 	}
 
 

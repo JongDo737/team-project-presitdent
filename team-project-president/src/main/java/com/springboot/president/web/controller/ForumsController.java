@@ -4,6 +4,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -27,8 +28,6 @@ public class ForumsController {
 	
 	@GetMapping("/best_forums/list")
 	public Object getBestForumsByAgreeCount(@RequestParam String startDate, @RequestParam String endDate) {
-		System.out.println("startDate :" + startDate);
-		System.out.println("endDate :" + endDate);
 		return forumsService.getBestForumsByAgreeCount(startDate,endDate);
 	}
 	@GetMapping("/best_forums/reply")
@@ -42,9 +41,12 @@ public class ForumsController {
 		
 	}
 	
-	@PostMapping("/forums/{forums_id}/selection")
-	public int forumsAgree(@AuthenticationPrincipal PrincipalDetails principalDetails, @PathVariable int forums_id, int agree_count_id) {
-		forumsService.forumsAgree(principalDetails, forums_id);
-		return 1;
+	@GetMapping("/forums/selection/board")
+	public Object forumsAgree(@AuthenticationPrincipal PrincipalDetails principalDetails, @RequestParam int forums_id, @RequestParam int choose) {
+		if(principalDetails.getUser() == null) {
+			// AuthExeption 실행
+		}
+		forumsService.forumsAgree(principalDetails, forums_id, choose);
+		return null;
 	}
 }

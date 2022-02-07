@@ -22,5 +22,6 @@ public interface ForumsRepository {
 	
 	
 	public int forumsAgree(ForumsSelection forumsSelection);
+	public int forumsAginst(ForumsSelection forumsSelection);
 	
 }
