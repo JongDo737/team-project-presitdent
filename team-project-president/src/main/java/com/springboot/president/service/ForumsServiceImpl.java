@@ -8,7 +8,12 @@ import org.springframework.stereotype.Service;
 import com.springboot.president.config.auth.PrincipalDetails;
 import com.springboot.president.domain.forums.Forums;
 import com.springboot.president.domain.forums.ForumsRepository;
+import com.springboot.president.domain.forums.ForumsSelection;
 import com.springboot.president.domain.forums.GetForums;
+import com.springboot.president.domain.forums.GetForumsReply;
+import com.springboot.president.domain.forums.ReplyForums;
+import com.springboot.president.web.dto.ForumsReplyReqDto;
+import com.springboot.president.web.dto.ForumsReplyRespDto;
 import com.springboot.president.web.dto.ForumsReqDto;
 import com.springboot.president.web.dto.ForumsRespDto;
 import com.springboot.president.web.dto.GetForumsRespDto;
@@ -99,7 +104,59 @@ public class ForumsServiceImpl implements ForumsService{
 		ForumsRespDto forumsRespDto = forumsEntity.toResp();
 		return forumsRespDto;
 	}
+	
+	// 개별 데이터 댓글 쓰기
+	@Override
+	public boolean insertForumsReply(PrincipalDetails principalDetails, ForumsReplyReqDto forumsReplyReqDto,int forums_id) {
+		ReplyForums replyForums = forumsReplyReqDto.toEntity(principalDetails.getUser().getId(), forums_id);
+		
+		// 1이면 insert 성공 0이면 insert 실패
+		int insertCheck = forumsRepository.insertForumsReply(replyForums);
+		System.out.println("insertCheck : " + insertCheck);
+		// 결과값 담아주기
+		boolean resultCheck;
+		if(insertCheck == 1) {
+			resultCheck = true;
+			
+		} else {
+			resultCheck = false;
+		}
+		return resultCheck;
+	}
+	
+	
+	// 개별 데이터 댓글 불러오기
+	@Override
+	public ForumsReplyRespDto getReplyByForumsId(int forums_id, int page) {
+		List<GetForumsReply> replyListAll = forumsRepository.getReplyByForumsId(forums_id);
+		ForumsReplyRespDto forumsReplyRespDto = new ForumsReplyRespDto();
+		
+		int replyTotalCount = replyListAll.size();
+		int replyGroupSize = replyTotalCount % 15 == 0 ? replyTotalCount / 15 : (replyTotalCount / 15) + 1;
+		
+		List<GetForumsReply> replyList = new ArrayList<GetForumsReply>();
+		
+		int startIndex = 0;
+		int endIndex = 0;
+		
+		if (page < replyGroupSize) {
+			endIndex =  page * 15;
+			for (int i = startIndex; i < endIndex; i++) {
+				replyList.add(replyListAll.get(i));
+				
+			}
+		} else if (page == replyGroupSize) {
 
+			for (int i = startIndex; i < replyTotalCount; i++) {
+				replyList.add(replyListAll.get(i));
+
+			}
+		} else {
+		}
+
+		forumsReplyRespDto.setReplyList(replyList);
+		return forumsReplyRespDto;
+	}
 
 	// 베스트토론 불러오기
 	@Override
@@ -118,6 +175,23 @@ public class ForumsServiceImpl implements ForumsService{
 		getForumsRespDto.setForumsList(forumsEntity);
 		return getForumsRespDto;
 	}
+
+
+	@Override
+	public void forumsAgree(PrincipalDetails principalDetails, int forums_id) {
+		ForumsSelection forumsSelectionEntity = ForumsSelection.builder()
+																						.forums_id(forums_id)
+																						.agree_user_id(principalDetails.getUser().getId())
+																						.build();	
+		
+		forumsRepository.forumsAgree(forumsSelectionEntity);
+	}
+
+
+	
+
+	
+	
 
 	
 

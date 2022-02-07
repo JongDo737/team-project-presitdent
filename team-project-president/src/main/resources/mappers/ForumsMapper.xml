@@ -83,5 +83,64 @@
 		LIMIT 
 			5;
 	</select>
+	
+	<select id="getForumsByForumsId" resultType="com.springboot.president.domain.forums.GetForums">
+		SELECT
+			um.provider,
+			fm.forums_id,
+			fm.user_id,
+			fm.topic,
+			fm.content,
+			fm.good_count,
+			fm.bad_count,
+			fm.reply_count,
+			fm.create_date
+		FROM
+			forums_mst fm
+			LEFT OUTER JOIN user_mst um ON(um.id = fm.user_id)
+		WHERE
+			fm.forums_id = #{forums_id};
+		
+	</select>
 
+	<insert id="insertForumsReply" parameterType="com.springboot.president.domain.forums.ReplyForums">
+		INSERT INTO
+			forums_board_mst
+		VALUES(
+			0,
+			#{forums_id},
+			#{user_id},			
+			#{reply},
+			0,
+			0,
+			0,
+			NOW()
+		
+		);
+	
+	</insert>
+	
+	<select id="getReplyByForumsId" parameterType="Integer" resultType="com.springboot.president.domain.forums.GetForumsReply">
+		SELECT
+			*
+		FROM
+			forums_board_mst
+		WHERE
+			forums_id = #{forums_id}
+		ORDER BY
+			create_date DESC;
+		
+	</select>
+	
+	<insert id="forumsAgree" parameterType="com.springboot.president.domain.forums.ForumsSelection">
+			INSERT INTO
+			forums_selection_mst
+		VALUES(
+			0,
+			#{forums_id},
+			#{agree_user_id},
+			NULL
+		);
+	
+	</insert>
 </mapper>
