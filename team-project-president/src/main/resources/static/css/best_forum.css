@@ -222,6 +222,16 @@ td {
     font-weight: 500;
     color: #8a8a8a;
 }
+td a{
+    padding: 10px 0px;
+    font-weight: 500;
+    color: #8a8a8a;
+    font-style: none;
+}
+.td2 a:hover {
+	color: black;
+	text-decoration: underline;
+}
 
 .th1 {
     width: 6%;

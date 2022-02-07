@@ -15,7 +15,7 @@
 
 <body class="firstPage">
 
-    <nav>
+    <nav class="nav_king">
         <div class="head_navi">
             <div id="head">
                 <a href="/index" title="메인페이지로 이동">

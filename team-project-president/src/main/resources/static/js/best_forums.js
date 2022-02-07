@@ -7,12 +7,7 @@ const replyTop5 = document.querySelector(".reply_top5_list");
 const weekBtn = document.querySelectorAll(".week_btn");
 const dateSel = document.querySelectorAll(".date_selection");
 
-for (let i = 0; i < dateSel.length; i++) {
-	dateSel[i].onclick = () => {
-		alert();
-	}
 
-}
 let forumsItem = ``;
 
 var selection = 1;
@@ -35,28 +30,7 @@ var endDate = makeDate(7);
 // 주간, 월간을 고르는 변수
 var selection = 1;
 var lastDay = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-function makeDate(num) {
-	var today = new Date();
 
-	// 오늘날의 년, 월, 일 데이터
-	const day = today.getDate();
-	// 일주일 전 구하기
-	today = new Date(today.setDate(day - num)).toLocaleDateString();
-	today = today.replaceAll(" ", "");
-	prime = today.split('.');
-	prime[1] = ('0' + prime[1]).slice(-2);
-	prime[2] = ('0' + prime[2]).slice(-2);
-	today = prime[0] + "-" + prime[1] + '-' + prime[2];
-	return today;
-}
-
-function getWeekNo(v_date_str) {
-	var date = new Date();
-	if (v_date_str) {
-		date = new Date(v_date_str);
-	}
-	return Math.ceil(date.getDate() / 7);
-}
 
 // 주간베스트 주차
 for (let i = 0; i < 5; i++) {
@@ -76,11 +50,14 @@ forumsByReplyLoad();
 
 // 주간 / 월간
 dateSel[0].onclick = () => {
+	weekBtn[0].click();
 	dateSel[1].setAttribute("id", "");
 	dateSel[0].setAttribute("id", "active");
 	selection = 1;
-	startDate = todayDate;
+	startDate = makeDate(0);
 	endDate = makeDate(7);
+	month = (today.getMonth() + 1);
+	num = 0;
 	for (let i = 0; i < 5; i++) {
 
 		weekBtn[i].textContent = `${month}월 ${getWeekNo(makeDate(num))}주차`;
@@ -98,6 +75,7 @@ dateSel[0].onclick = () => {
 }
 
 dateSel[1].onclick = () => {
+	weekBtn[0].click();
 	dateSel[0].setAttribute("id", "");
 	dateSel[1].setAttribute("id", "active");
 	selection = 2;
@@ -151,6 +129,31 @@ for (let i = 0; i < weekBtn.length; i++) {
 
 ///////////////////////////////////////////////////////////////////////////////
 
+// num = 0 오늘날짜 num = 7 1주일 전 날짜
+function makeDate(num) {
+	var today = new Date();
+
+	// 오늘날의 년, 월, 일 데이터
+	const day = today.getDate();
+	// 일주일 전 구하기
+	today = new Date(today.setDate(day - num)).toLocaleDateString();
+	today = today.replaceAll(" ", "");
+	prime = today.split('.');
+	prime[1] = ('0' + prime[1]).slice(-2);
+	prime[2] = ('0' + prime[2]).slice(-2);
+	today = prime[0] + "-" + prime[1] + '-' + prime[2];
+	return today;
+}
+// 주차 구하기
+function getWeekNo(v_date_str) {
+	var date = new Date();
+	if (v_date_str) {
+		date = new Date(v_date_str);
+	}
+	return Math.ceil(date.getDate() / 7);
+}
+
+
 function forumsLoad() {
 	$.ajax({
 		type: "get",
@@ -175,7 +178,7 @@ function getForums(forumsList) {
 		forumsHtml += `
 				 	 		<tr>
                                 <td class="td1">${count}</td>
-                                <td class="td2">${pet.topic}</td>
+                                <td class="td2"><a href="/forums/${pet.forums_id}">${pet.topic}</a></td>
                                 <td class="td3"><span class="good">${pet.good_count}</span> / <span class="bad">${pet.bad_count}</span></td>
                                 <td class="td4">${pet.create_date}</td>
                             </tr>
@@ -210,7 +213,7 @@ function getForumsByReply(forumsList) {
 		forumsReplyHtml += `
 				 	 		<tr>
                                 <td class="td1">${countR}</td>
-                                <td class="td2">${petR.topic}</td>
+                                <td class="td2"><a href="/forums/${petR.forums_id}">${petR.topic}</a></td>
                                 <td class="td3"><span class="comment_count">${petR.reply_count}</span></td>
                                 <td class="td4">${petR.create_date}</td>
                             </tr>

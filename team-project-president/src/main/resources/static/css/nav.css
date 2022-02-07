@@ -1,16 +1,19 @@
 
+.nav_king{
+    z-index: 5;
+}
 .head_navi {
     position: absolute;
     top: 0;
     left: 30px;
     width: 100%;
     display: inline-block;
-    z-index: 50;
+    z-index: 6;
 }
 .nav_logo{
     display: none;
     position: relative;
-    right: 180px;
+    right: 440px;
 }
 .nav_logo img{
     margin-top: 10px;
@@ -21,8 +24,8 @@
     background-image: url(/image/nav/logo_bg.png);
     background-repeat: no-repeat;
     position: absolute;
-    z-index: 100;
-    transform: translate3d(0px, 0px, 0px);
+    left: 65px;
+    z-index: 7;
 }
 
 .head {
@@ -37,7 +40,7 @@
 }
 
 #navigator_menu {
-    position: absolute;
+    position: relative;
     background-image: url(/image/nav/navi_bar.png);
     height: 67px;
     width: 100%;
@@ -58,10 +61,12 @@
     justify-content: flex-end;
     align-items: center;
     height: 100%;
+    z-index: 10;
 }
 .menu_list{
     width: 10%;
     text-align: center;
+    z-index: 10;
 }
 
 .menu_list:hover {
@@ -89,7 +94,6 @@
     justify-content: center;
     align-items: center;
     width: 10%;
-    z-index: 10;
 }
 .menu_sub li {
     height: 50px;

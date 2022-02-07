@@ -151,7 +151,7 @@
                         <form action="/petitions/${boardPetitionRespDto.petition_id }/reply_write" method="post" class="reply_form">
                             <c:choose>
                             	<c:when test="${empty  principal.user}">
-                            		<textarea id="reply_textarea" name="reply" placeholder="소셜로그인후 이용하실 수 있습니다."></textarea>
+                            		<textarea id="reply_textarea" name="reply" placeholder="소셜로그인 후 이용하실 수 있습니다."></textarea>
                             		<button id="reply_submit_btn" class="logout_reply_submit_btn" type="button">동의</button>
                             	</c:when>
                             	<c:otherwise>
