@@ -99,7 +99,7 @@ function getReplyForums(replyList) {
 function forumsAgree(){
 	$.ajax({
 		type: 'post',
-		url: `/forums/${forums_id}/selection`,
+		url: `/forums/selection/${forums_id}`,
 		dataType: 'text',
 		success: function(data){
 			if(data == '1'){
