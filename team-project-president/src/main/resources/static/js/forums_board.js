@@ -113,7 +113,7 @@ function getReplyForums(replyList) {
 function forumsChoose(){
 	$.ajax({
 		type: 'get',
-		url: `/forums/selection/board?forums_id=${forumsId.value}&choose=${choose}`,
+		url: `/forums/selection?forums_id=${forumsId.value}&choose=${choose}`,
 		dataType: 'text',
 		async: false,
 		success: function(data){
@@ -130,7 +130,7 @@ function selectCode(checkNum) {
 	if(checkNum == 5) {
 		alert('로그인 후 이용하실 수 있습니다.');
 		location.href = '/auth/signin';
-		
+
 	}
 	else if(checkNum == 0 ){
 		alert('다시 시도해 주세요.');

@@ -1,10 +1,9 @@
 package com.springboot.president.web.controller;
 
+
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -41,16 +40,17 @@ public class ForumsController {
 		
 	}
 	
-	@GetMapping("/forums/selection/board")
+	@GetMapping("/forums/selection")
 	public int forumsAgree(@AuthenticationPrincipal PrincipalDetails principalDetails, @RequestParam int forums_id, @RequestParam int choose) {
-		// 로그인 하지 않았을 때
 		int insertCheck = 5;
+		// 로그인 하지 않았을 때
 		if(principalDetails == null) {
-			System.out.println("principalDetails 없음");
+			insertCheck = 5;
 		}else {
 			insertCheck = forumsService.forumsAgree(principalDetails, forums_id, choose);
 			
 		}
 		return insertCheck;
 	}
+	
 }

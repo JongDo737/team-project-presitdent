@@ -130,7 +130,5 @@ public class PageController {
 	public String searchForm() {
 		return "search/search";
 	}
-	
-	
-	
+
 }
