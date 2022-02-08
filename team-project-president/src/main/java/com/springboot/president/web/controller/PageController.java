@@ -13,6 +13,7 @@ import com.springboot.president.service.ForumsService;
 import com.springboot.president.service.IndexApiService;
 import com.springboot.president.web.dto.IndexTableRespDto;
 import com.springboot.president.web.dto.PetitionReqDto;
+import com.springboot.president.web.dto.ReplyReplyReqDto;
 import com.springboot.president.web.dto.ReplyReqDto;
 import com.springboot.president.service.PetitionService;
 import com.springboot.president.web.dto.BoardPetitionRespDto;
@@ -126,6 +127,12 @@ public class PageController {
 		return "forums/best_forums";
 	}
 
+	@PostMapping("/forums/reply_write/list/{reply_id}")
+	public String replyReplyWrite(@AuthenticationPrincipal PrincipalDetails principalDetails, ReplyReplyReqDto replyReplyReqDto,@PathVariable int reply_id) {
+		boolean replyResult = forumsService.insertReplyReply(principalDetails, replyReplyReqDto, reply_id);
+		return "forums/best_forums";
+	}
+	
 	@GetMapping("/Search")
 	public String searchForm() {
 		return "search/search";

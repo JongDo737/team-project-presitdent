@@ -17,6 +17,7 @@ import com.springboot.president.web.dto.ForumsReplyRespDto;
 import com.springboot.president.web.dto.ForumsReqDto;
 import com.springboot.president.web.dto.ForumsRespDto;
 import com.springboot.president.web.dto.GetForumsRespDto;
+import com.springboot.president.web.dto.ReplyReplyReqDto;
 
 import lombok.RequiredArgsConstructor;
 
@@ -124,7 +125,25 @@ public class ForumsServiceImpl implements ForumsService{
 		return resultCheck;
 	}
 	
-	
+	// 대댓글 쓰기
+	@Override
+	public boolean insertReplyReply(PrincipalDetails principalDetails, ReplyReplyReqDto replyReplyReqDto, int reply_id) {
+		ReplyForums replyReplys = replyReplyReqDto.toEntity(principalDetails.getUser().getId(), reply_id);
+		
+		// 1이면 insert 성공 0이면 insert 실패
+		int insertCheck = forumsRepository.insertReplyReply(replyReplys);
+		System.out.println("insertCheck : " + insertCheck);
+		// 결과값 담아주기
+		boolean resultCheck;
+		if(insertCheck == 1) {
+			resultCheck = true;
+			
+		} else {
+			resultCheck = false;
+		}
+		return resultCheck;
+	}
+
 	// 개별 데이터 댓글 불러오기
 	@Override
 	public ForumsReplyRespDto getReplyByForumsId(int forums_id, int page) {
@@ -158,6 +177,8 @@ public class ForumsServiceImpl implements ForumsService{
 		return forumsReplyRespDto;
 	}
 
+
+	
 	// 베스트토론 불러오기
 	@Override
 	public GetForumsRespDto getBestForumsByAgreeCount(String startDate, String endDate) {
@@ -194,6 +215,8 @@ public class ForumsServiceImpl implements ForumsService{
 			
 		}
 	}
+
+
 
 
 	

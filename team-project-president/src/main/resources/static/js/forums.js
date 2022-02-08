@@ -80,13 +80,13 @@ function getForums(forumsList) {
                             </div>
                             <div class="forums_list_textbox">
                                 <h1 class="forums_list_text_title"> 
-                                	<a class="forums_text_a" href="">
+                                	<a class="forums_text_a" href="forums/${pet.forums_id}">
                                 		${pet.topic}
                                 	</a>
                                 </h1>
                                 <span> ${pet.provider}-***</span>
                                 <p class="forums_list_text_">
-                                	<a class="forums_text_a" id="forums_text_detail" href="">
+                                	<a class="forums_text_a" id="forums_text_detail" href="forums/${pet.forums_id}">
                                     	${pet.content}
                                     </a>
                                 </p>

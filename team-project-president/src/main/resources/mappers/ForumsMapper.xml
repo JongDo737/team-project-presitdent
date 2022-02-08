@@ -132,6 +132,20 @@
 		
 	</select>
 	
+		<insert id="insertReplyReply" parameterType="com.springboot.president.domain.forums.ReplyForums">
+		INSERT INTO
+			forums_re_reply_mst
+		VALUES(
+			0,
+			#{user_id},	
+			#{reply_id},	
+			#{comment}
+		
+		
+		);
+	
+	</insert>
+	
 	<insert id="forumsAgree" parameterType="com.springboot.president.domain.forums.ForumsSelection">
 			INSERT INTO
 			forums_selection_mst

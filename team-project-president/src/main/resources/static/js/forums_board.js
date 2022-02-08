@@ -93,12 +93,11 @@ function getReplyForums(replyList) {
                                 </div>
                                 <div class="co_reply">
                                     <div class="cs_comment">
-                                        <form class="co_write">
+                                        <form action="/forums/reply_write/list/${pet.reply_id}" name="comment" method="post" class="co_write">
                                             <div class="cw_wrap">
-                                                <textarea name="commentbody" id=""
-                                                    placeholder="댓글을 입력해주세요"></textarea>
+                                                <textarea name="comment" placeholder="댓글을 입력해주세요"></textarea>
                                             </div>
-                                            <button type="button" class="comment_add">등록</button>
+                                            <button type="submit" class="comment_add">등록</button>
                                         </form>
                                     </div>
                                 </div>
