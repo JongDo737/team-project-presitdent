@@ -17,6 +17,7 @@ public interface ForumsRepository {
 	public List<GetForums> getBestForumsByReplyCount(String startDate, String endDate);
 	
 	public int insertForumsReply(ReplyForums replyForums);
+	public int insertReplyReply(ReplyForums replyForums);
 	
 	public List<GetForumsReply> getReplyByForumsId(int forums_id);
 	

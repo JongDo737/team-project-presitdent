@@ -95,7 +95,7 @@
                                 </div>
 
                                 <div class="cs_comment">
-                                    <form action="/forums/reply_write/${forumsRespDto.forums_id}" name="reply" method="post" class="co_write">
+                                    <form action="/forums/reply_write/${forumsRespDto.forums_id}" method="post" class="co_write">
                                         <div class="cw_wrap">
                                             <textarea name="reply" id="" placeholder="댓글을 입력해 주세요."></textarea>
                                         </div>
