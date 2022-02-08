@@ -11,6 +11,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class ForumsSelection {
 	private int forums_id;
-	private int agree_user_id;
-	private int against_user_id;
+	private int user_id;
+	private int select_num;
 }

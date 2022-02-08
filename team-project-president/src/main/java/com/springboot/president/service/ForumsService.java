@@ -18,5 +18,5 @@ public interface ForumsService {
 	public boolean insertForumsReply(PrincipalDetails principalDetails, ForumsReplyReqDto forumsReplyReqDto,int forums_id);
 	public ForumsReplyRespDto getReplyByForumsId(int forums_id, int page);
 	
-	public void forumsAgree(PrincipalDetails principalDetails,int forums_id, int choose);
+	public int forumsAgree(PrincipalDetails principalDetails,int forums_id, int choose);
 }

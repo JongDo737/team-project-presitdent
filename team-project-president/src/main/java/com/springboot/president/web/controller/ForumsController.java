@@ -42,11 +42,15 @@ public class ForumsController {
 	}
 	
 	@GetMapping("/forums/selection/board")
-	public Object forumsAgree(@AuthenticationPrincipal PrincipalDetails principalDetails, @RequestParam int forums_id, @RequestParam int choose) {
-		if(principalDetails.getUser() == null) {
-			// AuthExeption 실행
+	public int forumsAgree(@AuthenticationPrincipal PrincipalDetails principalDetails, @RequestParam int forums_id, @RequestParam int choose) {
+		// 로그인 하지 않았을 때
+		int insertCheck = 5;
+		if(principalDetails == null) {
+			System.out.println("principalDetails 없음");
+		}else {
+			insertCheck = forumsService.forumsAgree(principalDetails, forums_id, choose);
+			
 		}
-		forumsService.forumsAgree(principalDetails, forums_id, choose);
-		return null;
+		return insertCheck;
 	}
 }

@@ -112,7 +112,6 @@ public class ForumsServiceImpl implements ForumsService{
 		
 		// 1이면 insert 성공 0이면 insert 실패
 		int insertCheck = forumsRepository.insertForumsReply(replyForums);
-		System.out.println("insertCheck : " + insertCheck);
 		// 결과값 담아주기
 		boolean resultCheck;
 		if(insertCheck == 1) {
@@ -178,21 +177,35 @@ public class ForumsServiceImpl implements ForumsService{
 
 
 	@Override
-	public void forumsAgree(PrincipalDetails principalDetails, int forums_id, int choose) {
+	public int forumsAgree(PrincipalDetails principalDetails, int forums_id, int choose) {
+		
 		System.out.println(choose);
 		ForumsSelection forumsSelection = new ForumsSelection();
 		forumsSelection.setForums_id(forums_id);
-		if(choose == 1) {
-			System.out.println("찬성");
-			forumsSelection.setAgree_user_id(principalDetails.getUser().getId());
-			forumsRepository.forumsAgree(forumsSelection);
-			
-		}else {
-			System.out.println("반대");
-			forumsSelection.setAgainst_user_id(principalDetails.getUser().getId());
-			forumsRepository.forumsAginst(forumsSelection);
+		forumsSelection.setUser_id(principalDetails.getUser().getId());
+		
+		int insertCheck = forumsRepository.forumsSelectCheck(forumsSelection);
+		System.out.println("중복검색 == 0 찬반대 가능 : "+ insertCheck);
+		if(insertCheck == 0) {
+			if(choose == 1) {
+				System.out.println("찬성누름");
+				forumsSelection.setSelect_num(1);
+				insertCheck = forumsRepository.forumsAgree(forumsSelection);
+				
+			}else {
+				System.out.println("반대누름");
+				forumsSelection.setSelect_num(2);
+				insertCheck = forumsRepository.forumsAginst(forumsSelection);
+			}
 			
 		}
+		// 중복되었을 때
+		else {
+			insertCheck = 2;
+		} 
+		System.out.println("result : " + insertCheck);
+		return insertCheck;
+	
 	}
 
 

@@ -35,7 +35,7 @@ forumsAgainstBtn.onclick = () => {
 }
 
 
-function replyLoad(page){
+function replyLoad(pag){
 	$.ajax({
 		type: "get",
 		url: `/forums/reply?forums_id=${forumsId.value}&page=${page}`,
@@ -117,13 +117,31 @@ function forumsChoose(){
 		dataType: 'text',
 		async: false,
 		success: function(data){
-			alert();
+			selectCode(data);
 		},
 		error: function(){
 			alert('비동기 처리 오류.');
 		}
 		
 	});
+}
+// 100번 > 로그인안됌 0번> 데이터 삽입 실패> 1번성공 2번 > 중복아이디
+function selectCode(checkNum) {
+	if(checkNum == 5) {
+		alert('로그인 후 이용하실 수 있습니다.');
+		location.href = '/auth/signin';
+		
+	}
+	else if(checkNum == 0 ){
+		alert('다시 시도해 주세요.');
+	}
+	else if(checkNum ==1){
+		// 데이터 다시 불러오기 또는 새로고침
+		location.reload();
+	}
+	else if(checkNum == 2) {
+		alert('평가는 한번만 할 수 있습니다.');
+	}
 }
 
 

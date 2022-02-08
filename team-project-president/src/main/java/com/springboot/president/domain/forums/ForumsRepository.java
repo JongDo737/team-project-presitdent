@@ -20,8 +20,11 @@ public interface ForumsRepository {
 	
 	public List<GetForumsReply> getReplyByForumsId(int forums_id);
 	
-	
+	//중복확인
+	public int forumsSelectCheck(ForumsSelection forumsSelection);
+	//찬성
 	public int forumsAgree(ForumsSelection forumsSelection);
+	//반대
 	public int forumsAginst(ForumsSelection forumsSelection);
 	
 }

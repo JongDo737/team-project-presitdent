@@ -131,26 +131,37 @@
 			create_date DESC;
 		
 	</select>
+	<select id="forumsSelectCheck" parameterType="com.springboot.president.domain.forums.ForumsSelection" resultType="Integer">
+		SELECT
+			COUNT(user_id)
+		FROM 
+			forums_select_mst
+		WHERE
+			forums_id = #{forums_id}
+			and
+			user_id = #{user_id};
+			
+	</select>
 	
 	<insert id="forumsAgree" parameterType="com.springboot.president.domain.forums.ForumsSelection">
-			INSERT INTO
-			forums_selection_mst
+		INSERT INTO
+			forums_select_mst
 		VALUES(
 			0,
 			#{forums_id},
-			#{agree_user_id},
-			NULL
+			#{user_id},
+			1
 		);
 	
 	</insert>
 	<insert id="forumsAginst" parameterType="com.springboot.president.domain.forums.ForumsSelection">
-			INSERT INTO
-			forums_selection_mst
+		INSERT INTO
+			forums_select_mst
 		VALUES(
 			0,
 			#{forums_id},
-			NULL,
-			#{against_user_id}
+			#{user_id},
+			2
 		);
 	
 	</insert>
