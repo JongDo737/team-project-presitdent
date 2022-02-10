@@ -10,8 +10,9 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.springboot</groupId>
-	<artifactId>instagram</artifactId>
+	<artifactId>president</artifactId>
 	<version>1</version>
+	<packaging>war</packaging>
 	<name>team-project-president</name>
 	<description>president project for Spring Boot</description>
 	<properties>
@@ -87,12 +88,18 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-oauth2-client</artifactId>
 		</dependency>
-
+		<!-- spring-boot-starter-tomcat -->
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>	
+		    <artifactId>spring-boot-starter-tomcat</artifactId>
+		</dependency>
+		
 
 
 	</dependencies>
 
 	<build>
+		<finalName>${artifactId}</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

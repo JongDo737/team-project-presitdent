@@ -38,7 +38,7 @@ spring:
             - name
             client-name: Naver
             authorization-grant-type: authorization_code
-            redirect-uri: http://localhost:8080/login/oauth2/code/naver
+            redirect-uri: http://34.239.92.243:8080/login/oauth2/code/naver
           kakao:
             client-id: e34f1d4b0404f6081bb5c2a5b0590a3a
             client-secret: WpkL0buS7hngYe6IRmwvSWFGwfKrej60
@@ -46,7 +46,7 @@ spring:
             client-authentication-method: POST
             client-name: Kakao
             authorization-grant-type: authorization_code
-            redirect-uri: http://localhost:8080/login/oauth2/code/kakao
+            redirect-uri: http://34.239.92.243:8080/login/oauth2/code/kakao
         provider:
           naver:
             authorization-uri: https://nid.naver.com/oauth2.0/authorize
@@ -61,16 +61,17 @@ spring:
               
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
-    url: jdbc:mariadb://121.175.150.249:3306/project_20220113_03?useUnicode=true
-    username: tp220113_03
-    password: 2779
+    url: jdbc:mariadb://database-study.ccxggstq2nqn.us-east-1.rds.amazonaws.com:3306/project_20220113_03?useUnicode=true
+    username: jongmin373
+    password: dkdrlahEl13
     
 mybatis:
   mapper-locations:
   - /mappers/*.xml
   
 file:
-  path: C:\fileupload\
+  #path: C:\fileupload\
+  path: /home/ubuntu/President/fileupload
 #변수임
 test:
   filename: test_file.txt
