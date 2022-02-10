@@ -158,7 +158,7 @@
                     </ul>
                 </li>
                 <li class="menu_list">
-                    <a href="#" class="menu_list_title">
+                    <a href="/about/organization" class="menu_list_title">
                         청와대 알림판
                     </a>
                     <ul class="menu_sub" style="display: none;">
@@ -173,7 +173,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="/about/organization">
                                 청와대 조직도
                             </a>
                         </li>
@@ -188,7 +188,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="/about/location-desk">
                                 오시는길
                             </a>
                         </li>

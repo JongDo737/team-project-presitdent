@@ -137,5 +137,38 @@ public class PageController {
 	public String searchForm() {
 		return "search/search";
 	}
+	
+	//청와대 조직도
+	@GetMapping("/about/organization")
+	public String organizationForm() {
+		return "organization/organization";
+	}
+	@GetMapping("/about/government-organization")
+	public String organization_govForm() {
+		return "organization/organization_gov";
+	}
+	@GetMapping("/about/history")
+	public String historyForm() {
+		return "organization/history";
+	}
+	//오시는 길
+	@GetMapping("/about/location-desk")
+	public String locationForm() {
+		return "location/location";
+	}
+	@GetMapping("/about/location-yeonpung")
+	public String history2Form() {
+		return "location/location2";
+	}
+	@GetMapping("/about/location-shihwa")
+	public String history3Form() {
+		return "location/location3";
+	}
+	@GetMapping("/about/location-chunchugwan")
+	public String history4Form() {
+		return "location/location4";
+	}
+	
+	//오시는 길
 
 }

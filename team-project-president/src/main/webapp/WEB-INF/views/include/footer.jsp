@@ -95,13 +95,16 @@
                         <a href="#">일자리 상황판</a>
                     </li>
                     <li class="footer-top-text">
+                        <a href="/about/organization">청와대 조직도</a>
+                    </li>
+                    <li class="footer-top-text">
                         <a href="#">세입·세출예산 운용상황</a>
                     </li>
                     <li class="footer-top-text">
                         <a href="#">대통령 기록관</a>
                     </li>
                     <li class="footer-top-text">
-                        <a href="#">오시는 길</a>
+                        <a href="/about/location-desk">오시는 길</a>
                     </li>
                     <h1 class="footer-top-subtitle">청와대 관람신청</h1>
                     <h1 class="footer-top-subtitle">어린이 홈페이지</h1>
@@ -147,7 +150,7 @@
                             <a href="#">개인정보처리방침</a> |
                             <a href="#">저작권 정책</a> |
                             <a href="#">사이트맵</a> |
-                            <a href="#">오시는 길</a>
+                            <a href="/about/location-desk">오시는 길</a>
 
                         </div>
                         <div class="footer-contact-info-3-middle">
