@@ -95,19 +95,19 @@
                                 <div class="table-second">
                                     <div class="table-second-box">
                                         <div class="table-second-text-3">사망</div>
-                                        <div class="table-second-num-3">23</div>
+                                        <div class="table-second-num-3">20</div>
                                     </div>
                                     <div>
                                         <div class="table-second-text-3">재원 위중증</div>
-                                        <div class="table-second-num-3">392</div>
+                                        <div class="table-second-num-3">282</div>
                                     </div>
                                     <div>
                                         <div class="table-second-text-3">신규 임원</div>
-                                        <div class="table-second-num-3">779</div>
+                                        <div class="table-second-num-3">1,393</div>
                                     </div>
                                     <div>
                                         <div class="table-second-text-3">확진</div>
-                                        <div class="table-second-num-3">8,571</div>
+                                        <div class="table-second-num-3">54,122</div>
                                     </div>
                                 </div>
                             </td>

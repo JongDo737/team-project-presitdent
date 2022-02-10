@@ -35,7 +35,9 @@
 			forums_mst fm
 			LEFT OUTER JOIN user_mst um ON(um.id = fm.user_id)
 		WHERE
-			end_date >= CURDATE();
+			end_date >= CURDATE()
+		ORDER BY
+			create_date DESC;
 		
 	</select>
 	
