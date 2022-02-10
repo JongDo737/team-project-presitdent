@@ -291,6 +291,7 @@ textarea {
     color: #fff;
     width: 47%;
     font-size: 13px;
+    cursor: pointer;
 }
 
 .cs_redirect_btn {

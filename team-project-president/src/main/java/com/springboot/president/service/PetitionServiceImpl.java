@@ -32,7 +32,8 @@ public class PetitionServiceImpl implements PetitionService {
 	public boolean insertPetition(PrincipalDetails principalDetails, PetitionReqDto petitionReqDto) {
 		// tag1, tag2, tag3 합치기 나중에 #으로 구분할꺼임
 		String tag = null;
-		tag = petitionReqDto.getTag1() + petitionReqDto.getTag2() + petitionReqDto.getTag3();
+		tag = "#"+petitionReqDto.getTag1().replaceAll("#", "") + "\t#"+petitionReqDto.getTag2().replaceAll("#", "") + "\t#"+petitionReqDto.getTag3().replaceAll("#", "");
+		
 
 		// 엔티티 생성
 		Petition petitionEntity = petitionReqDto.toEntity(principalDetails.getUser().getId(), tag);
