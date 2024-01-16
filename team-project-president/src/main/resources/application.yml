@@ -27,11 +27,13 @@ spring:
             client-id: 788144463386-8dgpclaiosfjq003u5e46k7sjsahm5sc.apps.googleusercontent.com
             client-secret: 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
             scope:
-            - profile          facebook:
+            - profile
+          facebook:
             client-id: 1034066467146977
             client-secret: f9848a411c0ca19745c425070c1c9f4f
             scope:
-            - public_profile          naver:
+            - public_profile
+          naver:
             client-id: OdnZCsJ1iSBb6sYmgokM
             client-secret: GPpblNZ0UF
             scope:
@@ -42,7 +44,8 @@ spring:
           kakao:
             client-id: e34f1d4b0404f6081bb5c2a5b0590a3a
             client-secret: WpkL0buS7hngYe6IRmwvSWFGwfKrej60
-            scope:            - profile_nickname
+            scope:
+            - profile_nickname
             client-authentication-method: POST
             client-name: Kakao
             authorization-grant-type: authorization_code
@@ -62,8 +65,8 @@ spring:
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
     url: jdbc:mariadb://database-study.ccxggstq2nqn.us-east-1.rds.amazonaws.com:3306/project_20220113_03?useUnicode=true
-    username: jongmin373
-    password: dkdrlahEl13
+    username: 
+    password: 
     
 mybatis:
   mapper-locations:
